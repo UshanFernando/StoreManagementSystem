@@ -1,0 +1,31 @@
+package service;
+
+import java.util.List;
+
+import model.*;
+import util.Constants;
+import util.DBConnection;
+import util.QueryUtil;
+
+/**
+ * @author Fernando G.U.S
+ * @author IT18027884
+ * <p>
+ * This is ProductManagerService
+ * @see DBConnection
+ * @see QueryUtil
+ * @see Constants
+ */
+
+public interface ProductManagerServiceInterface {
+
+    public List<Product> getProductsList();
+
+    public Product getProductById(int pid);
+
+    public void updateProduct(Product user);
+
+    public boolean addProduct(Product user);
+
+    public void removeProduct(int pid);
+}

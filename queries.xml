@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<Queries>
+
+    <!-- Create table discussion Query -->
+    <query id="create_product_table">
+        <![CDATA[
+          CREATE TABLE `nisha_store_management`.`products` (
+  `pid` INT NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `price` VARCHAR(45) NULL,
+  `brand` VARCHAR(45) NULL,
+  `category` VARCHAR(45) NULL,
+  `qty` VARCHAR(45) NULL,
+  PRIMARY KEY (`pid`));
+        ]]>
+    </query>
+
+    <!-- Create table Sales Query -->
+    <query id="create_sales">
+        <![CDATA[
+
+        ]]>
+    </query>
+
+    <!-- Select products -->
+    <query id="get_products">
+        <![CDATA[
+            select * from products
+        ]]>
+    </query>
+
+    <!-- Select a particular user by id Query -->
+    <query id="product_by_id">
+        <![CDATA[
+            select * from products where pid = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular discussion by id Query -->
+    <query id="update_product">
+        <![CDATA[
+            update products as p
+            set p.pid = ?, p.name = ?,  p.price = ?, p.brand = ?,p.category = ? ,p.qty = ?
+            where p.pid = ?
+        ]]>
+    </query>
+
+
+
+</Queries>

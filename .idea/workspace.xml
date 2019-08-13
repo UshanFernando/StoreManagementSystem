@@ -2,73 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="version 0.0.1 base&#10;*Home UI implemented.&#10;*DB Connection added.&#10;*CommonUtils class implemented.&#10;*Constant class implemented.">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/javafx_swt.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_16.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StoreManagementSystem.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/InventoryController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/MainController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Product.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/module-info.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/res/home_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/res/icons/accounting.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/res/icons/admin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/res/icons/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/res/icons/red-card.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/res/icons/salary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/res/icons/sale.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/res/icons/shelf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/res/icons/trucking.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/res/icons/warehouse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/res/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerServiceInterface.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/CommonUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/Constants.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/DBConnection.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/QueryUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/css/home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/home.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/inventory.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/queries.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/InventoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/home_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/icons/accounting.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/icons/admin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/icons/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/icons/red-card.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/icons/salary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/icons/sale.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/icons/shelf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/icons/trucking.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/icons/warehouse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/ProductManagerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/ProductManagerServiceInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/CommonUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/DBConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/QueryUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/css/home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/home.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/inventory.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/inventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/inventory.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -131,11 +67,41 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+            <state relative-caret-position="676">
+              <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/MainController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="445">
+              <caret line="22" selection-start-line="22" selection-end-line="26" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Brand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-19853">
+              <caret line="27" selection-start-line="27" selection-end-line="29" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -146,9 +112,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
-        <option value="CSS File" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -184,7 +150,6 @@
         <option value="$PROJECT_DIR$/src/service/ProductManagerServiceInterface.java" />
         <option value="$PROJECT_DIR$/src/util/OpenScene.java" />
         <option value="$PROJECT_DIR$/src/view/home.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/Main.java" />
         <option value="$PROJECT_DIR$/src/view/inventory.fxml" />
         <option value="$PROJECT_DIR$/src/controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/service/ProductManagerService.java" />
@@ -192,13 +157,15 @@
         <option value="$PROJECT_DIR$/src/util/config.properties" />
         <option value="$PROJECT_DIR$/src/util/CommonUtil.java" />
         <option value="$PROJECT_DIR$/src/util/QueryUtil.java" />
+        <option value="$PROJECT_DIR$/src/view/css/style2.css" />
+        <option value="$PROJECT_DIR$/src/controller/Main.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
     <option name="width" value="1615" />
     <option name="height" value="880" />
   </component>
@@ -211,19 +178,30 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="StoreManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="StoreManagementSystem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoreManagementSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoreManagementSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoreManagementSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoreManagementSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -368,17 +346,27 @@
       <workItem from="1565459164468" duration="3000000" />
       <workItem from="1565511197878" duration="8617000" />
       <workItem from="1565593111953" duration="6787000" />
-      <workItem from="1565602543399" duration="2902000" />
+      <workItem from="1565602543399" duration="3716000" />
+      <workItem from="1565705758921" duration="893000" />
     </task>
+    <task id="LOCAL-00001" summary="version 0.0.1 base&#10;*Home UI implemented.&#10;*DB Connection added.&#10;*CommonUtils class implemented.&#10;*Constant class implemented.">
+      <created>1565606543511</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1565606543511</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30835000" />
+    <option name="totallyTimeSpent" value="32542000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.23390558" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.23712446" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -393,7 +381,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32993197" />
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
@@ -453,13 +441,6 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/res/icons/icon_1.png" />
-    <entry file="file://$PROJECT_DIR$/src/view/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="891">
-          <caret line="27" selection-start-line="27" selection-end-line="29" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/css/home.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -468,12 +449,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/out/production/StoreManagementSystem/view/home.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
           <caret line="13" column="69" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/User.java" />
     <entry file="file://$PROJECT_DIR$/out/production/StoreManagementSystem/util/Constants.java" />
@@ -501,12 +482,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/OpenScene.java" />
     <entry file="file://$PROJECT_DIR$/src/view/home.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="49" column="49" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="49" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/ProductManagerServiceInterface.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -526,27 +507,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/inventory.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/InventoryController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -598,10 +569,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/css/style2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2281">
+          <caret line="436" lean-forward="true" selection-start-line="436" selection-end-line="436" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Brand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-19853">
+          <caret line="27" selection-start-line="27" selection-end-line="29" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="22" selection-start-line="22" selection-end-line="26" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        <state relative-caret-position="676">
+          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

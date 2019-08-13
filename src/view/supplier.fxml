@@ -81,18 +81,18 @@
                      <children>
                         <TableView prefHeight="671.0" prefWidth="1166.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="C1">
+                            <TableColumn prefWidth="75.0">
                                  <graphic>
-                                    <Label text="Product Id">
+                                    <Label text="Supplier Id">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
                                  </graphic>
                               </TableColumn>
-                            <TableColumn prefWidth="75.0" text="C2">
+                            <TableColumn prefWidth="75.0">
                                  <graphic>
-                                    <Label text="Product Name">
+                                    <Label text="Vendor">
                                        <font>
                                           <Font size="15.0" />
                                        </font>

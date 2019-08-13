@@ -14,7 +14,7 @@
                 <VBox prefHeight="600.0" prefWidth="240.0" style="-fx-background-color: #ab47bc;"
                       BorderPane.alignment="CENTER">
                     <children>
-                        <Label alignment="CENTER" text="Invenetory Management" textAlignment="CENTER" textOverrun="CLIP"
+                        <Label alignment="CENTER" text="Inventory Management" textAlignment="CENTER" textOverrun="CLIP"
                                wrapText="true">
                             <font>
                                 <Font size="22.0"/>

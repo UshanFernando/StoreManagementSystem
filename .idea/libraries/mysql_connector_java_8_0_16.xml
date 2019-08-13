@@ -1,7 +1,8 @@
 <component name="libraryTable">
   <library name="mysql-connector-java-8.0.16">
     <CLASSES>
-      <root url="jar://$USER_HOME$/eclipse-workspace/OOPEmployeeWebApp/WebContent/WEB-INF/lib/mysql-connector-java-8.0.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jar/mysql-connector-java-8.0.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jar/protobuf-java-3.6.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

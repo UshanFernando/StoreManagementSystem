@@ -27,4 +27,17 @@ public class MainController {
         window.getIcons().add(icon);
 
     }
+
+    @FXML
+    public  void openSupplierScene(ActionEvent event) throws IOException{
+        Parent supplierViewParent = FXMLLoader.load(getClass().getResource("/view/supplier.fxml"));
+        Stage windowstage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+
+        windowstage.setScene(new Scene(supplierViewParent,1280,720));
+        windowstage.centerOnScreen();
+        windowstage.setTitle("Supplier Management");
+        Image icon = new Image(MainController.class.getResource("/res/icons/checklist.png").toExternalForm(),false);
+        windowstage.getIcons().add(icon);
+    }
+
 }

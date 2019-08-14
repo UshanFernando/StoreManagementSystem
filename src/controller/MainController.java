@@ -22,7 +22,7 @@ public class MainController {
 
         window.setScene(new Scene(invenetoryViewParent, 1280, 720));
         window.centerOnScreen();
-        window.setTitle("manager.inventory"); //placed the string in /util/config.properties file
+        window.setTitle("Inventory Management");
         Image icon = new Image(MainController.class.getResource("/res/icons/warehouse.png").toExternalForm(), false);
         window.getIcons().add(icon);
 
@@ -35,7 +35,7 @@ public class MainController {
 
         windowstage.setScene(new Scene(supplierViewParent,1280,720));
         windowstage.centerOnScreen();
-        windowstage.setTitle("manager.supplier"); //placed the string in /util/config.properties file
+        windowstage.setTitle("Supplier Management");
         Image icon = new Image(MainController.class.getResource("/res/icons/trucking.png").toExternalForm(),false);
         windowstage.getIcons().add(icon);
     }
@@ -47,7 +47,7 @@ public class MainController {
 
         windowsstage.setScene(new Scene(ordersViewParent,1280,720));
         windowsstage.centerOnScreen();
-        windowsstage.setTitle("manager.order"); //placed the string in /util/config.properties file 
+        windowsstage.setTitle("Order Management");
         Image icon = new Image(MainController.class.getResource("/res/icons/checklist.png").toExternalForm(),false);
         windowsstage.getIcons().add(icon);
     }

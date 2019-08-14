@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="version 0.0.1 base&#10;*Added supplier classes and Controller &amp; Onaction methods">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="version 0.0.1 base&#10;*revert the Errors and">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/orders.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/orders.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -235,7 +231,7 @@
       <workItem from="1565714515263" duration="658000" />
       <workItem from="1565717555958" duration="92000" />
       <workItem from="1565717665394" duration="2770000" />
-      <workItem from="1565768888895" duration="4010000" />
+      <workItem from="1565768888895" duration="4504000" />
     </task>
     <task id="LOCAL-00001" summary="version 0.0.1 base&#10;*added checklist.png">
       <created>1565678466300</created>
@@ -391,7 +387,35 @@
       <option name="project" value="LOCAL" />
       <updated>1565782963727</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="version 0.0.1 base&#10;*Added OrderController">
+      <created>1565783016477</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1565783016477</updated>
+    </task>
+    <task id="LOCAL-00024" summary="version 0.0.1 base&#10;*Added Order classes and Controller &amp; Onaction methods&#10;*Added Orders UI&#10;*Added Requests">
+      <created>1565783103456</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1565783103456</updated>
+    </task>
+    <task id="LOCAL-00025" summary="version 0.0.1 base&#10;*Revert String files objects!! (They dont load! , I am MAD)">
+      <created>1565783306615</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1565783306615</updated>
+    </task>
+    <task id="LOCAL-00026" summary="version 0.0.1 base&#10;*revert Strings placed the string in /util/config.properties file&#10;*I am so high topkek">
+      <created>1565783408291</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1565783408291</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,7 +458,11 @@
     <MESSAGE value="version 0.0.1 base&#10;*created Order Class and Implemented getters and setters" />
     <MESSAGE value="version 0.0.1 base&#10;*placed /model/MainConroller.java strings  as order,supplier,inventory" />
     <MESSAGE value="version 0.0.1 base&#10;*Added action openOrderscene" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 0.0.1 base&#10;*Added action openOrderscene" />
+    <MESSAGE value="version 0.0.1 base&#10;*Added OrderController" />
+    <MESSAGE value="version 0.0.1 base&#10;*Added Order classes and Controller &amp; Onaction methods&#10;*Added Orders UI&#10;*Added Requests" />
+    <MESSAGE value="version 0.0.1 base&#10;*Revert String files objects!! (They dont load! , I am MAD)" />
+    <MESSAGE value="version 0.0.1 base&#10;*revert Strings placed the string in /util/config.properties file&#10;*I am so high topkek" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 0.0.1 base&#10;*revert Strings placed the string in /util/config.properties file&#10;*I am so high topkek" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

@@ -36,8 +36,20 @@ public class MainController {
         windowstage.setScene(new Scene(supplierViewParent,1280,720));
         windowstage.centerOnScreen();
         windowstage.setTitle("Supplier Management");
-        Image icon = new Image(MainController.class.getResource("/res/icons/checklist.png").toExternalForm(),false);
+        Image icon = new Image(MainController.class.getResource("/res/icons/trucking.png").toExternalForm(),false);
         windowstage.getIcons().add(icon);
+    }
+
+    @FXML
+    public  void openOrderScene(ActionEvent event) throws IOException{
+        Parent ordersViewParent = FXMLLoader.load(getClass().getResource("/view/orders.fxml"));
+        Stage windowsstage = (Stage)((Node) event.getTarget()).getScene().getWindow();
+
+        windowsstage.setScene(new Scene(ordersViewParent,1280,720));
+        windowsstage.centerOnScreen();
+        windowsstage.setTitle("Order Management");
+        Image icon = new Image(MainController.class.getResource("/res/icons/checklist.png").toExternalForm(),false);
+        windowsstage.getIcons().add(icon);
     }
 
 }

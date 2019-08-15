@@ -1,99 +1,252 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InventoryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InventoryController">
     <children>
         <BorderPane layoutX="-1.0" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
             <right>
-                <VBox prefHeight="600.0" prefWidth="240.0" style="-fx-background-color: #ab47bc;" BorderPane.alignment="CENTER">
+                <VBox prefWidth="344.0" style="-fx-background-color: #8e24aa;" BorderPane.alignment="CENTER">
                     <children>
-                        <Label alignment="CENTER" text="Invenetory Management" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                        <Label alignment="CENTER" text="Invenetory Management" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
                             <font>
-                                <Font size="22.0" />
+                                <Font name="System Bold" size="24.0" />
                             </font>
                             <VBox.margin>
                                 <Insets left="5.0" top="10.0" />
                             </VBox.margin>
                         </Label>
-                        <TextField promptText="Product Id">
+                        <TextField fx:id="pidTF" promptText="Product Id" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
                             <VBox.margin>
                                 <Insets top="25.0" />
                             </VBox.margin>
+                     <padding>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                     </padding>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                         </TextField>
-                        <TextField layoutX="15.0" layoutY="114.0" promptText="Product Name">
+                        <TextField fx:id="nameTF" layoutX="15.0" layoutY="114.0" promptText="Product Name" style="-fx-prompt-text-fill: #212121; -fx-background-color: #E1BEE7;">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
+                     <padding>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                         </TextField>
-                        <TextField layoutX="15.0" layoutY="140.0" promptText="Product Price">
+                        <TextField fx:id="priceTF" cache="true" cacheHint="QUALITY" layoutX="15.0" layoutY="140.0" promptText="Product Price" style="-fx-prompt-text-fill: #212121; -fx-background-color: #E1BEE7;">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
+                     <padding>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                         </TextField>
-                        <ComboBox prefHeight="30.0" prefWidth="234.0" promptText="Select Product Brand">
+                        <ComboBox fx:id="brandCB" prefHeight="38.0" prefWidth="311.0" promptText="Select Product Brand" style="-fx-background-color: #E1BEE7;" styleClass="check-box">
                             <VBox.margin>
                                 <Insets top="15.0" />
                             </VBox.margin>
+                     <padding>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                     </padding>
                         </ComboBox>
-                        <ComboBox layoutX="15.0" layoutY="227.0" prefHeight="30.0" prefWidth="234.0" promptText="Select Product Category">
+                        <ComboBox fx:id="categoryCB" layoutX="15.0" layoutY="227.0" prefHeight="38.0" prefWidth="314.0" promptText="Select Product Category" style="-fx-background-color: #E1BEE7;">
                             <VBox.margin>
                                 <Insets top="15.0" />
                             </VBox.margin>
+                     <padding>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                     </padding>
                         </ComboBox>
-                        <TextField layoutX="15.0" layoutY="165.0" promptText="Product Quantity">
+                        <TextField fx:id="qtyTF" layoutX="15.0" layoutY="165.0" promptText="Product Quantity" style="-fx-prompt-text-fill: #212121; -fx-background-color: #E1BEE7;">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
+                     <padding>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                         </TextField>
+                  <Label prefHeight="18.0" prefWidth="322.0" textFill="RED" wrapText="true">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #40c4ff;" text="Add" textFill="WHITE" VBox.vgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="#000000ae" height="15.04" radius="5.529999999999999" width="9.08" />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #fbc02d;" text="Update" VBox.vgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="#000000ae" height="15.04" radius="5.529999999999999" width="9.08" />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #ff3d00;" text="Delete" textFill="WHITE" VBox.vgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="#000000ae" height="15.04" radius="5.529999999999999" width="9.08" />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#openManageCategoryBrands" prefHeight="26.0" prefWidth="338.0" style="-fx-background-color: #00E676;" text="Manage Categories and Brands">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <effect>
+                        <DropShadow height="11.47" radius="4.0425" spread="0.09" width="6.7" />
+                     </effect>
+                  </Button>
                     </children>
                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                     </padding>
                 </VBox>
             </right>
             <center>
                 <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                     <children>
-                        <HBox prefHeight="30.0" prefWidth="994.0">
+                        <HBox prefHeight="30.0" prefWidth="994.0" style="-fx-background-color: #7b1fa2;">
                             <children>
-                                <Button mnemonicParsing="false" text="Button" />
+                                <Button mnemonicParsing="false"  style="-fx-background-color: transparent;" text="Go Back" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../res/icons/left-arrow.png" />
+                                 </image>
+                                 <effect>
+                                    <ColorAdjust brightness="1.0" contrast="0.1" hue="-0.19" saturation="1.0" />
+                                 </effect>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../res/icons/logout.png" />
+                                 </image>
+                                 <effect>
+                                    <ColorAdjust brightness="1.0" contrast="0.1" hue="-0.19" saturation="1.0" />
+                                 </effect>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </Button>
                             </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
                         </HBox>
-                        <HBox VBox.vgrow="ALWAYS">
-                            <children>
-                                <Label text="Product Id">
-                                    <font>
-                                        <Font size="15.0" />
-                                    </font>
-                                </Label>
-                                <Label text="Product Name">
-                                    <font>
-                                        <Font size="15.0" />
-                                    </font>
-                                    <HBox.margin>
-                                        <Insets left="15.0" />
-                                    </HBox.margin>
-                                </Label>
-                            </children>
-                            <padding>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                            </padding>
-                        </HBox>
-                        <ListView prefHeight="690.0" prefWidth="1040.0" />
+                  <TableView fx:id="product_table" prefHeight="697.0" prefWidth="1040.0" style="-fx-padding: 10;" VBox.vgrow="ALWAYS">
+                    <columns>
+                      <TableColumn fx:id="pidColumn" prefWidth="118.39999103546143" text="Product Id" />
+                      <TableColumn fx:id="nameColumn" prefWidth="219.99998474121094" text="Name" />
+                        <TableColumn fx:id="priceColumn" minWidth="8.000030517578125" prefWidth="135.20001220703125" text="Price" />
+                        <TableColumn fx:id="brandColumn" prefWidth="152.00003051757812" text="Brand" />
+                        <TableColumn fx:id="categoryColumn" prefWidth="151.199951171875" text="Category" />
+                        <TableColumn fx:id="qtyColumn" prefWidth="151.20001220703125" text="Quantity" />
+                    </columns>
+                  </TableView>
                     </children>
                 </VBox>
             </center>
+         <bottom>
+            <HBox fillHeight="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" BorderPane.alignment="BOTTOM_CENTER">
+               <children>
+                  <Pane maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="937.0" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="statusLbl" text="Status : " HBox.hgrow="NEVER">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Running" textFill="#1c8200">
+                     <padding>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </bottom>
         </BorderPane>
     </children>
 </AnchorPane>

@@ -1,5 +1,7 @@
 package service;
 
+import javafx.beans.InvalidationListener;
+import javafx.collections.*;
 import model.Product;
 import org.xml.sax.SAXException;
 import util.Constants;
@@ -9,15 +11,13 @@ import util.QueryUtil;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 public class ProductManagerService implements ProductManagerServiceInterface {
 
     private static Connection connection;
     private ResultSet myRs = null;
-    private List<Product> products;
     private static Statement myStmt = null;
     private static PreparedStatement preparedStatement;
 
@@ -53,13 +53,14 @@ public class ProductManagerService implements ProductManagerServiceInterface {
 
 
     @Override
-    public List<Product> getProductsList() {
+    public ObservableList<Product> getProductsList() {
+        ObservableList<Product>  products = FXCollections.observableArrayList();
         // TODO Auto-generated method stub
         try {
 
             connection = DBConnection.getDBConnection();
             preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_GET_PRODUCTS));
-            products = new ArrayList<>();
+
 
             myRs = preparedStatement.executeQuery();
 
@@ -68,8 +69,8 @@ public class ProductManagerService implements ProductManagerServiceInterface {
                 int id = myRs.getInt("pid");
                 String name = myRs.getString("name");
                 Double price = myRs.getDouble("price");
-                String brand = myRs.getString("brand");
-                String category = myRs.getString("category");
+                String brand = myRs.getString("bname");
+                String category = myRs.getString("cname");
                 int qty = myRs.getInt("qty");
 
                 // create product object

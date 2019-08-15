@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import javafx.collections.ObservableList;
 import model.*;
 import util.Constants;
 import util.DBConnection;
@@ -19,7 +20,7 @@ import util.QueryUtil;
 
 public interface ProductManagerServiceInterface {
 
-    public List<Product> getProductsList();
+    public ObservableList<Product> getProductsList();
 
     public Product getProductById(int pid);
 

@@ -3,23 +3,25 @@
 
 <Queries>
 
-    <!-- Create table discussion Query -->
+    <!-- ==================== queries for product management====================== -->
+
+    <!-- Create products table  -->
     <query id="create_product_table">
         <![CDATA[
-          CREATE TABLE `nisha_store_management`.`products` (
-  `pid` INT NOT NULL,
-  `name` VARCHAR(45) NULL,
-  `price` VARCHAR(45) NULL,
-  `brand` VARCHAR(45) NULL,
-  `category` VARCHAR(45) NULL,
-  `qty` VARCHAR(45) NULL,
-  PRIMARY KEY (`pid`));
-        ]]>
-    </query>
+CREATE TABLE `products` (
+  `pid` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `brand` int(11) DEFAULT NULL,
+  `category` int(11) DEFAULT NULL,
+  `qty` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`pid`),
+  KEY `brand_idx` (`brand`),
+  KEY `cate_fkey_idx` (`category`),
+  CONSTRAINT `brand_fkey` FOREIGN KEY (`brand`) REFERENCES `brands` (`bid`),
+  CONSTRAINT `cate_fkey` FOREIGN KEY (`category`) REFERENCES `categories` (`cid`)
+);
 
-    <!-- Create table Sales Query -->
-    <query id="create_sales">
-        <![CDATA[
 
         ]]>
     </query>
@@ -27,7 +29,9 @@
     <!-- Select products -->
     <query id="get_products">
         <![CDATA[
-            select * from products
+           SELECT p.pid , p.name , p.price , b.name as bname , c.name as cname ,p.qty
+           FROM products as p , brands as b , categories as c
+           WHERE p.brand = b.bid and p.category = c.cid
         ]]>
     </query>
 
@@ -38,7 +42,7 @@
         ]]>
     </query>
 
-    <!-- Update a particular discussion by id Query -->
+    <!-- Update a particular product by id Query -->
     <query id="update_product">
         <![CDATA[
             update products as p
@@ -47,6 +51,50 @@
         ]]>
     </query>
 
+    <!-- ==================== queries for brand management====================== -->
 
+    <!-- Create products table  -->
+    <query id="create_brands_table">
+        <![CDATA[
+         CREATE TABLE `brands` (
+  `bid` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`bid`)
+);
+
+
+        ]]>
+    </query>
+
+    <!-- Select products -->
+    <query id="get_products">
+        <![CDATA[
+            select * from brands
+        ]]>
+    </query>
+
+    <!-- Select a particular user by id Query -->
+    <query id="product_by_id">
+        <![CDATA[
+            select * from brands where bid = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular product by id Query -->
+    <query id="update_product">
+        <![CDATA[
+            update brands as b
+            set b.bid = ?, b.name = ?,  b.status = ?
+            where b.bid = ?
+        ]]>
+    </query>
+
+    <!-- Create table Sales Query -->
+    <query id="create_sales">
+        <![CDATA[
+
+        ]]>
+    </query>
 
 </Queries>

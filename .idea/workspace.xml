@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="version 0.0.1 base&#10;*revert the Errors and">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="version 0.0.1 base&#10;*Home UI implemented.&#10;*DB Connection added.&#10;*CommonUtils class implemented.&#10;*Constant class implemented.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/InventoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/InventoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerServiceInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerServiceInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/inventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/inventory.fxml" afterDir="false" />
     </list>
+    <ignored path="JavaFxApplication.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +62,89 @@
     <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
   </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/InventoryController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="218">
+              <caret line="89" selection-start-line="89" selection-end-line="89" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/CategoriesAndBrandsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1000">
+              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/categories_and_brands.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2258">
+              <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/queries.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="31" column="85" selection-start-line="31" selection-start-column="85" selection-end-line="31" selection-end-column="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/service/ProductManagerService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="72" column="55" selection-start-line="72" selection-start-column="55" selection-end-line="72" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Category.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-315" />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -77,11 +169,76 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/style.css" />
+        <option value="$PROJECT_DIR$/src/view/style.css" />
+        <option value="$PROJECT_DIR$/out/production/StoreManagementSystem/view/css/style.css" />
+        <option value="$PROJECT_DIR$/out/production/StoreManagementSystem/view/home.fxml" />
+        <option value="$PROJECT_DIR$/src/view/css/home.css" />
+        <option value="$PROJECT_DIR$/src/model/User.java" />
+        <option value="$PROJECT_DIR$/src/model/Product.java" />
+        <option value="$PROJECT_DIR$/src/service/UserManagerInterface.java" />
+        <option value="$PROJECT_DIR$/src/service/UserManager.java" />
+        <option value="$PROJECT_DIR$/src/util/Constants.java" />
+        <option value="$PROJECT_DIR$/src/util/OpenScene.java" />
+        <option value="$PROJECT_DIR$/src/view/home.fxml" />
+        <option value="$PROJECT_DIR$/src/controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/util/DBConnection.java" />
+        <option value="$PROJECT_DIR$/src/util/config.properties" />
+        <option value="$PROJECT_DIR$/src/util/CommonUtil.java" />
+        <option value="$PROJECT_DIR$/src/util/QueryUtil.java" />
+        <option value="$PROJECT_DIR$/src/view/css/style2.css" />
+        <option value="$PROJECT_DIR$/src/view/css/style.css" />
+        <option value="$PROJECT_DIR$/src/service/ProductManagerServiceInterface.java" />
+        <option value="$PROJECT_DIR$/src/module-info.java" />
+        <option value="$PROJECT_DIR$/src/controller/Main.java" />
+        <option value="$PROJECT_DIR$/src/model/Category.java" />
+        <option value="$PROJECT_DIR$/src/controller/InventoryController.java" />
+        <option value="$PROJECT_DIR$/src/view/categories_and_brands.fxml" />
+        <option value="$PROJECT_DIR$/src/view/inventory.fxml" />
+        <option value="$PROJECT_DIR$/src/controller/CategoriesAndBrandsController.java" />
+        <option value="$PROJECT_DIR$/src/model/Brand.java" />
+        <option value="$PROJECT_DIR$/src/service/ProductManagerService.java" />
+        <option value="$PROJECT_DIR$/queries.xml" />
+      </list>
+    </option>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectId" id="1PMJqFRoUhe1ruXv9rgowXof6c5" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1615" />
+    <option name="height" value="880" />
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="StoreManagementSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoreManagementSystem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoreManagementSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToClass.includeLibraries" value="false" />
@@ -96,29 +253,28 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/view" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/res" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\hp\IdeaProjects\StoreManagementSystem-supplier\src\view" />
-      <recent name="D:\hp\IdeaProjects\StoreManagementSystem-supplier\src\res\icons" />
-      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\out\production\StoreManagementSystem" />
-      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\model" />
-      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\service" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\res\icons" />
       <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem" />
       <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\util" />
       <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\res" />
       <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\view\css" />
-      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\view" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\res" />
+      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\out\production\StoreManagementSystem" />
+      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\model" />
+      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\service" />
+      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\util" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -153,7 +309,7 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="12" />
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="controller.Main" />
       <module name="StoreManagementSystem" />
@@ -226,246 +382,412 @@
       <workItem from="1565459164468" duration="3000000" />
       <workItem from="1565511197878" duration="8617000" />
       <workItem from="1565593111953" duration="6787000" />
-      <workItem from="1565602543399" duration="2902000" />
-      <workItem from="1565678221964" duration="11195000" />
-      <workItem from="1565714515263" duration="658000" />
-      <workItem from="1565717555958" duration="92000" />
-      <workItem from="1565717665394" duration="2770000" />
-      <workItem from="1565768888895" duration="4504000" />
+      <workItem from="1565602543399" duration="3716000" />
+      <workItem from="1565705758921" duration="1141000" />
+      <workItem from="1565707616720" duration="3269000" />
+      <workItem from="1565867881286" duration="6152000" />
+      <workItem from="1565877959633" duration="5704000" />
+      <workItem from="1565889811357" duration="3637000" />
     </task>
-    <task id="LOCAL-00001" summary="version 0.0.1 base&#10;*added checklist.png">
-      <created>1565678466300</created>
+    <task id="LOCAL-00001" summary="version 0.0.1 base&#10;*Home UI implemented.&#10;*DB Connection added.&#10;*CommonUtils class implemented.&#10;*Constant class implemented.">
+      <created>1565606543511</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1565678466300</updated>
+      <updated>1565606543511</updated>
     </task>
-    <task id="LOCAL-00002" summary="version 0.0.1 base&#10;*added table and 2 columns">
-      <created>1565678808397</created>
+    <task id="LOCAL-00002" summary="version 0.0.1 base&#10;*Home UI implemented.&#10;*DB Connection added.&#10;*CommonUtils class implemented.&#10;*Constant class implemented.">
+      <created>1565706889301</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1565678808397</updated>
+      <updated>1565706889301</updated>
     </task>
-    <task id="LOCAL-00003" summary="version 0.0.1 base&#10;*added checklist.png">
-      <created>1565678866521</created>
+    <task id="LOCAL-00003" summary="version 0.0.1 base&#10;*Home UI implemented.&#10;*DB Connection added.&#10;*CommonUtils class implemented.&#10;*Constant class implemented.">
+      <created>1565894095368</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1565678866521</updated>
+      <updated>1565894095368</updated>
     </task>
-    <task id="LOCAL-00004" summary="version 0.0.1 base&#10;*added checklist.png">
-      <created>1565679433213</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1565679433213</updated>
-    </task>
-    <task id="LOCAL-00005" summary="version 0.0.1 base&#10;*Spelling Error :- Changed &quot;Invenetory&quot; to Inventory">
-      <created>1565680889533</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1565680889533</updated>
-    </task>
-    <task id="LOCAL-00006" summary="version 0.0.1 base&#10;*Spelling Error :- Changed &quot;Invenetory&quot; to Inventory">
-      <created>1565680926447</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1565680926447</updated>
-    </task>
-    <task id="LOCAL-00007" summary="version 0.0.1 base&#10;*created supplierController Class">
-      <created>1565681428310</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1565681428310</updated>
-    </task>
-    <task id="LOCAL-00008" summary="version 0.0.1 base&#10;*Catergory class created">
-      <created>1565682190042</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1565682190042</updated>
-    </task>
-    <task id="LOCAL-00009" summary="version 0.0.1 base&#10;*Category renamed">
-      <created>1565682242635</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1565682242635</updated>
-    </task>
-    <task id="LOCAL-00010" summary="version 0.0.1 base&#10;*added supplier onAction scene">
-      <created>1565688462666</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1565688462666</updated>
-    </task>
-    <task id="LOCAL-00011" summary="version 0.0.1 base&#10;*added supplier columns items,Category,Address and contact">
-      <created>1565688540016</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1565688540016</updated>
-    </task>
-    <task id="LOCAL-00012" summary="version 0.0.1 base&#10;*created Supplier Scene to open Supplier.fxml">
-      <created>1565688618781</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1565688618781</updated>
-    </task>
-    <task id="LOCAL-00013" summary="version 0.0.1 base&#10;*created Contact class &amp; implemented methods">
-      <created>1565688669037</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1565688669037</updated>
-    </task>
-    <task id="LOCAL-00014" summary="version 0.0.1 base&#10;*created Supplier Class and implemented methods">
-      <created>1565688734667</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1565688734667</updated>
-    </task>
-    <task id="LOCAL-00015" summary="version 0.0.1 base&#10;*Added supplier classes and Controller &amp; Onaction methods">
-      <created>1565689028777</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1565689028777</updated>
-    </task>
-    <task id="LOCAL-00016" summary="version 0.0.1 base&#10;*Added Orders UI">
-      <created>1565780161547</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1565780161547</updated>
-    </task>
-    <task id="LOCAL-00017" summary="version 0.0.1 base&#10;*Added Order Controller class">
-      <created>1565780228605</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1565780228605</updated>
-    </task>
-    <task id="LOCAL-00018" summary="version 0.0.1 base&#10;*Added Order Controller&#10;*placed the string in /util/config.properties file">
-      <created>1565782138416</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1565782138416</updated>
-    </task>
-    <task id="LOCAL-00019" summary="version 0.0.1 base&#10;*create Requests class">
-      <created>1565782712399</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1565782712399</updated>
-    </task>
-    <task id="LOCAL-00020" summary="version 0.0.1 base&#10;*created Order Class and Implemented getters and setters">
-      <created>1565782765462</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1565782765462</updated>
-    </task>
-    <task id="LOCAL-00021" summary="version 0.0.1 base&#10;*placed /model/MainConroller.java strings  as order,supplier,inventory">
-      <created>1565782883755</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1565782883755</updated>
-    </task>
-    <task id="LOCAL-00022" summary="version 0.0.1 base&#10;*Added action openOrderscene">
-      <created>1565782963727</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1565782963727</updated>
-    </task>
-    <task id="LOCAL-00023" summary="version 0.0.1 base&#10;*Added OrderController">
-      <created>1565783016477</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1565783016477</updated>
-    </task>
-    <task id="LOCAL-00024" summary="version 0.0.1 base&#10;*Added Order classes and Controller &amp; Onaction methods&#10;*Added Orders UI&#10;*Added Requests">
-      <created>1565783103456</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1565783103456</updated>
-    </task>
-    <task id="LOCAL-00025" summary="version 0.0.1 base&#10;*Revert String files objects!! (They dont load! , I am MAD)">
-      <created>1565783306615</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1565783306615</updated>
-    </task>
-    <task id="LOCAL-00026" summary="version 0.0.1 base&#10;*revert Strings placed the string in /util/config.properties file&#10;*I am so high topkek">
-      <created>1565783408291</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1565783408291</updated>
-    </task>
-    <option name="localTasksCounter" value="27" />
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="51525000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.20761803" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Favorites" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="UI Designer" order="6" />
+      <window_info anchor="bottom" id="Duplicates" weight="0.32993197" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32993197" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32879817" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39909297" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Application Servers" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32993197" />
+      <window_info anchor="bottom" id="Problems" order="9" />
+      <window_info anchor="bottom" id="Changes" order="10" />
+      <window_info anchor="bottom" id="Profiler" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32993197" />
+      <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="15" />
+      <window_info anchor="bottom" id="Terminal" order="16" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="JetGradle" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Maven" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="version 0.0.1 base&#10;*Home UI implemented.&#10;*DB Connection added.&#10;*CommonUtils class implemented.&#10;*Constant class implemented." />
-    <MESSAGE value="version 0.0.1 base&#10;*added table and 2 columns" />
-    <MESSAGE value="version 0.0.1 base&#10;*added checklist.png" />
-    <MESSAGE value="version 0.0.1 base&#10;*Spelling Error :- Changed &quot;Invenetory&quot; to Inventory" />
-    <MESSAGE value="version 0.0.1 base&#10;*created supplierController Class" />
-    <MESSAGE value="version 0.0.1 base&#10;*Catergory class created" />
-    <MESSAGE value="version 0.0.1 base&#10;*Category renamed" />
-    <MESSAGE value="version 0.0.1 base&#10;*added supplier onAction scene" />
-    <MESSAGE value="version 0.0.1 base&#10;*added supplier columns items,Category,Address and contact" />
-    <MESSAGE value="version 0.0.1 base&#10;*created Supplier Scene to open Supplier.fxml" />
-    <MESSAGE value="version 0.0.1 base&#10;*created Contact class &amp; implemented methods" />
-    <MESSAGE value="version 0.0.1 base&#10;*created Supplier Class and implemented methods" />
-    <MESSAGE value="version 0.0.1 base&#10;*Added supplier classes and Controller &amp; Onaction methods" />
-    <MESSAGE value="version 0.0.1 base&#10;*Added Orders UI" />
-    <MESSAGE value="version 0.0.1 base&#10;*Added Order Controller class" />
-    <MESSAGE value="version 0.0.1 base&#10;*Added Order Controller&#10;*placed the string in /util/config.properties file" />
-    <MESSAGE value="version 0.0.1 base&#10;*create Requests class" />
-    <MESSAGE value="version 0.0.1 base&#10;*created Order Class and Implemented getters and setters" />
-    <MESSAGE value="version 0.0.1 base&#10;*placed /model/MainConroller.java strings  as order,supplier,inventory" />
-    <MESSAGE value="version 0.0.1 base&#10;*Added action openOrderscene" />
-    <MESSAGE value="version 0.0.1 base&#10;*Added OrderController" />
-    <MESSAGE value="version 0.0.1 base&#10;*Added Order classes and Controller &amp; Onaction methods&#10;*Added Orders UI&#10;*Added Requests" />
-    <MESSAGE value="version 0.0.1 base&#10;*Revert String files objects!! (They dont load! , I am MAD)" />
-    <MESSAGE value="version 0.0.1 base&#10;*revert Strings placed the string in /util/config.properties file&#10;*I am so high topkek" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 0.0.1 base&#10;*revert Strings placed the string in /util/config.properties file&#10;*I am so high topkek" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 0.0.1 base&#10;*Home UI implemented.&#10;*DB Connection added.&#10;*CommonUtils class implemented.&#10;*Constant class implemented." />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.idea/gradle.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StoreManagementSystem.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/StoreManagementSystem/view/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="639" column="1" lean-forward="true" selection-start-line="639" selection-start-column="1" selection-end-line="639" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/res/icons/icon.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/res/icons/icon_1.png" />
+    <entry file="file://$PROJECT_DIR$/src/view/css/home.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/StoreManagementSystem/view/home.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="13" column="69" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/User.java" />
+    <entry file="file://$PROJECT_DIR$/out/production/StoreManagementSystem/util/Constants.java" />
+    <entry file="file://$PROJECT_DIR$/out/production/StoreManagementSystem/util/CommonUtil.java" />
+    <entry file="file://$PROJECT_DIR$/src/util/OpenScene.java" />
+    <entry file="file://$PROJECT_DIR$/src/view/home.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="49" column="49" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/CommonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/DBConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/QueryUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="601">
+          <caret line="51" column="48" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/css/style2.css" />
+    <entry file="file://$PROJECT_DIR$/src/model/Supplier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-450" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/supplier.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/javafx-sdk-11.0.2/lib/src.zip!/javafx.fxml/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="2624" selection-start-line="2624" selection-end-line="2624" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1881">
+          <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/ProductManagerServiceInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-315" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/InventoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/inventory.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="179" column="64" selection-start-line="179" selection-start-column="64" selection-end-line="179" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="26" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/CategoriesAndBrandsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1000">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/categories_and_brands.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2258">
+          <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Brand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="18" />
+          <folding>
+            <element signature="e#273#274#0" expanded="true" />
+            <element signature="e#298#299#0" expanded="true" />
+            <element signature="e#331#332#0" expanded="true" />
+            <element signature="e#359#360#0" expanded="true" />
+            <element signature="e#390#391#0" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+            <element signature="e#489#490#0" expanded="true" />
+            <element signature="e#522#523#0" expanded="true" />
+            <element signature="e#551#552#0" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/ProductManagerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="72" column="55" selection-start-line="72" selection-start-column="55" selection-end-line="72" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queries.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="31" column="85" selection-start-line="31" selection-start-column="85" selection-end-line="31" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>javafx-swt</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>StoreManagementSystem</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>javafx-swt</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

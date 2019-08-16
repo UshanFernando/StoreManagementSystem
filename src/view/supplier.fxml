@@ -13,7 +13,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0"  xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierController">
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierController">
    <children>
       <BorderPane layoutX="-1.0" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
          <right>
@@ -71,9 +74,35 @@
          <center>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox prefHeight="30.0" prefWidth="994.0">
+                  <HBox prefHeight="30.0" prefWidth="994.0" style="-fx-background-color: #C5299BFF;">
                      <children>
-                        <Button mnemonicParsing="false" text="Button" />
+                        <Button mnemonicParsing="false"  style="-fx-background-color: transparent" text="Go Back" textFill="linen">
+                           <graphic>
+                              <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../res/icons/left-arrow.png" />
+                                 </image>
+                                 <effect>
+                                    <ColorAdjust brightness="1.0" contrast="0.1" hue="-0.19" saturation="1.0" />
+                                 </effect>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Logout" textFill="linen">
+                           <graphic>
+                              <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../res/icons/logout.png" />
+                                 </image>
+                                 <effect>
+                                    <ColorAdjust brightness="1.0" contrast="0.1" hue="-0.19" saturation="1.0" />
+                                 </effect>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </Button>
                      </children>
                   </HBox>
                   <HBox VBox.vgrow="ALWAYS">

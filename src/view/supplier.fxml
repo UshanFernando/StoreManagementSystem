@@ -163,7 +163,7 @@
                <children>
                   <HBox prefHeight="30.0" prefWidth="994.0" style="-fx-background-color: #C5299BFF;">
                      <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: transparent" text="Go Back" textFill="linen">
+                        <Button mnemonicParsing="false" onAction="#openHomeScenefromSupplier" style="-fx-background-color: transparent" text="Go Back" textFill="linen">
                            <graphic>
                               <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

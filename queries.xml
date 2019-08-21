@@ -63,30 +63,66 @@ CREATE TABLE `products` (
   PRIMARY KEY (`bid`)
 );
 
-
         ]]>
     </query>
 
-    <!-- Select products -->
-    <query id="get_products">
+    <!-- Select brands -->
+    <query id="get_brands">
         <![CDATA[
             select * from brands
         ]]>
     </query>
 
-    <!-- Select a particular user by id Query -->
-    <query id="product_by_id">
+    <!-- Select a particular brand by id Query -->
+    <query id="brand_by_id">
         <![CDATA[
             select * from brands where bid = ?
         ]]>
     </query>
 
-    <!-- Update a particular product by id Query -->
-    <query id="update_product">
+    <!-- Update a particular brand by id Query -->
+    <query id="update_brand">
         <![CDATA[
             update brands as b
             set b.bid = ?, b.name = ?,  b.status = ?
             where b.bid = ?
+        ]]>
+    </query>
+
+    <!-- ==================== queries for Category management ====================== -->
+
+    <!-- Create categories table  -->
+    <query id="create_categories_table">
+        <![CDATA[
+         CREATE TABLE `categories` (
+  `cid` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`cid`)
+  );
+   ]]>
+    </query>
+
+    <!-- Select categories -->
+    <query id="get_categories">
+        <![CDATA[
+            select * from categories
+        ]]>
+    </query>
+
+    <!-- Select a particular category by id Query -->
+    <query id="category_by_id">
+        <![CDATA[
+            select * from categories where cid = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular category by id Query -->
+    <query id="update_category">
+        <![CDATA[
+            update category as c
+            set c.cid = ?, c.name = ?,  c.status = ?
+            where c.cid = ?
         ]]>
     </query>
 

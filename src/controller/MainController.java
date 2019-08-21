@@ -18,7 +18,7 @@ public class MainController {
 
         Parent invenetoryViewParent = FXMLLoader.load(getClass().getResource("/view/inventory.fxml"));
 
-        Stage window = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+        Stage window = getWindowFromEvent(event);
 
         window.setScene(new Scene(invenetoryViewParent, 1280, 720));
         window.centerOnScreen();
@@ -31,7 +31,7 @@ public class MainController {
     @FXML
     public  void openSupplierScene(ActionEvent event) throws IOException{
         Parent supplierViewParent = FXMLLoader.load(getClass().getResource("/view/supplier.fxml"));
-        Stage windowstage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+        Stage windowstage = getWindowFromEvent(event);
 
         windowstage.setScene(new Scene(supplierViewParent,1280,720));
         windowstage.centerOnScreen();
@@ -43,7 +43,7 @@ public class MainController {
     @FXML
     public  void openOrderScene(ActionEvent event) throws IOException{
         Parent ordersViewParent = FXMLLoader.load(getClass().getResource("/view/orders.fxml"));
-        Stage windowsstage = (Stage)((Node) event.getTarget()).getScene().getWindow();
+        Stage windowsstage = getWindowFromEvent(event);
 
         windowsstage.setScene(new Scene(ordersViewParent,1280,720));
         windowsstage.centerOnScreen();
@@ -52,4 +52,19 @@ public class MainController {
         windowsstage.getIcons().add(icon);
     }
 
+    @FXML
+    public void openSalesScene(ActionEvent event) throws IOException{
+        Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/sales.fxml"));
+        Stage windowstage = getWindowFromEvent(event);
+        windowstage.setScene(new Scene(salesViewParent,1280,720));
+        windowstage.setFullScreenExitHint(" ");
+        windowstage.setFullScreen(true);
+        windowstage.setTitle("Order Management");
+        Image icon = new Image(MainController.class.getResource("/res/icons/checklist.png").toExternalForm(),false);
+        windowstage.getIcons().add(icon);
+    }
+
+    private Stage getWindowFromEvent(ActionEvent event){
+        return (Stage)((Node) event.getTarget()).getScene().getWindow();
+    }
 }

@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,8 +10,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import model.Brand;
+import model.Category;
+import service.BrandManagerService;
+import service.CategoryManagerService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,10 +25,10 @@ import java.util.ResourceBundle;
 public class CategoriesAndBrandsController implements Initializable {
 
     @FXML
-    TableView brandTable;
+    TableView<Brand> brandTable;
 
     @FXML
-    TableView categoryTable;
+    TableView<Category> categoryTable;
 
     @FXML
     TableColumn bidColumn;
@@ -45,7 +51,36 @@ public class CategoriesAndBrandsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        bidColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        bnameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        bstatusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
+        cidColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        cnameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        cstatusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        loadBrands();
+        loadCategories();
+
+    }
+
+    private void loadBrands() {
+
+        BrandManagerService brandManagerService = new BrandManagerService();
+        ObservableList<Brand> brands = brandManagerService.getBrandsList();
+
+        if (brands == null) {
+            System.out.println("No Brands");
+        } else brandTable.setItems(brands);
+    }
+
+    private void loadCategories() {
+        CategoryManagerService categoryManagerService = new CategoryManagerService();
+        ObservableList<Category> categories = categoryManagerService.getCategoriesList();
+
+        if (categories == null) {
+            System.out.println("No Categories");
+        } else categoryTable.setItems(categories);
     }
 
     public void openInventory(ActionEvent event) throws IOException {

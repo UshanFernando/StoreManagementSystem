@@ -133,4 +133,63 @@ CREATE TABLE `products` (
         ]]>
     </query>
 
+    <!-- ==================== queries for supplier management====================== -->
+
+    <!-- Create supplier table  -->
+    <query id="create_supplier_table">
+        <![CDATA[
+        CREATE TABLE `supplier` (
+        `sid` int(11) NOT NULL,
+        `name` varchar(255) NOT NULL,
+        `category` int(11) NOT NULL,
+        `address` varchar(255) NOT NULL,
+        PRIMARY KEY (`sid`),
+        KEY `suppliercate_idx` (`category`),
+        CONSTRAINT `supplier_cate_fkey` FOREIGN KEY (`category`) REFERENCES `categories` (`cid`)
+
+        );
+       ]]>
+    </query>
+
+    <!-- Create supplier contact  -->
+    <query id="create_supplier_contact_table">
+        <![CDATA[
+        CREATE TABLE `supplier_contact` (
+        `sid` int(11) NOT NULL,
+        `phone` varchar(15) NOT NULL,
+        PRIMARY KEY (`sid`,`phone`),
+        KEY `supplierc_idx` (`sid`),
+        CONSTRAINT `supplier_phone_fkey` FOREIGN KEY (`sid`) REFERENCES `supplier` (`sid`)
+       );
+       ]]>
+    </query>
+
+    <query id="create_supplier_email_table">
+        <![CDATA[
+        CREATE TABLE `supplier_contact` (
+        `sid` int(11) NOT NULL,
+        `email` varchar(320) NOT NULL,
+        PRIMARY KEY (`sid`,`phone`),
+        KEY `suppliers_idx` (`sid`),
+        CONSTRAINT `supplier_email_fkey` FOREIGN KEY (`sid`) REFERENCES `supplier` (`sid`)
+        );
+       ]]>
+    </query>
+
+    <!-- Select suppliers -->
+    <query id="get_suppliers">
+        <![CDATA[
+           SELECT s.pid , s.name , s.address ,  c.name as cname
+           FROM supplier as s ,  categories as c,
+           WHERE  s.category = c.cid
+        ]]>
+    </query>
+    <!-- Select a particular Supplier by id Query -->
+    <query id="supplier_by_id">
+        <![CDATA[
+            select * from supplier where sid = ?
+        ]]>
+    </query>
+
+
 </Queries>

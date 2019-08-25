@@ -107,5 +107,16 @@ public class Constants {
 
     public static final String QUERY_ID_GET_CATEGORIES = "get_categories";
 
+    /*
+
+    Constants for Suppliers
+
+    */
+
+    public static final String QUERY_ID_CREATE_SUPPLIER_TABLE = "create_supplier_table";
+
+    public static final String QUERY_ID_GET_SUPPLIERS = "get_suppliers";
+
+    public static final String QUERY_ID_GET_SUPPLIER_BY_ID = "get_suppliers";
 
 }

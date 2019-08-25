@@ -24,7 +24,7 @@ public interface ProductManagerServiceInterface {
 
     public Product getProductById(int pid);
 
-    public void updateProduct(Product user);
+    public boolean updateProduct(Product user);
 
     public boolean addProduct(Product user);
 

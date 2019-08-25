@@ -29,9 +29,14 @@ CREATE TABLE `products` (
     <!-- Select products -->
     <query id="get_products">
         <![CDATA[
-           SELECT p.pid , p.name , p.price , b.name as bname , c.name as cname ,p.qty
-           FROM products as p , brands as b , categories as c
-           WHERE p.brand = b.bid and p.category = c.cid
+           SELECT * FROM products
+        ]]>
+    </query>
+
+    <!-- Add product -->
+    <query id="add_product">
+        <![CDATA[
+          INSERT INTO products VALUES (?, ?, ? , ? , ? , ?);
         ]]>
     </query>
 
@@ -51,17 +56,25 @@ CREATE TABLE `products` (
         ]]>
     </query>
 
+    <!-- delete a particular product by id Query -->
+    <query id="delete_product">
+        <![CDATA[
+            DELETE FROM products WHERE pid = ? LIMIT 1
+        ]]>
+    </query>
+
     <!-- ==================== queries for brand management====================== -->
 
-    <!-- Create products table  -->
+    <!-- Create brands table  -->
     <query id="create_brands_table">
         <![CDATA[
-         CREATE TABLE `brands` (
-  `bid` int(11) NOT NULL,
+        CREATE TABLE `brands` (
+  `bid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
-  `status` varchar(10) DEFAULT NULL,
+  `status` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`bid`)
 );
+
 
         ]]>
     </query>
@@ -70,6 +83,19 @@ CREATE TABLE `products` (
     <query id="get_brands">
         <![CDATA[
             select * from brands
+        ]]>
+    </query>
+
+    <!-- Add brand -->
+    <query id="add_brand">
+        <![CDATA[
+          INSERT INTO BRANDS(name,status) VALUES (?, ?);
+        ]]>
+    </query>
+
+    <query id="delete_brand">
+        <![CDATA[
+            DELETE FROM brands WHERE bid = ? LIMIT 1
         ]]>
     </query>
 
@@ -95,11 +121,12 @@ CREATE TABLE `products` (
     <query id="create_categories_table">
         <![CDATA[
          CREATE TABLE `categories` (
-  `cid` int(11) NOT NULL,
+  `cid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
-  `status` varchar(10) DEFAULT NULL,
+  `status` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`cid`)
-  );
+    );
+
    ]]>
     </query>
 
@@ -107,6 +134,13 @@ CREATE TABLE `products` (
     <query id="get_categories">
         <![CDATA[
             select * from categories
+        ]]>
+    </query>
+
+    <!-- Add Category -->
+    <query id="add_category">
+        <![CDATA[
+          INSERT INTO categories(name,status) VALUES (?, ?);
         ]]>
     </query>
 
@@ -120,9 +154,15 @@ CREATE TABLE `products` (
     <!-- Update a particular category by id Query -->
     <query id="update_category">
         <![CDATA[
-            update category as c
+            update categories as c
             set c.cid = ?, c.name = ?,  c.status = ?
             where c.cid = ?
+        ]]>
+    </query>
+
+    <query id="delete_category">
+        <![CDATA[
+            DELETE FROM categories WHERE cid = ? LIMIT 1
         ]]>
     </query>
 

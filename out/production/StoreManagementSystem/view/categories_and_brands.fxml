@@ -35,7 +35,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <ChoiceBox prefHeight="34.0" prefWidth="304.0" style="-fx-background-color: #ffcdd2;" value="Select What To Manage">
+                  <ChoiceBox fx:id="type" prefHeight="34.0" prefWidth="304.0" style="-fx-background-color: #ffcdd2;" value="Select What To Manage">
                       <items>
                           <FXCollections fx:factory="observableArrayList">
                               <String fx:value="Select What To Manage" />
@@ -47,7 +47,7 @@
                         <Insets left="20.0" right="20.0" top="80.0" />
                      </VBox.margin>
                   </ChoiceBox>
-                  <TextField fx:id="qtyTF" prefHeight="37.0" prefWidth="304.0" promptText="Name" style="-fx-prompt-text-fill: #212121; -fx-background-color: #ffcdd2;">
+                  <TextField fx:id="name" prefHeight="37.0" prefWidth="304.0" promptText="Name" style="-fx-prompt-text-fill: #212121; -fx-background-color: #ffcdd2;">
                      <padding>
                         <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                      </padding>
@@ -55,7 +55,7 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="80.0" />
                      </VBox.margin>
                   </TextField>
-                  <ChoiceBox prefHeight="32.0" prefWidth="344.0" style="-fx-background-color: #ffcdd2;" value="Select Status">
+                  <ChoiceBox fx:id="status" prefHeight="32.0" prefWidth="344.0" style="-fx-background-color: #ffcdd2;" value="Select Status">
                       <items>
                           <FXCollections fx:factory="observableArrayList">
                               <String fx:value="Select Status" />
@@ -67,7 +67,7 @@
                         <Insets left="20.0" right="20.0" />
                      </VBox.margin>
                   </ChoiceBox>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #40c4ff;" text="Add" textFill="WHITE" VBox.vgrow="ALWAYS">
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#add" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #40c4ff;" text="Add" textFill="WHITE" VBox.vgrow="ALWAYS">
                      <padding>
                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                      </padding>
@@ -84,7 +84,7 @@
                         <Insets left="20.0" right="20.0" top="100.0" />
                      </VBox.margin>
                   </Button>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #fbc02d;" text="Update" VBox.vgrow="ALWAYS">
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#update" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #fbc02d;" text="Update" VBox.vgrow="ALWAYS">
                      <padding>
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </padding>
@@ -101,7 +101,7 @@
                         <Insets left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #ff3d00;" text="Delete" textFill="WHITE" VBox.vgrow="ALWAYS">
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#delete" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #ff3d00;" text="Delete" textFill="WHITE" VBox.vgrow="ALWAYS">
                      <padding>
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </padding>

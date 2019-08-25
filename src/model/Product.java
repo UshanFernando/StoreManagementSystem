@@ -2,23 +2,23 @@ package model;
 
 public class Product {
 
-    private int pid ;
+    private int pid;
     private String name;
     private Double price;
-    private String brand;
-    private String Category;
+    private Brand brand;
+    private Category category;
     private int qty;
 
-    public Product(){
+    public Product() {
 
     }
 
-    public Product(int pid, String name, Double price, String brand, String category, int qty) {
+    public Product(int pid, String name, Double price, Brand brand, Category category, int qty) {
         this.pid = pid;
         this.name = name;
         this.price = price;
         this.brand = brand;
-        Category = category;
+        this.category = category;
         this.qty = qty;
     }
 
@@ -46,20 +46,20 @@ public class Product {
         this.price = price;
     }
 
-    public String getBrand() {
+    public Brand getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(Brand brand) {
         this.brand = brand;
     }
 
-    public String getCategory() {
-        return Category;
+    public  Category getCategory() {
+        return category;
     }
 
-    public void setCategory(String category) {
-        Category = category;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public int getQty() {

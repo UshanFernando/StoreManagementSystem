@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Supplier {
-    public  int sId;
+    public  int id;
     private  String vendor;
     private  String category;
     private  String address;
@@ -13,7 +13,7 @@ public class Supplier {
 
 
     public Supplier(int sId, String vendor, String category, String address) {
-        this.sId = sId;
+        this.id = sId;
         this.vendor = vendor;
         this.category = category;
         this.address = address;
@@ -21,12 +21,12 @@ public class Supplier {
 //        this.phone = new ArrayList<String>();
     }
 
-    public int getsId() {
-        return sId;
+    public int getId() {
+        return id;
     }
 
-    public void setsId(int sId) {
-        this.sId = sId;
+    public void setId(int sId) {
+        this.id = sId;
     }
 
     public String getVendor() {

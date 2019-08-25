@@ -44,9 +44,9 @@ public class BrandManagerService implements BrandManagerServiceInterface {
 
             // Create new products table as per SQL query available in
             myStmt.executeUpdate(QueryUtil.queryByID(Constants.QUERY_ID_CREATE_BRAND_TABLE));
-
+            System.out.println("Brands Table Created");
         } catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
-            System.out.println("No need to create table");
+            System.out.println("Brands Table Not Created");
 
         }
     }
@@ -125,7 +125,12 @@ public class BrandManagerService implements BrandManagerServiceInterface {
         // TODO Auto-generated method stub
 
         try {
-            makeBrandQuery(brand);
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_BRAND));
+            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, brand.getId());
+            preparedStatement.setString(Constants.COLUMN_INDEX_TWO, brand.getName());
+            preparedStatement.setString(Constants.COLUMN_INDEX_THREE, brand.getStatus());
+            preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, brand.getId());
             preparedStatement.executeUpdate();
 
         } catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
@@ -145,25 +150,18 @@ public class BrandManagerService implements BrandManagerServiceInterface {
     }
 
 
-    private void makeBrandQuery(Brand brand) throws ClassNotFoundException, SQLException, SAXException, IOException, ParserConfigurationException {
-        connection = DBConnection.getDBConnection();
-        preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_PRODUCT));
-        preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, brand.getId());
-        preparedStatement.setString(Constants.COLUMN_INDEX_TWO, brand.getName());
-        preparedStatement.setString(Constants.COLUMN_INDEX_THREE, brand.getStatus());
-
-    }
 
     @Override
     public boolean addBrand(Brand brand) {
         // TODO Auto-generated method stub
         boolean success = false;
-//		if (!emailCheck(brand.getEmail())) {
-//			// this code will only run if entered email is not already in DB
-//			success = true;
+
 
         try {
-            makeBrandQuery(brand);
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_ADD_BRAND));
+            preparedStatement.setString(Constants.COLUMN_INDEX_ONE, brand.getName());
+            preparedStatement.setString(Constants.COLUMN_INDEX_TWO, brand.getStatus());
             preparedStatement.execute();
 
         } catch (SQLException | SAXException | IOException | ParserConfigurationException

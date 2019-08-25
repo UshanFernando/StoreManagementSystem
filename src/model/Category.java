@@ -11,6 +11,11 @@ public class Category {
         this.status = status;
     }
 
+    public Category( String name, String status) {
+        this.name = name;
+        this.status = status;
+    }
+
     public int getId() {
         return id;
     }
@@ -38,5 +43,10 @@ public class Category {
     public boolean isActive(){
 
         return status.equals("Available");
+    }
+
+    @Override
+    public String toString() {
+        return  getName();
     }
 }

@@ -34,9 +34,9 @@ public class CategoryManagerService implements CategoryManagerServiceInterface {
     }
 
     /**
-     * This static method will generate brands table
+     * This static method will generate categories table
      */
-    private static void createTable() {
+    public static void createTable() {
 
         try {
             connection = DBConnection.getDBConnection();
@@ -44,9 +44,9 @@ public class CategoryManagerService implements CategoryManagerServiceInterface {
 
             // Create new Categories table as per SQL query available in
             myStmt.executeUpdate(QueryUtil.queryByID(Constants.QUERY_ID_CREATE_CATEGORIES_TABLE));
-
+            System.out.println("Category Table Created");
         } catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
-            System.out.println("No need to create table");
+            System.out.println("Category Table Not Created");
 
         }
     }
@@ -121,7 +121,12 @@ public class CategoryManagerService implements CategoryManagerServiceInterface {
         // TODO Auto-generated method stub
 
         try {
-            makeCategoryQuery(category);
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_CATEGORY));
+            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, category.getId());
+            preparedStatement.setString(Constants.COLUMN_INDEX_TWO, category.getName());
+            preparedStatement.setString(Constants.COLUMN_INDEX_THREE, category.getStatus());
+            preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, category.getId());
             preparedStatement.executeUpdate();
 
         } catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
@@ -141,25 +146,18 @@ public class CategoryManagerService implements CategoryManagerServiceInterface {
     }
 
 
-    private void makeCategoryQuery(Category category) throws ClassNotFoundException, SQLException, SAXException, IOException, ParserConfigurationException {
-        connection = DBConnection.getDBConnection();
-        preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_CATEGORY));
-        preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, category.getId());
-        preparedStatement.setString(Constants.COLUMN_INDEX_TWO, category.getName());
-        preparedStatement.setString(Constants.COLUMN_INDEX_THREE, category.getStatus());
 
-    }
 
     @Override
     public boolean addCategory(Category category) {
         // TODO Auto-generated method stub
         boolean success = false;
-//		if (!emailCheck(brand.getEmail())) {
-//			// this code will only run if entered email is not already in DB
-//			success = true;
 
         try {
-            makeCategoryQuery(category);
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_ADD_CATEGORY));
+            preparedStatement.setString(Constants.COLUMN_INDEX_ONE, category.getName());
+            preparedStatement.setString(Constants.COLUMN_INDEX_TWO, category.getStatus());
             preparedStatement.execute();
 
         } catch (SQLException | SAXException | IOException | ParserConfigurationException

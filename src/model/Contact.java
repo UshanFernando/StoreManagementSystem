@@ -3,12 +3,12 @@ package model;
 public class Contact {
 
     private int id;
-    private  String number;
+    private  String phone;
 
 
-    public Contact(int id,String number) {
+    public Contact(int id,String phone) {
         this.id = id;
-        this.number= number;
+        this.phone= phone;
 
     }
 
@@ -20,12 +20,12 @@ public class Contact {
         this.id = id;
     }
 
-    public String getNumber() {
-        return number;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 }

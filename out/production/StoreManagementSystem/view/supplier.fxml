@@ -26,7 +26,7 @@
          <right>
             <VBox prefHeight="600.0" prefWidth="240.0" style="-fx-background-color: #C5299BFF;" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" text="Supplier Management" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                  <Label alignment="CENTER" text="Supplier Management" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
@@ -34,7 +34,7 @@
                         <Insets left="5.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField promptText="Supplier Id" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
+                  <TextField fx:id="textFieldSupplierID" promptText="Supplier Id" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
                      <VBox.margin>
                         <Insets top="25.0" />
                      </VBox.margin>
@@ -42,7 +42,7 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="15.0" layoutY="114.0" promptText="Vendor" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
+                  <TextField fx:id="textFieldVendor" layoutX="15.0" layoutY="114.0" promptText="Vendor" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -55,7 +55,7 @@
                         <Insets top="15.0" />
                      </VBox.margin>
                   </ComboBox>
-                  <TextField layoutX="15.0" layoutY="165.0" promptText="Address" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
+                  <TextField fx:id="textFieldAddress" layoutX="15.0" layoutY="165.0" promptText="Address" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -205,18 +205,18 @@
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <TableView prefHeight="276.0" prefWidth="185.0" style="-fx-padding: 10;">
+                                    <TableView fx:id="tableViewPhone" prefHeight="276.0" prefWidth="185.0" style="-fx-padding: 10;">
                                       <columns>
-                                        <TableColumn prefWidth="175.20006141662597" text="Phone" />
+                                        <TableColumn fx:id="columnPhone" prefWidth="165.5999755859375" text="Phone" />
                                       </columns>
                                     </TableView>
                                  </children>
                               </HBox>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <TableView prefHeight="200.0" prefWidth="200.0" style="-fx-padding: 10;">
+                                    <TableView fx:id="tableViewEmail" prefHeight="200.0" prefWidth="200.0" style="-fx-padding: 10;">
                                       <columns>
-                                        <TableColumn prefWidth="174.4000186920166" text="Email" />
+                                        <TableColumn fx:id="columnEmail" prefWidth="166.39996337890625" text="Email" />
                                       </columns>
                                     </TableView>
                                  </children>

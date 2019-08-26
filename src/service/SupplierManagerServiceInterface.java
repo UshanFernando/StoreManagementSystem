@@ -1,6 +1,8 @@
 package service;
 
 import javafx.collections.ObservableList;
+import model.Contact;
+import model.Mail;
 import model.Supplier;
 
 
@@ -20,4 +22,8 @@ public interface SupplierManagerServiceInterface {
     public boolean addSupplier(Supplier supplier);
 
     public  void  removeSupplier(int pid);
+
+    public ObservableList<Contact> getContactListByID(int cid);
+
+    public ObservableList<Mail> getEmailListByID(int cid);
 }

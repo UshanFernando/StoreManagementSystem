@@ -2,9 +2,9 @@ package model;
 
 public class Mail {
     private  int id;
-    private  int email;
+    private  String email;
 
-    public Mail(int id, int email) {
+    public Mail(int id, String email) {
         this.id = id;
         this.email = email;
     }
@@ -17,11 +17,11 @@ public class Mail {
         this.id = id;
     }
 
-    public int getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(int email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 }

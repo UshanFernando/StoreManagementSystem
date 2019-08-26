@@ -12,13 +12,13 @@ CREATE TABLE `products` (
   `pid` int(11) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
   `price` double DEFAULT NULL,
-  `brand` int(11) DEFAULT NULL,
+  `finance` int(11) DEFAULT NULL,
   `category` int(11) DEFAULT NULL,
   `qty` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`pid`),
-  KEY `brand_idx` (`brand`),
+  KEY `finance_idx` (`finance`),
   KEY `cate_fkey_idx` (`category`),
-  CONSTRAINT `brand_fkey` FOREIGN KEY (`brand`) REFERENCES `brands` (`bid`),
+  CONSTRAINT `finance_fkey` FOREIGN KEY (`finance`) REFERENCES `finances` (`bid`),
   CONSTRAINT `cate_fkey` FOREIGN KEY (`category`) REFERENCES `categories` (`cid`)
 );
 
@@ -30,8 +30,8 @@ CREATE TABLE `products` (
     <query id="get_products">
         <![CDATA[
            SELECT p.pid , p.name , p.price , b.name as bname , c.name as cname ,p.qty
-           FROM products as p , brands as b , categories as c
-           WHERE p.brand = b.bid and p.category = c.cid
+           FROM products as p , finances as b , categories as c
+           WHERE p.finance = b.bid and p.category = c.cid
         ]]>
     </query>
 
@@ -46,7 +46,7 @@ CREATE TABLE `products` (
     <query id="update_product">
         <![CDATA[
             update products as p
-            set p.pid = ?, p.name = ?,  p.price = ?, p.brand = ?,p.category = ? ,p.qty = ?
+            set p.pid = ?, p.name = ?,  p.price = ?, p.finance = ?,p.category = ? ,p.qty = ?
             where p.pid = ?
         ]]>
     </query>
@@ -132,5 +132,45 @@ CREATE TABLE `products` (
 
         ]]>
     </query>
+
+    <!-- ==================== queries for finance management====================== -->
+
+    <!-- Create products table  -->
+    <query id="create_finance_table">
+        <![CDATA[
+         CREATE TABLE `finance` (
+  `fid` int(11) NOT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `amount` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`fid`)
+);
+
+        ]]>
+    </query>
+
+    <!-- Select brands -->
+    <query id="get_finance">
+        <![CDATA[
+            select * from finance
+        ]]>
+    </query>
+
+    <!-- Select a particular finance by id Query -->
+    <query id="finance_by_id">
+        <![CDATA[
+            select * from finance where bid = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular finance by id Query -->
+    <query id="update_finance">
+        <![CDATA[
+            update finance as f
+            set f.fid = ?, f.name = ?,  f.status = ?
+            where b.bid = ?
+        ]]>
+    </query>
+
+
 
 </Queries>

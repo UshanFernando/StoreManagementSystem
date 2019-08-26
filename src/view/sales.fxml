@@ -42,11 +42,12 @@
                         <Insets left="5.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                        <TableView prefHeight="520.0" prefWidth="422.0" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="purchasedTable" prefHeight="520.0" prefWidth="422.0" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="productColumn" prefWidth="99.99996644258499" text="Product" />
                                 <TableColumn fx:id="productPriceColumn" prefWidth="91.19998168945312" text="Price" />
                                 <TableColumn fx:id="productQtyColumn" prefWidth="61.5999755859375" text="Qty" />
+                        <TableColumn fx:id="productDiscountColumn" prefWidth="75.0" text="Discount" />
                             </columns>
                      <VBox.margin>
                         <Insets top="5.0" />
@@ -135,7 +136,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </Label>
-                        <Button mnemonicParsing="false" prefWidth="383.0" style="-fx-background-color: #FBC02D;" text="Create New Sale">
+                        <Button mnemonicParsing="false" onAction="#newSale" prefWidth="383.0" style="-fx-background-color: #FBC02D;" text="Create New Sale">
                             <padding>
                                 <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                             </padding>
@@ -146,7 +147,7 @@
                                 <Font name="System Bold" size="15.0" />
                             </font>
                         </Button>
-                        <Button layoutX="30.0" layoutY="116.0" mnemonicParsing="false" prefWidth="383.0" style="-fx-background-color: #01579B;" text="Reset" textFill="WHITE">
+                        <Button layoutX="30.0" layoutY="116.0" mnemonicParsing="false" onAction="#reset" prefWidth="383.0" style="-fx-background-color: #01579B;" text="Reset" textFill="WHITE">
                             <padding>
                                 <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                             </padding>
@@ -157,7 +158,7 @@
                                 <Insets left="20.0" right="20.0" top="20.0" />
                             </VBox.margin>
                         </Button>
-                        <Button layoutX="30.0" layoutY="177.0" mnemonicParsing="false" prefWidth="383.0" style="-fx-background-color: #7B1FA2;" text="Checkout" textFill="WHITE">
+                        <Button layoutX="30.0" layoutY="177.0" mnemonicParsing="false" onAction="#checkout" prefWidth="383.0" style="-fx-background-color: #7B1FA2;" text="Checkout" textFill="WHITE">
                             <padding>
                                 <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                             </padding>
@@ -197,7 +198,7 @@
             <top>
                 <HBox prefHeight="51.0" prefWidth="720.0" style="-fx-background-color: #00E676;" BorderPane.alignment="CENTER">
                     <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Go Back" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#openHomeScene" style="-fx-background-color: transparent;" text="Go Back" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -224,6 +225,36 @@
                                 <Insets left="50.0" />
                             </HBox.margin>
                         </Button>
+                  <Button mnemonicParsing="false" onAction="#recentSales" style="-fx-background-color: transparent;" text="Recent Sales" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../res/icons/recent.png" />
+                           </image>
+                           <effect>
+                              <ColorAdjust brightness="1.0" contrast="0.1" hue="-0.19" saturation="1.0" />
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="20.0" top="5.0" />
+                     </padding>
+                  </Button>
+                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Stats" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../res/icons/pie-chart.png" />
+                           </image>
+                           <effect>
+                              <ColorAdjust brightness="1.0" contrast="0.1" hue="-0.19" saturation="1.0" />
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="20.0" top="5.0" />
+                     </padding>
+                  </Button>
                     </children>
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -292,13 +323,13 @@
                      <children>
                               <HBox>
                                   <children>
-                                      <TextField prefHeight="26.0" prefWidth="200.0" promptText="Enter Quantity" style="-fx-background-color: #90CAF9; -fx-prompt-text-fill: #212121;" />
-                              <TextField prefHeight="26.0" prefWidth="200.0" promptText="Discount" style="-fx-background-color: #90CAF9; -fx-prompt-text-fill: #212121;">
+                                      <TextField fx:id="qtyTF" prefHeight="26.0" prefWidth="200.0" promptText="Enter Quantity" style="-fx-background-color: #90CAF9; -fx-prompt-text-fill: #212121;" />
+                              <TextField fx:id="discountTF" prefHeight="26.0" prefWidth="200.0" promptText="Discount" style="-fx-background-color: #90CAF9; -fx-prompt-text-fill: #212121;">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </TextField>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="162.0" style="-fx-background-color: #f44336;" text="Add Item to the List" textFill="WHITE">
+                              <Button fx:id="addBtn" mnemonicParsing="false" onAction="#addToCart" prefHeight="26.0" prefWidth="162.0" style="-fx-background-color: #f44336;" text="Add Item to the List" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>

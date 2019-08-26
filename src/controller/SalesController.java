@@ -3,25 +3,41 @@ package controller;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.Effect;
+import javafx.scene.image.Image;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import model.Product;
+import model.Sale;
+import model.ShoppingCart;
+import model.ShoppingCartItem;
 import service.ProductManagerService;
+import service.SaleManagerService;
+import util.CommonUtil;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class SalesController implements Initializable {
 
     @FXML
-   private TableView<Product> product_table;
+    private TableView<Product> product_table;
 
     @FXML
     private TableColumn<Product, Integer> pidColumn;
@@ -42,9 +58,6 @@ public class SalesController implements Initializable {
     private TableColumn<Product, Integer> qtyColumn;
 
     @FXML
-    private Label statusLbl;
-
-    @FXML
     private Label dateLbl;
 
     @FXML
@@ -52,6 +65,12 @@ public class SalesController implements Initializable {
 
     @FXML
     private Label dayLbl;
+
+    @FXML
+    private TableView<ShoppingCartItem> purchasedTable;
+
+    @FXML
+    private TableColumn productDiscountColumn;
 
     @FXML
     private TableColumn productColumn;
@@ -62,7 +81,27 @@ public class SalesController implements Initializable {
     @FXML
     private TableColumn productQtyColumn;
 
+    @FXML
+    private TextField qtyTF;
 
+    @FXML
+    private TextField discountTF;
+
+    @FXML
+    private Label subTotalLbl;
+
+    @FXML
+    private Label discountLbl;
+
+    @FXML
+    private Label netTotalLbl;
+
+    @FXML
+    private Button addBtn;
+
+    private ShoppingCart shoppingCart;
+
+    private boolean saleActive = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -76,8 +115,13 @@ public class SalesController implements Initializable {
         qtyColumn.setCellValueFactory(new PropertyValueFactory<>("qty"));
 
 
+        productColumn.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        productPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        productQtyColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        productDiscountColumn.setCellValueFactory(new PropertyValueFactory<>("discount"));
 
         loadData();
+        disbleAddBtn();
 
     }
 
@@ -94,18 +138,119 @@ public class SalesController implements Initializable {
 
     }
 
+    @FXML
+    public void newSale(){
+
+        if (saleActive){
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "Complete Current Sale or Reset to Make a new Sale", ButtonType.OK);
+            alert.initStyle(StageStyle.TRANSPARENT);
+            alert.initOwner(Main.getPrimaryStage());
+            alert.showAndWait();
+        }else {
+
+            if (shoppingCart == null){
+                shoppingCart = new ShoppingCart();
+            }else {
+                shoppingCart = null;
+            }
+
+            purchasedTable.getItems().clear();
+            saleActive = true;
+            enableAddBtn();
+        }
+
+
+    }
+
+    @FXML
+    public void addToCart(){
+
+        if (!(qtyTF.getCharacters().length() == 0)) {
+            Product product = product_table.getSelectionModel().getSelectedItem();
+
+            int qty = Integer.parseInt(qtyTF.getCharacters().toString());
+            double discount;
+
+            if (discountTF.getCharacters().length() == 0) {
+                discount = 0;
+            } else {
+                discount = Double.parseDouble(discountTF.getCharacters().toString());
+            }
+            ShoppingCartItem item = new ShoppingCartItem(product, qty, discount);
+
+            shoppingCart.addItem(item);
+            updateData();
+        }else {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "Please Provide Valid Quantity !", ButtonType.OK);
+            alert.initStyle(StageStyle.TRANSPARENT);
+            alert.initOwner(Main.getPrimaryStage());
+            alert.showAndWait();
+
+        }
+    }
+
+    private void updateData() {
+
+        ObservableList<ShoppingCartItem> items = FXCollections.observableArrayList(shoppingCart.getItems());
+        purchasedTable.setItems(items);
+        subTotalLbl.setText(String.valueOf(shoppingCart.getSubTotal()));
+        discountLbl.setText(String.valueOf(shoppingCart.getDiscount()));
+        netTotalLbl.setText(String.valueOf(shoppingCart.getNetTotal()));
+        qtyTF.clear();
+        discountTF.clear();
+
+    }
+
+    @FXML
+    public void checkout(){
+        System.out.println("came here");
+        if (saleActive && !(shoppingCart.getItems().isEmpty())) {
+            SaleManagerService saleManagerService = new SaleManagerService();
+            Sale sale = new Sale(0, shoppingCart.getSubTotal(), shoppingCart.getDiscount(), shoppingCart.getNetTotal(), 0, CommonUtil.getCurrentTimeStamp());
+           boolean stat= saleManagerService.addSale(sale);
+           if (stat){
+               Alert alert = new Alert(Alert.AlertType.INFORMATION,
+                       "Checkout Complete !", ButtonType.OK);
+               alert.initStyle(StageStyle.TRANSPARENT);
+               alert.initOwner(Main.getPrimaryStage());
+               alert.showAndWait();
+               reset();
+           }
+        }else{
+
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "Create a sale to checkout !", ButtonType.OK);
+            alert.initStyle(StageStyle.TRANSPARENT);
+            alert.initOwner(Main.getPrimaryStage());
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    public void reset(){
+        saleActive = false;
+        disbleAddBtn();
+        purchasedTable.getItems().clear();
+
+    }
+
+
+
     private void initClock() {
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
             int second = LocalDateTime.now().getSecond();
-            int   minute = LocalDateTime.now().getMinute();
-            int   hour = LocalDateTime.now().getHour();
+            int minute = LocalDateTime.now().getMinute();
+            int hour = LocalDateTime.now().getHour();
             String day = LocalDateTime.now().getDayOfWeek().name();
             long year = LocalDateTime.now().getYear();
             String month = LocalDateTime.now().getMonth().name();
             int dayValue = LocalDateTime.now().getDayOfMonth();
             timeLbl.setText(hour + ":" + (minute) + ":" + second);
             dayLbl.setText(day);
-            dateLbl.setText(dayValue+" "+month+" "+year);
+            dateLbl.setText(dayValue + " " + month + " " + year);
         }),
                 new KeyFrame(Duration.seconds(1))
         );
@@ -113,7 +258,46 @@ public class SalesController implements Initializable {
         clock.play();
     }
 
+    private  void disbleAddBtn(){
 
+        addBtn.setDisable(true);
 
+    }
+
+    private  void enableAddBtn(){
+
+        addBtn.setDisable(false);
+
+    }
+
+    @FXML
+    public void recentSales() throws IOException {
+
+        Parent viewParent = FXMLLoader.load(getClass().getResource("/view/recentSales.fxml"));
+        Stage popupStage = new Stage();
+
+        popupStage.setScene(new Scene(viewParent,840,473));
+        popupStage.setTitle("Recent Sales");
+        popupStage.initModality(Modality.WINDOW_MODAL);
+        popupStage.initOwner(Main.getPrimaryStage());
+
+        popupStage.show();
+
+    }
+
+    @FXML
+    public void openHomeScene(ActionEvent event) throws IOException {
+
+        Parent viewParent = FXMLLoader.load(getClass().getResource("/view/home.fxml"));
+
+        Stage windowstage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+
+        windowstage.setScene(new Scene(viewParent, 840, 473));
+        windowstage.centerOnScreen();
+        windowstage.setTitle("Store Management Nisha Electricals PVC");
+        Image icon = new Image(MainController.class.getResource("/res/icons/icon.png").toExternalForm(), false);
+        windowstage.getIcons().add(icon);
+
+    }
 }
 

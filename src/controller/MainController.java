@@ -17,7 +17,6 @@ public class MainController {
     public void openInventoryScene(ActionEvent event) throws IOException {
 
         Parent invenetoryViewParent = FXMLLoader.load(getClass().getResource("/view/inventory.fxml"));
-
         Stage window = getWindowFromEvent(event);
 
         window.setScene(new Scene(invenetoryViewParent, 1280, 720));
@@ -29,42 +28,83 @@ public class MainController {
     }
 
     @FXML
-    public  void openSupplierScene(ActionEvent event) throws IOException{
+    public void openSupplierScene(ActionEvent event) throws IOException {
         Parent supplierViewParent = FXMLLoader.load(getClass().getResource("/view/supplier.fxml"));
         Stage windowstage = getWindowFromEvent(event);
 
-        windowstage.setScene(new Scene(supplierViewParent,1280,720));
+        windowstage.setScene(new Scene(supplierViewParent, 1280, 720));
         windowstage.centerOnScreen();
         windowstage.setTitle("Supplier Management");
-        Image icon = new Image(MainController.class.getResource("/res/icons/trucking.png").toExternalForm(),false);
+        Image icon = new Image(MainController.class.getResource("/res/icons/trucking.png").toExternalForm(), false);
         windowstage.getIcons().add(icon);
     }
 
     @FXML
-    public  void openOrderScene(ActionEvent event) throws IOException{
+    public void openOrderScene(ActionEvent event) throws IOException {
         Parent ordersViewParent = FXMLLoader.load(getClass().getResource("/view/orders.fxml"));
         Stage windowsstage = getWindowFromEvent(event);
 
-        windowsstage.setScene(new Scene(ordersViewParent,1280,720));
+        windowsstage.setScene(new Scene(ordersViewParent, 1280, 720));
         windowsstage.centerOnScreen();
         windowsstage.setTitle("Order Management");
-        Image icon = new Image(MainController.class.getResource("/res/icons/checklist.png").toExternalForm(),false);
+        Image icon = new Image(MainController.class.getResource("/res/icons/checklist.png").toExternalForm(), false);
         windowsstage.getIcons().add(icon);
     }
 
     @FXML
-    public void openSalesScene(ActionEvent event) throws IOException{
+    public void openSalesScene(ActionEvent event) throws IOException {
         Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/sales.fxml"));
         Stage windowstage = getWindowFromEvent(event);
-        windowstage.setScene(new Scene(salesViewParent,1280,720));
-        windowstage.setFullScreenExitHint(" ");
+        windowstage.setScene(new Scene(salesViewParent, 1280, 720));
         windowstage.setFullScreen(true);
-        windowstage.setTitle("Order Management");
-        Image icon = new Image(MainController.class.getResource("/res/icons/checklist.png").toExternalForm(),false);
+        windowstage.setTitle("Sales");
+        Image icon = new Image(MainController.class.getResource("/res/icons/sale.png").toExternalForm(), false);
         windowstage.getIcons().add(icon);
     }
 
-    private Stage getWindowFromEvent(ActionEvent event){
-        return (Stage)((Node) event.getTarget()).getScene().getWindow();
+    @FXML
+    public void openFinanceScene(ActionEvent event) throws IOException {
+        Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/finance.fxml"));
+        Stage windowstage = getWindowFromEvent(event);
+        windowstage.setScene(new Scene(salesViewParent, 1280, 720));
+        windowstage.setTitle("Finance");
+        Image icon = new Image(MainController.class.getResource("/res/icons/accounting.png").toExternalForm(), false);
+        windowstage.getIcons().add(icon);
+    }
+
+    @FXML
+    public void openAttendanceScene(ActionEvent event) throws IOException {
+        Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/finance.fxml"));
+        Stage windowstage = getWindowFromEvent(event);
+        windowstage.setScene(new Scene(salesViewParent, 1280, 720));
+        windowstage.setTitle("Attendance");
+        Image icon = new Image(MainController.class.getResource("/res/icons/red-card.png").toExternalForm(), false);
+        windowstage.getIcons().add(icon);
+    }
+
+    @FXML
+    public void openSalaryScene(ActionEvent event) throws IOException {
+        Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/finance.fxml"));
+        Stage windowstage = getWindowFromEvent(event);
+        windowstage.setScene(new Scene(salesViewParent, 1280, 720));
+        windowstage.setTitle("Attendance");
+        Image icon = new Image(MainController.class.getResource("/res/icons/salary.png").toExternalForm(), false);
+        windowstage.getIcons().add(icon);
+    }
+
+
+    @FXML
+    public void openAdminScene(ActionEvent event) throws IOException {
+        Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/finance.fxml"));
+        Stage windowstage = getWindowFromEvent(event);
+        windowstage.setScene(new Scene(salesViewParent, 1280, 720));
+        windowstage.setTitle("Admin");
+        Image icon = new Image(MainController.class.getResource("/res/icons/admin.png").toExternalForm(), false);
+        windowstage.getIcons().add(icon);
+    }
+
+
+    private Stage getWindowFromEvent(ActionEvent event) {
+        return (Stage) ((Node) event.getTarget()).getScene().getWindow();
     }
 }

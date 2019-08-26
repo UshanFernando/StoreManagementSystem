@@ -134,4 +134,21 @@ public class Constants {
     public static final String QUERY_ID_GET_FINANCE_BY_ID = "finance_by_id";
 
     public static final String QUERY_ID_GET_FINANCE = "get_finance";
+
+
+         /*
+
+    Constants for SALES Queries
+
+    */
+
+    public static final String QUERY_ID_CREATE_SALES_TABLE = "create_sales_table";
+
+    public static final String QUERY_ID_DROP_SALES_TABLE = "drop_table_finance";
+
+    public static final String QUERY_ID_ADD_SALES = "add_sale";
+
+    public static final String QUERY_ID_REMOVE_SALES = "delete_sale";
+
+    public static final String QUERY_ID_GET_SALES = "get_sales";
 }

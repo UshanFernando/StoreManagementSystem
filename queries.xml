@@ -74,14 +74,12 @@ CREATE TABLE `products` (
   `status` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`bid`)
 );
-
-
         ]]>
     </query>
 
     <!-- Select brands -->
     <query id="get_brands">
-        <![CDATA[00000000
+        <![CDATA[
             select * from brands
         ]]>
     </query>
@@ -166,12 +164,46 @@ CREATE TABLE `products` (
         ]]>
     </query>
 
+    <!-- ==================== queries for Sales management ====================== -->
+
     <!-- Create table Sales Query -->
-    <query id="create_sales">
+    <query id="create_sales_table">
         <![CDATA[
+       CREATE TABLE `sales` (
+  `sid` int(11) NOT NULL AUTO_INCREMENT,
+  `subTotal` double DEFAULT NULL,
+  `discount` double DEFAULT NULL,
+  `netTotal` double DEFAULT NULL,
+  `payment` double DEFAULT NULL,
+  `timeStamp` datetime DEFAULT NULL,
+  PRIMARY KEY (`sid`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
         ]]>
     </query>
+
+    <!-- Add Sale -->
+    <query id="add_sale">
+        <![CDATA[
+            insert into sales(subTotal, discount, netTotal,payment,timeStamp) values(?, ?, ?, ?,?);
+        ]]>
+    </query>
+
+
+<!-- Delete Sale-->
+    <query id="delete_sale">
+        <![CDATA[
+            DELETE FROM sales WHERE sid = ? LIMIT 1
+        ]]>
+    </query>
+
+    <!-- Select categories -->
+    <query id="get_sales">
+        <![CDATA[
+            select * from sales order by timestamp desc
+        ]]>
+    </query>
+
 
     <!-- ==================== queries for Finance management ====================== -->
 
@@ -201,6 +233,8 @@ CREATE TABLE `products` (
             insert into finance(id, status, amount, date) values(?, ?, ?, ?);
         ]]>
     </query>
+
+
 
     <!-- Select a particular finance by id Query -->
     <query id="finance_by_id">

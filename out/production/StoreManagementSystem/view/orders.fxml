@@ -36,7 +36,7 @@
                         <Insets left="5.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField promptText="Order Id" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
+                  <TextField fx:id="textFieldOrderId" promptText="Order Id" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
                      <VBox.margin>
                         <Insets top="25.0" />
                      </VBox.margin>
@@ -44,16 +44,19 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <ComboBox layoutX="15.0" layoutY="227.0" prefHeight="30.0" prefWidth="234.0" promptText="Select Product " style="-fx-background-color: #E1BEE7;">
+                  <ComboBox fx:id="comboBoxProduct" layoutX="15.0" layoutY="227.0" prefHeight="30.0" prefWidth="234.0" promptText="Select Product " style="-fx-background-color: #E1BEE7;">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
                   </ComboBox>
-                  <ComboBox prefHeight="30.0" prefWidth="234.0" promptText="Select Qty" style="-fx-background-color: #E1BEE7;">
+                  <TextField fx:id="textFieldQty" promptText="Quantity" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                      <VBox.margin>
-                        <Insets top="15.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
-                  </ComboBox>
+                  </TextField>
                   <ComboBox layoutX="15.0" layoutY="168.0" prefHeight="30.0" prefWidth="234.0" promptText="Select Vendor" style="-fx-background-color: #E1BEE7;">
                      <VBox.margin>
                         <Insets top="15.0" />
@@ -193,20 +196,20 @@
                   </HBox>
                   <HBox VBox.vgrow="ALWAYS">
                      <children>
-                        <TableView prefHeight="717.0" prefWidth="1019.0" style="-fx-padding: 10;">
+                        <TableView fx:id="orderTableView" prefHeight="717.0" prefWidth="1019.0" style="-fx-padding: 10;">
                           <columns>
-                            <TableColumn prefWidth="77.60000169277191" text="Order Id" />
-                              <TableColumn prefWidth="150.4000015258789" text="Order">
+                            <TableColumn fx:id="columnOrderId" prefWidth="77.60000169277191" text="Order Id" />
+                              <TableColumn fx:id="columnOrder" prefWidth="150.4000015258789" text="Order">
                                  <columns>
-                                    <TableColumn prefWidth="75.0" text="Product" />
-                                    <TableColumn prefWidth="75.0" text="Qty" />
+                                    <TableColumn fx:id="columnOrderProduct" prefWidth="75.0" text="Product" />
+                                    <TableColumn fx:id="columnOrderQty" prefWidth="75.0" text="Qty" />
                                  </columns>
                               </TableColumn>
-                            <TableColumn prefWidth="178.40003967285156" text="Vendor" />
-                              <TableColumn prefWidth="126.39999389648438" text="Order Date" />
-                              <TableColumn minWidth="0.0" prefWidth="174.4000244140625" text="Delivery Date" />
-                              <TableColumn minWidth="6.4000244140625" prefWidth="223.199951171875" text="ETA" />
-                              <TableColumn prefWidth="71.199951171875" text="Status" />
+                            <TableColumn fx:id="columnVendor" prefWidth="178.40003967285156" text="Vendor" />
+                              <TableColumn fx:id="columnOrderDate" prefWidth="126.39999389648438" text="Order Date" />
+                              <TableColumn fx:id="columnDeliveryDate" minWidth="0.0" prefWidth="174.4000244140625" text="Delivery Date" />
+                              <TableColumn fx:id="columnETA" minWidth="6.4000244140625" prefWidth="190.13323974609375" text="ETA" />
+                              <TableColumn fx:id="columnStatus" prefWidth="97.0667724609375" text="Status" />
                           </columns>
                         </TableView>
                      </children>

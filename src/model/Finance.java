@@ -1,14 +1,14 @@
 package model;
 
-import java.util.Date;
+import java.sql.Date;
 
-public class Requests {
+public class Finance {
     private int id;
     private String status;
     private double amount;
-    private Date date;
+    private String date;
 
-    public Requests(int id, String status, double amount, Date date) {
+    public Finance(int id, String status, double amount, String date) {
 
         this.id = id;
         this.status = status;
@@ -17,6 +17,10 @@ public class Requests {
 
 
     }
+
+
+
+
 
     public int getId() {
         return id;
@@ -34,17 +38,19 @@ public class Requests {
         this.status = status;
     }
 
-    public String getAmount() {
-        return status;
+    public double getAmount() {
+        return amount;
     }
 
-    public void setAmount(String status) {
-        this.status = status;
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
-    public boolean isActive(){
-
-        return status.equals("Available");
+    public String getDate() {
+        return date;
     }
 
+    public void setDate(String date) {
+        this.date = date;
+    }
 }

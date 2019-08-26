@@ -115,4 +115,23 @@ public class Constants {
     public static final String QUERY_ID_GET_CATEGORIES = "get_categories";
 
 
+         /*
+
+    Constants for finance Queries
+
+    */
+
+    public static final String QUERY_ID_CREATE_FINANCE_TABLE = "create_finance_table";
+
+    public static final String QUERY_ID_DROP_FINANCE_TABLE = "drop_table_finance";
+
+    public static final String QUERY_ID_FINANCE_CATEGORY = "update_finance";
+
+    public static final String QUERY_ID_ADD_FINANCE = "add_finance";
+
+    public static final String QUERY_ID_REMOVE_FINANCE = "delete_finance";
+
+    public static final String QUERY_ID_GET_FINANCE_BY_ID = "finance_by_id";
+
+    public static final String QUERY_ID_GET_FINANCE = "get_finance";
 }

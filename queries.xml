@@ -81,7 +81,7 @@ CREATE TABLE `products` (
 
     <!-- Select brands -->
     <query id="get_brands">
-        <![CDATA[
+        <![CDATA[00000000
             select * from brands
         ]]>
     </query>
@@ -172,5 +172,57 @@ CREATE TABLE `products` (
 
         ]]>
     </query>
+
+    <!-- ==================== queries for Finance management ====================== -->
+
+    <!-- Create categories table  -->
+    <query id="create_finance_table">
+        <![CDATA[
+         CREATE TABLE `finance` (
+  `fid` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(45) DEFAULT NULL,
+  `amount` double(30) DEFAULT NULL,
+  PRIMARY KEY (`fid`)
+    );
+
+   ]]>
+    </query>
+
+    <!-- Select categories -->
+    <query id="get_finance">
+        <![CDATA[
+            select * from finance
+        ]]>
+    </query>
+
+    <!-- Add Category -->
+    <query id="add_finance">
+        <![CDATA[
+            insert into finance(id, status, amount, date) values(?, ?, ?, ?);
+        ]]>
+    </query>
+
+    <!-- Select a particular finance by id Query -->
+    <query id="finance_by_id">
+        <![CDATA[
+            select * from finance where id = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular category by id Query -->
+    <query id="update_finance">
+        <![CDATA[
+            update finance as c
+            set c.cid = ?, c.name = ?,  c.status = ?
+            where c.cid = ?
+        ]]>
+    </query>
+
+    <query id="delete_finance">
+        <![CDATA[
+            DELETE FROM finance WHERE id = ? LIMIT 1
+        ]]>
+    </query>
+
 
 </Queries>

@@ -1,7 +1,9 @@
 package service;
 
-import javafx.beans.InvalidationListener;
-import javafx.collections.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import model.Brand;
+import model.Category;
 import model.Product;
 import org.xml.sax.SAXException;
 import util.Constants;
@@ -11,7 +13,6 @@ import util.QueryUtil;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.sql.*;
-import java.util.*;
 
 
 public class ProductManagerService implements ProductManagerServiceInterface {
@@ -20,23 +21,30 @@ public class ProductManagerService implements ProductManagerServiceInterface {
     private ResultSet myRs = null;
     private static Statement myStmt = null;
     private static PreparedStatement preparedStatement;
+    private BrandManagerService brandManagerService;
+    private CategoryManagerService categoryManagerService;
 
     /**
      * default constructor
      */
     public ProductManagerService() {
 
+     brandManagerService=   new BrandManagerService();
+     categoryManagerService =  new CategoryManagerService();
+
     }
 
     static {
         //This will call craeteUsersTable() when class loads.
-        createUsersTable();
+        createProductsTable();
+        BrandManagerService.createTable();
+        CategoryManagerService.createTable();
     }
 
     /**
      * This static method will generate products table
      */
-    public static void createUsersTable() {
+    public static void createProductsTable() {
 
         try {
             connection = DBConnection.getDBConnection();
@@ -44,17 +52,16 @@ public class ProductManagerService implements ProductManagerServiceInterface {
 
             // Create new products table as per SQL query available in
             myStmt.executeUpdate(QueryUtil.queryByID(Constants.QUERY_ID_CREATE_PRODUCT_TABLE));
-
+            System.out.println("Product Table Created");
         } catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
-            System.out.println("No need to create table");
-
+            System.out.println("Product Table Not Created");
         }
     }
 
 
     @Override
     public ObservableList<Product> getProductsList() {
-        ObservableList<Product>  products = FXCollections.observableArrayList();
+        ObservableList<Product> products = FXCollections.observableArrayList();
         // TODO Auto-generated method stub
         try {
 
@@ -69,8 +76,8 @@ public class ProductManagerService implements ProductManagerServiceInterface {
                 int id = myRs.getInt("pid");
                 String name = myRs.getString("name");
                 Double price = myRs.getDouble("price");
-                String brand = myRs.getString("bname");
-                String category = myRs.getString("cname");
+                Brand brand = brandManagerService.getBrandById(myRs.getInt("brand"));
+                Category category = categoryManagerService.getCategoryById(myRs.getInt("category"));
                 int qty = myRs.getInt("qty");
 
                 // create product object
@@ -107,8 +114,8 @@ public class ProductManagerService implements ProductManagerServiceInterface {
                 int id = myRs.getInt("pid");
                 String name = myRs.getString("name");
                 Double price = myRs.getDouble("price");
-                String brand = myRs.getString("brand");
-                String category = myRs.getString("category");
+                Brand brand = brandManagerService.getBrandById(myRs.getInt("brand"));
+                Category category = categoryManagerService.getCategoryById(myRs.getInt("category"));
                 int qty = myRs.getInt("qty");
 
                 // create product object
@@ -125,12 +132,17 @@ public class ProductManagerService implements ProductManagerServiceInterface {
 
 
     @Override
-    public void updateProduct(Product product) {
-        // TODO Auto-generated method stub
+    public boolean updateProduct(Product product) {
+
+        boolean success = false;
 
         try {
-            makeProductQuery(product);
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_PRODUCT));
+            makeQuery(product);
+            preparedStatement.setInt(Constants.COLUMN_INDEX_SEVEN,product.getPid());
             preparedStatement.executeUpdate();
+            success = true;
 
         } catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -146,34 +158,30 @@ public class ProductManagerService implements ProductManagerServiceInterface {
                 e.printStackTrace();
             }
         }
+        System.out.println(success);
+        return success;
     }
 
-    private void makeProductQuery(Product product) throws ClassNotFoundException, SQLException, SAXException, IOException, ParserConfigurationException {
-        connection = DBConnection.getDBConnection();
-        preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_PRODUCT));
-        preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, product.getPid());
-        preparedStatement.setString(Constants.COLUMN_INDEX_TWO, product.getName());
-        preparedStatement.setDouble(Constants.COLUMN_INDEX_THREE, product.getPrice());
-        preparedStatement.setString(Constants.COLUMN_INDEX_FOUR, product.getBrand());
-        preparedStatement.setString(Constants.COLUMN_INDEX_FIVE, product.getCategory());
-        preparedStatement.setInt(Constants.COLUMN_INDEX_SIX, product.getQty());
-    }
+
 
     @Override
     public boolean addProduct(Product product) {
         // TODO Auto-generated method stub
-        boolean success = false;
+        boolean success ;
 //		if (!emailCheck(product.getEmail())) {
 //			// this code will only run if entered email is not already in DB
 //			success = true;
 
         try {
-            makeProductQuery(product);
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_ADD_PRODUCT));
+            makeQuery(product);
             preparedStatement.execute();
+            success = true;
 
         } catch (SQLException | SAXException | IOException | ParserConfigurationException
                 | ClassNotFoundException e) {
-            e.printStackTrace();
+            success = false;
         } finally {
             try {
                 if (preparedStatement != null) {
@@ -186,9 +194,18 @@ public class ProductManagerService implements ProductManagerServiceInterface {
                 e.printStackTrace();
             }
         }
-//		}
+
 
         return success;
+    }
+
+    private void makeQuery(Product product) throws SQLException {
+        preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, product.getPid());
+        preparedStatement.setString(Constants.COLUMN_INDEX_TWO, product.getName());
+        preparedStatement.setDouble(Constants.COLUMN_INDEX_THREE, product.getPrice());
+        preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, product.getBrand().getId());
+        preparedStatement.setInt(Constants.COLUMN_INDEX_FIVE, product.getCategory().getId());
+        preparedStatement.setInt(Constants.COLUMN_INDEX_SIX, product.getQty());
     }
 
 
@@ -218,32 +235,6 @@ public class ProductManagerService implements ProductManagerServiceInterface {
         }
     }
 
-    /**
-     * This function will check given email is already exists in the DB This
-     * function will avoid adding multiple products with same email
-     *
-     * @param email
-     */
-//	@Override
-//	public boolean emailCheck(String email) {
-//		// TODO Auto-generated method stub
-//		boolean exists = false;
-//		try {
-//			connection = DBConnection.getDBConnection();
-//			preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_EMAIL_CHECK));
-//			preparedStatement.setString(Constants.COLUMN_INDEX_ONE, email);
-//			myRs = preparedStatement.executeQuery();
-//
-//			if (myRs.next()) {
-//				exists = true;
-//			} else {
-//				exists = false;
-//			}
-//
-//		} catch (Exception exc) {
-//			exc.printStackTrace();
-//		}
-//		return exists;
-//	}
+
 
 }

@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CategoriesAndBrandsController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FinanceController">
     <children>
         <BorderPane prefHeight="736.0" prefWidth="1280.0">
             <right>
@@ -32,7 +32,7 @@
                                 <Insets left="50.0" top="20.0" />
                             </VBox.margin>
                         </Label>
-                        <TextField fx:id="qtyTF" prefHeight="37.0" prefWidth="304.0" promptText="Add Income or Expenses here" style="-fx-prompt-text-fill: #212121; -fx-background-color: #ffcdd2;">
+                        <TextField fx:id="qtyTF" prefHeight="37.0" prefWidth="304.0" promptText="Add Income or Expenses here" style="-fx-prompt-text-fill: #212121; -fx-background-color: #ffcdd2;" text="id">
                             <padding>
                                 <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                             </padding>
@@ -40,7 +40,31 @@
                                 <Insets bottom="20.0" left="20.0" right="20.0" top="80.0" />
                             </VBox.margin>
                         </TextField>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #40c4ff;" text="Add" textFill="WHITE" VBox.vgrow="ALWAYS">
+                  <TextField fx:id="qtyTF1" layoutX="30.0" layoutY="145.0" prefHeight="39.0" prefWidth="304.0" promptText="Add Income or Expenses here" style="-fx-prompt-text-fill: #212121; -fx-background-color: #ffcdd2;" text="status">
+                     <padding>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="qtyTF11" layoutX="30.0" layoutY="203.0" prefHeight="39.0" prefWidth="304.0" promptText="Add Income or Expenses here" style="-fx-prompt-text-fill: #212121; -fx-background-color: #ffcdd2;" text="amount">
+                     <padding>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="qtyTF111" layoutX="30.0" layoutY="262.0" prefHeight="45.0" prefWidth="304.0" promptText="Add Income or Expenses here" style="-fx-prompt-text-fill: #212121; -fx-background-color: #ffcdd2;" text="date">
+                     <padding>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#add" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #40c4ff;" text="Add" textFill="WHITE" VBox.vgrow="ALWAYS">
                             <padding>
                                 <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                             </padding>
@@ -74,7 +98,7 @@
                                 <Insets left="20.0" right="20.0" top="20.0" />
                             </VBox.margin>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #ff3d00;" text="Delete" textFill="WHITE" VBox.vgrow="ALWAYS">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#delete" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #ff3d00;" text="Delete" textFill="WHITE" VBox.vgrow="ALWAYS">
                             <padding>
                                 <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                             </padding>
@@ -133,7 +157,7 @@
                     <children>
                         <HBox prefHeight="30.0" prefWidth="994.0" style="-fx-background-color: #ef5350;">
                             <children>
-                                <Button mnemonicParsing="false" onAction="#openInventory" style="-fx-background-color: transparent;" text="Go Back" textFill="WHITE">
+                                <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Go Back" textFill="WHITE">
                                     <graphic>
                                         <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -167,15 +191,18 @@
                         </HBox>
                         <SplitPane dividerPositions="0.49785867237687365" prefWidth="200.0">
                             <items>
-                                <TableView fx:id="brandTable" prefHeight="200.0" prefWidth="200.0">
+                                <TableView fx:id="incomeTable" prefHeight="200.0" prefWidth="200.0">
                                     <columns>
-                                        <TableColumn fx:id="bidColumn" prefWidth="461.0" text="Income" />
+                                        <TableColumn fx:id="iidColumn" prefWidth="113.5999709844591" text="id" />
+                              <TableColumn fx:id="statColumn" prefWidth="120.00000762939453" text="status" />
+                              <TableColumn fx:id="amntColumn" prefWidth="101.59996032714844" text="amount" />
+                              <TableColumn fx:id="datColumn" prefWidth="126.39996948242185" text="date" />
 
                                     </columns>
                                 </TableView>
-                                <TableView fx:id="categoryTable" prefHeight="734.0" prefWidth="433.0">
+                                <TableView fx:id="ExpenseTable" prefHeight="734.0" prefWidth="433.0">
                                     <columns>
-                                        <TableColumn fx:id="cidColumn" prefWidth="465.0" text="Expenses" />
+                                        <TableColumn fx:id="eidColumn" prefWidth="45.60000686645435" text="Expenses" />
                                     </columns>
                                 </TableView>
                             </items>

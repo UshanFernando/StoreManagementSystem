@@ -2,16 +2,62 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="version 0.0.1 base&#10;*revert the Errors and">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/OrderManagerService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/OrderManagerServiceInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/SupplierManagerService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/SupplierManagerServiceInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/OrderManagerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/OrderManagerServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/SupplierManagerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/SupplierManagerServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx_swt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/javafx_swt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/CategoriesAndBrandsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/CategoriesAndBrandsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/InventoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/InventoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/OrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/SupplierController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/SupplierController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Brand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Brand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Contact.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Contact.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Product.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Requests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Requests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Supplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Supplier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerServiceInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerServiceInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/CommonUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/CommonUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/DBConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/DBConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/QueryUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/QueryUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/categories_and_brands.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/categories_and_brands.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/inventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/inventory.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/orders.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/orders.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/supplier.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/supplier.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/queries.xml" beforeDir="false" afterPath="$PROJECT_DIR$/queries.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/CategoriesAndBrandsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CategoriesAndBrandsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/InventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/SupplierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/SupplierController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Brand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/BrandManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/BrandManagerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/CategoryManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/CategoryManagerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/ProductManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/ProductManagerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/ProductManagerServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/ProductManagerServiceInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/categories_and_brands.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/categories_and_brands.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/finance.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/finance.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/inventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/inventory.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/orders.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/orders.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/supplier.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/supplier.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,21 +129,11 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/requests.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="41" selection-end-line="157" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/monthly_reports.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="2091">
-              <caret line="123" selection-start-line="123" selection-end-line="123" />
+        <entry file="file://$PROJECT_DIR$/src/view/finance.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="136" column="48" lean-forward="true" selection-start-line="136" selection-start-column="48" selection-end-line="136" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -105,50 +141,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/service/FinanceManagerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1477">
-              <caret line="161" column="13" selection-start-line="161" selection-start-column="13" selection-end-line="161" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/Constants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="120" column="74" selection-start-line="120" selection-start-column="60" selection-end-line="120" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queries.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-39">
-              <caret line="141" column="25" selection-start-line="141" selection-start-column="25" selection-end-line="141" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/FinanceManagerServiceInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/DBConnection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+            <state relative-caret-position="463">
+              <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -157,19 +151,79 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/util/config.properties">
+        <entry file="file://$PROJECT_DIR$/src/util/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="239">
+              <caret line="129" column="68" lean-forward="true" selection-start-line="129" selection-start-column="68" selection-end-line="129" selection-end-column="68" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Brand.java">
+        <entry file="file://$PROJECT_DIR$/queries.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+            <state relative-caret-position="222">
+              <caret line="219" lean-forward="true" selection-start-line="219" selection-end-line="219" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/service/BrandManagerService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/CategoriesAndBrandsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="65" selection-start-line="65" selection-end-line="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/InventoryController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="91">
+              <caret line="189" lean-forward="true" selection-start-line="189" selection-end-line="189" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/FinanceController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="545">
+              <caret line="180" column="51" selection-start-line="180" selection-start-column="51" selection-end-line="180" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -177,26 +231,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Finance.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-311">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-              <folding>
-                <element signature="e#372#373#0" expanded="true" />
-                <element signature="e#397#398#0" expanded="true" />
-                <element signature="e#430#431#0" expanded="true" />
-                <element signature="e#458#459#0" expanded="true" />
-                <element signature="e#491#492#0" expanded="true" />
-                <element signature="e#520#521#0" expanded="true" />
-                <element signature="e#564#565#0" expanded="true" />
-                <element signature="e#600#601#0" expanded="true" />
-                <element signature="e#633#634#0" expanded="true" />
-                <element signature="e#662#663#0" expanded="true" />
-                <element signature="e#706#707#0" expanded="true" />
-                <element signature="e#742#743#0" expanded="true" />
-                <element signature="e#771#772#0" expanded="true" />
-                <element signature="e#798#799#0" expanded="true" />
-                <element signature="e#836#837#0" expanded="true" />
-                <element signature="e#868#869#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -217,6 +253,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>brand</find>
+      <find>Text</find>
+      <find>TextFiel</find>
+      <find>Table</find>
+      <find>butt</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -247,24 +287,26 @@
         <option value="$PROJECT_DIR$/src/view/supplier.fxml" />
         <option value="$PROJECT_DIR$/src/view/home.fxml" />
         <option value="$PROJECT_DIR$/src/view/css/finance.fxml" />
-        <option value="$PROJECT_DIR$/src/view/finance.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/Main.java" />
         <option value="$PROJECT_DIR$/src/model/Requests.java" />
         <option value="$PROJECT_DIR$/src/view/css/requests.fxml" />
         <option value="$PROJECT_DIR$/src/view/requests.fxml" />
         <option value="$PROJECT_DIR$/src/view/monthly_reports.fxml" />
-        <option value="$PROJECT_DIR$/src/util/Constants.java" />
-        <option value="$PROJECT_DIR$/queries.xml" />
-        <option value="$PROJECT_DIR$/src/model/Finance.java" />
         <option value="$PROJECT_DIR$/src/service/FinanceManagerServiceInterface.java" />
-        <option value="$PROJECT_DIR$/src/service/FinanceManagerService.java" />
         <option value="$PROJECT_DIR$/src/util/config.properties" />
+        <option value="$PROJECT_DIR$/src/controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/controller/Main.java" />
+        <option value="$PROJECT_DIR$/src/model/Finance.java" />
+        <option value="$PROJECT_DIR$/src/view/finance.fxml" />
+        <option value="$PROJECT_DIR$/src/service/FinanceManagerService.java" />
+        <option value="$PROJECT_DIR$/src/controller/FinanceController.java" />
+        <option value="$PROJECT_DIR$/queries.xml" />
+        <option value="$PROJECT_DIR$/src/util/Constants.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="446" />
+    <option name="x" value="445" />
     <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
@@ -278,7 +320,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -322,6 +363,12 @@
             </path>
             <path>
               <item name="StoreManagementSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoreManagementSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoreManagementSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -329,6 +376,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -347,26 +395,29 @@
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/lib/javafx-sdk-11.0.2/lib/javafx.web.jar!/" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Hemantha\IdeaProjects\StoreManagementSystem\src\view" />
-      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem" />
-      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\util" />
-      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\res" />
-      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\view\css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\hp\IdeaProjects\StoreManagementSystem-supplier\src\view" />
       <recent name="D:\hp\IdeaProjects\StoreManagementSystem-supplier\src\res\icons" />
       <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\out\production\StoreManagementSystem" />
       <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\model" />
       <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\service" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Hemantha\IdeaProjects\StoreManagementSystem\src\view" />
+      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem" />
+      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\util" />
+      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\res" />
+      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\view\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -486,6 +537,7 @@
       <workItem from="1566634957730" duration="9475000" />
       <workItem from="1566676964287" duration="13288000" />
       <workItem from="1566804896904" duration="2389000" />
+      <workItem from="1566807993240" duration="14022000" />
     </task>
     <task id="LOCAL-00001" summary="version 0.0.1 base&#10;*added checklist.png">
       <created>1565678466300</created>
@@ -687,7 +739,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45862000" />
+    <option name="totallyTimeSpent" value="59884000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -700,9 +752,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="DB Browser" order="0" weight="0.3295302" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.23489933" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.23825504" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -727,13 +780,47 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Maven" order="6" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3295302" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.3295302" />
+      <window_info anchor="right" id="Database" order="9" side_tool="true" weight="0.3295302" />
     </layout>
+    <layout-to-restore>
+      <window_info id="DB Browser" order="0" weight="0.3295302" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.23825504" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Designer" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="DB Execution Console" order="0" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49932885" weight="0.3286119" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.39943343" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.3286119" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286119" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50067115" side_tool="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.3286119" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.3295302" />
+      <window_info anchor="right" id="Database" order="9" side_tool="true" weight="0.3295302" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -883,13 +970,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Order.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -937,24 +1017,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/InventoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-515">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Category.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -969,16 +1035,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/CategoriesAndBrandsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -997,25 +1053,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/css/requests.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/view/categories_and_brands.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Documents/lib/javafx-sdk-11.0.2/lib/javafx.graphics/javafx/scene/image/Image.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1105">
           <caret line="119" column="13" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/BrandManagerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="22" selection-end-line="216" />
         </state>
       </provider>
     </entry>
@@ -1029,22 +1070,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/finance.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/monthly_reports.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="2091">
-          <caret line="123" selection-start-line="123" selection-end-line="123" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/requests.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
@@ -1053,10 +1078,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Brand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+    <entry file="file://$PROJECT_DIR$/src/view/monthly_reports.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="2091">
+          <caret line="123" selection-start-line="123" selection-end-line="123" />
         </state>
       </provider>
     </entry>
@@ -1070,42 +1096,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/Constants.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Brand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="120" column="74" selection-start-line="120" selection-start-column="60" selection-end-line="120" selection-end-column="74" />
+        <state relative-caret-position="187">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/queries.xml">
+    <entry file="file://$PROJECT_DIR$/src/util/config.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-39">
-          <caret line="141" column="25" selection-start-line="141" selection-start-column="25" selection-end-line="141" selection-end-column="25" />
+        <state relative-caret-position="221">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Finance.java">
+    <entry file="file://$PROJECT_DIR$/src/controller/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-311">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="e#372#373#0" expanded="true" />
-            <element signature="e#397#398#0" expanded="true" />
-            <element signature="e#430#431#0" expanded="true" />
-            <element signature="e#458#459#0" expanded="true" />
-            <element signature="e#491#492#0" expanded="true" />
-            <element signature="e#520#521#0" expanded="true" />
-            <element signature="e#564#565#0" expanded="true" />
-            <element signature="e#600#601#0" expanded="true" />
-            <element signature="e#633#634#0" expanded="true" />
-            <element signature="e#662#663#0" expanded="true" />
-            <element signature="e#706#707#0" expanded="true" />
-            <element signature="e#742#743#0" expanded="true" />
-            <element signature="e#771#772#0" expanded="true" />
-            <element signature="e#798#799#0" expanded="true" />
-            <element signature="e#836#837#0" expanded="true" />
-            <element signature="e#868#869#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/categories_and_brands.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -1119,20 +1135,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/FinanceManagerService.java">
+    <entry file="file://$PROJECT_DIR$/src/controller/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1477">
-          <caret line="161" column="13" selection-start-line="161" selection-start-column="13" selection-end-line="161" selection-end-column="13" />
+        <state relative-caret-position="17">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/config.properties">
+    <entry file="file://$PROJECT_DIR$/src/model/Finance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="323">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/InventoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="189" lean-forward="true" selection-start-line="189" selection-end-line="189" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/CategoriesAndBrandsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/BrandManagerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/FinanceManagerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/FinanceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="180" column="51" selection-start-line="180" selection-start-column="51" selection-end-line="180" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/finance.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="136" column="48" lean-forward="true" selection-start-line="136" selection-start-column="48" selection-end-line="136" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queries.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="219" lean-forward="true" selection-start-line="219" selection-end-line="219" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="129" column="68" lean-forward="true" selection-start-line="129" selection-start-column="68" selection-end-line="129" selection-end-column="68" />
         </state>
       </provider>
     </entry>

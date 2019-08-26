@@ -12,13 +12,13 @@ CREATE TABLE `products` (
   `pid` int(11) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
   `price` double DEFAULT NULL,
-  `finance` int(11) DEFAULT NULL,
+  `brand` int(11) DEFAULT NULL,
   `category` int(11) DEFAULT NULL,
   `qty` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`pid`),
-  KEY `finance_idx` (`finance`),
+  KEY `brand_idx` (`brand`),
   KEY `cate_fkey_idx` (`category`),
-  CONSTRAINT `finance_fkey` FOREIGN KEY (`finance`) REFERENCES `finances` (`bid`),
+  CONSTRAINT `brand_fkey` FOREIGN KEY (`brand`) REFERENCES `brands` (`bid`),
   CONSTRAINT `cate_fkey` FOREIGN KEY (`category`) REFERENCES `categories` (`cid`)
 );
 
@@ -29,9 +29,14 @@ CREATE TABLE `products` (
     <!-- Select products -->
     <query id="get_products">
         <![CDATA[
-           SELECT p.pid , p.name , p.price , b.name as bname , c.name as cname ,p.qty
-           FROM products as p , finances as b , categories as c
-           WHERE p.finance = b.bid and p.category = c.cid
+           SELECT * FROM products
+        ]]>
+    </query>
+
+    <!-- Add product -->
+    <query id="add_product">
+        <![CDATA[
+          INSERT INTO products VALUES (?, ?, ? , ? , ? , ?);
         ]]>
     </query>
 
@@ -46,30 +51,51 @@ CREATE TABLE `products` (
     <query id="update_product">
         <![CDATA[
             update products as p
-            set p.pid = ?, p.name = ?,  p.price = ?, p.finance = ?,p.category = ? ,p.qty = ?
+            set p.pid = ?, p.name = ?,  p.price = ?, p.brand = ?,p.category = ? ,p.qty = ?
             where p.pid = ?
+        ]]>
+    </query>
+
+    <!-- delete a particular product by id Query -->
+    <query id="delete_product">
+        <![CDATA[
+            DELETE FROM products WHERE pid = ? LIMIT 1
         ]]>
     </query>
 
     <!-- ==================== queries for brand management====================== -->
 
-    <!-- Create products table  -->
+    <!-- Create brands table  -->
     <query id="create_brands_table">
         <![CDATA[
-         CREATE TABLE `brands` (
-  `bid` int(11) NOT NULL,
+        CREATE TABLE `brands` (
+  `bid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
-  `status` varchar(10) DEFAULT NULL,
+  `status` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`bid`)
 );
+
 
         ]]>
     </query>
 
     <!-- Select brands -->
     <query id="get_brands">
-        <![CDATA[
+        <![CDATA[00000000
             select * from brands
+        ]]>
+    </query>
+
+    <!-- Add brand -->
+    <query id="add_brand">
+        <![CDATA[
+          INSERT INTO BRANDS(name,status) VALUES (?, ?);
+        ]]>
+    </query>
+
+    <query id="delete_brand">
+        <![CDATA[
+            DELETE FROM brands WHERE bid = ? LIMIT 1
         ]]>
     </query>
 
@@ -95,11 +121,12 @@ CREATE TABLE `products` (
     <query id="create_categories_table">
         <![CDATA[
          CREATE TABLE `categories` (
-  `cid` int(11) NOT NULL,
+  `cid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
-  `status` varchar(10) DEFAULT NULL,
+  `status` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`cid`)
-  );
+    );
+
    ]]>
     </query>
 
@@ -107,6 +134,13 @@ CREATE TABLE `products` (
     <query id="get_categories">
         <![CDATA[
             select * from categories
+        ]]>
+    </query>
+
+    <!-- Add Category -->
+    <query id="add_category">
+        <![CDATA[
+          INSERT INTO categories(name,status) VALUES (?, ?);
         ]]>
     </query>
 
@@ -120,9 +154,15 @@ CREATE TABLE `products` (
     <!-- Update a particular category by id Query -->
     <query id="update_category">
         <![CDATA[
-            update category as c
+            update categories as c
             set c.cid = ?, c.name = ?,  c.status = ?
             where c.cid = ?
+        ]]>
+    </query>
+
+    <query id="delete_category">
+        <![CDATA[
+            DELETE FROM categories WHERE cid = ? LIMIT 1
         ]]>
     </query>
 
@@ -133,44 +173,56 @@ CREATE TABLE `products` (
         ]]>
     </query>
 
-    <!-- ==================== queries for finance management====================== -->
+    <!-- ==================== queries for Finance management ====================== -->
 
-    <!-- Create products table  -->
+    <!-- Create categories table  -->
     <query id="create_finance_table">
         <![CDATA[
          CREATE TABLE `finance` (
-  `fid` int(11) NOT NULL,
+  `fid` int(11) NOT NULL AUTO_INCREMENT,
   `status` varchar(45) DEFAULT NULL,
-  `amount` varchar(10) DEFAULT NULL,
+  `amount` double(30) DEFAULT NULL,
   PRIMARY KEY (`fid`)
-);
+    );
 
-        ]]>
+   ]]>
     </query>
 
-    <!-- Select brands -->
+    <!-- Select categories -->
     <query id="get_finance">
         <![CDATA[
             select * from finance
         ]]>
     </query>
 
+    <!-- Add Category -->
+    <query id="add_finance">
+        <![CDATA[
+            insert into finance(id, status, amount, date) values(?, ?, ?, ?);
+        ]]>
+    </query>
+
     <!-- Select a particular finance by id Query -->
     <query id="finance_by_id">
         <![CDATA[
-            select * from finance where bid = ?
+            select * from finance where id = ?
         ]]>
     </query>
 
-    <!-- Update a particular finance by id Query -->
+    <!-- Update a particular category by id Query -->
     <query id="update_finance">
         <![CDATA[
-            update finance as f
-            set f.fid = ?, f.name = ?,  f.status = ?
-            where b.bid = ?
+            update finance as c
+            set c.cid = ?, c.name = ?,  c.status = ?
+            where c.cid = ?
         ]]>
     </query>
 
+    <query id="delete_finance">
+        <![CDATA[
+            DELETE FROM finance WHERE id = ? LIMIT 1
+        ]]>
+    </query>
 
 
 </Queries>

@@ -5,6 +5,12 @@ public class Brand {
     private String name;
     private String status;
 
+    public Brand(String name, String status){
+
+        this.name =name;
+        this.status =status;
+    }
+
     public Brand(int id, String name, String status) {
         this.id = id;
         this.name = name;
@@ -38,5 +44,10 @@ public class Brand {
     public boolean isActive(){
 
         return status.equals("Available");
+    }
+
+    @Override
+    public String toString() {
+        return  getName();
     }
 }

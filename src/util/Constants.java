@@ -31,7 +31,6 @@ public class Constants {
      * Constant for query id of get all products in UserQuery.xml
      */
 
-    public static final String QUERY_ID_ALL_PRODUCTS = "get_products";
 
     public static final String TAG_NAME = "query";
 
@@ -51,17 +50,25 @@ public class Constants {
 
     public static final int COLUMN_INDEX_SIX = 6;
 
+    public static final int COLUMN_INDEX_SEVEN = 7;
+
+       /*
+
+    Constants for Product Queries
+
+    */
+
     public static final String QUERY_ID_GET_PRODUCTS = "get_products";
 
     public static final String QUERY_ID_UPDATE_PRODUCT = "update_product";
 
     public static final String QUERY_ID_ADD_PRODUCT = "add_product";
 
-    public static final String QUERY_ID_REMOVE_PRODUCT = "remove_product";
+    public static final String QUERY_ID_REMOVE_PRODUCT = "delete_product";
 
     public static final String QUERY_ID_GET_PRODUCT_BY_ID = "product_by_id";
 
-    public static final String QUERY_ID_CREATE_PRODUCT_TABLE = "create_products_table";
+    public static final String QUERY_ID_CREATE_PRODUCT_TABLE = "create_product_table";
 
     public static final String QUERY_ID_DROP_PRODUCTS_TABLE = "drop_table_products";
 
@@ -80,7 +87,7 @@ public class Constants {
 
     public static final String QUERY_ID_ADD_BRAND = "add_brand";
 
-    public static final String QUERY_ID_REMOVE_BRAND = "remove_brand";
+    public static final String QUERY_ID_REMOVE_BRAND = "delete_brand";
 
     public static final String QUERY_ID_GET_BRAND_BY_ID = "brand_by_id";
 
@@ -101,7 +108,7 @@ public class Constants {
 
     public static final String QUERY_ID_ADD_CATEGORY = "add_category";
 
-    public static final String QUERY_ID_REMOVE_CATEGORY = "remove_category";
+    public static final String QUERY_ID_REMOVE_CATEGORY = "delete_category";
 
     public static final String QUERY_ID_GET_CATEGORY_BY_ID = "category_by_id";
 
@@ -122,7 +129,7 @@ public class Constants {
 
     public static final String QUERY_ID_ADD_FINANCE = "add_finance";
 
-    public static final String QUERY_ID_REMOVE_FINANCE = "remove_finance";
+    public static final String QUERY_ID_REMOVE_FINANCE = "delete_finance";
 
     public static final String QUERY_ID_GET_FINANCE_BY_ID = "finance_by_id";
 

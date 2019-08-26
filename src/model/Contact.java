@@ -2,16 +2,23 @@ package model;
 
 public class Contact {
 
+    private int id;
     private  String number;
-    private  String email;
 
-    public Contact( String number,String email) {
 
+    public Contact(int id,String number) {
+        this.id = id;
         this.number= number;
-        this.email = email;
 
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNumber() {
         return number;
@@ -21,11 +28,4 @@ public class Contact {
         this.number = number;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

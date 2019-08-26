@@ -281,6 +281,12 @@ public class InventoryController implements Initializable {
 
     }
 
+    @FXML
+    public void clear(){
+        clearData();
+    }
+
+
     private void clearData() {
 
         nameTF.clear();

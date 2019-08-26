@@ -1,63 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="version 0.0.1 base&#10;*revert the Errors and">
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/OrderManagerService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/OrderManagerServiceInterface.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/SupplierManagerService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/SupplierManagerServiceInterface.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/OrderManagerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/OrderManagerServiceInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/SupplierManagerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/SupplierManagerServiceInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx_swt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/javafx_swt.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="version 0.0.1 base&#10;                      *revert the Errors and">
+      <change afterPath="$PROJECT_DIR$/src/controller/FinanceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Finance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/FinanceManagerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/FinanceManagerServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/monthly_reports.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/requests.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/CategoriesAndBrandsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/CategoriesAndBrandsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/InventoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/InventoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/OrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/SupplierController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/SupplierController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Brand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Brand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Contact.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Contact.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Requests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Requests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Supplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Supplier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerServiceInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerServiceInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/CommonUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/CommonUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/DBConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/DBConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/QueryUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/QueryUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/categories_and_brands.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/categories_and_brands.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/inventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/inventory.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/orders.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/orders.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/supplier.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/supplier.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/queries.xml" beforeDir="false" afterPath="$PROJECT_DIR$/queries.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/CategoriesAndBrandsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CategoriesAndBrandsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/InventoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/SupplierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/SupplierController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Brand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/BrandManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/BrandManagerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/CategoryManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/CategoryManagerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/ProductManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/ProductManagerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/ProductManagerServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/ProductManagerServiceInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/categories_and_brands.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/categories_and_brands.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/finance.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/finance.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/inventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/inventory.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/orders.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/orders.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/supplier.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/supplier.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -141,7 +92,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/service/FinanceManagerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
+            <state relative-caret-position="3421">
               <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -150,7 +101,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="239">
@@ -180,11 +131,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/Main.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/service/FinanceManagerServiceInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="391">
+              <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -193,10 +144,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/CategoriesAndBrandsController.java">
+        <entry file="file://$PROJECT_DIR$/src/controller/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="65" selection-start-line="65" selection-end-line="65" />
+            <state relative-caret-position="17">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -219,8 +170,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/FinanceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="180" column="51" selection-start-line="180" selection-start-column="51" selection-end-line="180" selection-end-column="51" />
+            <state relative-caret-position="953">
+              <caret line="171" lean-forward="true" selection-start-line="171" selection-end-line="171" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -298,9 +249,9 @@
         <option value="$PROJECT_DIR$/src/model/Finance.java" />
         <option value="$PROJECT_DIR$/src/view/finance.fxml" />
         <option value="$PROJECT_DIR$/src/service/FinanceManagerService.java" />
-        <option value="$PROJECT_DIR$/src/controller/FinanceController.java" />
         <option value="$PROJECT_DIR$/queries.xml" />
         <option value="$PROJECT_DIR$/src/util/Constants.java" />
+        <option value="$PROJECT_DIR$/src/controller/FinanceController.java" />
       </list>
     </option>
   </component>
@@ -537,7 +488,7 @@
       <workItem from="1566634957730" duration="9475000" />
       <workItem from="1566676964287" duration="13288000" />
       <workItem from="1566804896904" duration="2389000" />
-      <workItem from="1566807993240" duration="14022000" />
+      <workItem from="1566807993240" duration="15302000" />
     </task>
     <task id="LOCAL-00001" summary="version 0.0.1 base&#10;*added checklist.png">
       <created>1565678466300</created>
@@ -735,11 +686,18 @@
       <option name="project" value="LOCAL" />
       <updated>1566681120029</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="version 0.0.1 base&#10;*revert the Errors and">
+      <created>1566823723318</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1566823723318</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59884000" />
+    <option name="totallyTimeSpent" value="61164000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -752,10 +710,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="DB Browser" order="0" weight="0.3295302" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.23825504" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.23825504" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -765,7 +722,7 @@
       <window_info anchor="bottom" id="DB Execution Console" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49932885" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49932885" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1125,26 +1082,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/FinanceManagerServiceInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Finance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1162,40 +1099,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/CategoriesAndBrandsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/service/BrandManagerService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/FinanceManagerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/FinanceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="180" column="51" selection-start-line="180" selection-start-column="51" selection-end-line="180" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1221,6 +1128,56 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
           <caret line="129" column="68" lean-forward="true" selection-start-line="129" selection-start-column="68" selection-end-line="129" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/CategoriesAndBrandsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1585">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/FinanceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="953">
+          <caret line="171" lean-forward="true" selection-start-line="171" selection-end-line="171" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/FinanceManagerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3421">
+          <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/FinanceManagerServiceInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -217,7 +217,7 @@ public class FinanceController implements Initializable {
 
         window.setScene(new Scene(financeViewParent, 1280, 720));
         window.centerOnScreen();
-        window.setTitle("Inventory Management");
+        window.setTitle("Requests Management");
 //    Image icon = new Image(MainController.class.getResource("/res/icons/warehouse.png").toExternalForm(), false);
 //    window.getIcons().add(icon);
     }

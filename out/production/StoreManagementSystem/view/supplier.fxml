@@ -26,7 +26,7 @@
          <right>
             <VBox prefHeight="600.0" prefWidth="240.0" style="-fx-background-color: #C5299BFF;" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" text="Supplier Management" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                  <Label alignment="CENTER" text="Supplier Management" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
@@ -34,7 +34,7 @@
                         <Insets left="5.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField promptText="Supplier Id" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
+                  <TextField fx:id="textFieldSupplierID" promptText="Supplier Id" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
                      <VBox.margin>
                         <Insets top="25.0" />
                      </VBox.margin>
@@ -42,15 +42,7 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="15.0" layoutY="114.0" promptText="Vendor" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </TextField>
-                  <TextField layoutX="15.0" layoutY="140.0" promptText="Product Price" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
+                  <TextField fx:id="textFieldVendor" layoutX="15.0" layoutY="114.0" promptText="Vendor" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -63,12 +55,7 @@
                         <Insets top="15.0" />
                      </VBox.margin>
                   </ComboBox>
-                  <ComboBox layoutX="15.0" layoutY="227.0" prefHeight="30.0" prefWidth="234.0" promptText="Select Product " style="-fx-background-color: #E1BEE7;">
-                     <VBox.margin>
-                        <Insets top="15.0" />
-                     </VBox.margin>
-                  </ComboBox>
-                  <TextField layoutX="15.0" layoutY="165.0" promptText="Address" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
+                  <TextField fx:id="textFieldAddress" layoutX="15.0" layoutY="165.0" promptText="Address" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -76,14 +63,26 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <TextField promptText="Contact" style="-fx-background-color: #E1BEE7; -fx-prompt-text-fill: #212121;">
-                     <VBox.margin>
-                        <Insets top="15.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </TextField>
+                  <HBox layoutX="15.0" layoutY="259.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ChoiceBox prefWidth="150.0" style="-fx-background-color: #E1BEE7;">
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets top="4.0" />
+                           </padding>
+                        </ChoiceBox>
+                        <TextField promptText="contact" style="-fx-prompt-text-fill: #666666; -fx-background-color: #E1BEE7;">
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <ChoiceBox prefWidth="150.0" style="-fx-background-color: #E1BEE7;">
@@ -194,16 +193,36 @@
                   </HBox>
                   <HBox VBox.vgrow="ALWAYS">
                      <children>
-                        <TableView style="-fx-padding: 10;">
+                        <TableView fx:id="supplierTableView" prefHeight="627.0" prefWidth="863.0" style="-fx-padding: 10;">
                           <columns>
-                            <TableColumn prefWidth="85.59994637966156" text="Supplier Id" />
-                            <TableColumn prefWidth="178.39995574951172" text="Vendor" />
-                              <TableColumn prefWidth="190.4000244140625" text="Category" />
-                              <TableColumn minWidth="0.0" prefWidth="211.19989013671875" text="Items" />
-                              <TableColumn prefWidth="217.60009765625" text="Address" />
-                              <TableColumn prefWidth="134.4000244140625" text="Contact" />
+                            <TableColumn fx:id="columnSid" prefWidth="85.59994637966156" text="Supplier Id" />
+                            <TableColumn fx:id="columnVendor" prefWidth="263.20006561279297" text="Vendor" />
+                              <TableColumn fx:id="columnCategory" prefWidth="183.19992065429688" text="Category" />
+                              <TableColumn fx:id="columnAddress" prefWidth="285.5999755859375" text="Address" />
                           </columns>
                         </TableView>
+                        <VBox prefHeight="627.0" prefWidth="216.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="tableViewPhone" prefHeight="276.0" prefWidth="185.0" style="-fx-padding: 10;">
+                                      <columns>
+                                        <TableColumn fx:id="columnPhone" prefWidth="165.5999755859375" text="Phone" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="tableViewEmail" prefHeight="200.0" prefWidth="200.0" style="-fx-padding: 10;">
+                                      <columns>
+                                        <TableColumn fx:id="columnEmail" prefWidth="166.39996337890625" text="Email" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
                      </children>
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

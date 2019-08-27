@@ -114,6 +114,45 @@ public class Constants {
 
     public static final String QUERY_ID_GET_CATEGORIES = "get_categories";
 
+    /**
+
+    *Constants for Suppliers
+
+    */
+
+    public static final String QUERY_ID_CREATE_SUPPLIER_TABLE = "create_supplier_table";
+
+    public static final String QUERY_ID_GET_SUPPLIERS = "get_suppliers";
+
+    public static final String QUERY_ID_GET_SUPPLIER_BY_ID = "supplier_by_id";
+
+    /**
+    * Constants for Supplier Contacts
+    * */
+
+    public static final String QUERY_ID_CREATE_SUPPLIER_CONTACT_TABLE = "create_supplier_contact_table";
+
+    public static final String QUERY_ID_GET_SUPPLIER_CONTACTS_BY_ID = "get_supplier_contacts_by_id";
+
+    /**
+     * Constant for Supplier Mail
+     */
+
+    public static final String QUERY_ID_CREATE_SUPPLIER_EMAIL_TABLE = "create_supplier_email_table";
+
+    public static final String QUERY_ID_GET_SUPPLIER_EMAIL_BY_ID = "get_supplier_emails_by_id";
+
+    /**
+     * Constant for Orders
+     *
+     * */
+
+    public static final  String QUERY_ID_CREATE_ORDERS_TABLE = "create_order_table";
+
+    public static final  String QUERY_ID_GET_ALL_ORDERS = "get_orders";
+
+    public static final  String QUERY_ID_GET_ORDER_BY_ID = "get_orders_by_id";
+
 
          /*
 
@@ -135,6 +174,23 @@ public class Constants {
 
     public static final String QUERY_ID_GET_FINANCE = "get_finance";
 
+
+         /*
+
+    Constants for SALES Queries
+
+    */
+
+    public static final String QUERY_ID_CREATE_SALES_TABLE = "create_sales_table";
+
+    public static final String QUERY_ID_DROP_SALES_TABLE = "drop_table_finance";
+
+    public static final String QUERY_ID_ADD_SALES = "add_sale";
+
+    public static final String QUERY_ID_REMOVE_SALES = "delete_sale";
+
+    public static final String QUERY_ID_GET_SALES = "get_sales";
+
            /*
 
     Constants for requests Queries
@@ -155,3 +211,4 @@ public class Constants {
 
     public static final String QUERY_ID_GET_REQUESTS = "get_requests";
 }
+

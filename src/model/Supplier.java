@@ -1,29 +1,32 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Supplier {
-    public  int sId;
+    public  int id;
     private  String vendor;
-    private Brand brand;
-    private  Product product;
+    private  String category;
     private  String address;
-    private  Contact contact;
+    private List email;
+    private List phone;
 
 
-    public Supplier(int sId, String vendor, Product product, String address, Contact contact, Brand brand) {
-        this.sId = sId;
+    public Supplier(int sId, String vendor, String category, String address) {
+        this.id = sId;
         this.vendor = vendor;
-        this.product = product;
-        this.brand = brand;
+        this.category = category;
         this.address = address;
-        this.contact = contact;
+//        this.email = new ArrayList<String>();
+//        this.phone = new ArrayList<String>();
     }
 
-    public int getsId() {
-        return sId;
+    public int getId() {
+        return id;
     }
 
-    public void setsId(int sId) {
-        this.sId = sId;
+    public void setId(int sId) {
+        this.id = sId;
     }
 
     public String getVendor() {
@@ -34,21 +37,14 @@ public class Supplier {
         this.vendor = vendor;
     }
 
-    public Product getProduct() {
-        return product;
+    public String getCategory() {
+        return category;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public Brand getBrand() {
-        return brand;
-    }
-
-    public void setBrand(Brand brand) {
-        this.brand = brand;
-    }
 
     public String getAddress() {
         return address;
@@ -58,11 +54,19 @@ public class Supplier {
         this.address = address;
     }
 
-    public Contact getContact() {
-        return contact;
+    public List getEmail() {
+        return email;
     }
 
-    public void setContact(Contact contact) {
-        this.contact = contact;
+    public void setEmail(ArrayList email) {
+        this.email = email;
+    }
+
+    public List getPhone() {
+        return phone;
+    }
+
+    public void setPhone(ArrayList phone) {
+        this.phone = phone;
     }
 }

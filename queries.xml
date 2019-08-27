@@ -81,7 +81,7 @@ CREATE TABLE `products` (
 
     <!-- Select brands -->
     <query id="get_brands">
-        <![CDATA[00000000
+        <![CDATA[
             select * from brands
         ]]>
     </query>
@@ -166,12 +166,46 @@ CREATE TABLE `products` (
         ]]>
     </query>
 
+    <!-- ==================== queries for Sales management ====================== -->
+
     <!-- Create table Sales Query -->
-    <query id="create_sales">
+    <query id="create_sales_table">
         <![CDATA[
+       CREATE TABLE `sales` (
+  `sid` int(11) NOT NULL AUTO_INCREMENT,
+  `subTotal` double DEFAULT NULL,
+  `discount` double DEFAULT NULL,
+  `netTotal` double DEFAULT NULL,
+  `payment` double DEFAULT NULL,
+  `timeStamp` datetime DEFAULT NULL,
+  PRIMARY KEY (`sid`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
         ]]>
     </query>
+
+    <!-- Add Sale -->
+    <query id="add_sale">
+        <![CDATA[
+            insert into sales(subTotal, discount, netTotal,payment,timeStamp) values(?, ?, ?, ?,?);
+        ]]>
+    </query>
+
+
+<!-- Delete Sale-->
+    <query id="delete_sale">
+        <![CDATA[
+            DELETE FROM sales WHERE sid = ? LIMIT 1
+        ]]>
+    </query>
+
+    <!-- Select categories -->
+    <query id="get_sales">
+        <![CDATA[
+            select * from sales order by timestamp desc
+        ]]>
+    </query>
+
 
     <!-- ==================== queries for Finance management ====================== -->
 
@@ -202,6 +236,8 @@ CREATE TABLE `products` (
         ]]>
     </query>
 
+
+
     <!-- Select a particular finance by id Query -->
     <query id="finance_by_id">
         <![CDATA[
@@ -223,6 +259,150 @@ CREATE TABLE `products` (
             DELETE FROM finance WHERE id = ? LIMIT 1
         ]]>
     </query>
+
+    <!-- ==================== queries for supplier management====================== -->
+
+    <!-- Create supplier table  -->
+    <query id="create_supplier_table">
+        <![CDATA[
+        CREATE TABLE `supplier` (
+        `sid` int(11) NOT NULL,
+        `name` varchar(255) NOT NULL,
+        `category` int(11) NOT NULL,
+        `address` varchar(255) NOT NULL,
+        PRIMARY KEY (`sid`),
+        KEY `suppliercate_idx` (`category`),
+        CONSTRAINT `supplier_cate_fkey` FOREIGN KEY (`category`) REFERENCES `categories` (`cid`)
+
+        );
+       ]]>
+    </query>
+
+    <!-- Create supplier contact  -->
+    <query id="create_supplier_contact_table">
+        <![CDATA[
+        CREATE TABLE `supplier_contact` (
+        `sid` int(11) NOT NULL,
+        `phone` varchar(15) NOT NULL,
+        PRIMARY KEY (`sid`,`phone`),
+        KEY `supplierc_idx` (`sid`),
+        CONSTRAINT `supplier_phone_fkey` FOREIGN KEY (`sid`) REFERENCES `supplier` (`sid`)
+       );
+       ]]>
+    </query>
+    <!-- Create supplier email  -->
+    <query id="create_supplier_email_table">
+        <![CDATA[
+        CREATE TABLE `supplier_email` (
+        `sid` int(11) NOT NULL,
+        `email` varchar(320) NOT NULL,
+        PRIMARY KEY (`sid`,`email`),
+        KEY `suppliers_idx` (`sid`),
+        CONSTRAINT `supplier_email_fkey` FOREIGN KEY (`sid`) REFERENCES `supplier` (`sid`)
+        );
+       ]]>
+    </query>
+
+    <!-- Select suppliers -->
+    <query id="get_suppliers">
+        <![CDATA[
+           SELECT s.sid , s.name , c.name as cname, s.address
+           FROM supplier as s , categories as c
+           WHERE c.cid = s.category
+        ]]>
+    </query>
+    <!-- Select a particular Supplier by id Query -->
+    <query id="supplier_by_id">
+        <![CDATA[
+            select * from supplier where sid = ?
+        ]]>
+    </query>
+
+    <!-- Select particular suppliers contacts -->
+    <query id="get_supplier_contacts_by_id">
+        <![CDATA[
+           SELECT sc.sid as id, sc.phone as phone
+           FROM supplier_contact as sc
+           WHERE sc.sid = ?
+        ]]>
+    </query>
+
+    <!-- Select particular suppliers emails -->
+    <query id="get_supplier_emails_by_id">
+        <![CDATA[
+           SELECT se.sid as id, se.email as email
+           FROM supplier_email as se
+           WHERE se.sid = ?
+        ]]>
+    </query>
+
+    <!-- ==================== queries for Order management====================== -->
+
+    <!-- Create order table  -->
+    <query id="create_order_table">
+        <![CDATA[
+        CREATE TABLE `orders` (
+        `oid` int(11) NOT NULL,
+        `product` int(11) NOT NULL,
+        `qty` varchar(45),
+        `vendor` int(11) NOT NULL,
+        `orderDate` char(10) NOT NULL,
+        `deliveryDate` char(10) DEFAULT 'NO-ETA',
+        `request` varchar(8) DEFAULT 'pending',
+        PRIMARY KEY (`oid`),
+        KEY `orders_product_idx` (`product`),
+        KEY `orders_supplier_idx` (`vendor`),
+        CONSTRAINT `order_product_fkey` FOREIGN KEY (`product`) REFERENCES `products` (`pid`),
+        CONSTRAINT `order_supplier_fkey` FOREIGN KEY (`vendor`) REFERENCES `supplier` (`sid`)
+        );
+       ]]>
+    </query>
+
+    <!-- Select orders -->
+    <query id="get_orders">
+        <![CDATA[
+           SELECT  o.oid AS id,
+                   p.name AS product,
+                   o.qty AS qty,
+                   s.name AS vendor,
+                   o.orderDate AS orderDate,
+                   o.deliveryDate AS deliveryDate,
+                   o.request AS status
+            FROM
+                    orders AS o
+           LEFT OUTER JOIN products AS p
+           ON
+                p.pid = o.product,
+           supplier s
+           LEFT OUTER JOIN orders AS op
+           ON
+               op.vendor = s.sid
+        ]]>
+    </query>
+
+    <!-- Select orders by id -->
+    <query id="get_orders_by_id">
+        <![CDATA[
+           SELECT  o.oid AS id,
+                   p.name AS product,
+                   o.qty AS qty,
+                   s.name AS vendor,
+                   o.orderDate AS orderDate,
+                   o.deliveryDate AS deliveryDate,
+                   o.request AS status
+            FROM
+                    orders AS o
+           LEFT OUTER JOIN products AS p
+           ON
+                p.pid = o.product,
+           supplier s
+           LEFT OUTER JOIN orders AS op
+           ON
+               op.vendor = s.sid
+           WHERE o.oid = ?
+        ]]>
+    </query>
+
 
     <!-- ==================== queries for Requests management ====================== -->
 

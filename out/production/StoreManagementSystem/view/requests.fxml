@@ -17,9 +17,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CategoriesAndBrandsController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RequestsController">
     <children>
-        <BorderPane prefHeight="736.0" prefWidth="1280.0">
+        <BorderPane prefHeight="736.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <right>
                 <VBox prefHeight="736.0" prefWidth="344.0" style="-fx-background-color: ef5350;" BorderPane.alignment="CENTER">
                     <children>
@@ -141,12 +141,12 @@
                         </HBox>
                         <SplitPane prefWidth="200.0">
                             <items>
-                                    <TableView fx:id="incomeTable" prefHeight="200.0" prefWidth="200.0">
+                                    <TableView fx:id="incomeTable" prefHeight="1194.0" prefWidth="934.0">
                                         <columns>
-                                            <TableColumn fx:id="iidColumn" prefWidth="113.5999709844591" text="id" />
-                                            <TableColumn fx:id="statColumn" prefWidth="120.00000762939453" text="status" />
-                                            <TableColumn fx:id="amntColumn" prefWidth="101.59996032714844" text="amount" />
-                                            <TableColumn fx:id="datColumn" prefWidth="126.39996948242185" text="date" />
+                                            <TableColumn fx:id="iidColumn" prefWidth="177.6000000119211" text="id" />
+                                            <TableColumn fx:id="statColumn" prefWidth="228.80001831054688" text="status" />
+                                            <TableColumn fx:id="amntColumn" prefWidth="254.39999389648438" text="amount" />
+                                            <TableColumn fx:id="datColumn" prefWidth="275.199951171875" text="date" />
 
                                         </columns>
                                     </TableView>

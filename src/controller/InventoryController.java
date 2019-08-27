@@ -238,6 +238,7 @@ public class InventoryController implements Initializable {
         if (alert.getResult() == ButtonType.YES) {
             productManagerService.removeProduct(product.getPid());
             loadData();
+            clearData();
         }
 
     }
@@ -281,6 +282,12 @@ public class InventoryController implements Initializable {
 
     }
 
+    @FXML
+    public void clear(){
+        clearData();
+    }
+
+
     private void clearData() {
 
         nameTF.clear();
@@ -306,16 +313,30 @@ public class InventoryController implements Initializable {
 
     public void openManageCategoryBrands(ActionEvent event) throws IOException {
 
-        Parent supplierViewParent = FXMLLoader.load(getClass().getResource("/view/categories_and_brands.fxml"));
+        Parent viewParent = FXMLLoader.load(getClass().getResource("/view/categories_and_brands.fxml"));
         Stage windowstage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
 
-        windowstage.setScene(new Scene(supplierViewParent, 1280, 720));
+        windowstage.setScene(new Scene(viewParent, 1280, 720));
         windowstage.centerOnScreen();
         windowstage.setTitle("Manage Product Brands and Categories");
-        Image icon = new Image(MainController.class.getResource("/res/icons/checklist.png").toExternalForm(), false);
+        Image icon = new Image(MainController.class.getResource("/res/icons/warehouse.png").toExternalForm(), false);
         windowstage.getIcons().add(icon);
     }
 
+    @FXML
+    public void openHomeScene(ActionEvent event) throws IOException {
+
+        Parent viewParent = FXMLLoader.load(getClass().getResource("/view/home.fxml"));
+
+        Stage windowstage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+
+        windowstage.setScene(new Scene(viewParent, 840, 473));
+        windowstage.centerOnScreen();
+        windowstage.setTitle("Store Management Nisha Electricals PVC");
+        Image icon = new Image(MainController.class.getResource("/res/icons/icon.png").toExternalForm(), false);
+        windowstage.getIcons().add(icon);
+
+    }
 
 }
 

@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="version 0.0.1 base&#10;*Home UI implemented.&#10;*DB Connection added.&#10;*CommonUtils class implemented.&#10;*Constant class implemented.">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="UPDATED">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/salary_calculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/salary_calculator.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/SalaryCalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/SalaryCalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/SalaryRepController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/SalaryRepController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/SalaryCalculatorManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/SalaryCalculatorManagerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/SalaryCalculatorServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/SalaryCalculatorServiceInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/salary_calculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/salary_calculator.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,14 +82,14 @@
           <entry key="dummy" value="1" />
           <entry key="fxml" value="58" />
           <entry key="java" value="2682" />
-          <entry key="txt" value="7" />
+          <entry key="txt" value="26" />
           <entry key="xml" value="248" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="2682" />
-          <entry key="PLAIN_TEXT" value="8" />
+          <entry key="PLAIN_TEXT" value="27" />
           <entry key="XML" value="306" />
         </counts>
       </usages-collector>
@@ -164,11 +158,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/service/SalaryCalculatorManagerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3004">
-              <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="36">
+              <caret line="3" column="41" lean-forward="true" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -323,7 +314,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566881210782" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566881433386" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/service" />
@@ -474,7 +465,7 @@
       <workItem from="1566658526124" duration="9086000" />
       <workItem from="1566669108043" duration="2163000" />
       <workItem from="1566720601681" duration="16162000" />
-      <workItem from="1566811132337" duration="42263000" />
+      <workItem from="1566811132337" duration="42603000" />
     </task>
     <task id="LOCAL-00001" summary="version 0.0.1 base&#10;*Home UI implemented.&#10;*DB Connection added.&#10;*CommonUtils class implemented.&#10;*Constant class implemented.">
       <created>1565606543511</created>
@@ -511,11 +502,25 @@
       <option name="project" value="LOCAL" />
       <updated>1566873758327</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="UPDATED">
+      <created>1566881293384</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1566881293384</updated>
+    </task>
+    <task id="LOCAL-00007" summary="UPDATED">
+      <created>1566881469630</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1566881469630</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42263000" />
+    <option name="totallyTimeSpent" value="42603000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -582,7 +587,8 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="version 0.0.4 base&#10;*added queries for brands and categories&#10;*added service classes for brands and categories&#10;*created sales ui sketch (alpha)" />
     <MESSAGE value="version 0.0.1 base&#10;*Home UI implemented.&#10;*DB Connection added.&#10;*CommonUtils class implemented.&#10;*Constant class implemented." />
-    <option name="LAST_COMMIT_MESSAGE" value="version 0.0.1 base&#10;*Home UI implemented.&#10;*DB Connection added.&#10;*CommonUtils class implemented.&#10;*Constant class implemented." />
+    <MESSAGE value="UPDATED" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATED" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -848,11 +854,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/SalaryCalculatorManagerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3004">
-          <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="36">
+          <caret line="3" column="41" lean-forward="true" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="300.0" prefWidth="100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Login">
+   <children>
+      <AnchorPane prefHeight="563.0" prefWidth="607.0" style="-fx-background-color: #3f51b5;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <children>
+            <Text layoutX="240.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN FORM" textAlignment="JUSTIFY" textOrigin="CENTER">
+               <font>
+                  <Font name="Bernard MT Condensed" size="28.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Pane layoutY="147.0" prefHeight="414.0" prefWidth="607.0" style="-fx-background-color: #2196f3;">
+         <children>
+            <Button layoutX="211.0" layoutY="315.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="165.0" style="-fx-background-color: #f8bbd0;" text="LOGIN" textFill="#146b4a">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="27.0" />
+               </font>
+            </Button>
+            <TextField layoutX="127.0" layoutY="142.0" prefHeight="54.0" prefWidth="359.0" promptText="EMPLOYEE ID">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="127.0" layoutY="46.0" prefHeight="48.0" prefWidth="359.0" promptText="DEPARTMENT">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

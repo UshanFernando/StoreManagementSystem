@@ -173,4 +173,63 @@ CREATE TABLE `products` (
         ]]>
     </query>
 
+
+    <!-- ==================== queries for employee management====================== -->
+
+    <!-- Create employees table  -->
+    <query id="create_employees_table">
+        <![CDATA[
+        CREATE TABLE `employees` (
+  `empId` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `department` varchar(30) DEFAULT NULL,
+  `level` int(45) DEFAULT NULL,
+  `contact` int(11) DEFAULT NULL,
+  `gender` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `recdate` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`empId`)
+);
+
+
+        ]]>
+    </query>
+
+    <!-- Select employees -->
+    <query id="get_employee">
+        <![CDATA[
+            select * from employees
+        ]]>
+    </query>
+
+    <!-- Add employee -->
+    <query id="add_employee">
+        <![CDATA[
+          INSERT INTO EMPLOYEES VALUES (?,?,?,?,?,?,?,?);
+        ]]>
+    </query>
+
+    <query id="delete_employee">
+        <![CDATA[
+            DELETE FROM employees WHERE empId = ? LIMIT 1
+        ]]>
+    </query>
+
+    <!-- Select a particular employee by id Query -->
+    <query id="employee_by_id">
+        <![CDATA[
+            select * from employees where bid = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular employee by id Query -->
+    <query id="update_employee">
+        <![CDATA[
+            update employees as e
+            set e.empId = ?, e.name = ?,  e.department = ?,e.level = ?,e.contact = ?,e.gender = ?,e.Address = ?,e.recdate = ?
+            where e.empId = ?
+        ]]>
+    </query>
+
+
 </Queries>

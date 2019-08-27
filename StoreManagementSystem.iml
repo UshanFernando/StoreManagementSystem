@@ -11,5 +11,6 @@
     <orderEntry type="library" name="mysql-connector-java-8.0.16" level="project" />
     <orderEntry type="library" name="mysql-connector-java-8.0.16" level="application" />
     <orderEntry type="library" name="aquafx-0.1" level="application" />
+    <orderEntry type="library" name="javafx-11" level="project" />
   </component>
 </module>

@@ -52,6 +52,8 @@ public class Constants {
 
     public static final int COLUMN_INDEX_SEVEN = 7;
 
+    public static final int COLUMN_INDEX_EIGHT = 8;
+
        /*
 
     Constants for Product Queries
@@ -113,6 +115,24 @@ public class Constants {
     public static final String QUERY_ID_GET_CATEGORY_BY_ID = "category_by_id";
 
     public static final String QUERY_ID_GET_CATEGORIES = "get_categories";
+
+    /*
+    constants for Salary Queries
+    */
+
+    public static final String QUERY_ID_CREATE_SALARY_TABLE = "create_salary_table";
+
+    public static final String QUERY_ID_DROP_SALARY_TABLE = "drop_table_salary";
+
+    public static final String QUERY_ID_UPDATE_SALARY = "update_salary";
+
+    public static final String QUERY_ID_ADD_SALARY = "add_salary";
+
+    public static final String QUERY_ID_REMOVE_SALARY = "delete_salary";
+
+    public static final String QUERY_ID_GET_SALARY_BY_ID = "salary_by_id";
+
+    public static final String QUERY_ID_GET_SALARY = "get_salary";
 
 
 }

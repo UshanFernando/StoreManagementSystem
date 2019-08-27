@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SalesController">
+   <children>
+      <BorderPane prefHeight="752.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <bottom>
+            <HBox BorderPane.alignment="CENTER" />
+         </bottom>
+         <left>
+            <VBox prefHeight="669.0" prefWidth="421.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <VBox prefHeight="752.0" prefWidth="340.0" style="-fx-background-color: #00E676;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="355.0" text="Sales" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button mnemonicParsing="false" prefWidth="383.0" style="-fx-background-color: #FBC02D;" text="Create New Sale">
+                     <padding>
+                        <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="50.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="30.0" layoutY="116.0" mnemonicParsing="false" prefWidth="383.0" style="-fx-background-color: #01579B;" text="Reset" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button layoutX="30.0" layoutY="177.0" mnemonicParsing="false" prefWidth="383.0" style="-fx-background-color: #7B1FA2;" text="Checkout" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </right>
+         <top>
+            <HBox prefHeight="51.0" prefWidth="720.0" style="-fx-background-color: #00E676;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Go Back" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../res/icons/left-arrow.png" />
+                           </image>
+                           <effect>
+                              <ColorAdjust brightness="1.0" contrast="0.1" hue="-0.19" saturation="1.0" />
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../res/icons/logout.png" />
+                           </image>
+                           <effect>
+                              <ColorAdjust brightness="1.0" contrast="0.1" hue="-0.19" saturation="1.0" />
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </HBox>
+         </top>
+         <center>
+            <VBox prefHeight="634.0" prefWidth="518.0" style="-fx-background-color: #FF6F00;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Search Product By" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" fillHeight="false"  VBox.vgrow="NEVER">
+                     <children>
+                        <TextField prefHeight="26.0" prefWidth="200.0" promptText="Product Code" style="-fx-background-color: #FFCC80; -fx-prompt-text-fill: #212121;">
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <TextField layoutX="111.0" layoutY="10.0" prefHeight="26.0" prefWidth="200.0" promptText="Product Name" style="-fx-background-color: #FFCC80; -fx-prompt-text-fill: #212121;">
+                           <HBox.margin>
+                              <Insets left="10.0" top="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" VBox.vgrow="NEVER">
+                     <children>
+                        <ComboBox prefHeight="26.0" prefWidth="200.0" promptText="Product Category" style="-fx-background-color: #FFCC80; -fx-prompt-text-fill: #ffff;">
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                        <ComboBox prefHeight="26.0" prefWidth="200.0" promptText="Product Brand" style="-fx-background-color: #FFCC80; -fx-prompt-text-fill: #ffff;">
+                           <HBox.margin>
+                              <Insets left="10.0" top="5.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <TableView fx:id="product_table" prefHeight="590.0" prefWidth="518.0" style="-fx-background-color: #DCEDC8;" VBox.vgrow="ALWAYS">
+                    <columns>
+                       <TableColumn fx:id="pidColumn" prefWidth="118.39999103546143" text="Product Id" />
+                       <TableColumn fx:id="nameColumn" prefWidth="219.99998474121094" text="Name" />
+                       <TableColumn fx:id="priceColumn" minWidth="8.000030517578125" prefWidth="135.20001220703125" text="Price" />
+                       <TableColumn fx:id="brandColumn" prefWidth="152.00003051757812" text="Brand" />
+                       <TableColumn fx:id="categoryColumn" prefWidth="151.199951171875" text="Category" />
+                       <TableColumn fx:id="qtyColumn" prefWidth="151.20001220703125" text="Quantity" />
+                    </columns>
+                  </TableView>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField prefHeight="26.0" prefWidth="200.0" promptText="Enter Quantity" style="-fx-background-color: #FFCC80; -fx-prompt-text-fill: #212121;" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="162.0" text="Add">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="3.0" />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

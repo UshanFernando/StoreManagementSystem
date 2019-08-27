@@ -23,9 +23,9 @@ public class Main extends Application {
 //        primaryStage.setScene(new Scene(root, 840, 473));
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("/view/inventory.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/salary_calculator.fxml"));
         primaryStage.setScene(new Scene(root, 1280, 720));
-        primaryStage.setTitle("Inventory Management");
+        primaryStage.setTitle("Salary Management");
 
         Image icon = new Image(MainController.class.getResource("/res/icons/warehouse.png").toExternalForm(), false);
         primaryStage.getIcons().add(icon);

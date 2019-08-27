@@ -173,4 +173,44 @@ CREATE TABLE `products` (
         ]]>
     </query>
 
+
+    <!-- ==================== queries for salary management ====================== -->
+
+    <!-- Create categories table  -->
+    <query id="create_salary_table">
+        <![CDATA[
+         CREATE TABLE `salary` (
+  `sID` int(5) NOT NULL AUTO_INCREMENT,
+  `eID` varchar(4) DEFAULT NULL,
+  `bonus` double DEFAULT NULL,
+  `overtime` double DEFAULT NULL,
+  `basic` double DEFAULT NULL
+  `deduction` double DEFAULT NULL,
+  `date` VARCHAR(8) DEFAULT NULL,
+  `bonus` double DEFAULT NULL
+
+
+  PRIMARY KEY (`sID`)
+    );
+
+   ]]>
+    </query>
+
+    <!-- Select categories -->
+    <query id="get_salary">
+        <![CDATA[
+            select * from salary
+        ]]>
+    </query>
+
+    <!-- Add  -->
+    <query id="add_salary">
+        <![CDATA[
+          INSERT INTO categories(sID,eID,basic,overtime,basic,deduction,date,bonus) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+        ]]>
+    </query>
+
+
+
+
 </Queries>

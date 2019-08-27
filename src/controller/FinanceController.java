@@ -56,6 +56,9 @@ public class FinanceController implements Initializable {
     @FXML
     TextField qtyTF111;
 
+    @FXML
+    Button monthButtonId;
+
 
     private FinanceManagerService financeManagerService;
 
@@ -101,9 +104,9 @@ public class FinanceController implements Initializable {
 
             Finance finance = new Finance(fid, status, amount, date);
 
-                financeManagerService.addFinance(finance);
+            financeManagerService.addFinance(finance);
             System.out.println(finance.getStatus());
-                load();
+            load();
 
 
         }else {
@@ -190,6 +193,33 @@ public class FinanceController implements Initializable {
 //            }
 
         }
+    }
+    @FXML
+    public void openMonthlyReports(ActionEvent event) throws IOException {
+
+        Parent financeViewParent = FXMLLoader.load(getClass().getResource("/view/monthly_reports.fxml"));
+
+        Stage window = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+
+        window.setScene(new Scene(financeViewParent, 1280, 720));
+        window.centerOnScreen();
+        window.setTitle("Inventory Management");
+//    Image icon = new Image(MainController.class.getResource("/res/icons/warehouse.png").toExternalForm(), false);
+//    window.getIcons().add(icon);
+    }
+
+    @FXML
+    public void openRequests(ActionEvent event) throws IOException {
+
+        Parent financeViewParent = FXMLLoader.load(getClass().getResource("/view/requests.fxml"));
+
+        Stage window = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+
+        window.setScene(new Scene(financeViewParent, 1280, 720));
+        window.centerOnScreen();
+        window.setTitle("Inventory Management");
+//    Image icon = new Image(MainController.class.getResource("/res/icons/warehouse.png").toExternalForm(), false);
+//    window.getIcons().add(icon);
     }
 
 //    private boolean valid() {

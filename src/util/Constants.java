@@ -134,4 +134,24 @@ public class Constants {
     public static final String QUERY_ID_GET_FINANCE_BY_ID = "finance_by_id";
 
     public static final String QUERY_ID_GET_FINANCE = "get_finance";
+
+           /*
+
+    Constants for requests Queries
+
+    */
+
+    public static final String QUERY_ID_CREATE_REQUESTS_TABLE = "create_requests_table";
+
+    public static final String QUERY_ID_DROP_REQUESTS_TABLE = "drop_table_requests";
+
+    public static final String QUERY_ID_REQUESTS_CATEGORY = "update_requests";
+
+    public static final String QUERY_ID_ADD_REQUESTS = "add_requests";
+
+    public static final String QUERY_ID_REMOVE_REQUESTS = "delete_requests";
+
+    public static final String QUERY_ID_GET_REQUESTS_BY_ID = "requests_by_id";
+
+    public static final String QUERY_ID_GET_REQUESTS = "get_requests";
 }

@@ -1,14 +1,12 @@
 package model;
 
-import java.util.Date;
-
 public class Requests {
     private int id;
     private String status;
     private double amount;
-    private Date date;
+    private String date;
 
-    public Requests(int id, String status, double amount, Date date) {
+    public Requests(int id, String status, double amount, String date) {
 
         this.id = id;
         this.status = status;
@@ -26,21 +24,31 @@ public class Requests {
         this.id = id;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
     public void setStatus(String status) {
         this.status = status;
     }
 
-    public String getAmount() {
+    public String getStatus() {
         return status;
     }
 
-    public void setAmount(String status) {
-        this.status = status;
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+
 
     public boolean isActive(){
 

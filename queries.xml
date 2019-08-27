@@ -224,5 +224,56 @@ CREATE TABLE `products` (
         ]]>
     </query>
 
+    <!-- ==================== queries for Requests management ====================== -->
+
+    <!-- Create categories table  -->
+    <query id="create_requests_table">
+        <![CDATA[
+         CREATE TABLE `requests` (
+  `rid` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(45) DEFAULT NULL,
+  `amount` double(30) DEFAULT NULL,
+  PRIMARY KEY (`fid`)
+    );
+
+   ]]>
+    </query>
+
+    <!-- Select categories -->
+    <query id="get_requests">
+        <![CDATA[
+            select * from requests
+        ]]>
+    </query>
+
+    <!-- Add Category -->
+    <query id="add_requests">
+        <![CDATA[
+            insert into requests(id, status, amount, date) values(?, ?, ?, ?);
+        ]]>
+    </query>
+
+    <!-- Select a particular finance by id Query -->
+    <query id="requests_by_id">
+        <![CDATA[
+            select * from requests where id = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular category by id Query -->
+    <query id="update_requests">
+        <![CDATA[
+            update requests as r
+            set r.cid = ?, r.name = ?,  r.status = ?
+            where r.cid = ?
+        ]]>
+    </query>
+
+    <query id="delete_requests">
+        <![CDATA[
+            DELETE FROM requests WHERE id = ? LIMIT 1
+        ]]>
+    </query>
+
 
 </Queries>

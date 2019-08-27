@@ -141,12 +141,15 @@
                         </HBox>
                         <SplitPane prefWidth="200.0">
                             <items>
-                                <TableView fx:id="brandTable" prefHeight="918.0" prefWidth="934.0">
-                                    <columns>
-                                        <TableColumn fx:id="bidColumn" prefWidth="934.4000004053116" text="Requests" />
+                                    <TableView fx:id="incomeTable" prefHeight="200.0" prefWidth="200.0">
+                                        <columns>
+                                            <TableColumn fx:id="iidColumn" prefWidth="113.5999709844591" text="id" />
+                                            <TableColumn fx:id="statColumn" prefWidth="120.00000762939453" text="status" />
+                                            <TableColumn fx:id="amntColumn" prefWidth="101.59996032714844" text="amount" />
+                                            <TableColumn fx:id="datColumn" prefWidth="126.39996948242185" text="date" />
 
-                                    </columns>
-                                </TableView>
+                                        </columns>
+                                    </TableView>
                             </items>
                         </SplitPane>
                     </children>

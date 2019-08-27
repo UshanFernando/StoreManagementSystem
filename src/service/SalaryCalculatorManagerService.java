@@ -131,34 +131,7 @@ public class SalaryCalculatorManagerService implements SalaryCalculatorServiceIn
     }
 
 
-   // @Override
-   /*   public void updateBrand(Brand brand) {
-        // TODO Auto-generated method stub
 
-        try {
-            connection = DBConnection.getDBConnection();
-            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_BRAND));
-            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, brand.getId());
-            preparedStatement.setString(Constants.COLUMN_INDEX_TWO, brand.getName());
-            preparedStatement.setString(Constants.COLUMN_INDEX_THREE, brand.getStatus());
-            preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, brand.getId());
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (preparedStatement != null) {
-                    preparedStatement.close();
-                }
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    } */
 
 
 
@@ -204,31 +177,31 @@ public class SalaryCalculatorManagerService implements SalaryCalculatorServiceIn
 
 
 
-//    @Override
-//    public void removeSalary(String sid) {
-//       TODO Auto-generated method stub
-//
-//        try {
-//            connection = DBConnection.getDBConnection();
-//            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_REMOVE_BRAND));
-//            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, sid);
-//            preparedStatement.execute();
-//
-//        } catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                if (preparedStatement != null) {
-//                    preparedStatement.close();
-//                }
-//                if (connection != null) {
-//                    connection.close();
-//                }
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
+    @Override
+    public void removeSalary(Integer sid) {
+
+
+        try {
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_REMOVE_SALARY));
+            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, sid);
+            preparedStatement.execute();
+
+        } catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 }
 

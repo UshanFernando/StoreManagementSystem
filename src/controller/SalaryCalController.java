@@ -21,35 +21,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SalaryCalController {
+public class SalaryCalController  {
 
-//    @FXML
-//    TableView<Salary> salaryTable;
-//
-//
-//    @FXML
-//    TableColumn bidColumn;
-//
-//    @FXML
-//    TableColumn bnameColumn;
-//
-//    @FXML
-//    TableColumn bstatusColumn;
-//
-//    @FXML
-//    TableColumn cidColumn;
-//
-//    @FXML
-//    TableColumn cnameColumn;
-//
-//    @FXML
-//    TableColumn cstatusColumn;
-//
-//    @FXML
-//    ChoiceBox type;
-//
-//    @FXML
-//    ChoiceBox status;
+
 
     @FXML
     TextField eID;
@@ -163,7 +137,7 @@ public class SalaryCalController {
     public void add() {
 
         if (true) {
-            //if (type.getSelectionModel().isSelected(1)) {
+
 
                 int sid = Integer.parseInt(sID.getCharacters().toString());
                 String eid = eID.getCharacters().toString();
@@ -241,79 +215,5 @@ public class SalaryCalController {
 
 
 
-//    @FXML
-//    public void update() {
-//
-//        if (valid()) {
-//            if (type.getSelectionModel().isSelected(1)) {
-//
-//                Brand selected = brandTable.getSelectionModel().getSelectedItem();
-//                Brand brand = new Brand(selected.getId(),name.getCharacters().toString(), status.getValue().toString());
-//                brandManagerService.updateBrand(brand);
-//                loadBrands();
-//
-//            } else if (type.getSelectionModel().isSelected(2)) {
-//
-//                Category selected = categoryTable.getSelectionModel().getSelectedItem();
-//                Category category = new Category(selected.getId(),name.getCharacters().toString(), status.getValue().toString());
-//                categoryManagerService.updateCategory(category);
-//                loadCategories();
-//            }
-//
-//        }else {
-//
-//            Alert alert = new Alert(Alert.AlertType.ERROR,
-//                    "Please Provide Valid Information !", ButtonType.OK);
-//
-//            alert.initStyle(StageStyle.UTILITY);
-//            alert.showAndWait();
-//
-//
-//        }
-//
-//        name.clear();
-//        status.getSelectionModel().selectFirst();
-//
-//    }
 
-
-//    @FXML
-//    public void delete() {
-//
-//        if (!categoryTable.getSelectionModel().isEmpty()) {
-//
-//            Category category = categoryTable.getSelectionModel().getSelectedItem();
-//
-//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-//                    "Are you sure You Want to delete this Category from System ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
-//            alert.initStyle(StageStyle.UTILITY);
-//            alert.showAndWait();
-//
-//            if (alert.getResult() == ButtonType.YES) {
-//                categoryManagerService.removeCategory(category.getId());
-//                loadCategories();
-//            }
-//
-//        } else if (!brandTable.getSelectionModel().isEmpty()) {
-//
-//            Brand brand = brandTable.getSelectionModel().getSelectedItem();
-//
-//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-//                    "Are you sure You Want to delete this Brand from System ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
-//            alert.initStyle(StageStyle.UTILITY);
-//            alert.showAndWait();
-//
-//            if (alert.getResult() == ButtonType.YES) {
-//                brandManagerService.removeBrand(brand.getId());
-//                loadBrands();
-//            }
-//
-//        }
-//    }
-
-//    private boolean valid() {
-//
-//        return !(name.getCharacters().length() == 0 || type.getSelectionModel().isSelected(0)
-//                || status.getSelectionModel().isSelected(0));
-//    }
 }

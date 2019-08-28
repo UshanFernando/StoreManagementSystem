@@ -455,5 +455,162 @@ CREATE TABLE `products` (
         ]]>
     </query>
 
+    <!-- ==================== queries for salary management ====================== -->
+
+    <!-- Create categories table  -->
+    <query id="create_salary_table">
+        <![CDATA[
+         CREATE TABLE `salary` (
+  `sID` int(5) NOT NULL AUTO_INCREMENT,
+  `eID` varchar(4) DEFAULT NULL,
+  `bonus` double DEFAULT NULL,
+  `overtime` double DEFAULT NULL,
+  `basic` double DEFAULT NULL
+  `deduction` double DEFAULT NULL,
+  `date` VARCHAR(8) DEFAULT NULL,
+  `bonus` double DEFAULT NULL
+
+
+  PRIMARY KEY (`sID`)
+    );
+
+   ]]>
+    </query>
+
+    <!-- Select categories -->
+    <query id="get_salary">
+        <![CDATA[
+            select * from salary
+        ]]>
+    </query>
+
+    <!-- Add  -->
+    <query id="add_salary">
+        <![CDATA[
+          INSERT INTO categories(sID,eID,basic,overtime,basic,deduction,date,bonus) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+        ]]>
+    </query>
+
+
+
+
+    <!-- ==================== queries for employee management====================== -->
+
+    <!-- Create employees table  -->
+    <query id="create_employees_table">
+        <![CDATA[
+        CREATE TABLE `employees` (
+  `empId` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `department` varchar(30) DEFAULT NULL,
+  `level` int(45) DEFAULT NULL,
+  `contact` int(11) DEFAULT NULL,
+  `gender` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `recdate` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`empId`)
+);
+
+
+        ]]>
+    </query>
+
+    <!-- Select employees -->
+    <query id="get_employee">
+        <![CDATA[
+            select * from employees
+        ]]>
+    </query>
+
+    <!-- Add employee -->
+    <query id="add_employee">
+        <![CDATA[
+          INSERT INTO EMPLOYEES VALUES (?,?,?,?,?,?,?,?);
+        ]]>
+    </query>
+
+    <query id="delete_employee">
+        <![CDATA[
+            DELETE FROM employees WHERE empId = ? LIMIT 1
+        ]]>
+    </query>
+
+    <!-- Select a particular employee by id Query -->
+    <query id="employee_by_id">
+        <![CDATA[
+            select * from employees where bid = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular employee by id Query -->
+    <query id="update_employee">
+        <![CDATA[
+            update employees as e
+            set e.empId = ?, e.name = ?,  e.department = ?,e.level = ?,e.contact = ?,e.gender = ?,e.Address = ?,e.recdate = ?
+            where e.empId = ?
+        ]]>
+    </query>
+
+
+
+
+
+
+    <!-- ==================== queries for attendance management ====================== -->
+
+    <!-- Create attendance table  -->
+
+    <query id="create_attendance_table">
+        <![CDATA[
+         CREATE TABLE `attendance`
+  `Employee ID` int(45) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(45) DEFAULT NULL,
+  `Month` varchar(45) DEFAULT NULL,
+   `Year` int(45) DEFAULT NULL,
+      `No of Attendance` int(45) DEFAULT NULL,
+ PRIMARY KEY (`Employee ID`)
+    );
+
+   ]]>
+    </query>
+
+
+    <!-- Select attendance -->
+    <query id="get_attendance">
+        <![CDATA[
+            select * from attendance
+        ]]>
+    </query>
+
+    <!-- Add attendance -->
+    <query id="add_attendance">
+        <![CDATA[
+            insert into attendance(Employee ID, Name, Month, Year, No of Attendance) values(?, ?, ?, ?, ?);
+        ]]>
+    </query>
+
+    <!-- Select a particular attendance by id Query -->
+    <query id="attendance_by_id">
+        <![CDATA[
+            select * from attendance where id = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular attendance by id Query -->
+    <query id="update_attendance">
+        <![CDATA[
+            update attendance as a
+            set a.aid = ?, a.name = ?,  a.month = ?, a.year =?, a.no of attendance = ?
+            where a.aid = ?
+        ]]>
+    </query>
+
+    <!-- Delete a particular attendance by id Query -->
+    <query id="delete_attendance">
+        <![CDATA[
+            DELETE FROM attendance WHERE id = ? LIMIT 1
+        ]]>
+    </query>
+
 
 </Queries>

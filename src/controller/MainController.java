@@ -74,7 +74,7 @@ public class MainController {
 
     @FXML
     public void openAttendanceScene(ActionEvent event) throws IOException {
-        Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/finance.fxml"));
+        Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/attendance.fxml"));
         Stage windowstage = getWindowFromEvent(event);
         windowstage.setScene(new Scene(salesViewParent, 1280, 720));
         windowstage.setTitle("Attendance");
@@ -84,7 +84,7 @@ public class MainController {
 
     @FXML
     public void openSalaryScene(ActionEvent event) throws IOException {
-        Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/finance.fxml"));
+        Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/salary_calculator.fxml"));
         Stage windowstage = getWindowFromEvent(event);
         windowstage.setScene(new Scene(salesViewParent, 1280, 720));
         windowstage.setTitle("Attendance");
@@ -95,7 +95,7 @@ public class MainController {
 
     @FXML
     public void openAdminScene(ActionEvent event) throws IOException {
-        Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/finance.fxml"));
+        Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/employee.fxml"));
         Stage windowstage = getWindowFromEvent(event);
         windowstage.setScene(new Scene(salesViewParent, 1280, 720));
         windowstage.setTitle("Admin");

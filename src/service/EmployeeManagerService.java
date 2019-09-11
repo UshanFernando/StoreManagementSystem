@@ -127,24 +127,26 @@ public class EmployeeManagerService implements EmployeeManagerServiceInterface {
 
         return employee;
     }
-//
-//    @Override
-//    public void updateEmployee(Employee user) {
-//
-//    }
 
-/*
+
+
     @Override
     public void updateEmployee(Employee employee) {
         // TODO Auto-generated method stub
 
         try {
             connection = DBConnection.getDBConnection();
-            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_BRAND));
-            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, employee.getId());
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_EMPLOYEE));
+            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, employee.getEmpId());
             preparedStatement.setString(Constants.COLUMN_INDEX_TWO, employee.getName());
-            preparedStatement.setString(Constants.COLUMN_INDEX_THREE, employee.getStatus());
-            preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, employee.getId());
+            preparedStatement.setString(Constants.COLUMN_INDEX_THREE, employee.getDepartment());
+            preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, employee.getLevel());
+            preparedStatement.setInt(Constants.COLUMN_INDEX_FIVE, employee.getContact());
+            preparedStatement.setString(Constants.COLUMN_INDEX_SIX, employee.getGender());
+            preparedStatement.setString(Constants.COLUMN_INDEX_SEVEN, employee.getAddress());
+            preparedStatement.setString(Constants.COLUMN_INDEX_EIGHT, employee.getRecdate());
+            preparedStatement.setInt(9, employee.getEmpId());
+            System.out.println(preparedStatement.toString());
             preparedStatement.executeUpdate();
 
         } catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
@@ -163,7 +165,6 @@ public class EmployeeManagerService implements EmployeeManagerServiceInterface {
         }
     }
 
-*/
 
     @Override
     public boolean addEmployee(Employee employee) {
@@ -177,7 +178,7 @@ public class EmployeeManagerService implements EmployeeManagerServiceInterface {
             preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, employee.getEmpId());
             preparedStatement.setString(Constants.COLUMN_INDEX_TWO, employee.getName());
             preparedStatement.setString(Constants.COLUMN_INDEX_THREE, employee.getDepartment());
-            preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, employee.getlevel());
+            preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, employee.getLevel());
             preparedStatement.setInt(Constants.COLUMN_INDEX_FIVE, employee.getContact());
             preparedStatement.setString(Constants.COLUMN_INDEX_SIX, employee.getGender());
             preparedStatement.setString(Constants.COLUMN_INDEX_SEVEN, employee.getAddress());

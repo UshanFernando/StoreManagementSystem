@@ -15,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 //import model.Brand;
+//import model.Brand;
 import model.Employee;
 //import model.Category;
 //import service.BrandManagerService;
@@ -24,6 +25,7 @@ import service.EmployeeManagerService;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.jar.Attributes;
 
 public class EmployeeController implements Initializable {
 
@@ -81,16 +83,6 @@ public class EmployeeController implements Initializable {
     TextField erecdate;
 
 
-
-
-
-
-
-
-
-
-
-
     private EmployeeManagerService employeeManagerService;
 
 
@@ -100,7 +92,7 @@ public class EmployeeController implements Initializable {
         empIdColumn.setCellValueFactory(new PropertyValueFactory<>("empId"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         departmentColumn.setCellValueFactory(new PropertyValueFactory<>("department"));
-//        levelColumn.setCellValueFactory(new PropertyValueFactory<>("level"));
+        levelColumn.setCellValueFactory(new PropertyValueFactory<>("level"));
         contactColumn.setCellValueFactory(new PropertyValueFactory<>("contact"));
         genderColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
         AddressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
@@ -111,6 +103,22 @@ public class EmployeeController implements Initializable {
 
 
         loadEmployees();
+        employeeTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+
+                Employee employee = employeeTable.getSelectionModel().getSelectedItem();
+
+                ename.setText(employee.getName());
+                eempId.setText(String.valueOf(employee.getEmpId()));
+                edepartment.setText(employee.getDepartment());
+                elevel.setText(String.valueOf(employee.getLevel()));
+                econtact.setText(String.valueOf(employee.getContact()));
+                erecdate.setText(employee.getRecdate());
+                eAddress.setText(employee.getAddress());
+                egender.setText(employee.getGender());
+
+            }
+        });
 
 
     }
@@ -153,7 +161,7 @@ public class EmployeeController implements Initializable {
             String Address = eAddress.getCharacters().toString();
             String recdate = erecdate.getCharacters().toString();
 
-            Employee employee = new Employee(empId, name , department, level, contact, gender, Address, recdate);
+            Employee employee = new Employee(empId, name, department, level, contact, gender, Address, recdate);
 
             employeeManagerService.addEmployee(employee);
             System.out.println(employee.getName());
@@ -173,7 +181,7 @@ public class EmployeeController implements Initializable {
                 loadCategories();
             }
 */
-        }else {
+        } else {
 
             Alert alert = new Alert(Alert.AlertType.ERROR,
                     "Please Provide Valid Information !", ButtonType.OK);
@@ -188,47 +196,52 @@ public class EmployeeController implements Initializable {
     }
 
 
-//    @FXML
-//    public void update() {
-//
-//        if (valid()) {
-//            if (type.getSelectionModel().isSelected(1)) {
-//
-//                Employee selected = employeeTable.getSelectionModel().getSelectedItem();
-//                Employee employee = new Employee(selected.getId(),name.getCharacters().toString(), status.getValue().toString());
-//                employeeManagerService.updateEmployee(employee);
-//                loadEmployees();
-//
-//            } /*else if (type.getSelectionModel().isSelected(2)) {
-//
-//                Category selected = categoryTable.getSelectionModel().getSelectedItem();
-//                Category category = new Category(selected.getId(),name.getCharacters().toString(), status.getValue().toString());
-//                categoryManagerService.updateCategory(category);
-//                loadCategories();
-//            }
-//*/
-//        }else {
-//
-//            Alert alert = new Alert(Alert.AlertType.ERROR,
-//                    "Please Provide Valid Information !", ButtonType.OK);
-//
-//            alert.initStyle(StageStyle.UTILITY);
-//            alert.showAndWait();
-//
-//
-//        }
-//
-//        name.clear();
-//        status.getSelectionModel().selectFirst();
-//
-//    }
+    @FXML
+    public void update() {
+
+        if (valid()) {
+            int empId = Integer.parseInt(eempId.getCharacters().toString());
+            String name = ename.getCharacters().toString();
+            String department = edepartment.getCharacters().toString();
+            int level = Integer.parseInt(elevel.getCharacters().toString());
+            int contact = Integer.parseInt(econtact.getCharacters().toString());
+            String gender = egender.getCharacters().toString();
+            String Address = eAddress.getCharacters().toString();
+            String recdate = erecdate.getCharacters().toString();
+
+
+            Employee selected = employeeTable.getSelectionModel().getSelectedItem();
+            Employee employee = new Employee(empId, name, department, level, contact, gender, Address, recdate);
+            employeeManagerService.updateEmployee(employee);
+            loadEmployees();
+
+        } /*else if (type.getSelectionModel().isSelected(2)) {
+
+                Category selected = categoryTable.getSelectionModel().getSelectedItem();
+                Category category = new Category(selected.getId(),name.getCharacters().toString(), status.getValue().toString());
+                categoryManagerService.updateCategory(category);
+                loadCategories();
+            }
+*/ else {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "Please Provide Valid Information !", ButtonType.OK);
+
+            alert.initStyle(StageStyle.UTILITY);
+            alert.showAndWait();
+
+
+        }
+
+
+    }
 
 
     @FXML
     public void delete() {
 
 
-    if (!employeeTable.getSelectionModel().isEmpty()) {
+        if (!employeeTable.getSelectionModel().isEmpty()) {
 
             Employee employee = employeeTable.getSelectionModel().getSelectedItem();
 
@@ -257,9 +270,9 @@ public class EmployeeController implements Initializable {
         window.getIcons().add(icon);
     }
 
-   /* private boolean valid() {
+    private boolean valid() {
 
-        return !(name.getCharacters().length() == 0 || type.getSelectionModel().isSelected(0)
-                || status.getSelectionModel().isSelected(0));
-    }*/
+        return !(ename.getCharacters().length() == 0);
+
+    }
 }

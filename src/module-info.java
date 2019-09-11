@@ -5,7 +5,7 @@ module StoreManagementSystem {
     requires java.sql;
     exports  model;
 
-    opens model to javafx.graphics;
+    opens model to jakvafx.graphics;
 
     opens controller;
 

@@ -115,10 +115,8 @@ public class Constants {
     public static final String QUERY_ID_GET_CATEGORIES = "get_categories";
 
     /**
-
-    *Constants for Suppliers
-
-    */
+     * Constants for Suppliers
+     */
 
     public static final String QUERY_ID_CREATE_SUPPLIER_TABLE = "create_supplier_table";
 
@@ -126,13 +124,23 @@ public class Constants {
 
     public static final String QUERY_ID_GET_SUPPLIER_BY_ID = "supplier_by_id";
 
+    public static final String QUERY_ID_UPDATE_SUPPLIER = "update_supplier";
+
+    public static final String QUERY_ID_ADD_SUPPLIER = "add_supplier";
+
+    public static final String QUERY_ID_REMOVE_SUPPLIER = "delete_supplier";
+
+    public static final String QUERY_ID_GET_LAST_SUPPLIER_ID = "last_id_of_supplier";
+
     /**
-    * Constants for Supplier Contacts
-    * */
+     * Constants for Supplier Contacts
+     */
 
     public static final String QUERY_ID_CREATE_SUPPLIER_CONTACT_TABLE = "create_supplier_contact_table";
 
     public static final String QUERY_ID_GET_SUPPLIER_CONTACTS_BY_ID = "get_supplier_contacts_by_id";
+
+//    public static final String QUERY_ID_UPDATE_SUPPLIER_CONTACT = "update_supplier_contact";
 
     /**
      * Constant for Supplier Mail
@@ -142,16 +150,20 @@ public class Constants {
 
     public static final String QUERY_ID_GET_SUPPLIER_EMAIL_BY_ID = "get_supplier_emails_by_id";
 
+//    public static final String QUERY_ID_UPDATE_SUPPLIER_EMAIL = "update_supplier_email";
+
     /**
      * Constant for Orders
-     *
-     * */
+     */
 
-    public static final  String QUERY_ID_CREATE_ORDERS_TABLE = "create_order_table";
+    public static final String QUERY_ID_CREATE_ORDERS_TABLE = "create_order_table";
 
-    public static final  String QUERY_ID_GET_ALL_ORDERS = "get_orders";
+    public static final String QUERY_ID_GET_ALL_ORDERS = "get_orders";
 
-    public static final  String QUERY_ID_GET_ORDER_BY_ID = "get_orders_by_id";
+    public static final String QUERY_ID_GET_ORDER_BY_ID = "get_orders_by_id";
+
+
+//    public static final String QUERY_ID_UPDATE_ORDER_ORDER = "get_update_order";
 
 
 }

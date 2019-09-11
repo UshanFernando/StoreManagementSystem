@@ -8,65 +8,68 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.util.converter.IntegerStringConverter;
 import model.Order;
+import model.Supplier;
 import service.OrderManagerService;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.temporal.TemporalAccessor;
 import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
 
 public class OrderController implements Initializable {
 
     @FXML
-    TableView<Order> orderTableView;
+    private TableView<Order> orderTableView;
 
     @FXML
-    TableColumn columnOrderId;
+    private TableColumn columnOrderId;
 
     @FXML
-    TableColumn columnOrderProduct;
+    private TableColumn columnOrderProduct;
 
     @FXML
-    TableColumn columnOrderQty;
+    private TableColumn columnOrderQty;
 
     @FXML
-    TableColumn columnVendor;
+    private TableColumn columnVendor;
 
     @FXML
-    TableColumn columnOrderDate;
+    private TableColumn columnOrderDate;
 
     @FXML
-    TableColumn columnDeliveryDate;
+    private TableColumn columnDeliveryDate;
 
     @FXML
-    TableColumn columnETA;
+    private TableColumn columnETA;
 
     @FXML
-    TableColumn columnStatus;
+    private TableColumn columnStatus;
 
     @FXML
-    TextField textFieldOrderId;
+    private TextField textFieldOrderId;
 
     @FXML
-    ComboBox comboBoxProduct;
+    private ComboBox comboBoxProduct;
 
     @FXML
-    TextField textFieldQty;
+    private ComboBox comboBoxVendor;
+
+    @FXML
+    private TextField textFieldQty;
 
     private OrderManagerService orderManagerService;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-       columnOrderId.setCellValueFactory(new PropertyValueFactory<>("oid"));
+        columnOrderId.setCellValueFactory(new PropertyValueFactory<>("oid"));
         columnOrderProduct.setCellValueFactory(new PropertyValueFactory<>("product"));
         columnOrderQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         columnVendor.setCellValueFactory(new PropertyValueFactory<>("supplier"));
@@ -75,13 +78,28 @@ public class OrderController implements Initializable {
         columnETA.setCellValueFactory(new PropertyValueFactory<>("eta"));
         columnStatus.setCellValueFactory(new PropertyValueFactory<>("requests"));
 
+        UnaryOperator<TextFormatter.Change> integerFilter = change -> {
+            String newText = change.getControlNewText();
+            if (newText.matches("([1-9][0-9]*)?")) {
+                return change;
+            }
+            return null;
+        };
+
+
+        textFieldOrderId.setTextFormatter(
+                new TextFormatter<Integer>(new IntegerStringConverter(),null, integerFilter)
+        );
+        textFieldQty.setTextFormatter(
+                new TextFormatter<Integer>(new IntegerStringConverter(),null, integerFilter)
+        );
 
         orderManagerService = new OrderManagerService();
 
         loadOrders();
 
         orderTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null){
+            if (newValue != null) {
                 Order order = orderTableView.getSelectionModel().getSelectedItem();
 
                 textFieldOrderId.setText(String.valueOf(order.getOid()));
@@ -93,14 +111,24 @@ public class OrderController implements Initializable {
         });
     }
 
-    private  void loadOrders(){
+    private void loadOrders() {
         ObservableList<Order> orders = orderManagerService.getOrderList();
 
-        if (orders == null){
+        if (orders == null) {
             System.out.println("No Orders");
-        }else {
+        } else {
             orderTableView.setItems(orders);
         }
+    }
+
+    private void loadSuppliers(){
+
+        comboBoxVendor.getItems().add(0,"Load Supplier");
+
+    }
+
+    private void loadProducts(){
+        comboBoxProduct.getItems().add(0,"Load Products");
     }
 
     public void openHomeScenefromOrder(ActionEvent event) throws IOException {

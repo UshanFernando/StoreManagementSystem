@@ -17,11 +17,11 @@ public interface SupplierManagerServiceInterface {
 
     public Supplier getSupplierById(int sid);
 
-    public void  updateSupplier(Supplier supplier);
+    public boolean updateSupplier(Supplier supplier);
 
     public boolean addSupplier(Supplier supplier);
 
-    public  void  removeSupplier(int pid);
+    public boolean removeSupplier(int pid);
 
     public ObservableList<Contact> getContactListByID(int cid);
 

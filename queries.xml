@@ -219,9 +219,8 @@ CREATE TABLE `products` (
     <!-- Select suppliers -->
     <query id="get_suppliers">
         <![CDATA[
-           SELECT s.sid , s.name , c.name as cname, s.address
-           FROM supplier as s , categories as c
-           WHERE c.cid = s.category
+           SELECT s.sid , s.name , c.cid as cid, s.address
+           FROM supplier as s  LEFT JOIN categories as c on c.cid = s.category
         ]]>
     </query>
     <!-- Select a particular Supplier by id Query -->
@@ -246,6 +245,37 @@ CREATE TABLE `products` (
            SELECT se.sid as id, se.email as email
            FROM supplier_email as se
            WHERE se.sid = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular supplier by id Query -->
+    <query id="update_supplier">
+    <![CDATA[
+            update supplier as s
+            set s.sid = ?, s.name = ? , s.category = ? , s.address = ?
+            where s.sid = ?
+        ]]>
+    </query>
+
+    <!-- Add a particular supplier -->
+    <query id="add_supplier">
+        <![CDATA[
+            insert into supplier (sid,name,category,address) values (?, ?, ?, ?);
+
+        ]]>
+    </query>
+
+    <!-- Delete a particular supplier-->
+    <query id="delete_supplier">
+        <![CDATA[
+            DELETE FROM supplier WHERE sid = ? LIMIT 1
+        ]]>
+    </query>
+
+    <!-- Delete a particular supplier-->
+    <query id="last_id_of_supplier">
+        <![CDATA[
+            SELECT sid FROM supplier ORDER BY sid DESC LIMIT 1
         ]]>
     </query>
 
@@ -283,13 +313,12 @@ CREATE TABLE `products` (
                    o.request AS status
             FROM
                     orders AS o
-           LEFT OUTER JOIN products AS p
+           JOIN products AS p
            ON
-                p.pid = o.product,
-           supplier s
-           LEFT OUTER JOIN orders AS op
+                p.pid = o.product
+            JOIN supplier s
            ON
-               op.vendor = s.sid
+               o.vendor = s.sid
         ]]>
     </query>
 
@@ -305,13 +334,12 @@ CREATE TABLE `products` (
                    o.request AS status
             FROM
                     orders AS o
-           LEFT OUTER JOIN products AS p
+           JOIN products AS p
            ON
-                p.pid = o.product,
-           supplier s
-           LEFT OUTER JOIN orders AS op
+                p.pid = o.product
+            JOIN supplier s
            ON
-               op.vendor = s.sid
+               o.vendor = s.sid
            WHERE o.oid = ?
         ]]>
     </query>

@@ -9,61 +9,64 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import model.Contact;
-import model.Mail;
-import model.Supplier;
+import javafx.stage.StageStyle;
+import javafx.util.converter.IntegerStringConverter;
+import model.*;
+import service.CategoryManagerService;
+import service.ProductManagerService;
 import service.SupplierManagerService;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
 
 public class SupplierController  implements Initializable {
     @FXML
-    TableView<Supplier> supplierTableView;
+    private TableView<Supplier> supplierTableView;
 
     @FXML
-    TableView<Contact> tableViewPhone;
+    private TableView<Contact> tableViewPhone;
 
     @FXML
-    TableView<Mail> tableViewEmail;
+    private TableView<Mail> tableViewEmail;
 
     @FXML
-    TableColumn columnSid;
+    private TableColumn columnSid;
 
     @FXML
-    TableColumn columnVendor;
+    private TableColumn columnVendor;
 
     @FXML
-    TableColumn columnCategory;
+    private TableColumn columnCategory;
 
     @FXML
-    TableColumn columnAddress;
+    private TableColumn columnAddress;
 
     @FXML
-    TableColumn columnPhone;
+    private TableColumn columnPhone;
 
     @FXML
-    TableColumn columnEmail;
+    private TableColumn columnEmail;
 
     @FXML
-    TextField textFieldSupplierID;
+    private TextField textFieldSupplierID;
 
     @FXML
-    TextField textFieldVendor;
+    private TextField textFieldVendor;
 
     @FXML
-    TextField textFieldAddress;
+    private TextField textFieldAddress;
 
     @FXML
-    TextField textFieldContact;
+    private TextField textFieldContact;
 
+    @FXML
+    private ComboBox comboBoxCategory;
 
     private SupplierManagerService supplierManagerService;
     @Override
@@ -77,9 +80,22 @@ public class SupplierController  implements Initializable {
         columnPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
         columnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
 
+        UnaryOperator<TextFormatter.Change> integerFilter = change -> {
+            String newText = change.getControlNewText();
+            if (newText.matches("([1-9][0-9]*)?")) {
+                return change;
+            }
+            return null;
+        };
+
+        textFieldSupplierID.setTextFormatter(
+                new TextFormatter<Integer>(new IntegerStringConverter(),null, integerFilter)
+        );
+
         supplierManagerService = new SupplierManagerService();
 
         loadSuppliers();
+        loadCategories();
 
         supplierTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -89,10 +105,101 @@ public class SupplierController  implements Initializable {
                 textFieldSupplierID.setDisable(true);
                 textFieldVendor.setText(supplier.getVendor());
                 textFieldAddress.setText(supplier.getAddress());
+                comboBoxCategory.getSelectionModel().select(supplier.getCategory());
 
 
             }
         });
+    }
+
+    @FXML
+    public void add(){
+        if (valid()){
+            int sid =  Integer.parseInt(textFieldSupplierID.getCharacters().toString());
+            String vendor = textFieldVendor.getCharacters().toString();
+            Category category = (Category) comboBoxCategory.getSelectionModel().getSelectedItem();
+            String address = textFieldAddress.getCharacters().toString();
+
+            Supplier supplier = new Supplier(sid,vendor,category,address);
+            if (supplierManagerService.addSupplier(supplier)){
+                clearData();
+                loadSuppliers();
+            }else {
+
+                Alert alert = new Alert(Alert.AlertType.ERROR,
+                        "Supplier ID Already Exists In the System ! Use a Unique Id !", ButtonType.OK);
+
+                alert.initStyle(StageStyle.UTILITY);
+                alert.showAndWait();
+            }
+
+
+        } else {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "Please Provide Valid Information !", ButtonType.OK);
+
+            alert.initStyle(StageStyle.UTILITY);
+            alert.showAndWait();
+
+
+        }
+
+    }
+
+    private void clearData() {
+        textFieldSupplierID.clear();
+        textFieldVendor.clear();
+        comboBoxCategory.getSelectionModel().select(0);
+        textFieldAddress.clear();
+    }
+
+    private boolean valid() {
+
+        return !(textFieldVendor.getCharacters().length() == 0
+                || textFieldSupplierID.getCharacters().length() == 0
+                || textFieldAddress.getCharacters().length() == 0
+                || comboBoxCategory.getSelectionModel().getSelectedIndex() == 0
+        );
+    }
+
+    @FXML
+    public void delete(){
+        Supplier supplier = supplierTableView.getSelectionModel().getSelectedItem();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                "Are you sure you want to Delete this Supplier from System ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+        alert.initStyle(StageStyle.UTILITY);
+        alert.showAndWait();
+
+        if (alert.getResult() == ButtonType.YES) {
+            supplierManagerService.removeSupplier(supplier.getId());
+            loadSuppliers();
+            clearData();
+        }
+
+    }
+
+    @FXML
+    public void update(){
+        if (valid()){
+            int sid =  Integer.parseInt(textFieldSupplierID.getCharacters().toString());
+            String vendor = textFieldVendor.getCharacters().toString();
+            Category category = (Category) comboBoxCategory.getSelectionModel().getSelectedItem();
+            String address = textFieldAddress.getCharacters().toString();
+
+            Supplier supplier = new Supplier(sid,vendor,category,address);
+            if(supplierManagerService.updateSupplier(supplier)) {
+                loadSuppliers();
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Supplier ID "+ supplier.getId() +" Update Failed !", ButtonType.OK);
+                alert.initStyle(StageStyle.UTILITY);
+                alert.showAndWait();
+            }
+        }else{}
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please Provide Valid Information !", ButtonType.OK);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.showAndWait();
     }
 
     private void loadSuppliers(){
@@ -120,13 +227,33 @@ public class SupplierController  implements Initializable {
         }
     }
 
+    private void loadCategories() {
+
+        CategoryManagerService categoryManagerService = new CategoryManagerService();
+        ObservableList<Category> categories = categoryManagerService.getCategoriesList();
+
+        /*This model will work as a prompt text for combo Box
+        Java 11 Doesnt properly support prompt text on Non Editable ComboBox
+        */
+        Category promtText = new Category("Select   Product Category", null);
+        comboBoxCategory.getItems().add(0, promtText);
+        comboBoxCategory.getSelectionModel().select(0);
+        for (Category category : categories) {
+
+            if (category.isActive()) {
+                comboBoxCategory.getItems().add(category);
+            }
+        }
+
+    }
+
     public void openHomeScenefromSupplier(ActionEvent event) throws IOException {
-        Parent homeViewParent = FXMLLoader.load(getClass().getResource("/view/home.fxml"));
+        Parent homeParent = FXMLLoader.load(getClass().getResource("/view/home.fxml"));
         Stage window = (Stage) ((Node) event.getTarget()).getScene().getWindow();
-        window.setScene(new Scene(homeViewParent, 840, 473));
+        window.setScene(new Scene(homeParent, 840, 473));
         window.centerOnScreen();
         window.setTitle("Store Management Nisha Electricals PVC");
-        Image icon = new Image(MainController.class.getResource("/res/icons/icon.png").toExternalForm(), false);
+        Image icon = new Image(MainController.class.getResource("/res/icons/icon.png").toExternalForm(), true);
         window.getIcons().add(icon);
     }
 

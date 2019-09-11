@@ -57,7 +57,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <ComboBox layoutX="15.0" layoutY="168.0" prefHeight="30.0" prefWidth="234.0" promptText="Select Vendor" style="-fx-background-color: #E1BEE7;">
+                  <ComboBox fx:id="comboBoxVendor" layoutX="15.0" layoutY="168.0" prefHeight="30.0" prefWidth="234.0" promptText="Select Vendor" style="-fx-background-color: #E1BEE7;">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>

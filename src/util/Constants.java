@@ -52,6 +52,8 @@ public class Constants {
 
     public static final int COLUMN_INDEX_SEVEN = 7;
 
+    public static final int COLUMN_INDEX_EIGHT = 8;
+
        /*
 
     Constants for Product Queries
@@ -166,4 +168,117 @@ public class Constants {
 //    public static final String QUERY_ID_UPDATE_ORDER_ORDER = "get_update_order";
 
 
+         /*
+
+    Constants for finance Queries
+
+    */
+
+    public static final String QUERY_ID_CREATE_FINANCE_TABLE = "create_finance_table";
+
+    public static final String QUERY_ID_DROP_FINANCE_TABLE = "drop_table_finance";
+
+    public static final String QUERY_ID_FINANCE_CATEGORY = "update_finance";
+
+    public static final String QUERY_ID_ADD_FINANCE = "add_finance";
+
+    public static final String QUERY_ID_REMOVE_FINANCE = "delete_finance";
+
+    public static final String QUERY_ID_GET_FINANCE_BY_ID = "finance_by_id";
+
+    public static final String QUERY_ID_GET_FINANCE = "get_finance";
+
+
+         /*
+
+    Constants for SALES Queries
+
+    */
+
+    public static final String QUERY_ID_CREATE_SALES_TABLE = "create_sales_table";
+
+    public static final String QUERY_ID_DROP_SALES_TABLE = "drop_table_finance";
+
+    public static final String QUERY_ID_ADD_SALES = "add_sale";
+
+    public static final String QUERY_ID_REMOVE_SALES = "delete_sale";
+
+    public static final String QUERY_ID_GET_SALES = "get_sales";
+
+           /*
+
+    Constants for requests Queries
+
+    */
+
+    public static final String QUERY_ID_CREATE_REQUESTS_TABLE = "create_requests_table";
+
+    public static final String QUERY_ID_DROP_REQUESTS_TABLE = "drop_table_requests";
+
+    public static final String QUERY_ID_REQUESTS_CATEGORY = "update_requests";
+
+    public static final String QUERY_ID_ADD_REQUESTS = "add_requests";
+
+    public static final String QUERY_ID_REMOVE_REQUESTS = "delete_requests";
+
+    public static final String QUERY_ID_GET_REQUESTS_BY_ID = "requests_by_id";
+
+    public static final String QUERY_ID_GET_REQUESTS = "get_requests";
+
+    /*
+    constants for Salary Queries
+    */
+
+    public static final String QUERY_ID_CREATE_SALARY_TABLE = "create_salary_table";
+
+    public static final String QUERY_ID_DROP_SALARY_TABLE = "drop_table_salary";
+
+    public static final String QUERY_ID_UPDATE_SALARY = "update_salary";
+
+    public static final String QUERY_ID_ADD_SALARY = "add_salary";
+
+    public static final String QUERY_ID_REMOVE_SALARY = "delete_salary";
+
+    public static final String QUERY_ID_GET_SALARY_BY_ID = "salary_by_id";
+
+    public static final String QUERY_ID_GET_SALARY = "get_salary";
+
+
+    /*
+
+    Constants for Employee Queries
+
+    */
+
+    public static final String QUERY_ID_CREATE_EMPLOYEE_TABLE = "create_ employee_table";
+
+    public static final String QUERY_ID_DROP_EMPLOYEE_TABLE = "drop_table_employee";
+
+    public static final String QUERY_ID_UPDATE_EMPLOYEE = "update_employee";
+
+    public static final String QUERY_ID_ADD_EMPLOYEE= "add_employee";
+
+    public static final String QUERY_ID_REMOVE_EMPLOYEE = "delete_employee";
+
+    public static final String QUERY_ID_GET_EMPLOYEE_BY_ID = "employee_by_id";
+
+    public static final String QUERY_ID_GET_EMPLOYEE = "get_employee";
+
+     /*
+
+    Constants for attendance Queries
+
+    */
+
+
+    public static final String QUERY_ID_CREATE_ATTENDANCE_TABLE = "create_attendance_table";
+
+    public static final String QUERY_ID_ADD_ATTENDANCE = "add_attendance";
+
+    public static final String QUERY_ID_REMOVE_ATTENDANCE = "delete_attendance";
+
+    public static final String QUERY_ID_GET_ATTENDANCE = "get_attendance";
+
+    public static final String QUERY_ID_GET_ATTENDANCE_BY_ID = "attendance_by_id";
 }
+

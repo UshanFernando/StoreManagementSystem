@@ -540,18 +540,22 @@ CREATE TABLE `products` (
     <!-- Select a particular employee by id Query -->
     <query id="employee_by_id">
         <![CDATA[
-            select * from employees where bid = ?
+            select * from employees where empId = ?
         ]]>
     </query>
 
     <!-- Update a particular employee by id Query -->
     <query id="update_employee">
         <![CDATA[
-            update employees as e
-            set e.empId = ?, e.name = ?,  e.department = ?,e.level = ?,e.contact = ?,e.gender = ?,e.Address = ?,e.recdate = ?
-            where e.empId = ?
+            UPDATE employees
+            SET empId = ?, name = ?, department = ?,level = ?,contact = ?,gender = ?,Address = ?,recdate = ?
+            WHERE empId = ?
         ]]>
     </query>
+
+
+
+
 
 
     <!-- ==================== queries for attendance management ====================== -->
@@ -610,6 +614,16 @@ CREATE TABLE `products` (
         ]]>
     </query>
 
+
+<!-- LOGIN -->
+    <!-- Find whether the department and the emploee id matyches-->
+
+    <query id="match_employee">
+        <![CDATA[
+            SELECT * FROM employees
+            WHERE department = ? and empId = ?
+        ]]>
+    </query>
 
     <!-- ==================== queries for attendance management ====================== -->
 

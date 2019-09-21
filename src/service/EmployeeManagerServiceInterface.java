@@ -15,7 +15,7 @@ public interface EmployeeManagerServiceInterface {
 
     public Employee getEmployeeById(int empId);
 
-    //public void updateEmployee(Employee user);
+    public void updateEmployee(Employee user);
 
     public boolean addEmployee(Employee user);
 

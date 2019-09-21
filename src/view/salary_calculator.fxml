@@ -96,7 +96,7 @@
                     <children>
                         <HBox prefHeight="30.0" prefWidth="994.0" style="-fx-background-color: #096075;">
                             <children>
-                                <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Go Back" textFill="WHITE">
+                                <Button mnemonicParsing="false" onAction="#openHomeScene" style="-fx-background-color: transparent;" text="Go Back" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -200,7 +200,7 @@
                                  <children>
                                     <Label layoutX="8.0" layoutY="5.0" prefHeight="30.0" prefWidth="128.0" style="-fx-font-weight: 200; -fx-font-size: 20px;" text="Salary ID :" />
                                     <Label layoutX="501.0" layoutY="5.0" style="-fx-font-weight: 800; -fx-font-size: 20px;" />
-                                    <TextArea fx:id="sID" layoutX="149.0" layoutY="1.0" prefHeight="37.0" prefWidth="130.0" />
+                                    <TextArea fx:id="sId" layoutX="149.0" layoutY="1.0" prefHeight="37.0" prefWidth="130.0" />
                                  </children>
                               </Pane>
                            </children>

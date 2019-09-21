@@ -53,6 +53,8 @@ public class FinanceManagerService implements FinanceManagerServiceInterface {
     }
 
 
+
+
     @Override
     public ObservableList<Finance> getFinanceList() {
         ObservableList<Finance>  finance = FXCollections.observableArrayList();
@@ -123,34 +125,37 @@ public class FinanceManagerService implements FinanceManagerServiceInterface {
     }
 
     @Override
-    public void updateFinance(Finance user) {
+    public void updateFinance(Finance finance) {
+        // TODO Auto-generated method stub
 
+        try {
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_PRODUCT));
+            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, finance.getId());
+            preparedStatement.setString(Constants.COLUMN_INDEX_TWO, finance.getStatus());
+            preparedStatement.setDouble(Constants.COLUMN_INDEX_THREE, finance.getAmount());
+            preparedStatement.setString(Constants.COLUMN_INDEX_FOUR, finance.getDate());
+            preparedStatement.setInt(5, finance.getId());
+            System.out.println(preparedStatement.toString());
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 
-//    @Override
-//    public void updateFinance(Finance finance) {
-//        // TODO Auto-generated method stub
-//
-//        try {
-//            makeFinanceQuery(finance);
-//            preparedStatement.executeUpdate();
-//
-//        } catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                if (preparedStatement != null) {
-//                    preparedStatement.close();
-//                }
-//                if (connection != null) {
-//                    connection.close();
-//                }
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
 
 
     private void makeFinanceQuery(Finance finance) throws ClassNotFoundException, SQLException, SAXException, IOException, ParserConfigurationException {
@@ -159,7 +164,7 @@ public class FinanceManagerService implements FinanceManagerServiceInterface {
         preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, finance.getId());
         preparedStatement.setString(Constants.COLUMN_INDEX_TWO, finance.getStatus());
         preparedStatement.setDouble(Constants.COLUMN_INDEX_THREE, finance.getAmount());
-        preparedStatement.setString(Constants.COLUMN_INDEX_THREE, finance.getDate());
+        preparedStatement.setString(Constants.COLUMN_INDEX_FOUR, finance.getDate());
 
 
     }
@@ -227,5 +232,7 @@ public class FinanceManagerService implements FinanceManagerServiceInterface {
             }
         }
     }
+
+
 
 }

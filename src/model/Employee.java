@@ -69,10 +69,10 @@ public class Employee {
     public void setDepartment(String department) {
         this.department = department;
     }
-    public int getlevel() {
+    public int getLevel() {
         return level;
     }
-    public void setlevel(int level) {
+    public void setLevel(int level) {
         this.level = level;
     }
 

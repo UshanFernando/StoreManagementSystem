@@ -132,7 +132,7 @@ public class ProductManagerService implements ProductManagerServiceInterface {
 
 
     @Override
-    public boolean updateProduct(Product product) {
+    public boolean updateProduct(Product product , int id) {
 
         boolean success = false;
 
@@ -140,7 +140,7 @@ public class ProductManagerService implements ProductManagerServiceInterface {
             connection = DBConnection.getDBConnection();
             preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_PRODUCT));
             makeQuery(product);
-            preparedStatement.setInt(Constants.COLUMN_INDEX_SEVEN,product.getPid());
+            preparedStatement.setInt(Constants.COLUMN_INDEX_SEVEN,id);
             preparedStatement.executeUpdate();
             success = true;
 

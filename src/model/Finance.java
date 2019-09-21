@@ -1,7 +1,5 @@
 package model;
 
-import java.sql.Date;
-
 public class Finance {
     private int id;
     private String status;

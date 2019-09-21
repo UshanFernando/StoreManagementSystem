@@ -246,7 +246,7 @@ public class InventoryController implements Initializable {
     @FXML
     public void update() {
 
-        if (valid()) {
+        if (valid() && !(product_table.getSelectionModel().isEmpty())) {
 
             int pid = Integer.parseInt(pidTF.getCharacters().toString());
             String name = nameTF.getCharacters().toString();
@@ -255,8 +255,9 @@ public class InventoryController implements Initializable {
             Category category = categoryCB.getSelectionModel().getSelectedItem();
             int qty = Integer.parseInt(qtyTF.getCharacters().toString());
 
+
             Product product = new Product(pid, name, price, brand, category, qty);
-            if (productManagerService.updateProduct(product)) {
+            if (productManagerService.updateProduct(product,product_table.getSelectionModel().getSelectedItem().getPid())) {
                 loadData();
             } else {
 

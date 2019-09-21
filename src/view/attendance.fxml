@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AttendanceController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AttendanceController">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="720.0" prefWidth="1280.0">
          <children>
@@ -137,7 +137,7 @@
                      <children>
                         <HBox prefHeight="30.0" prefWidth="994.0" style="-fx-background-color: #26d47a;">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#add" style="-fx-background-color: transparent;" text="Go Back" textFill="WHITE">
+                              <Button mnemonicParsing="false" onAction="#openHomeScene" style="-fx-background-color: transparent;" text="Go Back" textFill="WHITE">
                                  <graphic>
                                     <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -149,7 +149,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE">
+                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#openHomeScene" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE">
                                  <graphic>
                                     <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                        <image>

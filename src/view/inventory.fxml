@@ -96,6 +96,17 @@
                         <Font size="14.0" />
                      </font>
                         </TextField>
+                  <TextField fx:id="criticalQty" accessibleText="Minimum Stock Level " promptText="Critical Stock quantity" style="-fx-prompt-text-fill: #ff3d00; -fx-background-color: #E1BEE7;">
+                     <padding>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
                   <Button mnemonicParsing="false" onAction="#clear" style="-fx-background-color: transparent;" text="Reset" textFill="WHITE" underline="true">
                      <VBox.margin>
                         <Insets left="240.0" top="5.0" />
@@ -107,20 +118,13 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Label prefHeight="18.0" prefWidth="322.0" textFill="RED" wrapText="true">
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
+                  <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                   <Button alignment="CENTER" mnemonicParsing="false" onAction="#add" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #40c4ff;" text="Add" textFill="WHITE" VBox.vgrow="ALWAYS">
                      <padding>
                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                      </padding>
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets />
                      </VBox.margin>
                      <font>
                         <Font size="18.0" />

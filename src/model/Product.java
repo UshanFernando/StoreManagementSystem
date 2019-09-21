@@ -8,18 +8,28 @@ public class Product {
     private Brand brand;
     private Category category;
     private int qty;
+    private int criticalQty;
 
     public Product() {
 
     }
 
-    public Product(int pid, String name, Double price, Brand brand, Category category, int qty) {
+    public int getCriticalQty() {
+        return criticalQty;
+    }
+
+    public void setCriticalQty(int criticalQty) {
+        this.criticalQty = criticalQty;
+    }
+
+    public Product(int pid, String name, Double price, Brand brand, Category category, int qty, int criticalQty) {
         this.pid = pid;
         this.name = name;
         this.price = price;
         this.brand = brand;
         this.category = category;
         this.qty = qty;
+        this.criticalQty = criticalQty;
     }
 
     public int getPid() {

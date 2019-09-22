@@ -11,15 +11,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import model.Brand;
 import model.Category;
+import model.Notification;
 import model.Product;
 import service.BrandManagerService;
 import service.CategoryManagerService;
+import service.NotificationService;
 import service.ProductManagerService;
 
 import java.io.IOException;
@@ -71,6 +74,9 @@ public class InventoryController implements Initializable {
     @FXML
     TextField qtyTF;
 
+    @FXML
+    TextField criticalQty;
+
     private ProductManagerService productManagerService;
 
     @Override
@@ -106,6 +112,8 @@ public class InventoryController implements Initializable {
                 new TextFormatter<Double>(new DoubleStringConverter(), null, doubleFilter));
         qtyTF.setTextFormatter(
                 new TextFormatter<Integer>(new IntegerStringConverter(), null, integerFilter));
+        criticalQty.setTextFormatter(
+                new TextFormatter<Integer>(new IntegerStringConverter(), null, integerFilter));
 
         productManagerService = new ProductManagerService();
 
@@ -124,9 +132,10 @@ public class InventoryController implements Initializable {
                 brandCB.getSelectionModel().select(product.getBrand());
                 categoryCB.getSelectionModel().select(product.getCategory());
                 qtyTF.setText(String.valueOf(product.getQty()));
-
+                criticalQty.setText(String.valueOf(product.getCriticalQty()));
             }
         });
+
 
     }
 
@@ -141,6 +150,7 @@ public class InventoryController implements Initializable {
             product_table.setItems(products);
         }
 
+        loadNotifications();
 
     }
 
@@ -196,8 +206,10 @@ public class InventoryController implements Initializable {
             Brand brand = brandCB.getSelectionModel().getSelectedItem();
             Category category = categoryCB.getSelectionModel().getSelectedItem();
             int qty = Integer.parseInt(qtyTF.getCharacters().toString());
+            int critQty = Integer.parseInt(criticalQty.getCharacters().toString());
 
-            Product product = new Product(pid, name, price, brand, category, qty);
+
+            Product product = new Product(pid, name, price, brand, category, qty,critQty);
             if (productManagerService.addProduct(product)) {
                 clearData();
                 loadData();
@@ -243,10 +255,44 @@ public class InventoryController implements Initializable {
 
     }
 
+    private void loadNotifications(){
+
+        ObservableList<Notification> notifications ;
+
+
+        NotificationService notificationService = new NotificationService();
+         notifications =  notificationService.getUnreadNotifications();
+
+         if (notifications!= null && notifications.size()>0){
+
+             Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                     "They are new Notifications , Do You Want to View Them ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+             alert.initStyle(StageStyle.UTILITY);
+             alert.showAndWait();
+
+             if (alert.getResult() == ButtonType.YES) {
+                 try {
+                     Parent viewParent = FXMLLoader.load(getClass().getResource("/view/notifications.fxml"));
+                     Stage popupStage = new Stage();
+
+                     popupStage.setScene(new Scene(viewParent, 840, 473));
+                     popupStage.setTitle("Recent Sales");
+                     popupStage.initModality(Modality.WINDOW_MODAL);
+                     popupStage.initOwner(Main.getPrimaryStage());
+
+                     popupStage.show();
+                 }catch (Exception e){
+                     e.printStackTrace();
+                 }
+             }
+         }
+
+    }
+
     @FXML
     public void update() {
 
-        if (valid() && !(product_table.getSelectionModel().isEmpty())) {
+        if (valid()) {
 
             int pid = Integer.parseInt(pidTF.getCharacters().toString());
             String name = nameTF.getCharacters().toString();
@@ -254,19 +300,34 @@ public class InventoryController implements Initializable {
             Brand brand = brandCB.getSelectionModel().getSelectedItem();
             Category category = categoryCB.getSelectionModel().getSelectedItem();
             int qty = Integer.parseInt(qtyTF.getCharacters().toString());
+            int critQty = Integer.parseInt(criticalQty.getCharacters().toString());
 
+            if (!product_table.getSelectionModel().isEmpty()){
 
-            Product product = new Product(pid, name, price, brand, category, qty);
-            if (productManagerService.updateProduct(product,product_table.getSelectionModel().getSelectedItem().getPid())) {
-                loadData();
-            } else {
+                int  pidSelected = product_table.getSelectionModel().getSelectedItem().getPid();
+
+                Product product = new Product(pid, name, price, brand, category, qty ,critQty);
+                if (productManagerService.updateProduct(product,pidSelected)) {
+                    clearData();
+                    loadData();
+                } else {
+
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "Product ID Already Exists In the System ! Use a Unique Id !", ButtonType.OK);
+
+                    alert.initStyle(StageStyle.TRANSPARENT);
+                    alert.showAndWait();
+                }
+            }else {
 
                 Alert alert = new Alert(Alert.AlertType.ERROR,
-                        "Product ID Already Exists In the System ! Use a Unique Id !", ButtonType.OK);
+                        "Please Select a Product To Update!", ButtonType.OK);
 
-                alert.initStyle(StageStyle.UTILITY);
+                alert.initStyle(StageStyle.TRANSPARENT);
                 alert.showAndWait();
             }
+
+
 
 
         } else {
@@ -297,18 +358,20 @@ public class InventoryController implements Initializable {
         pidTF.clear();
         brandCB.getSelectionModel().select(0);
         categoryCB.getSelectionModel().select(0);
+        criticalQty.clear();
 
 
     }
 
     private boolean valid() {
 
-        return !(nameTF.getCharacters().length() == 0
-                || pidTF.getCharacters().length() == 0
-                || priceTF.getCharacters().length() == 0
-                || qtyTF.getCharacters().length() == 0
-                || brandCB.getSelectionModel().getSelectedIndex() == 0
-                || categoryCB.getSelectionModel().getSelectedIndex() == 0
+        return !((nameTF.getCharacters().length() == 0)
+                || (pidTF.getCharacters().length() == 0)
+                || (priceTF.getCharacters().length() == 0)
+                || (qtyTF.getCharacters().length() == 0)
+                || (criticalQty.getCharacters().length() == 0)
+                || (brandCB.getSelectionModel().getSelectedIndex() == 0)
+                || (categoryCB.getSelectionModel().getSelectedIndex() == 0)
         );
     }
 

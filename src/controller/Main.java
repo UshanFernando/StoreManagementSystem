@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import util.SceneManager;
 
 public class Main extends Application {
 
@@ -23,16 +24,9 @@ public class Main extends Application {
         Image icon = new Image(MainController.class.getResource("/res/icons/icon.png").toExternalForm(), false);
         primaryStage.getIcons().add(icon);
         primaryStage.setScene(new Scene(root, 840, 473));
-        setPrimaryStage(primaryStage);
-
-//        Parent root = FXMLLoader.load(getClass().getResource("/view/sales.fxml"));
-//        primaryStage.setScene(new Scene(root, 1280, 720));
-//        primaryStage.setTitle("Inventory Management");
-//
-//        Image icon = new Image(MainController.class.getResource("/res/icons/warehouse.png").toExternalForm(), false);
-//        primaryStage.getIcons().add(icon);
         primaryStage.show();
 
+        setPrimaryStage(primaryStage);
 
     }
 

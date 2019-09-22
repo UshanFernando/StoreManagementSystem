@@ -205,20 +205,27 @@ public class SalesController implements Initializable {
     }
 
     @FXML
-    public void checkout(){
-        System.out.println("came here");
+    public void checkout() throws IOException{
+
         if (saleActive && !(shoppingCart.getItems().isEmpty())) {
-            SaleManagerService saleManagerService = new SaleManagerService();
-            Sale sale = new Sale(0, shoppingCart.getSubTotal(), shoppingCart.getDiscount(), shoppingCart.getNetTotal(), 0, CommonUtil.getCurrentTimeStamp());
-           boolean stat= saleManagerService.addSale(sale);
-           if (stat){
-               Alert alert = new Alert(Alert.AlertType.INFORMATION,
-                       "Checkout Complete !", ButtonType.OK);
-               alert.initStyle(StageStyle.TRANSPARENT);
-               alert.initOwner(Main.getPrimaryStage());
-               alert.showAndWait();
-               reset();
-           }
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/checkout_sales.fxml"));
+
+            Parent viewParent = loader.load();
+            Stage popupStage = new Stage();
+
+            CheckoutController controller =
+                    loader.<CheckoutController>getController();
+            controller.checkout(shoppingCart);
+
+            popupStage.setScene(new Scene(viewParent,300,450));
+            popupStage.initModality(Modality.WINDOW_MODAL);
+            popupStage.initStyle(StageStyle.TRANSPARENT);
+            popupStage.initOwner(Main.getPrimaryStage());
+
+            popupStage.show();
+
+
         }else{
 
             Alert alert = new Alert(Alert.AlertType.ERROR,
@@ -236,6 +243,9 @@ public class SalesController implements Initializable {
         purchasedTable.getItems().clear();
 
     }
+
+
+
 
 
 

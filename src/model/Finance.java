@@ -6,6 +6,14 @@ public class Finance {
     private double amount;
     private String date;
 
+    public Finance() {
+        this.id = 1;
+        this.status = "Statue";
+        this.amount = 12.2;
+        this.date = "Date";
+
+    }
+
     public Finance(int id, String status, double amount, String date) {
 
         this.id = id;

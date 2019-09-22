@@ -79,9 +79,10 @@ public class ProductManagerService implements ProductManagerServiceInterface {
                 Brand brand = brandManagerService.getBrandById(myRs.getInt("brand"));
                 Category category = categoryManagerService.getCategoryById(myRs.getInt("category"));
                 int qty = myRs.getInt("qty");
+                int criticalQty = myRs.getInt("criticalQty");
 
                 // create product object
-                Product currentProduct = new Product(id, name, price, brand, category, qty);
+                Product currentProduct = new Product(id, name, price, brand, category, qty,criticalQty);
 
                 // adding user object to list
                 products.add(currentProduct);
@@ -117,9 +118,9 @@ public class ProductManagerService implements ProductManagerServiceInterface {
                 Brand brand = brandManagerService.getBrandById(myRs.getInt("brand"));
                 Category category = categoryManagerService.getCategoryById(myRs.getInt("category"));
                 int qty = myRs.getInt("qty");
-
+                int criticalQty = myRs.getInt("criticalQty");
                 // create product object
-                product = new Product(id, name, price, brand, category, qty);
+                product = new Product(id, name, price, brand, category, qty,criticalQty);
 
             }
 
@@ -132,7 +133,7 @@ public class ProductManagerService implements ProductManagerServiceInterface {
 
 
     @Override
-    public boolean updateProduct(Product product , int id) {
+    public boolean updateProduct(Product product , int pid) {
 
         boolean success = false;
 
@@ -140,7 +141,8 @@ public class ProductManagerService implements ProductManagerServiceInterface {
             connection = DBConnection.getDBConnection();
             preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_PRODUCT));
             makeQuery(product);
-            preparedStatement.setInt(Constants.COLUMN_INDEX_SEVEN,id);
+            preparedStatement.setInt(Constants.COLUMN_INDEX_EIGHT,pid);
+            System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
             success = true;
 
@@ -206,6 +208,7 @@ public class ProductManagerService implements ProductManagerServiceInterface {
         preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, product.getBrand().getId());
         preparedStatement.setInt(Constants.COLUMN_INDEX_FIVE, product.getCategory().getId());
         preparedStatement.setInt(Constants.COLUMN_INDEX_SIX, product.getQty());
+        preparedStatement.setInt(Constants.COLUMN_INDEX_SEVEN,product.getCriticalQty());
     }
 
 

@@ -24,9 +24,10 @@ public interface ProductManagerServiceInterface {
 
     public Product getProductById(int pid);
 
-    public boolean updateProduct(Product user , int id);
+    public boolean updateProduct(Product product , int pid);
 
-    public boolean addProduct(Product user);
+    public boolean addProduct(Product product);
 
     public void removeProduct(int pid);
+
 }

@@ -101,7 +101,7 @@ public class FinanceManagerService implements FinanceManagerServiceInterface {
         try {
 
             connection = DBConnection.getDBConnection();
-            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_GET_BRAND_BY_ID));
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_GET_FINANCE));
             preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, userId);
             myRs = preparedStatement.executeQuery();
 
@@ -130,12 +130,12 @@ public class FinanceManagerService implements FinanceManagerServiceInterface {
 
         try {
             connection = DBConnection.getDBConnection();
-            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_PRODUCT));
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_FINANCE));
             preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, finance.getId());
             preparedStatement.setString(Constants.COLUMN_INDEX_TWO, finance.getStatus());
             preparedStatement.setDouble(Constants.COLUMN_INDEX_THREE, finance.getAmount());
             preparedStatement.setString(Constants.COLUMN_INDEX_FOUR, finance.getDate());
-            preparedStatement.setInt(5, finance.getId());
+            preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, finance.getId());
             System.out.println(preparedStatement.toString());
             preparedStatement.executeUpdate();
 
@@ -158,16 +158,16 @@ public class FinanceManagerService implements FinanceManagerServiceInterface {
 
 
 
-    private void makeFinanceQuery(Finance finance) throws ClassNotFoundException, SQLException, SAXException, IOException, ParserConfigurationException {
-        connection = DBConnection.getDBConnection();
-        preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_PRODUCT));
-        preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, finance.getId());
-        preparedStatement.setString(Constants.COLUMN_INDEX_TWO, finance.getStatus());
-        preparedStatement.setDouble(Constants.COLUMN_INDEX_THREE, finance.getAmount());
-        preparedStatement.setString(Constants.COLUMN_INDEX_FOUR, finance.getDate());
-
-
-    }
+//    private void makeFinanceQuery(Finance finance) throws ClassNotFoundException, SQLException, SAXException, IOException, ParserConfigurationException {
+//        connection = DBConnection.getDBConnection();
+//        preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_FINANCE));
+//        preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, finance.getId());
+//        preparedStatement.setString(Constants.COLUMN_INDEX_TWO, finance.getStatus());
+//        preparedStatement.setDouble(Constants.COLUMN_INDEX_THREE, finance.getAmount());
+//        preparedStatement.setString(Constants.COLUMN_INDEX_FOUR, finance.getDate());
+//
+//
+//    }
 
     @Override
     public boolean addFinance(Finance finance) {

@@ -54,7 +54,6 @@ public class Constants {
 
     public static final int COLUMN_INDEX_EIGHT = 8;
 
-
        /*
 
     Constants for Product Queries
@@ -165,17 +164,17 @@ public class Constants {
 
     public static final String QUERY_ID_CREATE_FINANCE_TABLE = "create_finance_table";
 
-    public static final String QUERY_ID_DROP_FINANCE_TABLE = "drop_table_finance";
+//    public static final String QUERY_ID_DROP_FINANCE_TABLE = "drop_table_finance";
 
-    public static final String QUERY_ID_FINANCE_CATEGORY = "update_finance";
+//    public static final String QUERY_ID_FINANCE_CATEGORY = "update_finance";
 
     public static final String QUERY_ID_ADD_FINANCE = "add_finance";
 
     public static final String QUERY_ID_REMOVE_FINANCE = "delete_finance";
 
-    public static final String QUERY_ID_UPDATE_FINANCE = "update_brand";
+    public static final String QUERY_ID_UPDATE_FINANCE = "update_finance";
 
-    public static final String QUERY_ID_GET_FINANCE_BY_ID = "finance_by_id";
+//    public static final String QUERY_ID_GET_FINANCE_BY_ID = "finance_by_id";
 
     public static final String QUERY_ID_GET_FINANCE = "get_finance";
 
@@ -296,6 +295,25 @@ Constants for Login Queries
 
         */
 public static final String QUERY_ID_MATCH_EMPLOYEE = "match_employee";
+
+
+
+        /*
+
+    Constants for notifications Queries
+
+    */
+
+
+    public static final String QUERY_ID_CREATE_NOTIFICATION_TABLE = "create_notifications_table";
+
+    public static final String QUERY_ID_UPDATE_NOTIFICATION = "update_notification";
+
+    public static final String QUERY_ID_GET_UNREAD_NOTIFICATION = "get_notifications_unread";
+
+    public static final String QUERY_ID_GET_ALL_NOTIFICATION = "get_notifications";
+
+    public static final String QUERY_ID_DELETE_NOTIFICATION = "delete_notification";
 
 }
 

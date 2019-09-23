@@ -54,7 +54,6 @@ public class Constants {
 
     public static final int COLUMN_INDEX_EIGHT = 8;
 
-
        /*
 
     Constants for Product Queries
@@ -294,6 +293,25 @@ Constants for Login Queries
 
         */
 public static final String QUERY_ID_MATCH_EMPLOYEE = "match_employee";
+
+
+
+        /*
+
+    Constants for notifications Queries
+
+    */
+
+
+    public static final String QUERY_ID_CREATE_NOTIFICATION_TABLE = "create_notifications_table";
+
+    public static final String QUERY_ID_UPDATE_NOTIFICATION = "update_notification";
+
+    public static final String QUERY_ID_GET_UNREAD_NOTIFICATION = "get_notifications_unread";
+
+    public static final String QUERY_ID_GET_ALL_NOTIFICATION = "get_notifications";
+
+    public static final String QUERY_ID_DELETE_NOTIFICATION = "delete_notification";
 
 }
 

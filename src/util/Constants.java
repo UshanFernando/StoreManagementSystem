@@ -172,7 +172,7 @@ public class Constants {
 
     public static final String QUERY_ID_GET_ORDER_BY_ID = "get_orders_by_id";
 
-    public static final String QUERY_ID_UPDATE_ORDER = "update_order_by_id";
+    public static final String QUERY_ID_UPDATE_ORDER = "update_orders_by_id";
 
     public static final String QUERY_ID_ADD_ORDER = "add_orders";
 

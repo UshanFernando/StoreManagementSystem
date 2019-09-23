@@ -27,12 +27,12 @@
             <right>
                 <VBox prefHeight="720.0" prefWidth="344.0" style="-fx-background-color: #30db91;" BorderPane.alignment="CENTER">
                     <children>
-                        <Label alignment="CENTER" prefHeight="32.0" prefWidth="278.0" text="Employee Management" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                        <Label alignment="CENTER" prefHeight="32.0" prefWidth="278.0" style="-fx-background-color: #e6ed76;" text="Employee Management" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
                             <font>
                                 <Font size="22.0" />
                             </font>
                             <VBox.margin>
-                                <Insets left="5.0" top="10.0" />
+                                <Insets bottom="10.0" left="10.0" top="10.0" />
                             </VBox.margin>
                         </Label>
                   <TextField fx:id="eempId" layoutX="30.0" layoutY="82.0" promptText="Emp No" />
@@ -82,7 +82,7 @@
                             <VBox.margin>
                                 <Insets left="20.0" top="20.0" />
                             </VBox.margin></Button>
-                        <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="296.0" style="-fx-background-color: #f06292;" text="UPDATE">
+                        <Button mnemonicParsing="false" onAction="#update" prefHeight="46.0" prefWidth="296.0" style="-fx-background-color: #f06292;" text="UPDATE">
                             <VBox.margin>
                                 <Insets left="20.0" top="20.0" />
                             </VBox.margin>
@@ -107,7 +107,7 @@
                     <children>
                   <HBox prefHeight="30.0" prefWidth="994.0" style="-fx-background-color:  #00571e;">
                      <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" onAction="#openMainfromEmployee" text="Go Back" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#openMainfromEmployee" style="-fx-background-color: transparent;" text="Go Back" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                  <effect>
@@ -144,14 +144,10 @@
                                 <TableView fx:id="employeeTable" prefHeight="647.0" prefWidth="913.0">
                                     <columns>
                                         <TableColumn fx:id="empIdColumn" prefWidth="77.60000169277191" text="Emp No" />
-                                        <TableColumn fx:id="nameColumn" prefWidth="126.39999389648438" text="Name" />
-                                        <TableColumn prefWidth="150.4000015258789" text="User Access Level">
-                                            <columns>
-                                                <TableColumn fx:id="departmentColumn" prefWidth="75.0" text="Department" />
-                                                <TableColumn fx:id="levelColumn" prefWidth="75.0" text="Level" />
-                                            </columns>
-                                        </TableColumn>
-                                        <TableColumn fx:id="contactColumn" prefWidth="178.40003967285156" text="Contact Number" />
+                                        <TableColumn fx:id="nameColumn" prefWidth="187.0" text="Name" />
+                              <TableColumn fx:id="departmentColumn" prefWidth="90.0" text="Department" />
+                              <TableColumn fx:id="levelColumn" prefWidth="62.0" text="Level" />
+                                        <TableColumn fx:id="contactColumn" prefWidth="117.0" text="Contact Number" />
 
                                         <TableColumn fx:id="genderColumn" minWidth="0.0" prefWidth="74.0" text="Gender" />
                                         <TableColumn fx:id="AddressColumn" minWidth="6.4000244140625" prefWidth="176.0" text="Address" />

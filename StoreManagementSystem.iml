@@ -10,5 +10,8 @@
     <orderEntry type="library" name="lib" level="application" />
     <orderEntry type="library" name="mysql-connector-java-8.0.16" level="project" />
     <orderEntry type="library" name="javafx-swt" level="application" />
+    <orderEntry type="library" name="jasperreports-fonts-6.9.0" level="project" />
+    <orderEntry type="library" name="jasperreports-6.9.0" level="project" />
+    <orderEntry type="library" name="commons-beanutils-1.8.3" level="project" />
   </component>
 </module>

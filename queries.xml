@@ -540,10 +540,13 @@ CREATE TABLE `products` (
     <query id="update_orders_by_id">
         <![CDATA[
            update orders as o
-           set o.product = ?,
-               o.qty = ?
-               o.vendor = ?
-               o.orderDate = ?
+           set
+               o.oid = ?,
+               o.product = ?,
+               o.qty = ?,
+               o.vendor = ?,
+               o.orderDate = ?,
+               o.deliveryDate = ?,
                o.request = ?
            where o.oid = ?
         ]]>
@@ -557,7 +560,7 @@ CREATE TABLE `products` (
     </query>
 
     <!-- add new orders-->
-    <query id="delete_orders_by_id">
+    <query id="add_orders">
         <![CDATA[
            INSERT INTO orders VALUES(?,?,?,?,?,?,?);
         ]]>

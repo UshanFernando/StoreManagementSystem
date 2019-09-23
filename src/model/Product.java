@@ -22,6 +22,7 @@ public class Product {
         this.criticalQty = criticalQty;
     }
 
+
     public Product(int pid, String name, Double price, Brand brand, Category category, int qty, int criticalQty) {
         this.pid = pid;
         this.name = name;
@@ -80,4 +81,8 @@ public class Product {
         this.qty = qty;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }

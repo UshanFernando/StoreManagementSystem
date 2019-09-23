@@ -66,16 +66,15 @@ public class CheckoutController implements Initializable {
 
 
         receivedTF.setTextFormatter(
-                new TextFormatter<Integer>(new IntegerStringConverter(), null, doubleFilter));
+                new TextFormatter<Double>(new DoubleStringConverter(), null, doubleFilter));
         totalTF.setDisable(true);
 
-        balanceTF.setTextFormatter(
-                new TextFormatter<Double>(new DoubleStringConverter(), null, doubleFilter));
+
 
         receivedTF.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null && !newValue.isEmpty()) {
+            if (newValue != null && !newValue.isEmpty() ){
 
-                double balance = cart.getNetTotal() - Double.parseDouble(newValue);
+                double balance =  (Double.parseDouble(newValue)) -cart.getNetTotal() ;
 
                 balanceTF.setText(String.valueOf(balance));
             }

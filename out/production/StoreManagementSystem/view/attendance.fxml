@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AttendanceController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="720.0" prefWidth="1280.0">
+         <children>
+            <BorderPane prefHeight="736.0" prefWidth="1280.0">
+               <right>
+                  <VBox prefHeight="736.0" prefWidth="344.0" style="-fx-background-color: #26d47a;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="Attendance &amp; Leave Management" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="IDField" promptText="EmployeeID">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="50.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="NameField" promptText="Name">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="MonthField" promptText="Month">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="YearField" promptText="Year">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="AtField" promptText="No of Attendance">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#add" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #40c4ff;" text="Add" textFill="WHITE" VBox.vgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <effect>
+                              <DropShadow color="#000000ae" height="15.04" radius="5.529999999999999" width="9.08" />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" top="50.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#update" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #fbc02d;" text="Update" textFill="WHITE" VBox.vgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <effect>
+                              <DropShadow color="#000000ae" height="15.04" radius="5.529999999999999" width="9.08" />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#delete" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #ff3d00;" text="Delete" textFill="#fcf3f3" VBox.vgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <effect>
+                              <DropShadow color="#000000ae" height="15.04" radius="5.529999999999999" width="9.08" />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #8132a8;" text="Monthly Report" textFill="#fcfafa">
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #93a832;" text="Leave">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </right>
+               <center>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox prefHeight="30.0" prefWidth="994.0" style="-fx-background-color: #26d47a;">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#add" style="-fx-background-color: transparent;" text="Go Back" textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../res/icons/left-arrow.png" />
+                                       </image>
+                                       <effect>
+                                          <ColorAdjust brightness="1.0" contrast="0.1" hue="-0.19" saturation="1.0" />
+                                       </effect>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../res/icons/logout.png" />
+                                       </image>
+                                       <effect>
+                                          <ColorAdjust brightness="1.0" contrast="0.1" hue="-0.19" saturation="1.0" />
+                                       </effect>
+                                    </ImageView>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <SplitPane prefWidth="200.0">
+                           <items>
+                              <TableView fx:id="attendanceTable" prefHeight="945.0" prefWidth="934.0">
+                                 <columns>
+                                    <TableColumn fx:id="idColumn" prefWidth="173.0" text="Employee ID" />
+                                    <TableColumn fx:id="EnameColumn" prefWidth="235.0" text="Name" />
+                                    <TableColumn fx:id="monColumn" minWidth="0.0" prefWidth="150.0" text="Month" />
+                                    <TableColumn fx:id="yColumn" prefWidth="138.0" text="Year" />
+                                    <TableColumn fx:id="atColumn" prefWidth="239.0" text="No of Attendance" />
+                                 </columns>
+                              </TableView>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

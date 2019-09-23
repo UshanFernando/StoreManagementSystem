@@ -221,21 +221,6 @@
                               <Insets left="50.0" />
                            </HBox.margin>
                         </Button>
-                        <Button layoutX="162.0" layoutY="15.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Stats" textFill="WHITE">
-                           <graphic>
-                              <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../res/icons/pie-chart.png" />
-                                 </image>
-                                 <effect>
-                                    <ColorAdjust brightness="1.0" contrast="0.1" hue="-0.19" saturation="1.0" />
-                                 </effect>
-                              </ImageView>
-                           </graphic>
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </Button>
                             </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

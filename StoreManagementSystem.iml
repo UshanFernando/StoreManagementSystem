@@ -7,9 +7,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="lib" level="application" />
     <orderEntry type="library" name="mysql-connector-java-8.0.16" level="project" />
-    <orderEntry type="library" name="mysql-connector-java-8.0.16" level="application" />
-    <orderEntry type="library" name="aquafx-0.1" level="application" />
-    <orderEntry type="library" name="Javafx-11" level="project" />
+    <orderEntry type="library" name="javafx-swt" level="application" />
   </component>
 </module>

@@ -148,6 +148,103 @@ public class SupplierManagerService implements SupplierManagerServiceInterface {
         return eMail;
     }
 
+    @Override
+    public boolean addMail(Mail mail) {
+        boolean success = false;
+        try {
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_ADD_SUPPLIER_EMAIL));
+            makeQueryMail(mail);
+            preparedStatement.setInt(Constants.COLUMN_INDEX_THREE, mail.getId());
+//            preparedStatement.executeUpdate();
+            preparedStatement.execute();
+            success = true;
+        } catch (IOException | ClassNotFoundException | SQLException | SAXException | ParserConfigurationException e) {
+            e.printStackTrace();
+        } finally {
+            connectionClose();
+        }
+        return success;
+
+    }
+
+    @Override
+    public boolean updateMail(Mail mail) {
+        boolean success = false;
+        try {
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_SUPPLIER_EMAIL));
+            makeQueryMail(mail);
+            preparedStatement.setInt(Constants.COLUMN_INDEX_THREE, mail.getId());
+            preparedStatement.executeUpdate();
+            success = true;
+        } catch (IOException | ClassNotFoundException | SQLException | SAXException | ParserConfigurationException e) {
+            e.printStackTrace();
+        } finally {
+            connectionClose();
+        }
+        return success;
+    }
+
+    @Override
+    public boolean removeMail(int sid) {
+        boolean success = false;
+        try {
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_REMOVE_SUPPLIER));
+            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, sid);
+            preparedStatement.execute();
+            success = true;
+        } catch (IOException | ClassNotFoundException | SQLException | SAXException | ParserConfigurationException e) {
+            e.printStackTrace();
+        } finally {
+            connectionClose();
+        }
+        return success;
+    }
+
+    @Override
+    public boolean addContact(Contact contact) {
+        boolean success = false;
+        try {
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_ADD_SUPPLIER_CONTACT));
+            makeQueryContact(contact);
+            preparedStatement.setInt(Constants.COLUMN_INDEX_THREE, contact.getId());
+//            preparedStatement.executeUpdate();
+            preparedStatement.execute();
+            success = true;
+        } catch (IOException | ClassNotFoundException | SQLException | SAXException | ParserConfigurationException e) {
+            e.printStackTrace();
+        } finally {
+            connectionClose();
+        }
+        return success;
+    }
+
+    @Override
+    public boolean updateContact(Contact contact) {
+        boolean success = false;
+        try {
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_SUPPLIER_CONTACT));
+            makeQueryContact(contact);
+            preparedStatement.setInt(Constants.COLUMN_INDEX_FIVE, contact.getId());
+            preparedStatement.executeUpdate();
+            success = true;
+        } catch (IOException | ClassNotFoundException | SQLException | SAXException | ParserConfigurationException e) {
+            e.printStackTrace();
+        } finally {
+            connectionClose();
+        }
+        return success;
+    }
+
+    @Override
+    public boolean removeContact(int sid) {
+        return false;
+    }
+
 
     @Override
     public Supplier getSupplierById(int sid) {
@@ -162,7 +259,7 @@ public class SupplierManagerService implements SupplierManagerServiceInterface {
             while (myresultSet.next()) {
                 int id = myresultSet.getInt("sid");
                 String vendor = myresultSet.getString("name");
-                Category category = categoryManagerService.getCategoryById(myresultSet.getInt("cname"));
+                Category category = categoryManagerService.getCategoryById(myresultSet.getInt("category"));
                 String address = myresultSet.getString("address");
 
                 suppliers = new Supplier(id, vendor, category, address);
@@ -219,6 +316,7 @@ public class SupplierManagerService implements SupplierManagerServiceInterface {
             preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_REMOVE_SUPPLIER));
             preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, sid);
             preparedStatement.execute();
+            success = true;
         } catch (IOException | ClassNotFoundException | SQLException | SAXException | ParserConfigurationException e) {
             e.printStackTrace();
         } finally {
@@ -226,6 +324,8 @@ public class SupplierManagerService implements SupplierManagerServiceInterface {
         }
         return success;
     }
+
+
 
     private int getLastIdOfSupplier() {
         int id = -1;
@@ -249,6 +349,16 @@ public class SupplierManagerService implements SupplierManagerServiceInterface {
 
     }
 
+    private void makeQueryContact(Contact contact) throws SQLException{
+        preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, contact.getId());
+        preparedStatement.setString(Constants.COLUMN_INDEX_TWO, contact.getPhone());
+    }
+
+    private void makeQueryMail(Mail mail) throws SQLException{
+        preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, mail.getId());
+        preparedStatement.setString(Constants.COLUMN_INDEX_TWO, mail.getEmail());
+    }
+
     private void connectionClose() {
         try {
             if (preparedStatement != null) {
@@ -261,4 +371,6 @@ public class SupplierManagerService implements SupplierManagerServiceInterface {
             e.printStackTrace();
         }
     }
+
+
 }

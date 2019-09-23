@@ -26,4 +26,16 @@ public interface SupplierManagerServiceInterface {
     public ObservableList<Contact> getContactListByID(int cid);
 
     public ObservableList<Mail> getEmailListByID(int cid);
+
+    public boolean addMail(Mail mail);
+
+    public boolean updateMail(Mail mail);
+
+    public boolean removeMail(int sid);
+
+    public boolean addContact(Contact contact);
+
+    public boolean updateContact(Contact contact);
+
+    public boolean removeContact(int sid);
 }

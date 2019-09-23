@@ -14,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
 import model.Order;
+import model.OrderItem;
 import model.Supplier;
 import service.OrderManagerService;
 
@@ -26,7 +27,7 @@ import java.util.function.UnaryOperator;
 public class OrderController implements Initializable {
 
     @FXML
-    private TableView<Order> orderTableView;
+    private TableView<OrderItem> orderTableView;
 
     @FXML
     private TableColumn columnOrderId;
@@ -66,17 +67,18 @@ public class OrderController implements Initializable {
 
     private OrderManagerService orderManagerService;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        columnOrderId.setCellValueFactory(new PropertyValueFactory<>("oid"));
-        columnOrderProduct.setCellValueFactory(new PropertyValueFactory<>("product"));
+        columnOrderId.setCellValueFactory(new PropertyValueFactory<>("orderID"));
+        columnOrderProduct.setCellValueFactory(new PropertyValueFactory<>("productName"));
         columnOrderQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
-        columnVendor.setCellValueFactory(new PropertyValueFactory<>("supplier"));
+        columnVendor.setCellValueFactory(new PropertyValueFactory<>("vendor"));
         columnOrderDate.setCellValueFactory(new PropertyValueFactory<>("orderDate"));
         columnDeliveryDate.setCellValueFactory(new PropertyValueFactory<>("deliveryDate"));
         columnETA.setCellValueFactory(new PropertyValueFactory<>("eta"));
-        columnStatus.setCellValueFactory(new PropertyValueFactory<>("requests"));
+        columnStatus.setCellValueFactory(new PropertyValueFactory<>("request"));
 
         UnaryOperator<TextFormatter.Change> integerFilter = change -> {
             String newText = change.getControlNewText();
@@ -100,11 +102,11 @@ public class OrderController implements Initializable {
 
         orderTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                Order order = orderTableView.getSelectionModel().getSelectedItem();
+                OrderItem orderItem = orderTableView.getSelectionModel().getSelectedItem();
 
-                textFieldOrderId.setText(String.valueOf(order.getOid()));
+                textFieldOrderId.setText(String.valueOf(orderItem.getOrderID()));
                 textFieldOrderId.setDisable(true);
-                textFieldQty.setText(order.getQty());
+                textFieldQty.setText(orderItem.getQty());
 
 
             }
@@ -112,7 +114,7 @@ public class OrderController implements Initializable {
     }
 
     private void loadOrders() {
-        ObservableList<Order> orders = orderManagerService.getOrderList();
+        ObservableList<OrderItem> orders = orderManagerService.getOrderList();
 
         if (orders == null) {
             System.out.println("No Orders");

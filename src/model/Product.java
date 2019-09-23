@@ -8,6 +8,7 @@ public class Product {
     private Brand brand;
     private Category category;
     private int qty;
+    private String status;
 
     public Product() {
 
@@ -20,6 +21,11 @@ public class Product {
         this.brand = brand;
         this.category = category;
         this.qty = qty;
+    }
+
+    public Product(String name, String status){
+        this.name = name;
+        this.status = status;
     }
 
     public int getPid() {

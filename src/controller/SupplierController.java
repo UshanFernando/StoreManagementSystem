@@ -62,11 +62,15 @@ public class SupplierController  implements Initializable {
     @FXML
     private TextField textFieldAddress;
 
+
+    @FXML
+    private ComboBox comboBoxCategory;
+
     @FXML
     private TextField textFieldContact;
 
     @FXML
-    private ComboBox comboBoxCategory;
+    private TextField textFieldEmail;
 
     private SupplierManagerService supplierManagerService;
     @Override
@@ -102,7 +106,8 @@ public class SupplierController  implements Initializable {
                 Supplier supplier = supplierTableView.getSelectionModel().getSelectedItem();
                 loadContacts(supplier.getId());
                 textFieldSupplierID.setText(String.valueOf(supplier.getId()));
-                textFieldSupplierID.setDisable(true);
+//                textFieldSupplierID.setDisable(true);
+                textFieldSupplierID.setEditable(false);
                 textFieldVendor.setText(supplier.getVendor());
                 textFieldAddress.setText(supplier.getAddress());
                 comboBoxCategory.getSelectionModel().select(supplier.getCategory());
@@ -110,6 +115,26 @@ public class SupplierController  implements Initializable {
 
             }
         });
+
+        tableViewPhone.getSelectionModel().selectedItemProperty().addListener((observableValue, contact, t1) -> {
+            if (t1 != null){
+                Contact contact1 = tableViewPhone.getSelectionModel().getSelectedItem();
+                textFieldContact.setText(contact1.getPhone());
+            }
+        });
+
+        tableViewEmail.getSelectionModel().selectedItemProperty().addListener((observableValue, mail, t2) ->{
+            if(t2 != null){
+                Mail mail1 = tableViewEmail.getSelectionModel().getSelectedItem();
+                textFieldEmail.setText(mail1.getEmail());
+            }
+        } );
+    }
+    @FXML
+    public void clear(){
+        clearData();
+//        textFieldSupplierID.setDisable(false);
+        textFieldSupplierID.setEditable(true);
     }
 
     @FXML
@@ -152,12 +177,27 @@ public class SupplierController  implements Initializable {
         textFieldVendor.clear();
         comboBoxCategory.getSelectionModel().select(0);
         textFieldAddress.clear();
+        textFieldContact.clear();
+        textFieldEmail.clear();
     }
 
     private boolean valid() {
 
         return !(textFieldVendor.getCharacters().length() == 0
                 || textFieldSupplierID.getCharacters().length() == 0
+                || textFieldAddress.getCharacters().length() == 0
+                || comboBoxCategory.getSelectionModel().getSelectedIndex() == 0
+        );
+    }
+
+    private boolean validpn(){ return !(textFieldContact.getCharacters().length() == 0);}
+
+    private boolean validem(){ return !(textFieldEmail.getCharacters().length() == 0);}
+
+
+    private boolean validUpdate() {
+
+        return !(textFieldVendor.getCharacters().length() == 0
                 || textFieldAddress.getCharacters().length() == 0
                 || comboBoxCategory.getSelectionModel().getSelectedIndex() == 0
         );
@@ -174,6 +214,8 @@ public class SupplierController  implements Initializable {
 
         if (alert.getResult() == ButtonType.YES) {
             supplierManagerService.removeSupplier(supplier.getId());
+            supplierManagerService.removeMail(supplier.getId());
+            supplierManagerService.removeContact(supplier.getId());
             loadSuppliers();
             clearData();
         }
@@ -182,7 +224,7 @@ public class SupplierController  implements Initializable {
 
     @FXML
     public void update(){
-        if (valid()){
+        if (validUpdate()){
             int sid =  Integer.parseInt(textFieldSupplierID.getCharacters().toString());
             String vendor = textFieldVendor.getCharacters().toString();
             Category category = (Category) comboBoxCategory.getSelectionModel().getSelectedItem();
@@ -196,10 +238,11 @@ public class SupplierController  implements Initializable {
                 alert.initStyle(StageStyle.UTILITY);
                 alert.showAndWait();
             }
-        }else{}
+        }else {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Please Provide Valid Information !", ButtonType.OK);
             alert.initStyle(StageStyle.UTILITY);
             alert.showAndWait();
+        }
     }
 
     private void loadSuppliers(){

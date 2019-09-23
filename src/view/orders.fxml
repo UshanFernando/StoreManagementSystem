@@ -208,8 +208,8 @@
                             <TableColumn fx:id="columnVendor" prefWidth="178.40003967285156" text="Vendor" />
                               <TableColumn fx:id="columnOrderDate" prefWidth="126.39999389648438" text="Order Date" />
                               <TableColumn fx:id="columnDeliveryDate" minWidth="0.0" prefWidth="174.4000244140625" text="Delivery Date" />
-                              <TableColumn fx:id="columnETA" minWidth="6.4000244140625" prefWidth="190.13323974609375" text="ETA" />
-                              <TableColumn fx:id="columnStatus" prefWidth="97.0667724609375" text="Status" />
+                              <TableColumn fx:id="columnETA" minWidth="6.4000244140625" prefWidth="108.800048828125" text="ETA" />
+                              <TableColumn fx:id="columnStatus" prefWidth="179.199951171875" text="Status" />
                           </columns>
                         </TableView>
                      </children>

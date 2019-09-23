@@ -64,43 +64,51 @@
                      </font>
                   </TextField>
 <!--                  disbaled from here-->
-<!--                  <HBox layoutX="15.0" layoutY="259.0" prefHeight="100.0" prefWidth="200.0">-->
-<!--                     <children>-->
-<!--                        <ChoiceBox prefWidth="150.0" style="-fx-background-color: #E1BEE7;">-->
-<!--                           <HBox.margin>-->
-<!--                              <Insets top="10.0" />-->
-<!--                           </HBox.margin>-->
-<!--                           <padding>-->
-<!--                              <Insets top="4.0" />-->
-<!--                           </padding>-->
-<!--                        </ChoiceBox>-->
-<!--                        <TextField promptText="contact" style="-fx-prompt-text-fill: #666666; -fx-background-color: #E1BEE7;">-->
-<!--                           <HBox.margin>-->
-<!--                              <Insets top="10.0" />-->
-<!--                           </HBox.margin>-->
-<!--                           <font>-->
-<!--                              <Font size="14.0" />-->
-<!--                           </font>-->
-<!--                        </TextField>-->
-<!--                     </children>-->
-<!--                  </HBox>-->
-<!--                  <HBox prefHeight="100.0" prefWidth="200.0">-->
-<!--                     <children>-->
-<!--                        <ChoiceBox prefWidth="150.0" style="-fx-background-color: #E1BEE7;">-->
-<!--                           <HBox.margin>-->
-<!--                              <Insets top="20.0" />-->
-<!--                           </HBox.margin>-->
-<!--                        </ChoiceBox>-->
-<!--                        <TextField promptText="search" style="-fx-prompt-text-fill: #666666; -fx-background-color: #E1BEE7;">-->
-<!--                           <HBox.margin>-->
-<!--                              <Insets top="20.0" />-->
-<!--                           </HBox.margin>-->
-<!--                        </TextField>-->
-<!--                     </children>-->
-<!--                     <VBox.margin>-->
-<!--                        <Insets top="20.0" />-->
-<!--                     </VBox.margin>-->
-<!--                  </HBox>-->
+                  <HBox layoutX="15.0" layoutY="259.0" prefHeight="100.0" prefWidth="200.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <TextField fx:id="textFieldContact" prefHeight="30.0" prefWidth="202.0" promptText="Contact" style="-fx-prompt-text-fill: #666666; -fx-background-color: #E1BEE7;">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox layoutX="15.0" layoutY="244.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <TextField fx:id="textFieldEmail" prefHeight="30.0" prefWidth="202.0" promptText="Email" style="-fx-prompt-text-fill: #666666; -fx-background-color: #E1BEE7;">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="1.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ChoiceBox prefWidth="150.0" style="-fx-background-color: #E1BEE7;">
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                        </ChoiceBox>
+                        <TextField promptText="search" style="-fx-prompt-text-fill: #666666; -fx-background-color: #E1BEE7;">
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
 
 <!--                  to here-->
                   <Button mnemonicParsing="false" onAction="#clear" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: transparent;" text="Reset" textFill="WHITE" underline="true">

@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class Order {
     private int oid;
-    private String  product;
+    private Product product;
     private String qty;
-    private String supplier ;
+    private Supplier supplier;
     private String orderDate;
     private String deliveryDate;
     private String eta;
     private String requests;
 
-    public Order(int oid, String product, String qty, String supplier, String orderDate, String deliveryDate, String requests) {
+    public Order(int oid, Product product, String qty, Supplier supplier, String orderDate, String deliveryDate, String  requests) {
         this.oid = oid;
         this.product = product;
         this.qty = qty;
@@ -30,11 +30,11 @@ public class Order {
         this.oid = oid;
     }
 
-    public String getProduct() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(String product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 
@@ -46,11 +46,11 @@ public class Order {
         this.qty = qty;
     }
 
-    public String getSupplier() {
+    public Supplier getSupplier() {
         return supplier;
     }
 
-    public void setSupplier(String supplier) {
+    public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
     }
 
@@ -78,7 +78,7 @@ public class Order {
         this.eta = eta;
     }
 
-    public String getRequests() {
+    public String  getRequests() {
         return requests;
     }
 

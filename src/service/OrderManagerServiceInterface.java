@@ -2,6 +2,7 @@ package service;
 
 import javafx.collections.ObservableList;
 import model.Order;
+import model.OrderItem;
 
 /**
  * @author Ilukkumbure S.P.M.K.W
@@ -10,13 +11,13 @@ import model.Order;
  * @see OrderManagerService
  */
 public interface OrderManagerServiceInterface {
-    public ObservableList<Order> getOrderList();
+    public ObservableList<OrderItem> getOrderList();
 
     public Order getOrderById(int oid);
 
-    public  void updateOrder(Order order);
+    public  boolean updateOrder(Order order);
 
     public  boolean addOrder(Order order);
 
-    public void removeOrder();
+    public boolean removeOrder(int oid);
 }

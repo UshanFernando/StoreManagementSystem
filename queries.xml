@@ -359,10 +359,70 @@ CREATE TABLE `products` (
         ]]>
     </query>
 
-    <!-- Delete a particular supplier-->
+    <!-- Get the last id of particular supplier-->
     <query id="last_id_of_supplier">
         <![CDATA[
             SELECT sid FROM supplier ORDER BY sid DESC LIMIT 1
+        ]]>
+    </query>
+
+    <!-- Add a particular supplier email -->
+    <query id="add_supplier_email">
+        <![CDATA[
+            insert into supplier_email(sid,email) values (?, ?);
+
+        ]]>
+    </query>
+
+    <!-- Update a particular supplier email -->
+    <query id="update_supplier_email">
+        <![CDATA[
+            update supplier_email as s
+            set s.sid = ?, s.email = ?
+            where s.sid = ?
+
+        ]]>
+    </query>
+
+    <!-- Delete a particular supplier email-->
+    <query id="delete_supplier_email">
+        <![CDATA[
+            DELETE FROM supplier_email WHERE sid = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular supplier contact -->
+    <query id="update_supplier_contact">
+        <![CDATA[
+            update supplier_contact as s
+            set s.sid = ?, s.phone = ?
+            where s.sid = ?
+
+        ]]>
+    </query>
+
+    <!-- Add a particular supplier contact -->
+    <query id="add_supplier_contact">
+        <![CDATA[
+            insert into supplier_contact(sid,phone) values (?, ?);
+
+        ]]>
+    </query>
+
+    <!-- Update a particular supplier contact -->
+    <query id="update_supplier_contact">
+        <![CDATA[
+            update supplier_contact as s
+            set s.sid = ?, s.phone = ?
+            where s.sid = ?
+
+        ]]>
+    </query>
+
+    <!-- Delete a particular supplier contact-->
+    <query id="delete_supplier_contact">
+        <![CDATA[
+            DELETE FROM supplier_contact WHERE sid = ?
         ]]>
     </query>
 
@@ -392,6 +452,26 @@ CREATE TABLE `products` (
     <query id="get_orders">
         <![CDATA[
            SELECT  o.oid AS id,
+                   p.pid AS product,
+                   o.qty AS qty,
+                   s.sid AS vendor,
+                   o.orderDate AS orderDate,
+                   o.deliveryDate AS deliveryDate,
+                   o.request AS status
+            FROM
+                    orders AS o
+           JOIN products AS p
+           ON
+                p.pid = o.product
+            JOIN supplier s
+           ON
+               o.vendor = s.sid
+        ]]>
+    </query>
+
+    <query id="get_orders2">
+        <![CDATA[
+           SELECT  o.oid AS id,
                    p.name AS product,
                    o.qty AS qty,
                    s.name AS vendor,
@@ -410,7 +490,29 @@ CREATE TABLE `products` (
     </query>
 
     <!-- Select orders by id -->
+
     <query id="get_orders_by_id">
+        <![CDATA[
+           SELECT  o.oid AS id,
+                   p.pid AS product,
+                   o.qty AS qty,
+                   s.sid AS vendor,
+                   o.orderDate AS orderDate,
+                   o.deliveryDate AS deliveryDate,
+                   o.request AS status
+            FROM
+                    orders AS o
+           JOIN products AS p
+           ON
+                p.pid = o.product
+            JOIN supplier s
+           ON
+               o.vendor = s.sid
+           WHERE o.oid = ?
+        ]]>
+    </query>
+
+    <query id="get_orders_by_id2">
         <![CDATA[
            SELECT  o.oid AS id,
                    p.name AS product,
@@ -428,6 +530,34 @@ CREATE TABLE `products` (
            ON
                o.vendor = s.sid
            WHERE o.oid = ?
+        ]]>
+    </query>
+
+
+    <!-- Update orders by id -->
+    <query id="update_orders_by_id">
+        <![CDATA[
+           update orders as o
+           set o.product = ?,
+               o.qty = ?
+               o.vendor = ?
+               o.orderDate = ?
+               o.request = ?
+           where o.oid = ?
+        ]]>
+    </query>
+
+    <!-- delete orders by id -->
+    <query id="delete_orders_by_id">
+        <![CDATA[
+           DELETE FROM orders where oid = ? LIMIT 1
+        ]]>
+    </query>
+
+    <!-- add new orders-->
+    <query id="delete_orders_by_id">
+        <![CDATA[
+           INSERT INTO orders VALUES(?,?,?,?,?,?,?);
         ]]>
     </query>
 

@@ -1,37 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="version 0.1.0&#10;*Implemented Jasper Library + other support libraries&#10;*Implemented Invoice Printing Functionality">
-      <change afterPath="$PROJECT_DIR$/src/controller/SalesReportsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/docs/sales_report_A4.jasper" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/SalesReport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/sales_reports.fxml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="version 1.0.0&#10;*Implemented Reports For Sales&#10;*Fixed Bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/InventoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/InventoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/SalesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/SalesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/ShoppingCart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/ShoppingCart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/ShoppingCartItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/ShoppingCartItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/SaleManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/SaleManagerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/SaleManagerServiceInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/SaleManagerServiceInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/sales.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/sales.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/queries.xml" beforeDir="false" afterPath="$PROJECT_DIR$/queries.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/CheckoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CheckoutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/InventoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/NotificationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/NotificationsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/SalesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/SalesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/docs/invoice_A4.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs/invoice_A4.jasper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ShoppingCart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ShoppingCartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ShoppingCartItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/NotificationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/SaleManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/SaleManagerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/SaleManagerServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/SaleManagerServiceInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/PrintReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/PrintReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/SceneManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/notifications.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/notifications.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/sales.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/sales.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -313,7 +284,7 @@
       <workItem from="1569087321668" duration="2051000" />
       <workItem from="1569126033546" duration="10450000" />
       <workItem from="1569151369245" duration="13827000" />
-      <workItem from="1569214585936" duration="16277000" />
+      <workItem from="1569214585936" duration="17071000" />
     </task>
     <task id="LOCAL-00001" summary="version 0.0.1 base&#10;*Home UI implemented.&#10;*DB Connection added.&#10;*CommonUtils class implemented.&#10;*Constant class implemented.">
       <created>1565606543511</created>
@@ -392,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569087852499</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="version 1.0.0&#10;*Implemented Reports For Sales&#10;*Fixed Bugs">
+      <created>1569251377113</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1569251377113</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,7 +399,8 @@
     <MESSAGE value="version 0.1.0&#10;*add edit delete functions now working on products , brands and categories.&#10;*fixed bugs&#10;    -Fixed Automatic Table creation&#10;*Updated &#10;    -Queries&#10;    -Product class structure" />
     <MESSAGE value="version 0.1.4&#10;*Implemented sales functions" />
     <MESSAGE value="version 0.1.0&#10;*Implemented Jasper Library + other support libraries&#10;*Implemented Invoice Printing Functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 0.1.0&#10;*Implemented Jasper Library + other support libraries&#10;*Implemented Invoice Printing Functionality" />
+    <MESSAGE value="version 1.0.0&#10;*Implemented Reports For Sales&#10;*Fixed Bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 1.0.0&#10;*Implemented Reports For Sales&#10;*Fixed Bugs" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

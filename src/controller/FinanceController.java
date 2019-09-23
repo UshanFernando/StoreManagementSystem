@@ -18,11 +18,19 @@ import javafx.stage.StageStyle;
 import model.Finance;
 //import service.BrandManagerService;
 //import service.CategoryManagerService;
+import net.sf.jasperreports.engine.JRException;
 import service.FinanceManagerService;
+import util.Constants;
+import util.PrintMonthlyReport;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import static service.FinanceManagerService.*;
 
 public class FinanceController implements Initializable {
 
@@ -61,6 +69,7 @@ public class FinanceController implements Initializable {
 
 
     private FinanceManagerService financeManagerService;
+    private static PreparedStatement preparedStatement;
 
 
     @Override
@@ -72,15 +81,27 @@ public class FinanceController implements Initializable {
         datColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
 
 
-
         financeManagerService = new FinanceManagerService();
 
-        load();
+
+        loadFinance();
+        incomeTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+
+                Finance finance = incomeTable.getSelectionModel().getSelectedItem();
+
+                qtyTF.setText(String.valueOf(finance.getId()));
+                qtyTF1.setText(finance.getStatus());
+                qtyTF11.setText(String.valueOf(finance.getAmount()));
+                qtyTF111.setText(finance.getDate());
+
+            }
+        });
 
 
     }
 
-    private void load() {
+    private void loadFinance() {
 
         ObservableList<Finance> finance = financeManagerService.getFinanceList();
 
@@ -94,7 +115,7 @@ public class FinanceController implements Initializable {
     @FXML
     public void add() {
 
-        if (true) {
+        if (valid()) {
 
             int fid = Integer.parseInt(qtyTF.getCharacters().toString());
             String status = qtyTF1.getCharacters().toString();
@@ -104,9 +125,16 @@ public class FinanceController implements Initializable {
 
             Finance finance = new Finance(fid, status, amount, date);
 
-            financeManagerService.addFinance(finance);
-            System.out.println(finance.getStatus());
-            load();
+
+//            System.out.println(finance.getStatus());
+//            loadFinance();
+
+            if (financeManagerService.addFinance(finance)) {
+//                clearData();
+                loadData();
+            } else {
+                loadData();
+            }
 
 
         }else {
@@ -121,44 +149,66 @@ public class FinanceController implements Initializable {
         }
 
 
+    }
+
+
+    @FXML
+    public void update() {
+
+        if (valid()) {
+            int fid = Integer.parseInt(qtyTF.getCharacters().toString());
+            String status = qtyTF1.getCharacters().toString();
+            Double amount = Double.parseDouble(qtyTF11.getCharacters().toString());
+            String date   = qtyTF111.getCharacters().toString();
+
+
+            Finance selected = incomeTable.getSelectionModel().getSelectedItem();
+            Finance finance = new Finance(fid, status, amount, date);
+            financeManagerService.updateFinance(finance);
+            loadData();
+
+        } /*else if (type.getSelectionModel().isSelected(2)) {
+
+                Category selected = categoryTable.getSelectionModel().getSelectedItem();
+                Category category = new Category(selected.getId(),name.getCharacters().toString(), status.getValue().toString());
+                categoryManagerService.updateCategory(category);
+                loadCategories();
+            }
+*/ else {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "Please Provide Valid Information !", ButtonType.OK);
+
+            alert.initStyle(StageStyle.UTILITY);
+            alert.showAndWait();
+
+
+        }
+
 
     }
 
-//
-//    @FXML
-//    public void update() {
-//
-//        if (valid()) {
-//            if (type.getSelectionModel().isSelected(1)) {
-//
-//                Brand selected = brandTable.getSelectionModel().getSelectedItem();
-//                Brand brand = new Brand(selected.getId(),name.getCharacters().toString(), status.getValue().toString());
-//                brandManagerService.updateBrand(brand);
-//                loadBrands();
-//
-//            } else if (type.getSelectionModel().isSelected(2)) {
-//
-//                Category selected = categoryTable.getSelectionModel().getSelectedItem();
-//                Category category = new Category(selected.getId(),name.getCharacters().toString(), status.getValue().toString());
-//                categoryManagerService.updateCategory(category);
-//                loadCategories();
-//            }
-//
-//        }else {
-//
-//            Alert alert = new Alert(Alert.AlertType.ERROR,
-//                    "Please Provide Valid Information !", ButtonType.OK);
-//
-//            alert.initStyle(StageStyle.UTILITY);
-//            alert.showAndWait();
-//
-//
-//        }
-//
-//        name.clear();
-//        status.getSelectionModel().selectFirst();
-//
-//    }
+
+
+    private boolean valid() {
+
+        return !(qtyTF.getCharacters().length() == 0);
+
+    }
+
+    private void loadData() {
+
+
+        ObservableList<Finance> finances = financeManagerService.getFinanceList();
+
+        if (finances == null) {
+            System.out.println("No Finances");
+        } else {
+            incomeTable.setItems(finances);
+        }
+
+
+    }
 
 
     @FXML
@@ -175,7 +225,7 @@ public class FinanceController implements Initializable {
 
             if (alert.getResult() == ButtonType.YES) {
                financeManagerService.removeFinance(finance.getId());
-               load();
+               loadFinance();
             }
 
 //        } else if (!brandTable.getSelectionModel().isEmpty()) {
@@ -227,4 +277,40 @@ public class FinanceController implements Initializable {
 //        return !(name.getCharacters().length() == 0 || type.getSelectionModel().isSelected(0)
 //                || status.getSelectionModel().isSelected(0));
 //    }
+
+    @FXML
+    public void openHomeScene(ActionEvent event) throws IOException {
+
+        Parent viewParent = FXMLLoader.load(getClass().getResource("/view/home.fxml"));
+
+        Stage windowstage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+
+        windowstage.setScene(new Scene(viewParent, 840, 473));
+        windowstage.centerOnScreen();
+        windowstage.setTitle("Store Management Nisha Electricals PVC");
+        Image icon = new Image(MainController.class.getResource("/res/icons/icon.png").toExternalForm(), false);
+        windowstage.getIcons().add(icon);
+
+    }
+
+    @FXML
+    public void print() throws JRException, FileNotFoundException {
+
+
+        ObservableList<Finance> income = financeManagerService.getFinanceByStatus(true);
+
+        if (income == null) {
+            System.out.println("No Details On Income");
+        }
+
+        ObservableList<Finance> expense = financeManagerService.getFinanceByStatus(false);
+
+        if (expense == null) {
+            System.out.println("No Details on Expense");
+        }
+
+        PrintMonthlyReport printer =  new PrintMonthlyReport();
+        printer.Generate(income, expense);
+    }
+
 }

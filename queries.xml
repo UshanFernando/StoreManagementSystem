@@ -201,14 +201,33 @@ CREATE TABLE `products` (
         ]]>
     </query>
 
-    <!-- Select categories -->
+    <!-- Select sales -->
     <query id="get_sales">
         <![CDATA[
             select * from sales order by timestamp desc
         ]]>
     </query>
 
+    <query id="get_sales_report">
+        <![CDATA[
+           SELECT sum(netTotal) as totalSales ,sum(discount) as totalDiscount , count(netTotal) as noOfSales  from sales
+            WHERE DATE(timeStamp) = ?
+        ]]>
+    </query>
 
+    <query id="get_sales_report_monthly">
+        <![CDATA[
+    SELECT sum(netTotal) as totalSales ,sum(discount) as totalDiscount , count(netTotal) as noOfSales  from sales
+WHERE Month(timeStamp) = ? AND YEAR(timeStamp) = ?
+        ]]>
+    </query>
+
+    <query id="get_product_sales_report_daily">
+        <![CDATA[
+SELECT  p.name as product, sum(sp.qty ) as amount FROM sales_products sp , productS p, sales s WHERE
+sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
+        ]]>
+    </query>
     <!-- ==================== queries for Finance management ====================== -->
 
     <!-- Create categories table  -->
@@ -250,15 +269,27 @@ CREATE TABLE `products` (
     <!-- Update a particular category by id Query -->
     <query id="update_finance">
         <![CDATA[
-            update finance as c
-            set c.cid = ?, c.name = ?,  c.status = ?
-            where c.cid = ?
+            update finance set  status = ?, amount = ?, date = ? where id = ?
         ]]>
     </query>
 
     <query id="delete_finance">
         <![CDATA[
             DELETE FROM finance WHERE id = ? LIMIT 1
+        ]]>
+    </query>
+
+    <!-- Select a particular finance by income -->
+    <query id="finance_income">
+        <![CDATA[
+            SELECT * FROM finance WHERE status = 'income';
+        ]]>
+    </query>
+
+    <!-- Select a particular finance by expense -->
+    <query id="finance_expense">
+        <![CDATA[
+            SELECT * FROM finance WHERE status = 'expense';
         ]]>
     </query>
 
@@ -719,6 +750,7 @@ CREATE TABLE `products` (
 
 
 
+
     <!-- ==================== queries for attendance management ====================== -->
 
     <!-- Create attendance table  -->
@@ -726,12 +758,12 @@ CREATE TABLE `products` (
     <query id="create_attendance_table">
         <![CDATA[
          CREATE TABLE `attendance`
-  `Employee ID` int(45) NOT NULL AUTO_INCREMENT,
+  `EmployeeID` int(45) NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) DEFAULT NULL,
   `Month` varchar(45) DEFAULT NULL,
    `Year` int(45) DEFAULT NULL,
-      `No of Attendance` int(45) DEFAULT NULL,
- PRIMARY KEY (`Employee ID`)
+      `NoOfAttendance` int(45) DEFAULT NULL,
+ PRIMARY KEY (`EmployeeID`)
     );
 
    ]]>
@@ -748,14 +780,14 @@ CREATE TABLE `products` (
     <!-- Add attendance -->
     <query id="add_attendance">
         <![CDATA[
-            insert into attendance(Employee ID, Name, Month, Year, No of Attendance) values(?, ?, ?, ?, ?);
+            insert into attendance(EmployeeID, Name, Month, Year, NoOfAttendance) values(?, ?, ?, ?, ?);
         ]]>
     </query>
 
     <!-- Select a particular attendance by id Query -->
     <query id="attendance_by_id">
         <![CDATA[
-            select * from attendance where id = ?
+            select * from attendance where EmployeeID = ?
         ]]>
     </query>
 
@@ -763,26 +795,144 @@ CREATE TABLE `products` (
     <query id="update_attendance">
         <![CDATA[
             update attendance as a
-            set a.aid = ?, a.name = ?,  a.month = ?, a.year =?, a.no of attendance = ?
-            where a.aid = ?
+            set a.EmployeeID = ?, a.Name = ?,  a.Month = ?, a.Year =?, a.NoOfAttendance = ?
+            where a.EmployeeID = ?
         ]]>
     </query>
 
     <!-- Delete a particular attendance by id Query -->
     <query id="delete_attendance">
         <![CDATA[
-            DELETE FROM attendance WHERE id = ? LIMIT 1
+            DELETE FROM attendance WHERE EmployeeID = ? LIMIT 1
         ]]>
     </query>
 
 
-<!-- LOGIN -->
+    <!-- ==================== queries for leave management ====================== -->
+
+    <query id="create_leave_table">
+        <![CDATA[
+         CREATE TABLE `leaverecord`
+  `fullname` varchar(45) NOT NULL AUTO_INCREMENT,
+  `Employeeid` int(45) DEFAULT NULL,
+  `Leavetype` varchar(45) DEFAULT NULL,
+   `Email` varchar(45) DEFAULT NULL,
+      `Date` string(45) DEFAULT NULL,
+ PRIMARY KEY (`Employeeid`)
+    );
+
+   ]]>
+    </query>
+
+
+
+    <!-- Add leave -->
+    <query id="add_leave">
+        <![CDATA[
+            insert into leaverecord(fullname, Employeeid, Leavetype, Email, Date) values(?, ?, ?, ?, ?);
+        ]]>
+    </query>
+
+
+
+
+        <!-- LOGIN -->
     <!-- Find whether the department and the emploee id matyches-->
 
     <query id="match_employee">
         <![CDATA[
             SELECT * FROM employees
             WHERE department = ? and empId = ?
+        ]]>
+    </query>
+
+    <!-- ==================== queries for notification management ====================== -->
+
+    <!-- Create notification table  -->
+
+    <query id="create_notifications_table">
+        <![CDATA[
+CREATE TABLE `notification` (
+  `nId` int(11) NOT NULL AUTO_INCREMENT,
+  `message` varchar(600) DEFAULT NULL,
+  `status` varchar(45) DEFAULT 'UNREAD',
+  PRIMARY KEY (`nId`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+   ]]>
+    </query>
+
+
+    <!-- Select notification -->
+    <query id="get_notifications">
+        <![CDATA[
+            select * from notification
+        ]]>
+    </query>
+
+    <!-- Select notification -->
+    <query id="get_notifications_unread">
+        <![CDATA[
+            select * from notification where status = 'UNREAD'
+        ]]>
+    </query>
+
+    <!-- Update a particular notification by id Query -->
+    <query id="update_notification">
+        <![CDATA[
+            update notification as n
+            set n.message = ?,  n.status = ?
+            where n.nId = ?
+        ]]>
+    </query>
+
+    <!-- Delete a particular notification by id Query -->
+    <query id="delete_notification">
+        <![CDATA[
+            DELETE FROM notification WHERE nId = ? LIMIT 1
+        ]]>
+    </query>
+
+
+    <!-- ==================== queries for salesProduct management ====================== -->
+
+    <!-- Create salesProduct table  -->
+
+    <query id="create_sales_product">
+        <![CDATA[
+CREATE TABLE `sales_products` (
+  `spId` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) DEFAULT NULL,
+  `sid` int(11) DEFAULT NULL,
+  `qty` int(20) DEFAULT NULL,
+  PRIMARY KEY (`spId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+   ]]>
+    </query>
+
+
+    <!-- Select salesProduct -->
+    <query id="get_sales_product">
+        <![CDATA[
+            select * from sales_products
+        ]]>
+    </query>
+
+    <!-- Select salesProduct -->
+    <query id="add_sales_products">
+        <![CDATA[
+           INSERT INTO sales_products(pid,sid,qty)VALUES(?,?,?);
+
+        ]]>
+    </query>
+
+
+    <!-- Delete a particular salesProduct by id Query -->
+    <query id="delete_notification">
+        <![CDATA[
+            DELETE FROM sales_products WHERE spId = ? LIMIT 1
         ]]>
     </query>
 

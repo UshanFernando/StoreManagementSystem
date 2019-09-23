@@ -45,10 +45,10 @@ public class InventoryController implements Initializable {
     TableColumn<Product, Integer> priceColumn;
 
     @FXML
-    TableColumn<Product, Integer> brandColumn;
+    TableColumn<Product, Brand> brandColumn;
 
     @FXML
-    TableColumn<Product, Integer> categoryColumn;
+    TableColumn<Product, Category> categoryColumn;
 
     @FXML
     TableColumn<Product, Integer> qtyColumn;
@@ -135,6 +135,7 @@ public class InventoryController implements Initializable {
                 criticalQty.setText(String.valueOf(product.getCriticalQty()));
             }
         });
+
 
 
     }
@@ -276,8 +277,9 @@ public class InventoryController implements Initializable {
                      Stage popupStage = new Stage();
 
                      popupStage.setScene(new Scene(viewParent, 840, 473));
-                     popupStage.setTitle("Recent Sales");
+                     popupStage.setTitle("Notifications");
                      popupStage.initModality(Modality.WINDOW_MODAL);
+                     popupStage.initStyle(StageStyle.TRANSPARENT);
                      popupStage.initOwner(Main.getPrimaryStage());
 
                      popupStage.show();

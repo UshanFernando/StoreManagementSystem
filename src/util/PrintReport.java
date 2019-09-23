@@ -57,7 +57,8 @@ public class PrintReport extends JFrame {
         parameters.put("ItemDataSource", itemsJRBean);
         parameters.put("subTotal", cart.getSubTotal());
         parameters.put("discount", cart.getDiscount());
-        parameters.put("total",cart.getNetTotal());
+        parameters.put("netTotal",cart.getNetTotal());
+
 
         /* Using compiled version(.jasper) of Jasper report to generate PDF */
         JasperPrint jasperPrint = JasperFillManager.fillReport(userHomeDirectory + "\\IdeaProjects\\StoreManagementSystem\\src\\docs\\invoice_A4.jasper", parameters, new JREmptyDataSource());

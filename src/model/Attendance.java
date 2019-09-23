@@ -2,31 +2,31 @@ package model;
 
 public class Attendance {
 
-    private int empid;
+    private int employeeId;
     private String name;
     private String month;
     private int year;
-    private int No;
+    private int noOfAttendance;
 
 
 
 
-    public Attendance(int empid, String name, String month, int year, int No){
+    public Attendance(int employeeId, String name, String month, int year, int noOfAttendance){
 
-        this.empid = empid;
+        this.employeeId = employeeId;
         this.name = name;
         this.month = month;
         this.year = year;
-        this.No = No;
+        this.noOfAttendance = noOfAttendance;
 
     }
 
-    public int getEmpId() {
-        return empid;
+    public int getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmpId(int id) {
-        this.empid = empid;
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getName() {
@@ -51,11 +51,18 @@ public class Attendance {
         this.year = year;
     }
 
-    public int getNOofAttendance() { return No; }
+    public int getNoOfAttendance() { return noOfAttendance; }
 
-    public void setNOofAttendance(int No) {
-        this.No = No;
+    public void setNOofAttendance(int NoOfAttendance) {
+        this.noOfAttendance = noOfAttendance;
     }
 
 
+    // public boolean getStatus() {
+    // return getStatus();
+//
+    // }
+
+    public void  getId() {
+    }
 }

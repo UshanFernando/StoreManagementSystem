@@ -5,6 +5,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,25 +16,23 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import model.Product;
-import model.Sale;
-import model.ShoppingCart;
-import model.ShoppingCartItem;
+import javafx.util.converter.IntegerStringConverter;
+import model.*;
+import service.BrandManagerService;
+import service.CategoryManagerService;
 import service.ProductManagerService;
-import service.SaleManagerService;
-import util.CommonUtil;
+import util.SceneManager;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
 
 public class SalesController implements Initializable {
 
@@ -99,6 +99,19 @@ public class SalesController implements Initializable {
     @FXML
     private Button addBtn;
 
+    @FXML
+    private TextField pidTF;
+
+    @FXML
+    private TextField nameTF;
+
+    @FXML
+    private ComboBox categoryCB;
+
+    @FXML
+    private ComboBox brandCB;
+
+
     private ShoppingCart shoppingCart;
 
     private boolean saleActive = false;
@@ -120,8 +133,34 @@ public class SalesController implements Initializable {
         productQtyColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         productDiscountColumn.setCellValueFactory(new PropertyValueFactory<>("discount"));
 
+        addBtn.setText("Create a New Sale to Continue!");
+
         loadData();
         disbleAddBtn();
+        loadBrands();
+        loadCategories();
+
+        UnaryOperator<TextFormatter.Change> doubleFilter = change -> {
+            String newText = change.getControlNewText();
+            if (newText.matches("\\d*|\\d+\\.\\d*")) {
+                return change;
+            }
+            return null;
+        };
+        UnaryOperator<TextFormatter.Change> integerFilter = change -> {
+            String newText = change.getControlNewText();
+            if (newText.matches("([1-9][0-9]*)?")) {
+                return change;
+            }
+            return null;
+        };
+
+
+            discountTF.setTextFormatter(
+                new TextFormatter<Integer>(new IntegerStringConverter(), null, doubleFilter));
+
+            qtyTF.setTextFormatter(
+                new TextFormatter<Integer>(new IntegerStringConverter(), null, integerFilter));
 
     }
 
@@ -135,28 +174,123 @@ public class SalesController implements Initializable {
         } else {
             product_table.setItems(products);
         }
+        FilteredList<Product> filteredData = new FilteredList<>(products, p -> true);
+
+        // 2. Set the filter Predicate whenever the filter changes.
+        nameTF.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(myObject -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name field in your object with filter.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (String.valueOf(myObject.getName()).toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                    // Filter matches first name.
+
+                }
+
+                return false; // Does not match.
+            });
+        });
+
+        // 2. Set the filter Predicate whenever the filter changes.
+        pidTF.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(myObject -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name field in your object with filter.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (String.valueOf(myObject.getPid()).toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                    // Filter matches first name.
+
+                }
+
+                return false; // Does not match.
+            });
+        });
+
+
+        // 2. Set the filter Predicate whenever the filter changes.
+        brandCB.valueProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(myObject -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.toString().isEmpty() || newValue.toString().equals("Select Product Brand")) {
+                    return true;
+                }
+
+                // Compare first name and last name field in your object with filter.
+                String lowerCaseFilter = newValue.toString().toLowerCase();
+
+
+                if (String.valueOf(myObject.getBrand().getName()).toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                    // Filter matches first name.
+
+                }
+
+                return false; // Does not match.
+            });
+        });
+
+        categoryCB.valueProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(myObject -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.toString().isEmpty() || newValue.toString().equals("Select Product Category")) {
+                    return true;
+                }
+
+                // Compare first name and last name field in your object with filter.
+                String lowerCaseFilter = newValue.toString().toLowerCase();
+
+
+                if (String.valueOf(myObject.getCategory().getName()).toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                    // Filter matches first name.
+
+                }
+
+                return false; // Does not match.
+            });
+        });
+        // 3. Wrap the FilteredList in a SortedList.
+        SortedList<Product> sortedData = new SortedList<>(filteredData);
+
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(product_table.comparatorProperty());
+        // 5. Add sorted (and filtered) data to the table.
+        product_table.setItems(sortedData);
 
     }
 
     @FXML
-    public void newSale(){
+    public void newSale() {
 
-        if (saleActive){
+        if (saleActive) {
             Alert alert = new Alert(Alert.AlertType.ERROR,
                     "Complete Current Sale or Reset to Make a new Sale", ButtonType.OK);
             alert.initStyle(StageStyle.TRANSPARENT);
             alert.initOwner(Main.getPrimaryStage());
             alert.showAndWait();
-        }else {
+        } else {
 
-            if (shoppingCart == null){
+            if (shoppingCart == null) {
                 shoppingCart = new ShoppingCart();
-            }else {
-                shoppingCart = null;
+            } else {
+                shoppingCart.clear();
             }
 
             purchasedTable.getItems().clear();
             saleActive = true;
+            addBtn.setText("Add Item to the List");
             enableAddBtn();
         }
 
@@ -164,7 +298,7 @@ public class SalesController implements Initializable {
     }
 
     @FXML
-    public void addToCart(){
+    public void addToCart() {
 
         if (!(qtyTF.getCharacters().length() == 0)) {
             Product product = product_table.getSelectionModel().getSelectedItem();
@@ -181,7 +315,7 @@ public class SalesController implements Initializable {
 
             shoppingCart.addItem(item);
             updateData();
-        }else {
+        } else {
 
             Alert alert = new Alert(Alert.AlertType.ERROR,
                     "Please Provide Valid Quantity !", ButtonType.OK);
@@ -190,6 +324,44 @@ public class SalesController implements Initializable {
             alert.showAndWait();
 
         }
+    }
+
+    private void loadBrands() {
+
+        BrandManagerService brandManagerService = new BrandManagerService();
+        ObservableList<Brand> brands = brandManagerService.getBrandsList();
+
+        /*This model will work as a prompt text for combo Box
+        Java 11 Doesnt properly support  prompt text on Non Editable ComboBox.
+        */
+        Brand promtText = new Brand("Select Product Brand", null);
+        brandCB.getItems().add(0, promtText);
+        brandCB.getSelectionModel().select(0);
+
+        for (Brand brand : brands) {
+            brandCB.getItems().add(brand);
+
+        }
+
+    }
+
+    private void loadCategories() {
+
+        CategoryManagerService categoryManagerService = new CategoryManagerService();
+        ObservableList<Category> categories = categoryManagerService.getCategoriesList();
+
+        /*This model will work as a prompt text for combo Box
+        Java 11 Doesnt properly support prompt text on Non Editable ComboBox
+        */
+        Category promtText = new Category("Select Product Category", null);
+        categoryCB.getItems().add(0, promtText);
+        categoryCB.getSelectionModel().select(0);
+        for (Category category : categories) {
+
+            categoryCB.getItems().add(category);
+
+        }
+
     }
 
     private void updateData() {
@@ -205,7 +377,7 @@ public class SalesController implements Initializable {
     }
 
     @FXML
-    public void checkout() throws IOException{
+    public void checkout() throws IOException {
 
         if (saleActive && !(shoppingCart.getItems().isEmpty())) {
 
@@ -218,15 +390,16 @@ public class SalesController implements Initializable {
                     loader.<CheckoutController>getController();
             controller.checkout(shoppingCart);
 
-            popupStage.setScene(new Scene(viewParent,300,450));
+            popupStage.setScene(new Scene(viewParent, 300, 450));
             popupStage.initModality(Modality.WINDOW_MODAL);
             popupStage.initStyle(StageStyle.TRANSPARENT);
             popupStage.initOwner(Main.getPrimaryStage());
 
             popupStage.show();
 
+                reset();
 
-        }else{
+        } else {
 
             Alert alert = new Alert(Alert.AlertType.ERROR,
                     "Create a sale to checkout !", ButtonType.OK);
@@ -236,17 +409,24 @@ public class SalesController implements Initializable {
         }
     }
 
-    @FXML
-    public void reset(){
-        saleActive = false;
-        disbleAddBtn();
-        purchasedTable.getItems().clear();
 
+
+    @FXML
+    public void openStats() throws IOException {
+
+        SceneManager.manage().openSalesReportScene();
     }
 
-
-
-
+    @FXML
+    public  void reset() {
+        saleActive = false;
+        netTotalLbl.setText("000000.00");
+        discountLbl.setText("000000.00");
+        subTotalLbl.setText("000000.00");
+        disbleAddBtn();
+        purchasedTable.getItems().clear();
+        addBtn.setText("Create a New Sale to Continue!");
+    }
 
 
     private void initClock() {
@@ -268,13 +448,13 @@ public class SalesController implements Initializable {
         clock.play();
     }
 
-    private  void disbleAddBtn(){
+    private void disbleAddBtn() {
 
         addBtn.setDisable(true);
 
     }
 
-    private  void enableAddBtn(){
+    private void enableAddBtn() {
 
         addBtn.setDisable(false);
 
@@ -286,13 +466,19 @@ public class SalesController implements Initializable {
         Parent viewParent = FXMLLoader.load(getClass().getResource("/view/recentSales.fxml"));
         Stage popupStage = new Stage();
 
-        popupStage.setScene(new Scene(viewParent,840,473));
+        popupStage.setScene(new Scene(viewParent, 840, 473));
         popupStage.setTitle("Recent Sales");
         popupStage.initModality(Modality.WINDOW_MODAL);
         popupStage.initOwner(Main.getPrimaryStage());
 
         popupStage.show();
 
+    }
+
+
+    @FXML
+    public void openHomeScene() throws IOException {
+        SceneManager.manage().openSalesScene();
     }
 
     @FXML

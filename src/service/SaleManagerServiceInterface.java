@@ -1,8 +1,8 @@
 package service;
 
 import javafx.collections.ObservableList;
-import model.Brand;
 import model.Sale;
+import model.ShoppingCart;
 import util.Constants;
 import util.DBConnection;
 import util.QueryUtil;
@@ -21,11 +21,11 @@ public interface SaleManagerServiceInterface {
 
     public ObservableList<Sale> getSalesList();
 
-//    public Sale getSaleById(int pid);
+    public Sale getSaleById(int pid);
+
+    public boolean addSale(ShoppingCart cart, Sale sale);
 
 //    public void updateBrand(Brand user);
-
-    public boolean addSale(Sale sale);
 
     public void removeSale(int sid);
 }

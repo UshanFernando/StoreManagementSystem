@@ -201,14 +201,33 @@ CREATE TABLE `products` (
         ]]>
     </query>
 
-    <!-- Select categories -->
+    <!-- Select sales -->
     <query id="get_sales">
         <![CDATA[
             select * from sales order by timestamp desc
         ]]>
     </query>
 
+    <query id="get_sales_report">
+        <![CDATA[
+           SELECT sum(netTotal) as totalSales ,sum(discount) as totalDiscount , count(netTotal) as noOfSales  from sales
+            WHERE DATE(timeStamp) = ?
+        ]]>
+    </query>
 
+    <query id="get_sales_report_monthly">
+        <![CDATA[
+    SELECT sum(netTotal) as totalSales ,sum(discount) as totalDiscount , count(netTotal) as noOfSales  from sales
+WHERE Month(timeStamp) = ? AND YEAR(timeStamp) = ?
+        ]]>
+    </query>
+
+    <query id="get_product_sales_report_daily">
+        <![CDATA[
+SELECT  p.name as product, sum(sp.qty ) as amount FROM sales_products sp , productS p, sales s WHERE
+sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
+        ]]>
+    </query>
     <!-- ==================== queries for Finance management ====================== -->
 
     <!-- Create categories table  -->
@@ -634,6 +653,96 @@ CREATE TABLE `products` (
         <![CDATA[
             SELECT * FROM employees
             WHERE department = ? and empId = ?
+        ]]>
+    </query>
+
+    <!-- ==================== queries for notification management ====================== -->
+
+    <!-- Create notification table  -->
+
+    <query id="create_notifications_table">
+        <![CDATA[
+CREATE TABLE `notification` (
+  `nId` int(11) NOT NULL AUTO_INCREMENT,
+  `message` varchar(600) DEFAULT NULL,
+  `status` varchar(45) DEFAULT 'UNREAD',
+  PRIMARY KEY (`nId`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+   ]]>
+    </query>
+
+
+    <!-- Select notification -->
+    <query id="get_notifications">
+        <![CDATA[
+            select * from notification
+        ]]>
+    </query>
+
+    <!-- Select notification -->
+    <query id="get_notifications_unread">
+        <![CDATA[
+            select * from notification where status = 'UNREAD'
+        ]]>
+    </query>
+
+    <!-- Update a particular notification by id Query -->
+    <query id="update_notification">
+        <![CDATA[
+            update notification as n
+            set n.message = ?,  n.status = ?
+            where n.nId = ?
+        ]]>
+    </query>
+
+    <!-- Delete a particular notification by id Query -->
+    <query id="delete_notification">
+        <![CDATA[
+            DELETE FROM notification WHERE nId = ? LIMIT 1
+        ]]>
+    </query>
+
+
+    <!-- ==================== queries for salesProduct management ====================== -->
+
+    <!-- Create salesProduct table  -->
+
+    <query id="create_sales_product">
+        <![CDATA[
+CREATE TABLE `sales_products` (
+  `spId` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) DEFAULT NULL,
+  `sid` int(11) DEFAULT NULL,
+  `qty` int(20) DEFAULT NULL,
+  PRIMARY KEY (`spId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+   ]]>
+    </query>
+
+
+    <!-- Select salesProduct -->
+    <query id="get_sales_product">
+        <![CDATA[
+            select * from sales_products
+        ]]>
+    </query>
+
+    <!-- Select salesProduct -->
+    <query id="add_sales_products">
+        <![CDATA[
+           INSERT INTO sales_products(pid,sid,qty)VALUES(?,?,?);
+
+        ]]>
+    </query>
+
+
+    <!-- Delete a particular salesProduct by id Query -->
+    <query id="delete_notification">
+        <![CDATA[
+            DELETE FROM sales_products WHERE spId = ? LIMIT 1
         ]]>
     </query>
 

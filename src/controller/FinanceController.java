@@ -132,15 +132,8 @@ public class FinanceController implements Initializable {
             if (financeManagerService.addFinance(finance)) {
 //                clearData();
                 loadData();
-            }
-
-            else {
-
-                Alert alert = new Alert(Alert.AlertType.ERROR,
-                        "Product ID Already Exists In the System ! Use a Unique Id !", ButtonType.OK);
-
-                alert.initStyle(StageStyle.UTILITY);
-                alert.showAndWait();
+            } else {
+                loadData();
             }
 
 

@@ -24,32 +24,27 @@ public class ShoppingCart {
 
     public void addItem(ShoppingCartItem item) {
 
-        items.add(item);
+        if (item.getProduct()!=null) {
 
+
+            subTotal += (item.getProduct().getPrice()) * item.getQuantity();
+
+            double itemPrice = item.getProduct().getPrice();
+            double itemDiscount = item.getDiscount();
+
+            discount += ((itemPrice * itemDiscount) / 100) * item.getQuantity();
+        }
+
+        items.add(item);
     }
 
     public double getSubTotal() {
 
-        for (ShoppingCartItem item : items) {
-
-            subTotal =+ item.getProduct().getPrice() * item.getQuantity();
-
-        }
         return subTotal;
     }
 
     public double getDiscount() {
 
-        if (!items.isEmpty()) {
-            for (ShoppingCartItem item : items) {
-
-                double itemPrice = item.getProduct().getPrice();
-                double itemDiscount = item.getDiscount();
-
-                discount = +((itemPrice * itemDiscount) / 100)*item.getQuantity();
-
-            }
-        }
         return discount;
     }
 
@@ -64,5 +59,13 @@ public class ShoppingCart {
         return items;
     }
 
+    public void clear(){
+
+        this.subTotal = 0.0;
+        this.discount = 0.0;
+        this.netTotal = 0.0;
+        items.clear();
+
+    }
 
 }

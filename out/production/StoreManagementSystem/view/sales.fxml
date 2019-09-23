@@ -240,7 +240,7 @@
                         <Insets left="20.0" top="5.0" />
                      </padding>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Stats" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#openStats" style="-fx-background-color: transparent;" text="Stats" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -277,12 +277,12 @@
                         </Label>
                         <HBox alignment="CENTER" fillHeight="false" VBox.vgrow="NEVER">
                             <children>
-                                <TextField prefHeight="26.0" prefWidth="200.0" promptText="Product Code" style="-fx-background-color: #90CAF9; -fx-prompt-text-fill: #212121;">
+                                <TextField fx:id="pidTF" prefHeight="26.0" prefWidth="200.0" promptText="Product Code" style="-fx-background-color: #90CAF9; -fx-prompt-text-fill: #212121;">
                                     <HBox.margin>
                                         <Insets top="5.0" />
                                     </HBox.margin>
                                 </TextField>
-                                <TextField layoutX="111.0" layoutY="10.0" prefHeight="26.0" prefWidth="200.0" promptText="Product Name" style="-fx-background-color: #90CAF9; -fx-prompt-text-fill: #212121;">
+                                <TextField fx:id="nameTF" layoutX="111.0" layoutY="10.0" prefHeight="26.0" prefWidth="200.0" promptText="Product Name" style="-fx-background-color: #90CAF9; -fx-prompt-text-fill: #212121;">
                                     <HBox.margin>
                                         <Insets left="10.0" top="5.0" />
                                     </HBox.margin>
@@ -291,12 +291,12 @@
                         </HBox>
                         <HBox alignment="CENTER" VBox.vgrow="NEVER">
                             <children>
-                                <ComboBox prefHeight="26.0" prefWidth="200.0" promptText="Product Category" style="-fx-background-color: #90CAF9; -fx-prompt-text-fill: #ffff;">
+                                <ComboBox fx:id="categoryCB" prefHeight="26.0" prefWidth="200.0" promptText="Product Category" style="-fx-background-color: #90CAF9; -fx-prompt-text-fill: #ffff;">
                                     <HBox.margin>
                                         <Insets top="5.0" />
                                     </HBox.margin>
                                 </ComboBox>
-                                <ComboBox prefHeight="26.0" prefWidth="200.0" promptText="Product Brand" style="-fx-background-color: #90CAF9; -fx-prompt-text-fill: #ffff;">
+                                <ComboBox fx:id="brandCB" prefHeight="26.0" prefWidth="200.0" promptText="Product Brand" style="-fx-background-color: #90CAF9; -fx-prompt-text-fill: #ffff;">
                                     <HBox.margin>
                                         <Insets left="10.0" top="5.0" />
                                     </HBox.margin>

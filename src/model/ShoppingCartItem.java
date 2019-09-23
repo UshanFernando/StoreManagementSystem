@@ -8,6 +8,10 @@ public class ShoppingCartItem {
     private double price;
     private Double discount;
 
+    public ShoppingCartItem(){
+
+
+    }
 
     public ShoppingCartItem(Product product, int quantity, Double discount) {
         this.product = product;

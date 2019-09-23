@@ -33,14 +33,14 @@ public class NotificationService implements NotificationServiceInterface {
     }
 
     static {
-        //This will call craeteUsersTable() when class loads.
+        //This will call craeteNotification() when class loads.
         createNotificationsTable();
         BrandManagerService.createTable();
         CategoryManagerService.createTable();
     }
 
     /**
-     * This static method will generate products table
+     * This static method will generate Notification table
      */
     public static void createNotificationsTable() {
 
@@ -48,11 +48,11 @@ public class NotificationService implements NotificationServiceInterface {
             connection = DBConnection.getDBConnection();
             myStmt = connection.createStatement();
 
-            // Create new products table as per SQL query available in
+            // Create new Notification table as per SQL query available in
             myStmt.executeUpdate(QueryUtil.queryByID(Constants.QUERY_ID_CREATE_PRODUCT_TABLE));
-            System.out.println("Product Table Created");
+            System.out.println("Notification Table Created");
         } catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
-            System.out.println("Product Table Not Created");
+            System.out.println("Notification Table Not Created");
         }
     }
 
@@ -109,6 +109,8 @@ public class NotificationService implements NotificationServiceInterface {
 
                 // create product object
                 Notification currentNotification = new Notification(message);
+                currentNotification.setStatus(status);
+                currentNotification.setId(id);
 
                 // adding user object to list
                 notifications.add(currentNotification);
@@ -129,7 +131,7 @@ public class NotificationService implements NotificationServiceInterface {
             connection = DBConnection.getDBConnection();
             preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_NOTIFICATION));
             makeQuery(notification);
-            preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR,notification.getId());
+            preparedStatement.setInt(Constants.COLUMN_INDEX_THREE,notification.getId());
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
 
@@ -155,9 +157,8 @@ public class NotificationService implements NotificationServiceInterface {
 
 
     private void makeQuery(Notification notification) throws SQLException {
-        preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, notification.getId());
-        preparedStatement.setString(Constants.COLUMN_INDEX_TWO,notification.getMessage());
-        preparedStatement.setString(Constants.COLUMN_INDEX_THREE,notification.getStatus());
+        preparedStatement.setString(Constants.COLUMN_INDEX_ONE,notification.getMessage());
+        preparedStatement.setString(Constants.COLUMN_INDEX_TWO,notification.getStatus());
 
     }
 

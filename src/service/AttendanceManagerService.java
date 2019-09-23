@@ -34,7 +34,7 @@ public class AttendanceManagerService implements AttendanceManagerServiceInterfa
     }
 
     /**
-     * This static method will generate brands table
+     * This static method will generate attendance table
      */
     public static void createTable() {
 
@@ -54,11 +54,11 @@ public class AttendanceManagerService implements AttendanceManagerServiceInterfa
 
     @Override
     public ObservableList<Attendance> getAttendanceList() {
-        ObservableList<Attendance>  attendances = FXCollections.observableArrayList();
+        ObservableList<Attendance> attendances = FXCollections.observableArrayList();
         // TODO Auto-generated method stub
         try {
 
-                    connection = DBConnection.getDBConnection();
+            connection = DBConnection.getDBConnection();
             preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_GET_ATTENDANCE));
 
 
@@ -66,14 +66,17 @@ public class AttendanceManagerService implements AttendanceManagerServiceInterfa
 
             while (myRs.next()) {
                 // GET data from db
-                int empid = myRs.getInt("eid");
-                String name = myRs.getString("name");
-                String month = myRs.getString("month");
-                int year = myRs.getInt("year");
-                int  No = myRs.getInt("No of Attendance");
+                int empid = myRs.getInt("EmployeeID");
 
+                String name = myRs.getString("Name");
+                String month = myRs.getString("Month");
+                int year = myRs.getInt("Year");
+                int No = myRs.getInt("NoOfAttendance");
+                //int test = myRs.getInt("EmployeeID");
                 // create Brand object
-                Attendance currentAttendance = new Attendance( empid,  name,  month,  year,  No);
+                Attendance currentAttendance = new Attendance(empid, name, month, year, No);
+
+                currentAttendance.getEmployeeId();
 
                 // adding Brand object to list
                 attendances.add(currentAttendance);
@@ -103,13 +106,13 @@ public class AttendanceManagerService implements AttendanceManagerServiceInterfa
             myRs = preparedStatement.executeQuery();
 
             while (myRs.next()) {
-                int empid = myRs.getInt("eid");
+                int employeeId = myRs.getInt("EmployeeID");
                 String name = myRs.getString("Name");
                 String month = myRs.getString("Month");
-                int year  = myRs.getInt("Year");
-                int No  = myRs.getInt("No of Attendance");
+                int year = myRs.getInt("Year");
+                int noOfAttendance = myRs.getInt("NoOfAttendance");
                 // create product object
-                attendance = new Attendance( empid, name ,month ,year, No);
+                attendance = new Attendance(employeeId, name, month, year, noOfAttendance);
 
             }
 
@@ -120,65 +123,79 @@ public class AttendanceManagerService implements AttendanceManagerServiceInterfa
         return attendance;
     }
 
-    @Override
-    public void updateAttendance(Attendance user) {
 
+
+
+
+
+    @Override
+    public void updateAttendance(Attendance attendance){
+//        // TODO Auto-generated method stub
+
+        try {
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_ATTENDANCE));
+            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, attendance.getEmployeeId());
+            preparedStatement.setString(Constants.COLUMN_INDEX_TWO, attendance.getName());
+            preparedStatement.setString(Constants.COLUMN_INDEX_THREE, attendance.getMonth());
+            preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, attendance.getYear());
+            preparedStatement.setInt(Constants.COLUMN_INDEX_FIVE, attendance.getNoOfAttendance());
+            preparedStatement.setInt(Constants.COLUMN_INDEX_SIX, attendance.getEmployeeId());
+
+
+
+
+            preparedStatement.execute();
+
+
+
+        } catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 
-//    @Override
-//    public void updateFinance(Finance finance) {
-//        // TODO Auto-generated method stub
-//
-//        try {
-//            makeFinanceQuery(finance);
-//            preparedStatement.executeUpdate();
-//
-//        } catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                if (preparedStatement != null) {
-//                    preparedStatement.close();
-//                }
-//                if (connection != null) {
-//                    connection.close();
-//                }
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-
-
-    private void makeAttendanceQuery(Attendance attendance) throws ClassNotFoundException, SQLException, SAXException, IOException, ParserConfigurationException {
+    private void makeAttendanceQuery (Attendance attendance) throws
+            ClassNotFoundException, SQLException, SAXException, IOException, ParserConfigurationException {
         connection = DBConnection.getDBConnection();
-        preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_PRODUCT));
-        preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, attendance.getEmpId());
+        preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_ATTENDANCE));
+        preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, attendance.getEmployeeId());
         preparedStatement.setString(Constants.COLUMN_INDEX_TWO, attendance.getName());
         preparedStatement.setString(Constants.COLUMN_INDEX_THREE, attendance.getMonth());
-        preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, attendance. getYear());
-        preparedStatement.setInt(Constants.COLUMN_INDEX_FIVE, attendance. getNOofAttendance());
+        preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, attendance.getYear());
+        preparedStatement.setInt(Constants.COLUMN_INDEX_FIVE, attendance.getNoOfAttendance());
 
 
     }
 
     @Override
-    public boolean addAttendance(Attendance attendance) {
+    public boolean addAttendance (Attendance attendance){
         // TODO Auto-generated method stub
         boolean success = false;
-//		if (!emailCheck(brand.getEmail())) {
-//			// this code will only run if entered email is not already in DB
-//			success = true;
+        //if (!emailCheck(brand.getEmail())) {
+        // this code will only run if entered email is not already in DB
+        //	success = true;
 
         try {
             connection = DBConnection.getDBConnection();
             preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_ADD_ATTENDANCE));
-            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, attendance.getEmpId());
+            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, attendance.getEmployeeId());
             preparedStatement.setString(Constants.COLUMN_INDEX_TWO, attendance.getName());
             preparedStatement.setString(Constants.COLUMN_INDEX_THREE, attendance.getMonth());
-            preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, attendance. getYear());
-            preparedStatement.setInt(Constants.COLUMN_INDEX_FIVE, attendance. getNOofAttendance());
+            preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, attendance.getYear());
+            preparedStatement.setInt(Constants.COLUMN_INDEX_FIVE, attendance.getNoOfAttendance());
+
             preparedStatement.execute();
 
         } catch (SQLException | SAXException | IOException | ParserConfigurationException
@@ -203,7 +220,7 @@ public class AttendanceManagerService implements AttendanceManagerServiceInterfa
 
 
     @Override
-    public void removeAttendance(int fid) {
+    public void removeAttendance ( int fid){
         // TODO Auto-generated method stub
 
         try {
@@ -229,3 +246,6 @@ public class AttendanceManagerService implements AttendanceManagerServiceInterfa
     }
 
 }
+
+
+

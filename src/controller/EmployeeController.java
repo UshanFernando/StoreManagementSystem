@@ -150,7 +150,7 @@ public class EmployeeController implements Initializable {
     @FXML
     public void add() {
 
-        if (true) {
+        if (valid()) {
 
             int empId = Integer.parseInt(eempId.getCharacters().toString());
             String name = ename.getCharacters().toString();
@@ -272,7 +272,14 @@ public class EmployeeController implements Initializable {
 
     private boolean valid() {
 
-        return !(ename.getCharacters().length() == 0);
+        return !(ename.getCharacters().length() == 0||
+                egender.getCharacters().length() == 0||
+                eAddress.getCharacters().length() == 0||
+                econtact.getCharacters().length() == 0||
+                edepartment.getCharacters().length() == 0||
+                eempId.getCharacters().length() == 0||
+                elevel.getCharacters().length() == 0||
+                erecdate.getCharacters().length() == 0);
 
     }
 }

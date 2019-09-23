@@ -11,17 +11,18 @@
     <orderEntry type="library" name="mysql-connector-java-8.0.16" level="application" />
     <orderEntry type="library" name="aquafx-0.1" level="application" />
     <orderEntry type="library" name="Javafx-11" level="project" />
-    <orderEntry type="library" name="javafx-swt" level="project" />
-    <orderEntry type="library" name="jasperreports-6.9.0" level="project" />
     <orderEntry type="library" name="ant-contrib" level="application" />
     <orderEntry type="library" name="org-apache-commons-logging" level="application" />
-    <orderEntry type="library" name="commons-digester-2.1" level="project" />
-    <orderEntry type="library" name="commons-collections4-4.4" level="project" />
-    <orderEntry type="library" name="joda-time-2.0" level="project" />
     <orderEntry type="library" name="commons-beanutils-1.8.3" level="project" />
+    <orderEntry type="library" name="commons-collections4-4.4" level="project" />
+    <orderEntry type="library" name="commons-digester-2.1" level="project" />
     <orderEntry type="library" name="commons-javaflow-1209105" level="project" />
-    <orderEntry type="library" name="org.eclipse.jdt.core-3.7.1" level="project" />
-    <orderEntry type="library" name="jasperreports-fonts-6.9.0" level="project" />
     <orderEntry type="library" name="itext-2.1.7.js4" level="project" />
+    <orderEntry type="library" name="jasperreports-6.9.0" level="project" />
+    <orderEntry type="library" name="jasperreports-fonts-6.9.0" level="project" />
+    <orderEntry type="library" name="joda-time-2.0" level="project" />
+    <orderEntry type="library" name="org-apache-commons-logging" level="project" />
+    <orderEntry type="library" name="org.eclipse.jdt.core-3.7.1" level="project" />
+    <orderEntry type="library" name="protobuf-java-3.6.1" level="project" />
   </component>
 </module>

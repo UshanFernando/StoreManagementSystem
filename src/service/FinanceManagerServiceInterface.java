@@ -2,7 +2,6 @@ package service;
 
 import javafx.collections.ObservableList;
 import model.Finance;
-import model.Product;
 import util.Constants;
 import util.DBConnection;
 import util.QueryUtil;
@@ -23,7 +22,7 @@ public interface FinanceManagerServiceInterface {
 
     public Finance getFinanceById(int pid);
 
-    public void updateFinance(Finance user);
+    public void updateFinance(Finance finance);
 
     public boolean addFinance(Finance user);
 

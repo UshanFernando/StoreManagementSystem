@@ -7,7 +7,7 @@ module StoreManagementSystem {
     requires java.desktop;
     exports  model;
 
-    opens model to jakvafx.graphics;
+    opens model to javafx.graphics;
 
     opens controller;
 

@@ -269,15 +269,27 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
     <!-- Update a particular category by id Query -->
     <query id="update_finance">
         <![CDATA[
-            update finance as c
-            set c.cid = ?, c.name = ?,  c.status = ?
-            where c.cid = ?
+            update finance set  status = ?, amount = ?, date = ? where id = ?
         ]]>
     </query>
 
     <query id="delete_finance">
         <![CDATA[
             DELETE FROM finance WHERE id = ? LIMIT 1
+        ]]>
+    </query>
+
+    <!-- Select a particular finance by income -->
+    <query id="finance_income">
+        <![CDATA[
+            SELECT * FROM finance WHERE status = 'income';
+        ]]>
+    </query>
+
+    <!-- Select a particular finance by expense -->
+    <query id="finance_expense">
+        <![CDATA[
+            SELECT * FROM finance WHERE status = 'expense';
         ]]>
     </query>
 
@@ -327,9 +339,8 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
     <!-- Select suppliers -->
     <query id="get_suppliers">
         <![CDATA[
-           SELECT s.sid , s.name , c.name as cname, s.address
-           FROM supplier as s , categories as c
-           WHERE c.cid = s.category
+           SELECT s.sid , s.name , c.cid as cid, s.address
+           FROM supplier as s  LEFT JOIN categories as c on c.cid = s.category
         ]]>
     </query>
     <!-- Select a particular Supplier by id Query -->
@@ -354,6 +365,97 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
            SELECT se.sid as id, se.email as email
            FROM supplier_email as se
            WHERE se.sid = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular supplier by id Query -->
+    <query id="update_supplier">
+        <![CDATA[
+            update supplier as s
+            set s.sid = ?, s.name = ? , s.category = ? , s.address = ?
+            where s.sid = ?
+        ]]>
+    </query>
+
+    <!-- Add a particular supplier -->
+    <query id="add_supplier">
+        <![CDATA[
+            insert into supplier (sid,name,category,address) values (?, ?, ?, ?);
+
+        ]]>
+    </query>
+
+    <!-- Delete a particular supplier-->
+    <query id="delete_supplier">
+        <![CDATA[
+            DELETE FROM supplier WHERE sid = ? LIMIT 1
+        ]]>
+    </query>
+
+    <!-- Get the last id of particular supplier-->
+    <query id="last_id_of_supplier">
+        <![CDATA[
+            SELECT sid FROM supplier ORDER BY sid DESC LIMIT 1
+        ]]>
+    </query>
+
+    <!-- Add a particular supplier email -->
+    <query id="add_supplier_email">
+        <![CDATA[
+            insert into supplier_email(sid,email) values (?, ?);
+
+        ]]>
+    </query>
+
+    <!-- Update a particular supplier email -->
+    <query id="update_supplier_email">
+        <![CDATA[
+            update supplier_email as s
+            set s.sid = ?, s.email = ?
+            where s.sid = ?
+
+        ]]>
+    </query>
+
+    <!-- Delete a particular supplier email-->
+    <query id="delete_supplier_email">
+        <![CDATA[
+            DELETE FROM supplier_email WHERE sid = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular supplier contact -->
+    <query id="update_supplier_contact">
+        <![CDATA[
+            update supplier_contact as s
+            set s.sid = ?, s.phone = ?
+            where s.sid = ?
+
+        ]]>
+    </query>
+
+    <!-- Add a particular supplier contact -->
+    <query id="add_supplier_contact">
+        <![CDATA[
+            insert into supplier_contact(sid,phone) values (?, ?);
+
+        ]]>
+    </query>
+
+    <!-- Update a particular supplier contact -->
+    <query id="update_supplier_contact">
+        <![CDATA[
+            update supplier_contact as s
+            set s.sid = ?, s.phone = ?
+            where s.sid = ?
+
+        ]]>
+    </query>
+
+    <!-- Delete a particular supplier contact-->
+    <query id="delete_supplier_contact">
+        <![CDATA[
+            DELETE FROM supplier_contact WHERE sid = ?
         ]]>
     </query>
 
@@ -383,26 +485,24 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
     <query id="get_orders">
         <![CDATA[
            SELECT  o.oid AS id,
-                   p.name AS product,
+                   p.pid AS product,
                    o.qty AS qty,
-                   s.name AS vendor,
+                   s.sid AS vendor,
                    o.orderDate AS orderDate,
                    o.deliveryDate AS deliveryDate,
                    o.request AS status
             FROM
                     orders AS o
-           LEFT OUTER JOIN products AS p
+           JOIN products AS p
            ON
-                p.pid = o.product,
-           supplier s
-           LEFT OUTER JOIN orders AS op
+                p.pid = o.product
+            JOIN supplier s
            ON
-               op.vendor = s.sid
+               o.vendor = s.sid
         ]]>
     </query>
 
-    <!-- Select orders by id -->
-    <query id="get_orders_by_id">
+    <query id="get_orders2">
         <![CDATA[
            SELECT  o.oid AS id,
                    p.name AS product,
@@ -413,16 +513,90 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
                    o.request AS status
             FROM
                     orders AS o
-           LEFT OUTER JOIN products AS p
+           JOIN products AS p
            ON
-                p.pid = o.product,
-           supplier s
-           LEFT OUTER JOIN orders AS op
+                p.pid = o.product
+            JOIN supplier s
            ON
-               op.vendor = s.sid
+               o.vendor = s.sid
+        ]]>
+    </query>
+
+    <!-- Select orders by id -->
+
+    <query id="get_orders_by_id">
+        <![CDATA[
+           SELECT  o.oid AS id,
+                   p.pid AS product,
+                   o.qty AS qty,
+                   s.sid AS vendor,
+                   o.orderDate AS orderDate,
+                   o.deliveryDate AS deliveryDate,
+                   o.request AS status
+            FROM
+                    orders AS o
+           JOIN products AS p
+           ON
+                p.pid = o.product
+            JOIN supplier s
+           ON
+               o.vendor = s.sid
            WHERE o.oid = ?
         ]]>
     </query>
+
+    <query id="get_orders_by_id2">
+        <![CDATA[
+           SELECT  o.oid AS id,
+                   p.name AS product,
+                   o.qty AS qty,
+                   s.name AS vendor,
+                   o.orderDate AS orderDate,
+                   o.deliveryDate AS deliveryDate,
+                   o.request AS status
+            FROM
+                    orders AS o
+           JOIN products AS p
+           ON
+                p.pid = o.product
+            JOIN supplier s
+           ON
+               o.vendor = s.sid
+           WHERE o.oid = ?
+        ]]>
+    </query>
+
+
+    <!-- Update orders by id -->
+    <query id="update_orders_by_id">
+        <![CDATA[
+           update orders as o
+           set
+               o.oid = ?,
+               o.product = ?,
+               o.qty = ?,
+               o.vendor = ?,
+               o.orderDate = ?,
+               o.deliveryDate = ?,
+               o.request = ?
+           where o.oid = ?
+        ]]>
+    </query>
+
+    <!-- delete orders by id -->
+    <query id="delete_orders_by_id">
+        <![CDATA[
+           DELETE FROM orders where oid = ? LIMIT 1
+        ]]>
+    </query>
+
+    <!-- add new orders-->
+    <query id="add_orders">
+        <![CDATA[
+           INSERT INTO orders VALUES(?,?,?,?,?,?,?);
+        ]]>
+    </query>
+
 
 
     <!-- ==================== queries for Requests management ====================== -->
@@ -577,6 +751,7 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
 
 
 
+
     <!-- ==================== queries for attendance management ====================== -->
 
     <!-- Create attendance table  -->
@@ -584,12 +759,12 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
     <query id="create_attendance_table">
         <![CDATA[
          CREATE TABLE `attendance`
-  `Employee ID` int(45) NOT NULL AUTO_INCREMENT,
+  `EmployeeID` int(45) NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) DEFAULT NULL,
   `Month` varchar(45) DEFAULT NULL,
    `Year` int(45) DEFAULT NULL,
-      `No of Attendance` int(45) DEFAULT NULL,
- PRIMARY KEY (`Employee ID`)
+      `NoOfAttendance` int(45) DEFAULT NULL,
+ PRIMARY KEY (`EmployeeID`)
     );
 
    ]]>
@@ -606,14 +781,14 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
     <!-- Add attendance -->
     <query id="add_attendance">
         <![CDATA[
-            insert into attendance(Employee ID, Name, Month, Year, No of Attendance) values(?, ?, ?, ?, ?);
+            insert into attendance(EmployeeID, Name, Month, Year, NoOfAttendance) values(?, ?, ?, ?, ?);
         ]]>
     </query>
 
     <!-- Select a particular attendance by id Query -->
     <query id="attendance_by_id">
         <![CDATA[
-            select * from attendance where id = ?
+            select * from attendance where EmployeeID = ?
         ]]>
     </query>
 
@@ -621,20 +796,48 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
     <query id="update_attendance">
         <![CDATA[
             update attendance as a
-            set a.aid = ?, a.name = ?,  a.month = ?, a.year =?, a.no of attendance = ?
-            where a.aid = ?
+            set a.EmployeeID = ?, a.Name = ?,  a.Month = ?, a.Year =?, a.NoOfAttendance = ?
+            where a.EmployeeID = ?
         ]]>
     </query>
 
     <!-- Delete a particular attendance by id Query -->
     <query id="delete_attendance">
         <![CDATA[
-            DELETE FROM attendance WHERE id = ? LIMIT 1
+            DELETE FROM attendance WHERE EmployeeID = ? LIMIT 1
         ]]>
     </query>
 
 
-<!-- LOGIN -->
+    <!-- ==================== queries for leave management ====================== -->
+
+    <query id="create_leave_table">
+        <![CDATA[
+         CREATE TABLE `leaverecord`
+  `fullname` varchar(45) NOT NULL AUTO_INCREMENT,
+  `Employeeid` int(45) DEFAULT NULL,
+  `Leavetype` varchar(45) DEFAULT NULL,
+   `Email` varchar(45) DEFAULT NULL,
+      `Date` string(45) DEFAULT NULL,
+ PRIMARY KEY (`Employeeid`)
+    );
+
+   ]]>
+    </query>
+
+
+
+    <!-- Add leave -->
+    <query id="add_leave">
+        <![CDATA[
+            insert into leaverecord(fullname, Employeeid, Leavetype, Email, Date) values(?, ?, ?, ?, ?);
+        ]]>
+    </query>
+
+
+
+
+        <!-- LOGIN -->
     <!-- Find whether the department and the emploee id matyches-->
 
     <query id="match_employee">
@@ -731,6 +934,53 @@ CREATE TABLE `sales_products` (
     <query id="delete_notification">
         <![CDATA[
             DELETE FROM sales_products WHERE spId = ? LIMIT 1
+        ]]>
+    </query>
+
+    <!-- ==================== queries for attendance management ====================== -->
+
+    <!-- Create attendance table  -->
+
+    <query id="create_notifications_table">
+        <![CDATA[
+CREATE TABLE `notification` (
+  `nId` int(11) NOT NULL AUTO_INCREMENT,
+  `message` varchar(600) DEFAULT NULL,
+  `status` varchar(45) DEFAULT 'UNREAD',
+  PRIMARY KEY (`nId`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+   ]]>
+    </query>
+
+
+    <!-- Select attendance -->
+    <query id="get_notifications">
+        <![CDATA[
+            select * from notification
+        ]]>
+    </query>
+
+    <!-- Select attendance -->
+    <query id="get_notifications_unread">
+        <![CDATA[
+            select * from notification where status = 'UNREAD'
+        ]]>
+    </query>
+
+    <!-- Update a particular attendance by id Query -->
+    <query id="update_notification">
+        <![CDATA[
+            update notification as n
+            set n.message = ?,  n.status = ?
+            where n.nId = ?
+        ]]>
+    </query>
+
+    <!-- Delete a particular attendance by id Query -->
+    <query id="delete_notification">
+        <![CDATA[
+            DELETE FROM notification WHERE nId = ? LIMIT 1
         ]]>
     </query>
 

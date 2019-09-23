@@ -126,6 +126,14 @@ public class Constants {
 
     public static final String QUERY_ID_GET_SUPPLIER_BY_ID = "supplier_by_id";
 
+    public static final String QUERY_ID_UPDATE_SUPPLIER = "update_supplier";
+
+    public static final String QUERY_ID_ADD_SUPPLIER = "add_supplier";
+
+    public static final String QUERY_ID_REMOVE_SUPPLIER = "delete_supplier";
+
+    public static final String QUERY_ID_GET_LAST_SUPPLIER_ID = "last_id_of_supplier";
+
     /**
      * Constants for Supplier Contacts
      */
@@ -134,6 +142,12 @@ public class Constants {
 
     public static final String QUERY_ID_GET_SUPPLIER_CONTACTS_BY_ID = "get_supplier_contacts_by_id";
 
+    public static final String QUERY_ID_ADD_SUPPLIER_CONTACT = "add_supplier_contact";
+
+    public static final String QUERY_ID_UPDATE_SUPPLIER_CONTACT = "update_supplier_contact";
+
+    public static final String QUERY_ID_REMOVE_SUPPLIER_CONTACT = "delete_supplier_contact";
+
     /**
      * Constant for Supplier Mail
      */
@@ -141,6 +155,12 @@ public class Constants {
     public static final String QUERY_ID_CREATE_SUPPLIER_EMAIL_TABLE = "create_supplier_email_table";
 
     public static final String QUERY_ID_GET_SUPPLIER_EMAIL_BY_ID = "get_supplier_emails_by_id";
+
+    public static final String QUERY_ID_ADD_SUPPLIER_EMAIL ="add_supplier_email";
+
+    public static final String QUERY_ID_UPDATE_SUPPLIER_EMAIL = "update_supplier_email";
+
+    public static final String QUERY_ID_REMOVE_SUPPLIER_EMAIL = "delete_supplier_email";
 
     /**
      * Constant for Orders
@@ -152,6 +172,11 @@ public class Constants {
 
     public static final String QUERY_ID_GET_ORDER_BY_ID = "get_orders_by_id";
 
+    public static final String QUERY_ID_UPDATE_ORDER = "update_orders_by_id";
+
+    public static final String QUERY_ID_ADD_ORDER = "add_orders";
+
+    public static final String QUERY_ID_DELETE_ORDER = "delete_orders_by_id";
 
          /*
 
@@ -161,18 +186,23 @@ public class Constants {
 
     public static final String QUERY_ID_CREATE_FINANCE_TABLE = "create_finance_table";
 
-    public static final String QUERY_ID_DROP_FINANCE_TABLE = "drop_table_finance";
+//    public static final String QUERY_ID_DROP_FINANCE_TABLE = "drop_table_finance";
 
-    public static final String QUERY_ID_FINANCE_CATEGORY = "update_finance";
+//    public static final String QUERY_ID_FINANCE_CATEGORY = "update_finance";
 
     public static final String QUERY_ID_ADD_FINANCE = "add_finance";
 
     public static final String QUERY_ID_REMOVE_FINANCE = "delete_finance";
 
-    public static final String QUERY_ID_GET_FINANCE_BY_ID = "finance_by_id";
+    public static final String QUERY_ID_UPDATE_FINANCE = "update_finance";
+
+//    public static final String QUERY_ID_GET_FINANCE_BY_ID = "finance_by_id";
 
     public static final String QUERY_ID_GET_FINANCE = "get_finance";
 
+    public static final String QUERY_ID_GET_FINANCE_INCOME = "finance_income";
+
+    public static final String QUERY_ID_GET_FINANCE_EXPENSE = "finance_expense";
 
          /*
 
@@ -254,7 +284,7 @@ public class Constants {
 
     public static final String QUERY_ID_GET_EMPLOYEE = "get_employee";
 
-     /*
+    /*
 
     Constants for attendance Queries
 
@@ -270,6 +300,20 @@ public class Constants {
     public static final String QUERY_ID_GET_ATTENDANCE = "get_attendance";
 
     public static final String QUERY_ID_GET_ATTENDANCE_BY_ID = "attendance_by_id";
+
+    public static final String QUERY_ID_UPDATE_ATTENDANCE = "update_attendance";
+
+
+      /*
+
+    Constants for leave Queries
+
+    */
+
+    public static final String QUERY_ID_CREATE_LEAVERECORD_TABLE = "create_leaverecord_table";
+
+    public static final String QUERY_ID_ADD_LEAVE = "add_leave";
+
 
 /*
 Constants for Register Queries
@@ -331,6 +375,9 @@ Constants for Register Queries
     public static final String QUERY_ID_GET_SALES_PRODUCTS = "get_notifications";
 
     public static final String QUERY_ID_ADD_SALES_PRODUCTS = "add_sales_products";
+
+
+
 
 
 }

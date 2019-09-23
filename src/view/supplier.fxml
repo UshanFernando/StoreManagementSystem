@@ -50,7 +50,7 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <ComboBox prefHeight="30.0" prefWidth="234.0" promptText="Select Product Category" style="-fx-background-color: #E1BEE7;">
+                  <ComboBox fx:id="comboBoxCategory" prefHeight="30.0" prefWidth="234.0" promptText="Select Product Category" style="-fx-background-color: #E1BEE7;">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
@@ -63,26 +63,35 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <HBox layoutX="15.0" layoutY="259.0" prefHeight="100.0" prefWidth="200.0">
+<!--                  disbaled from here-->
+                  <HBox layoutX="15.0" layoutY="259.0" prefHeight="100.0" prefWidth="200.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <ChoiceBox prefWidth="150.0" style="-fx-background-color: #E1BEE7;">
-                           <HBox.margin>
-                              <Insets top="10.0" />
-                           </HBox.margin>
-                           <padding>
-                              <Insets top="4.0" />
-                           </padding>
-                        </ChoiceBox>
-                        <TextField promptText="contact" style="-fx-prompt-text-fill: #666666; -fx-background-color: #E1BEE7;">
-                           <HBox.margin>
-                              <Insets top="10.0" />
-                           </HBox.margin>
+                        <TextField fx:id="textFieldContact" prefHeight="30.0" prefWidth="202.0" promptText="Contact" style="-fx-prompt-text-fill: #666666; -fx-background-color: #E1BEE7;">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </TextField>
                      </children>
-                  </HBox>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox layoutX="15.0" layoutY="244.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <TextField fx:id="textFieldEmail" prefHeight="30.0" prefWidth="202.0" promptText="Email" style="-fx-prompt-text-fill: #666666; -fx-background-color: #E1BEE7;">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="1.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </VBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <ChoiceBox prefWidth="150.0" style="-fx-background-color: #E1BEE7;">
@@ -100,7 +109,20 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </HBox>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #40c4ff;" text="Add" textFill="WHITE">
+
+<!--                  to here-->
+                  <Button mnemonicParsing="false" onAction="#clear" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: transparent;" text="Reset" textFill="WHITE" underline="true">
+                     <VBox.margin>
+                        <Insets bottom="120.0" left="120.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#add" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #40c4ff;" text="Add" textFill="WHITE">
                      <padding>
                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                      </padding>
@@ -117,7 +139,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #fbc02d;" text="Update">
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#update" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #fbc02d;" text="Update">
                      <padding>
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </padding>
@@ -134,7 +156,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #ff3d00;" text="Delete" textFill="WHITE">
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#delete" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #ff3d00;" text="Delete" textFill="WHITE">
                      <padding>
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </padding>

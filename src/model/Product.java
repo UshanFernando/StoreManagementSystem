@@ -80,4 +80,8 @@ public class Product {
         this.qty = qty;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }

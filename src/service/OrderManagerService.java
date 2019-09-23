@@ -2,6 +2,7 @@ package service;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import model.*;
 import model.Order;
 import org.xml.sax.SAXException;
 import util.Constants;
@@ -11,12 +12,7 @@ import util.QueryUtil;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.sql.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.ZoneId;
 
-import static java.time.temporal.ChronoUnit.DAYS;
 
 /**
  * @author Ilukkumbure S.P.M.K.W
@@ -24,25 +20,29 @@ import static java.time.temporal.ChronoUnit.DAYS;
  * This is SupplierManagerService
  * @see SupplierManagerServiceInterface
  * @see Order
- * @see model.Product
- * @see util.Constants
- * @see util.DBConnection
- * @see util.QueryUtil
+ * @see Product
+ * @see Constants
+ * @see DBConnection
+ * @see QueryUtil
  */
-public class OrderManagerService implements OrderManagerServiceInterface{
+public class OrderManagerService implements OrderManagerServiceInterface {
 
     private static Connection connection;
     private ResultSet myresultSet = null;
     private static Statement mystatement = null;
     private static PreparedStatement preparedStatement;
+    private ProductManagerService productManagerService;
+    private SupplierManagerService supplierManagerService;
+
 
     public OrderManagerService() {
     }
+
     static {
         createTableOrders();
     }
 
-    private static void createTableOrders(){
+    private static void createTableOrders() {
         try {
             connection = DBConnection.getDBConnection();
             mystatement = connection.createStatement();
@@ -54,18 +54,25 @@ public class OrderManagerService implements OrderManagerServiceInterface{
     }
 
     @Override
-    public ObservableList<Order> getOrderList() {
-        ObservableList<Order> orders = FXCollections.observableArrayList();
+    public ObservableList<OrderItem> getOrderList() {
+        ObservableList<OrderItem> orders = FXCollections.observableArrayList();
         try {
             connection = DBConnection.getDBConnection();
             preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_GET_ALL_ORDERS));
             myresultSet = preparedStatement.executeQuery();
 
-            while (myresultSet.next()){
+            while (myresultSet.next()) {
                 int id = myresultSet.getInt("id");
-                String product = myresultSet.getString("product");
+//                String product = myresultSet.getString("product");
+//                String qty = myresultSet.getString("qty");
+//                String vendor = myresultSet.getString("vendor");
+                productManagerService = new ProductManagerService();
+                supplierManagerService = new SupplierManagerService();
+
+                Product product = productManagerService.getProductById(myresultSet.getInt("product"));
+
                 String qty = myresultSet.getString("qty");
-                String vendor = myresultSet.getString("vendor");
+                Supplier vendor = supplierManagerService.getSupplierById(myresultSet.getInt("vendor"));
                 String orderDate = myresultSet.getString("orderDate");
                 String deliveryDate = myresultSet.getString("deliveryDate");
                 String status = myresultSet.getString("status");
@@ -74,8 +81,9 @@ public class OrderManagerService implements OrderManagerServiceInterface{
 //                Timestamp currentdate = Timestamp.valueOf((LocalDate.now()).atTime(LocalTime.now()));
 //
 
-                Order currentOrder = new Order(id,product,qty,vendor,orderDate,deliveryDate,status);
-                orders.add(currentOrder);
+                Order currentOrder = new Order(id, product, qty, vendor, orderDate, deliveryDate, status);
+                OrderItem currentOrderItem = new OrderItem(currentOrder,product,vendor);
+                orders.add(currentOrderItem);
             }
         } catch (IOException | ClassNotFoundException | SQLException | SAXException | ParserConfigurationException e) {
             e.printStackTrace();
@@ -84,46 +92,108 @@ public class OrderManagerService implements OrderManagerServiceInterface{
     }
 
     @Override
-    public Order getOrderById(int oid) {
+    public OrderItem getOrderById(int oid) {
         Order orders = null;
+        OrderItem orderItem = null;
         try {
             connection = DBConnection.getDBConnection();
             preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_GET_ORDER_BY_ID));
-            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE,oid);
+            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, oid);
             myresultSet = preparedStatement.executeQuery();
 
-            while (myresultSet.next()){
+            while (myresultSet.next()) {
                 int id = myresultSet.getInt("id");
-                String product = myresultSet.getString("product");
+                Product product = productManagerService.getProductById(myresultSet.getInt("product"));
                 String qty = myresultSet.getString("qty");
-                String vendor = myresultSet.getString("vendor");
+                Supplier vendor = supplierManagerService.getSupplierById(myresultSet.getInt("vendor"));
                 String orderDate = myresultSet.getString("orderDate");
                 String deliveryDate = myresultSet.getString("deliveryDate");
                 String status = myresultSet.getString("status");
 
-                orders = new Order(id,product,qty,vendor,orderDate,deliveryDate,status);
-
+                 orders = new Order(id, product, qty, vendor, orderDate, deliveryDate, status);
+                 orderItem = new OrderItem(orders,product,vendor);
             }
         } catch (IOException | ClassNotFoundException | SQLException | SAXException | ParserConfigurationException e) {
             e.printStackTrace();
         }
-        return orders;
+        return orderItem;
     }
 
     @Override
-    public void updateOrder(Order order) {
+    public boolean updateOrder(OrderItem order) {
+        boolean success = false;
+        try{
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_ORDER));
+            makeQuery(order);
+            preparedStatement.setInt(Constants.COLUMN_INDEX_EIGHT, order.getOrderID());
 
+        }catch (IOException | ClassNotFoundException | SQLException | SAXException | ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+        return success;
     }
 
     @Override
-    public boolean addOrder(Order order) {
-        return false;
+    public boolean addOrder(OrderItem orderItem) {
+        boolean success = false;
+        try {
+            connection = DBConnection.getDBConnection();
+            preparedStatement =  connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_ADD_ORDER));
+            makeQuery(orderItem);
+            preparedStatement.execute();
+            success = true;
+        } catch (IOException | ClassNotFoundException | SQLException | SAXException | ParserConfigurationException e) {
+            e.printStackTrace();
+        } finally {
+            connectionClose();
+        }
+        return success;
     }
 
     @Override
-    public void removeOrder() {
+    public boolean removeOrder(int oid) {
+        boolean success = false;
+        try {
+            connection = DBConnection.getDBConnection();
+            preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_REMOVE_SUPPLIER));
+            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, oid);
+            preparedStatement.execute();
+        } catch (IOException | ClassNotFoundException | SQLException | SAXException | ParserConfigurationException e) {
+            e.printStackTrace();
+        } finally {
+            connectionClose();
+        }
+        return success;
+    }
+
+
+    private void makeQuery(OrderItem orderItem) throws SQLException {
+        preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, orderItem.getOrderID());
+        preparedStatement.setInt(Constants.COLUMN_INDEX_TWO, orderItem.getProduct().getPid());
+        preparedStatement.setString(Constants.COLUMN_INDEX_THREE, orderItem.getQty());
+        preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, orderItem.getSupplier().getId());
+        preparedStatement.setString(Constants.COLUMN_INDEX_FIVE,orderItem.getOrderDate());
+        preparedStatement.setString(Constants.COLUMN_INDEX_SIX,orderItem.getDeliveryDate());
+        preparedStatement.setString(Constants.COLUMN_INDEX_SEVEN,orderItem.getRequest());
 
     }
 
 
+
+
+    private void connectionClose() {
+        try {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 }

@@ -214,6 +214,21 @@ public class SalaryCalController  {
 
     }
 
+    @FXML
+    public void openHomeScene(ActionEvent event) throws IOException {
+
+        Parent viewParent = FXMLLoader.load(getClass().getResource("/view/home.fxml"));
+
+        Stage windowstage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+
+        windowstage.setScene(new Scene(viewParent, 840, 473));
+        windowstage.centerOnScreen();
+        windowstage.setTitle("Store Management Nisha Electricals PVC");
+        Image icon = new Image(MainController.class.getResource("/res/icons/icon.png").toExternalForm(), false);
+        windowstage.getIcons().add(icon);
+
+    }
+
 
 
 

@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="itext-2.1.7.js4">
+  <library name="protobuf-java-3.6.1">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/jar/itext-2.1.7.js4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jar/protobuf-java-3.6.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

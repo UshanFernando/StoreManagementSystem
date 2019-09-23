@@ -291,5 +291,50 @@ public class Constants {
     public static final String QUERY_ID_GET_ATTENDANCE = "get_attendance";
 
     public static final String QUERY_ID_GET_ATTENDANCE_BY_ID = "attendance_by_id";
+
+/*
+Constants for Register Queries
+
+        */
+
+public static final String QUERY_ID_CREATE_REGISTER_TABLE = "create_ register_table";
+
+public static final String QUERY_ID_DROP_REGISTER_TABLE = "drop_table_register";
+
+//public static final String QUERY_ID_UPDATE_REGISTER = "update_register";
+
+public static final String QUERY_ID_ADD_REGISTER= "add_register";
+
+public static final String QUERY_ID_REMOVE_REGISTER = "delete_register";
+
+public static final String QUERY_ID_GET_REGISTER_BY_ID = "register_by_id";
+
+public static final String QUERY_ID_GET_REGISTER = "get_register";
+
+/*
+Constants for Login Queries
+
+        */
+public static final String QUERY_ID_MATCH_EMPLOYEE = "match_employee";
+
+
+
+        /*
+
+    Constants for notifications Queries
+
+    */
+
+
+    public static final String QUERY_ID_CREATE_NOTIFICATION_TABLE = "create_notifications_table";
+
+    public static final String QUERY_ID_UPDATE_NOTIFICATION = "update_notification";
+
+    public static final String QUERY_ID_GET_UNREAD_NOTIFICATION = "get_notifications_unread";
+
+    public static final String QUERY_ID_GET_ALL_NOTIFICATION = "get_notifications";
+
+    public static final String QUERY_ID_DELETE_NOTIFICATION = "delete_notification";
+
 }
 

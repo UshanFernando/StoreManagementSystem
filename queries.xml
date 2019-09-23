@@ -14,13 +14,15 @@ CREATE TABLE `products` (
   `price` double DEFAULT NULL,
   `brand` int(11) DEFAULT NULL,
   `category` int(11) DEFAULT NULL,
-  `qty` varchar(45) DEFAULT NULL,
+  `qty` int(20) DEFAULT NULL,
+  `criticalQty` int(20) DEFAULT NULL,
   PRIMARY KEY (`pid`),
   KEY `brand_idx` (`brand`),
   KEY `cate_fkey_idx` (`category`),
   CONSTRAINT `brand_fkey` FOREIGN KEY (`brand`) REFERENCES `brands` (`bid`),
   CONSTRAINT `cate_fkey` FOREIGN KEY (`category`) REFERENCES `categories` (`cid`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 
         ]]>
@@ -36,7 +38,7 @@ CREATE TABLE `products` (
     <!-- Add product -->
     <query id="add_product">
         <![CDATA[
-          INSERT INTO products VALUES (?, ?, ? , ? , ? , ?);
+          INSERT INTO products VALUES (?, ?, ? , ? , ? , ? , ?);
         ]]>
     </query>
 
@@ -51,7 +53,7 @@ CREATE TABLE `products` (
     <query id="update_product">
         <![CDATA[
             update products as p
-            set p.pid = ?, p.name = ?,  p.price = ?, p.brand = ?,p.category = ? ,p.qty = ?
+            set p.pid = ?, p.name = ?,  p.price = ?, p.brand = ?,p.category = ? ,p.qty = ? ,p.criticalQty = ?
             where p.pid = ?
         ]]>
     </query>
@@ -696,16 +698,16 @@ CREATE TABLE `products` (
     <!-- Select a particular employee by id Query -->
     <query id="employee_by_id">
         <![CDATA[
-            select * from employees where bid = ?
+            select * from employees where empId = ?
         ]]>
     </query>
 
     <!-- Update a particular employee by id Query -->
     <query id="update_employee">
         <![CDATA[
-            update employees as e
-            set e.empId = ?, e.name = ?,  e.department = ?,e.level = ?,e.contact = ?,e.gender = ?,e.Address = ?,e.recdate = ?
-            where e.empId = ?
+            UPDATE employees
+            SET empId = ?, name = ?, department = ?,level = ?,contact = ?,gender = ?,Address = ?,recdate = ?
+            WHERE empId = ?
         ]]>
     </query>
 
@@ -770,5 +772,62 @@ CREATE TABLE `products` (
         ]]>
     </query>
 
+
+<!-- LOGIN -->
+    <!-- Find whether the department and the emploee id matyches-->
+
+    <query id="match_employee">
+        <![CDATA[
+            SELECT * FROM employees
+            WHERE department = ? and empId = ?
+        ]]>
+    </query>
+
+    <!-- ==================== queries for attendance management ====================== -->
+
+    <!-- Create attendance table  -->
+
+    <query id="create_notifications_table">
+        <![CDATA[
+CREATE TABLE `notification` (
+  `nId` int(11) NOT NULL AUTO_INCREMENT,
+  `message` varchar(600) DEFAULT NULL,
+  `status` varchar(45) DEFAULT 'UNREAD',
+  PRIMARY KEY (`nId`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+   ]]>
+    </query>
+
+
+    <!-- Select attendance -->
+    <query id="get_notifications">
+        <![CDATA[
+            select * from notification
+        ]]>
+    </query>
+
+    <!-- Select attendance -->
+    <query id="get_notifications_unread">
+        <![CDATA[
+            select * from notification where status = 'UNREAD'
+        ]]>
+    </query>
+
+    <!-- Update a particular attendance by id Query -->
+    <query id="update_notification">
+        <![CDATA[
+            update notification as n
+            set n.message = ?,  n.status = ?
+            where n.nId = ?
+        ]]>
+    </query>
+
+    <!-- Delete a particular attendance by id Query -->
+    <query id="delete_notification">
+        <![CDATA[
+            DELETE FROM notification WHERE nId = ? LIMIT 1
+        ]]>
+    </query>
 
 </Queries>

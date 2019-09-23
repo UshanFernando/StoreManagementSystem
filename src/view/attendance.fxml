@@ -34,27 +34,27 @@
                               <Insets top="20.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="IDField" text="EmployeeID">
+                        <TextField fx:id="IDField" promptText="EmployeeID">
                            <VBox.margin>
                               <Insets bottom="20.0" left="20.0" right="20.0" top="50.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField fx:id="NameField" text="Name">
+                        <TextField fx:id="NameField" promptText="Name">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField fx:id="MonthField" text="Month">
+                        <TextField fx:id="MonthField" promptText="Month">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField fx:id="YearField" text="Year">
+                        <TextField fx:id="YearField" promptText="Year">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField fx:id="AtField" text="No of Attendance">
+                        <TextField fx:id="AtField" promptText="No of Attendance">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
@@ -76,7 +76,7 @@
                               <Insets left="20.0" right="20.0" top="50.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #fbc02d;" text="Update" textFill="WHITE" VBox.vgrow="ALWAYS">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#update" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #fbc02d;" text="Update" textFill="WHITE" VBox.vgrow="ALWAYS">
                            <padding>
                               <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                            </padding>
@@ -93,7 +93,7 @@
                               <Insets left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #ff3d00;" text="Delete" textFill="#fcf3f3" VBox.vgrow="ALWAYS">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#delete" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #ff3d00;" text="Delete" textFill="#fcf3f3" VBox.vgrow="ALWAYS">
                            <padding>
                               <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                            </padding>
@@ -121,7 +121,7 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #93a832;" text="Leave">
+                        <Button mnemonicParsing="false" onAction="#openLeave" prefHeight="46.0" prefWidth="304.0" style="-fx-background-color: #93a832;" text="Leave">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
@@ -137,7 +137,7 @@
                      <children>
                         <HBox prefHeight="30.0" prefWidth="994.0" style="-fx-background-color: #26d47a;">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#openHomeScene" style="-fx-background-color: transparent;" text="Go Back" textFill="WHITE">
+                              <Button mnemonicParsing="false" onAction="#add" style="-fx-background-color: transparent;" text="Go Back" textFill="WHITE">
                                  <graphic>
                                     <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -149,7 +149,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#openHomeScene" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE">
+                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE">
                                  <graphic>
                                     <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -177,7 +177,7 @@
                                     <TableColumn fx:id="EnameColumn" prefWidth="235.0" text="Name" />
                                     <TableColumn fx:id="monColumn" minWidth="0.0" prefWidth="150.0" text="Month" />
                                     <TableColumn fx:id="yColumn" prefWidth="138.0" text="Year" />
-                                    <TableColumn fx:id="AtColumn" prefWidth="239.0" text="No of Attendance" />
+                                    <TableColumn fx:id="atColumn" prefWidth="239.0" text="No of Attendance" />
                                  </columns>
                               </TableView>
                            </items>

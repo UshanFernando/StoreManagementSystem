@@ -46,7 +46,7 @@ public class SceneManager {
     public void openSupplierScene() throws IOException {
         Parent supplierViewParent = FXMLLoader.load(getClass().getResource("/view/supplier.fxml"));
         Stage windowstage = Main.getPrimaryStage();
-
+        windowstage.centerOnScreen();
         windowstage.setScene(new Scene(supplierViewParent, 1280, 720));
         windowstage.centerOnScreen();
         windowstage.setTitle("Supplier Management");
@@ -91,6 +91,8 @@ public class SceneManager {
         windowstage.setTitle("Attendance");
         Image icon = new Image(MainController.class.getResource("/res/icons/red-card.png").toExternalForm(), false);
         windowstage.getIcons().add(icon);
+        windowstage.centerOnScreen();
+
     }
 
     public void openSalaryScene() throws IOException {
@@ -117,6 +119,26 @@ public class SceneManager {
         windowstage.setScene(new Scene(salesViewParent, 1280, 720));
         windowstage.setTitle("Sales Reports");
         Image icon = new Image(MainController.class.getResource("/res/icons/sale.png").toExternalForm(), false);
+        windowstage.getIcons().add(icon);
+        windowstage.centerOnScreen();
+
+    }
+
+    public void opeLeaveScene() throws IOException {
+        Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/leave.fxml"));
+        Stage windowstage = Main.getPrimaryStage();
+        windowstage.setScene(new Scene(salesViewParent, 1280, 720));
+        windowstage.setTitle("Attendance");
+        Image icon = new Image(MainController.class.getResource("/res/icons/red-card.png").toExternalForm(), false);
+        windowstage.getIcons().add(icon);
+    }
+
+    public void openHomeScene() throws IOException {
+        Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/leave.fxml"));
+        Stage windowstage = Main.getPrimaryStage();
+        windowstage.setScene(new Scene(salesViewParent, 1280, 720));
+        windowstage.setTitle("Attendance");
+        Image icon = new Image(MainController.class.getResource("/res/icons/red-card.png").toExternalForm(), false);
         windowstage.getIcons().add(icon);
     }
 

@@ -259,7 +259,7 @@ public class Constants {
 
     public static final String QUERY_ID_GET_EMPLOYEE = "get_employee";
 
-     /*
+    /*
 
     Constants for attendance Queries
 
@@ -275,6 +275,20 @@ public class Constants {
     public static final String QUERY_ID_GET_ATTENDANCE = "get_attendance";
 
     public static final String QUERY_ID_GET_ATTENDANCE_BY_ID = "attendance_by_id";
+
+    public static final String QUERY_ID_UPDATE_ATTENDANCE = "update_attendance";
+
+
+      /*
+
+    Constants for leave Queries
+
+    */
+
+    public static final String QUERY_ID_CREATE_LEAVERECORD_TABLE = "create_leaverecord_table";
+
+    public static final String QUERY_ID_ADD_LEAVE = "add_leave";
+
 
 /*
 Constants for Register Queries

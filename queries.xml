@@ -589,6 +589,7 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
 
 
 
+
     <!-- ==================== queries for attendance management ====================== -->
 
     <!-- Create attendance table  -->
@@ -596,12 +597,12 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
     <query id="create_attendance_table">
         <![CDATA[
          CREATE TABLE `attendance`
-  `Employee ID` int(45) NOT NULL AUTO_INCREMENT,
+  `EmployeeID` int(45) NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) DEFAULT NULL,
   `Month` varchar(45) DEFAULT NULL,
    `Year` int(45) DEFAULT NULL,
-      `No of Attendance` int(45) DEFAULT NULL,
- PRIMARY KEY (`Employee ID`)
+      `NoOfAttendance` int(45) DEFAULT NULL,
+ PRIMARY KEY (`EmployeeID`)
     );
 
    ]]>
@@ -618,14 +619,14 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
     <!-- Add attendance -->
     <query id="add_attendance">
         <![CDATA[
-            insert into attendance(Employee ID, Name, Month, Year, No of Attendance) values(?, ?, ?, ?, ?);
+            insert into attendance(EmployeeID, Name, Month, Year, NoOfAttendance) values(?, ?, ?, ?, ?);
         ]]>
     </query>
 
     <!-- Select a particular attendance by id Query -->
     <query id="attendance_by_id">
         <![CDATA[
-            select * from attendance where id = ?
+            select * from attendance where EmployeeID = ?
         ]]>
     </query>
 
@@ -633,20 +634,48 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
     <query id="update_attendance">
         <![CDATA[
             update attendance as a
-            set a.aid = ?, a.name = ?,  a.month = ?, a.year =?, a.no of attendance = ?
-            where a.aid = ?
+            set a.EmployeeID = ?, a.Name = ?,  a.Month = ?, a.Year =?, a.NoOfAttendance = ?
+            where a.EmployeeID = ?
         ]]>
     </query>
 
     <!-- Delete a particular attendance by id Query -->
     <query id="delete_attendance">
         <![CDATA[
-            DELETE FROM attendance WHERE id = ? LIMIT 1
+            DELETE FROM attendance WHERE EmployeeID = ? LIMIT 1
         ]]>
     </query>
 
 
-<!-- LOGIN -->
+    <!-- ==================== queries for leave management ====================== -->
+
+    <query id="create_leave_table">
+        <![CDATA[
+         CREATE TABLE `leaverecord`
+  `fullname` varchar(45) NOT NULL AUTO_INCREMENT,
+  `Employeeid` int(45) DEFAULT NULL,
+  `Leavetype` varchar(45) DEFAULT NULL,
+   `Email` varchar(45) DEFAULT NULL,
+      `Date` string(45) DEFAULT NULL,
+ PRIMARY KEY (`Employeeid`)
+    );
+
+   ]]>
+    </query>
+
+
+
+    <!-- Add leave -->
+    <query id="add_leave">
+        <![CDATA[
+            insert into leaverecord(fullname, Employeeid, Leavetype, Email, Date) values(?, ?, ?, ?, ?);
+        ]]>
+    </query>
+
+
+
+
+        <!-- LOGIN -->
     <!-- Find whether the department and the emploee id matyches-->
 
     <query id="match_employee">

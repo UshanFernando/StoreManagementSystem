@@ -2,6 +2,9 @@ package controller;
 
 
 
+import javafx.beans.InvalidationListener;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,9 +20,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Attendance;
 import service.AttendanceManagerService;
+import util.SceneManager;
+
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class AttendanceController implements Initializable {
 
@@ -28,7 +33,7 @@ public class AttendanceController implements Initializable {
 
 
     @FXML
-    TableColumn idColumn;
+    TableColumn<Attendance,Integer> idColumn;
 
     @FXML
     TableColumn EnameColumn;
@@ -39,8 +44,9 @@ public class AttendanceController implements Initializable {
     @FXML
     TableColumn yColumn;
 
+
     @FXML
-    TableColumn AtColumn;
+    TableColumn atColumn;
 
     @FXML
     TextField IDField;
@@ -65,23 +71,42 @@ public class AttendanceController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("Employee ID"));
-        EnameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        monColumn.setCellValueFactory(new PropertyValueFactory<>("Month"));
-        yColumn.setCellValueFactory(new PropertyValueFactory<>("Year"));
-        AtColumn.setCellValueFactory(new PropertyValueFactory<>("No of Attendance"));
-
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
+        EnameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        monColumn.setCellValueFactory(new PropertyValueFactory<>("month"));
+        yColumn.setCellValueFactory(new PropertyValueFactory<Attendance, Integer>("year"));
+        atColumn.setCellValueFactory(new PropertyValueFactory<>("noOfAttendance"));
+        // testColumn.setCellValueFactory(new PropertyValueFactory<Attendance, String>("test"));
 
         attendanceManagerService = new AttendanceManagerService();
 
-        load();
+        loadAttendance();
+
+        attendanceTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+
+                Attendance attendance = attendanceTable.getSelectionModel().getSelectedItem();
+
+
+                IDField.setText(String.valueOf(attendance.getEmployeeId()));
+                NameField.setText(attendance.getName());
+                MonthField.setText(attendance.getMonth());
+                YearField.setText(String.valueOf(attendance.getYear()));
+                AtField.setText(String.valueOf(attendance.getNoOfAttendance()));
+
+            }
+        });
 
 
     }
 
-    private void load() {
+    private void loadAttendance() {
 
         ObservableList<Attendance> attendance = attendanceManagerService.getAttendanceList();
+
+//          ObservableList<Attendance> attendance = FXCollections.observableArrayList();
+//         Attendance atn = new Attendance(111, "Nu","March",3,5,12);
+//         attendance.add(atn);
 
         attendanceTable.setItems(attendance);
         if (attendance == null) {
@@ -98,18 +123,18 @@ public class AttendanceController implements Initializable {
             int eid = Integer.parseInt(IDField.getCharacters().toString());
             String Name = NameField.getCharacters().toString();
             String month = MonthField.getCharacters().toString();
-            int year   = Integer.parseInt(YearField.getCharacters().toString());
+            int year = Integer.parseInt(YearField.getCharacters().toString());
             int No = Integer.parseInt(AtField.getCharacters().toString());
 
-           Attendance attendance  = new Attendance(eid, Name, month, year, No);
+            Attendance attendance = new Attendance(eid, Name, month, year, No);
 
 
             attendanceManagerService.addAttendance(attendance);
-           // System.out.println(attendance.getStatus());
-            load();
+            //System.out.println(attendance.getStatus());
+            loadAttendance();
 
 
-        }else {
+        } else {
 
             Alert alert = new Alert(Alert.AlertType.ERROR,
                     "Please Provide Valid Information !", ButtonType.OK);
@@ -121,102 +146,95 @@ public class AttendanceController implements Initializable {
         }
 
 
-
     }
-
-//
-//    @FXML
-//    public void update() {
-//
-//        if (valid()) {
-//            if (type.getSelectionModel().isSelected(1)) {
-//
-//                Brand selected = brandTable.getSelectionModel().getSelectedItem();
-//                Brand brand = new Brand(selected.getId(),name.getCharacters().toString(), status.getValue().toString());
-//                brandManagerService.updateBrand(brand);
-//                loadBrands();
-//
-//            } else if (type.getSelectionModel().isSelected(2)) {
-//
-//                Category selected = categoryTable.getSelectionModel().getSelectedItem();
-//                Category category = new Category(selected.getId(),name.getCharacters().toString(), status.getValue().toString());
-//                categoryManagerService.updateCategory(category);
-//                loadCategories();
-//            }
-//
-//        }else {
-//
-//            Alert alert = new Alert(Alert.AlertType.ERROR,
-//                    "Please Provide Valid Information !", ButtonType.OK);
-//
-//            alert.initStyle(StageStyle.UTILITY);
-//            alert.showAndWait();
-//
-//
-//        }
-//
-//        name.clear();
-//        status.getSelectionModel().selectFirst();
-//
-//    }
-
-
-//    @FXML
-//    public void delete() {
-//
-//        if (!attendanceTable.getSelectionModel().isEmpty()) {
-//
-//            Attendance attendance = attendanceTable.getSelectionModel().getSelectedItem();
-//
-//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-//                    "Are you sure You Want to delete this Category from System ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
-//            alert.initStyle(StageStyle.UTILITY);
-//            alert.showAndWait();
-//
-//            if (alert.getResult() == ButtonType.YES) {
-//                attendanceManagerService.removeAttendance(attendance.getEmpId());
-//                load();
-//            }
-
-//        } else if (!brandTable.getSelectionModel().isEmpty()) {
-//
-//            Brand brand = brandTable.getSelectionModel().getSelectedItem();
-//
-//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-//                    "Are you sure You Want to delete this Brand from System ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
-//            alert.initStyle(StageStyle.UTILITY);
-//            alert.showAndWait();
-
-//            if (alert.getResult() == ButtonType.YES) {
-//                brandManagerService.removeBrand(brand.getId());
-//                loadBrands();
-//            }
-
-
-  //  }
-
-//    private boolean valid() {
-//
-//        return !(name.getCharacters().length() == 0 || type.getSelectionModel().isSelected(0)
-//                || status.getSelectionModel().isSelected(0));
-//    }
-
 
 
     @FXML
-    public void openHomeScene(ActionEvent event) throws IOException {
+    public void update() {
 
-        Parent viewParent = FXMLLoader.load(getClass().getResource("/view/home.fxml"));
+        if (valid()) {
+            //if (type.getSelectionModel().isSelected( 1)) {
 
-        Stage windowstage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+            int eid = Integer.parseInt(IDField.getCharacters().toString());
+            String Name = NameField.getCharacters().toString();
+            String month = MonthField.getCharacters().toString();
+            int year = Integer.parseInt(YearField.getCharacters().toString());
+            int No = Integer.parseInt(AtField.getCharacters().toString());
 
-        windowstage.setScene(new Scene(viewParent, 840, 473));
-        windowstage.centerOnScreen();
-        windowstage.setTitle("Store Management Nisha Electricals PVC");
-        Image icon = new Image(MainController.class.getResource("/res/icons/icon.png").toExternalForm(), false);
-        windowstage.getIcons().add(icon);
+
+            Attendance selected = attendanceTable.getSelectionModel().getSelectedItem();
+            Attendance attendance = new Attendance(selected.getEmployeeId(), Name, month, year, No);
+            attendanceManagerService.updateAttendance(attendance);
+            loadAttendance();
+        }
+        //  } else if (type.getSelectionModel().isSelected(2)) {
+
+        //     Category selected = categoryTable.getSelectionModel().getSelectedItem();
+        //      Category category = new Category(selected.getId(),name.getCharacters().toString(), status.getValue().toString());
+        //      categoryManagerService.updateCategory(category);
+        //      loadCategories();
+
+
+        else {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "Please Provide Valid Information !", ButtonType.OK);
+
+            alert.initStyle(StageStyle.UTILITY);
+            alert.showAndWait();
+
+
+        }
+        //name.clear();
+        //status.getSelectionModel().selectFirst();
 
     }
 
 
+    @FXML
+    public void delete() {
+
+        if (!attendanceTable.getSelectionModel().isEmpty()) {
+
+            Attendance attendance = attendanceTable.getSelectionModel().getSelectedItem();
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                    "Are you sure You Want to delete this Attendance from System ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.showAndWait();
+
+            if (alert.getResult() == ButtonType.YES) {
+                attendanceManagerService.removeAttendance(attendance.getEmployeeId());
+                loadAttendance();
+            }
+
+        }
+    }
+
+    @FXML
+    public void openLeave() throws IOException {
+
+        SceneManager.manage().opeLeaveScene();
+
+    }
+
+    @FXML
+    public void back() throws IOException {
+
+        SceneManager.manage().openHomeScene();
+
+    }
+
+
+    private boolean valid() {
+
+        return !(IDField.getCharacters().length() == 0
+                || NameField.getCharacters().length() == 0
+                || MonthField.getCharacters().length() == 0
+                || YearField.getCharacters().length() == 0
+                || AtField.getCharacters().length() == 0
+
+        );
+
+    }
 }

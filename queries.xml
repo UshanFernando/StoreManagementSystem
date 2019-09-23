@@ -339,9 +339,8 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
     <!-- Select suppliers -->
     <query id="get_suppliers">
         <![CDATA[
-           SELECT s.sid , s.name , c.name as cname, s.address
-           FROM supplier as s , categories as c
-           WHERE c.cid = s.category
+           SELECT s.sid , s.name , c.cid as cid, s.address
+           FROM supplier as s  LEFT JOIN categories as c on c.cid = s.category
         ]]>
     </query>
     <!-- Select a particular Supplier by id Query -->
@@ -366,6 +365,97 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
            SELECT se.sid as id, se.email as email
            FROM supplier_email as se
            WHERE se.sid = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular supplier by id Query -->
+    <query id="update_supplier">
+        <![CDATA[
+            update supplier as s
+            set s.sid = ?, s.name = ? , s.category = ? , s.address = ?
+            where s.sid = ?
+        ]]>
+    </query>
+
+    <!-- Add a particular supplier -->
+    <query id="add_supplier">
+        <![CDATA[
+            insert into supplier (sid,name,category,address) values (?, ?, ?, ?);
+
+        ]]>
+    </query>
+
+    <!-- Delete a particular supplier-->
+    <query id="delete_supplier">
+        <![CDATA[
+            DELETE FROM supplier WHERE sid = ? LIMIT 1
+        ]]>
+    </query>
+
+    <!-- Get the last id of particular supplier-->
+    <query id="last_id_of_supplier">
+        <![CDATA[
+            SELECT sid FROM supplier ORDER BY sid DESC LIMIT 1
+        ]]>
+    </query>
+
+    <!-- Add a particular supplier email -->
+    <query id="add_supplier_email">
+        <![CDATA[
+            insert into supplier_email(sid,email) values (?, ?);
+
+        ]]>
+    </query>
+
+    <!-- Update a particular supplier email -->
+    <query id="update_supplier_email">
+        <![CDATA[
+            update supplier_email as s
+            set s.sid = ?, s.email = ?
+            where s.sid = ?
+
+        ]]>
+    </query>
+
+    <!-- Delete a particular supplier email-->
+    <query id="delete_supplier_email">
+        <![CDATA[
+            DELETE FROM supplier_email WHERE sid = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular supplier contact -->
+    <query id="update_supplier_contact">
+        <![CDATA[
+            update supplier_contact as s
+            set s.sid = ?, s.phone = ?
+            where s.sid = ?
+
+        ]]>
+    </query>
+
+    <!-- Add a particular supplier contact -->
+    <query id="add_supplier_contact">
+        <![CDATA[
+            insert into supplier_contact(sid,phone) values (?, ?);
+
+        ]]>
+    </query>
+
+    <!-- Update a particular supplier contact -->
+    <query id="update_supplier_contact">
+        <![CDATA[
+            update supplier_contact as s
+            set s.sid = ?, s.phone = ?
+            where s.sid = ?
+
+        ]]>
+    </query>
+
+    <!-- Delete a particular supplier contact-->
+    <query id="delete_supplier_contact">
+        <![CDATA[
+            DELETE FROM supplier_contact WHERE sid = ?
         ]]>
     </query>
 
@@ -395,26 +485,24 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
     <query id="get_orders">
         <![CDATA[
            SELECT  o.oid AS id,
-                   p.name AS product,
+                   p.pid AS product,
                    o.qty AS qty,
-                   s.name AS vendor,
+                   s.sid AS vendor,
                    o.orderDate AS orderDate,
                    o.deliveryDate AS deliveryDate,
                    o.request AS status
             FROM
                     orders AS o
-           LEFT OUTER JOIN products AS p
+           JOIN products AS p
            ON
-                p.pid = o.product,
-           supplier s
-           LEFT OUTER JOIN orders AS op
+                p.pid = o.product
+            JOIN supplier s
            ON
-               op.vendor = s.sid
+               o.vendor = s.sid
         ]]>
     </query>
 
-    <!-- Select orders by id -->
-    <query id="get_orders_by_id">
+    <query id="get_orders2">
         <![CDATA[
            SELECT  o.oid AS id,
                    p.name AS product,
@@ -425,16 +513,90 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
                    o.request AS status
             FROM
                     orders AS o
-           LEFT OUTER JOIN products AS p
+           JOIN products AS p
            ON
-                p.pid = o.product,
-           supplier s
-           LEFT OUTER JOIN orders AS op
+                p.pid = o.product
+            JOIN supplier s
            ON
-               op.vendor = s.sid
+               o.vendor = s.sid
+        ]]>
+    </query>
+
+    <!-- Select orders by id -->
+
+    <query id="get_orders_by_id">
+        <![CDATA[
+           SELECT  o.oid AS id,
+                   p.pid AS product,
+                   o.qty AS qty,
+                   s.sid AS vendor,
+                   o.orderDate AS orderDate,
+                   o.deliveryDate AS deliveryDate,
+                   o.request AS status
+            FROM
+                    orders AS o
+           JOIN products AS p
+           ON
+                p.pid = o.product
+            JOIN supplier s
+           ON
+               o.vendor = s.sid
            WHERE o.oid = ?
         ]]>
     </query>
+
+    <query id="get_orders_by_id2">
+        <![CDATA[
+           SELECT  o.oid AS id,
+                   p.name AS product,
+                   o.qty AS qty,
+                   s.name AS vendor,
+                   o.orderDate AS orderDate,
+                   o.deliveryDate AS deliveryDate,
+                   o.request AS status
+            FROM
+                    orders AS o
+           JOIN products AS p
+           ON
+                p.pid = o.product
+            JOIN supplier s
+           ON
+               o.vendor = s.sid
+           WHERE o.oid = ?
+        ]]>
+    </query>
+
+
+    <!-- Update orders by id -->
+    <query id="update_orders_by_id">
+        <![CDATA[
+           update orders as o
+           set
+               o.oid = ?,
+               o.product = ?,
+               o.qty = ?,
+               o.vendor = ?,
+               o.orderDate = ?,
+               o.deliveryDate = ?,
+               o.request = ?
+           where o.oid = ?
+        ]]>
+    </query>
+
+    <!-- delete orders by id -->
+    <query id="delete_orders_by_id">
+        <![CDATA[
+           DELETE FROM orders where oid = ? LIMIT 1
+        ]]>
+    </query>
+
+    <!-- add new orders-->
+    <query id="add_orders">
+        <![CDATA[
+           INSERT INTO orders VALUES(?,?,?,?,?,?,?);
+        ]]>
+    </query>
+
 
 
     <!-- ==================== queries for Requests management ====================== -->

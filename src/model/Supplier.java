@@ -6,19 +6,17 @@ import java.util.List;
 public class Supplier {
     public  int id;
     private  String vendor;
-    private  String category;
+    private  Category category;
     private  String address;
-    private List email;
-    private List phone;
 
 
-    public Supplier(int sId, String vendor, String category, String address) {
+
+    public Supplier(int sId, String vendor, Category category, String address) {
         this.id = sId;
         this.vendor = vendor;
         this.category = category;
         this.address = address;
-//        this.email = new ArrayList<String>();
-//        this.phone = new ArrayList<String>();
+
     }
 
     public int getId() {
@@ -37,11 +35,11 @@ public class Supplier {
         this.vendor = vendor;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
@@ -54,19 +52,8 @@ public class Supplier {
         this.address = address;
     }
 
-    public List getEmail() {
-        return email;
-    }
-
-    public void setEmail(ArrayList email) {
-        this.email = email;
-    }
-
-    public List getPhone() {
-        return phone;
-    }
-
-    public void setPhone(ArrayList phone) {
-        this.phone = phone;
+    @Override
+    public String toString() {
+        return vendor;
     }
 }

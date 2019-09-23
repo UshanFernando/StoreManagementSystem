@@ -117,10 +117,8 @@ public class Constants {
     public static final String QUERY_ID_GET_CATEGORIES = "get_categories";
 
     /**
-
-    *Constants for Suppliers
-
-    */
+     * Constants for Suppliers
+     */
 
     public static final String QUERY_ID_CREATE_SUPPLIER_TABLE = "create_supplier_table";
 
@@ -129,8 +127,8 @@ public class Constants {
     public static final String QUERY_ID_GET_SUPPLIER_BY_ID = "supplier_by_id";
 
     /**
-    * Constants for Supplier Contacts
-    * */
+     * Constants for Supplier Contacts
+     */
 
     public static final String QUERY_ID_CREATE_SUPPLIER_CONTACT_TABLE = "create_supplier_contact_table";
 
@@ -146,14 +144,13 @@ public class Constants {
 
     /**
      * Constant for Orders
-     *
-     * */
+     */
 
-    public static final  String QUERY_ID_CREATE_ORDERS_TABLE = "create_order_table";
+    public static final String QUERY_ID_CREATE_ORDERS_TABLE = "create_order_table";
 
-    public static final  String QUERY_ID_GET_ALL_ORDERS = "get_orders";
+    public static final String QUERY_ID_GET_ALL_ORDERS = "get_orders";
 
-    public static final  String QUERY_ID_GET_ORDER_BY_ID = "get_orders_by_id";
+    public static final String QUERY_ID_GET_ORDER_BY_ID = "get_orders_by_id";
 
 
          /*
@@ -193,6 +190,11 @@ public class Constants {
 
     public static final String QUERY_ID_GET_SALES = "get_sales";
 
+    public static final String QUERY_ID_GET_SALES_REPORT = "get_sales_report";
+
+    public static final String QUERY_ID_GET_SALES_REPORT_MONTHLY = "get_sales_report_monthly";
+
+    public static final String QUERY_ID_GET_PRODUCT_SALES_DAILY= "get_product_sales_report_daily";
            /*
 
     Constants for requests Queries
@@ -244,7 +246,7 @@ public class Constants {
 
     public static final String QUERY_ID_UPDATE_EMPLOYEE = "update_employee";
 
-    public static final String QUERY_ID_ADD_EMPLOYEE= "add_employee";
+    public static final String QUERY_ID_ADD_EMPLOYEE = "add_employee";
 
     public static final String QUERY_ID_REMOVE_EMPLOYEE = "delete_employee";
 
@@ -274,25 +276,25 @@ Constants for Register Queries
 
         */
 
-public static final String QUERY_ID_CREATE_REGISTER_TABLE = "create_ register_table";
+    public static final String QUERY_ID_CREATE_REGISTER_TABLE = "create_ register_table";
 
-public static final String QUERY_ID_DROP_REGISTER_TABLE = "drop_table_register";
+    public static final String QUERY_ID_DROP_REGISTER_TABLE = "drop_table_register";
 
 //public static final String QUERY_ID_UPDATE_REGISTER = "update_register";
 
-public static final String QUERY_ID_ADD_REGISTER= "add_register";
+    public static final String QUERY_ID_ADD_REGISTER = "add_register";
 
-public static final String QUERY_ID_REMOVE_REGISTER = "delete_register";
+    public static final String QUERY_ID_REMOVE_REGISTER = "delete_register";
 
-public static final String QUERY_ID_GET_REGISTER_BY_ID = "register_by_id";
+    public static final String QUERY_ID_GET_REGISTER_BY_ID = "register_by_id";
 
-public static final String QUERY_ID_GET_REGISTER = "get_register";
+    public static final String QUERY_ID_GET_REGISTER = "get_register";
 
-/*
-Constants for Login Queries
+    /*
+    Constants for Login Queries
 
-        */
-public static final String QUERY_ID_MATCH_EMPLOYEE = "match_employee";
+            */
+    public static final String QUERY_ID_MATCH_EMPLOYEE = "match_employee";
 
 
 
@@ -312,6 +314,24 @@ public static final String QUERY_ID_MATCH_EMPLOYEE = "match_employee";
     public static final String QUERY_ID_GET_ALL_NOTIFICATION = "get_notifications";
 
     public static final String QUERY_ID_DELETE_NOTIFICATION = "delete_notification";
+
+    public static final String UNREAD_TAG = "UNREAD";
+
+    public static final String READ_TAG = "READ";
+
+       /*
+
+    Constants for SALES PRODUCT Queries
+
+    */
+
+
+    public static final String QUERY_ID_CREATE_SALES_PRODUCTS = "create_notifications_table";
+
+    public static final String QUERY_ID_GET_SALES_PRODUCTS = "get_notifications";
+
+    public static final String QUERY_ID_ADD_SALES_PRODUCTS = "add_sales_products";
+
 
 }
 

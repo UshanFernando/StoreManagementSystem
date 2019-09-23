@@ -111,5 +111,14 @@ public class SceneManager {
         windowstage.getIcons().add(icon);
     }
 
+    public void openSalesReportScene() throws IOException {
+        Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/sales_reports.fxml"));
+        Stage windowstage = Main.getPrimaryStage();
+        windowstage.setScene(new Scene(salesViewParent, 1280, 720));
+        windowstage.setTitle("Sales Reports");
+        Image icon = new Image(MainController.class.getResource("/res/icons/sale.png").toExternalForm(), false);
+        windowstage.getIcons().add(icon);
+    }
+
 
 }

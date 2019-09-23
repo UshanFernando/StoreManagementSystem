@@ -1,67 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="version 0.1.4&#10;*Implemented sales functions">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_beanutils_1_8_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_collections4_4_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_digester_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_javaflow_1209105.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/itext_2_1_7_js4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jasperreports_6_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jasperreports_fonts_6_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/javafx_swt.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/joda_time_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_eclipse_jdt_core_3_7_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jar/commons-beanutils-1.8.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jar/commons-collections4-4.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jar/commons-digester-2.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jar/commons-javaflow-1209105.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jar/itext-2.1.7.js4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jar/jasperreports-6.9.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jar/jasperreports-fonts-6.9.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jar/joda-time-2.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jar/org-apache-commons-logging.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jar/org.eclipse.jdt.core-3.7.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/CheckoutController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/NotificationsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/docs/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/docs/invoice_A4.jasper" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Notification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/NotificationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/NotificationServiceInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/PrintReport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/SceneManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Blank_A4.jrxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/checkout_sales.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/notifications.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="version 0.1.0&#10;*Implemented Jasper Library + other support libraries&#10;*Implemented Invoice Printing Functionality">
+      <change afterPath="$PROJECT_DIR$/src/controller/SalesReportsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docs/sales_report_A4.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/SalesReport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/sales_reports.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StoreManagementSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StoreManagementSystem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jar/protobuf-java-3.6.1.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/InventoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/InventoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/MainController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/SalesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/controller/SalesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/ShoppingCart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/ShoppingCart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/ShoppingCartItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/model/ShoppingCartItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerServiceInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/ProductManagerServiceInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/SaleManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/SaleManagerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/SaleManagerServiceInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/service/SaleManagerServiceInterface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/util/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/inventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/inventory.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/sales.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StoreManagementSystem/view/sales.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/queries.xml" beforeDir="false" afterPath="$PROJECT_DIR$/queries.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/CheckoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CheckoutController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/InventoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/NotificationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/NotificationsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/SalesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/SalesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/ProductManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/ProductManagerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/ProductManagerServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/ProductManagerServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/invoice_A4.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs/invoice_A4.jasper" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ShoppingCart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ShoppingCartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ShoppingCartItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/NotificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/SaleManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/SaleManagerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/SaleManagerServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/SaleManagerServiceInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/inventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/inventory.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/PrintReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/PrintReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/SceneManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/notifications.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/notifications.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/sales.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/sales.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +41,20 @@
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="DebuggerManager">
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
@@ -162,7 +146,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/view" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/docs" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -171,23 +155,23 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\view" />
-      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\out\production\StoreManagementSystem\res\icons" />
-      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\res\icons" />
-      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\res" />
-      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\service" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="controller" />
-      <recent name="service" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\docs" />
       <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\view" />
       <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\res\icons" />
       <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem" />
       <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\util" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller" />
+      <recent name="service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\docs" />
+      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\view" />
+      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\out\production\StoreManagementSystem\res\icons" />
+      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\res\icons" />
+      <recent name="C:\Users\Ushan Fernando\IdeaProjects\StoreManagementSystem\src\res" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -326,7 +310,10 @@
       <workItem from="1568971666970" duration="12851000" />
       <workItem from="1568995644117" duration="1790000" />
       <workItem from="1569048271794" duration="9400000" />
-      <workItem from="1569087321668" duration="345000" />
+      <workItem from="1569087321668" duration="2051000" />
+      <workItem from="1569126033546" duration="10450000" />
+      <workItem from="1569151369245" duration="13827000" />
+      <workItem from="1569214585936" duration="16277000" />
     </task>
     <task id="LOCAL-00001" summary="version 0.0.1 base&#10;*Home UI implemented.&#10;*DB Connection added.&#10;*CommonUtils class implemented.&#10;*Constant class implemented.">
       <created>1565606543511</created>
@@ -398,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566997775919</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="version 0.1.0&#10;*Implemented Jasper Library + other support libraries&#10;*Implemented Invoice Printing Functionality">
+      <created>1569087852499</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1569087852499</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,7 +420,8 @@
     <MESSAGE value="version 0.0.4 base&#10;*added queries for brands and categories&#10;*added service classes for brands and categories&#10;*created sales ui sketch (alpha)" />
     <MESSAGE value="version 0.1.0&#10;*add edit delete functions now working on products , brands and categories.&#10;*fixed bugs&#10;    -Fixed Automatic Table creation&#10;*Updated &#10;    -Queries&#10;    -Product class structure" />
     <MESSAGE value="version 0.1.4&#10;*Implemented sales functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 0.1.4&#10;*Implemented sales functions" />
+    <MESSAGE value="version 0.1.0&#10;*Implemented Jasper Library + other support libraries&#10;*Implemented Invoice Printing Functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 0.1.0&#10;*Implemented Jasper Library + other support libraries&#10;*Implemented Invoice Printing Functionality" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

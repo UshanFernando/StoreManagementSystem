@@ -89,6 +89,44 @@ public class FinanceManagerService implements FinanceManagerServiceInterface {
         return finance;
     }
 
+    public ObservableList<Finance> getFinanceByStatus(boolean state) {
+        ObservableList<Finance>  finance = FXCollections.observableArrayList();
+        // TODO Auto-generated method stub
+        try {
+
+            connection = DBConnection.getDBConnection();
+            if (state) {
+                preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_GET_FINANCE_INCOME));
+            } else {
+                preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_GET_FINANCE_EXPENSE));
+            }
+
+
+
+            myRs = preparedStatement.executeQuery();
+
+            while (myRs.next()) {
+                // GET data from db
+                int id = myRs.getInt("id");
+                String status = myRs.getString("status");
+                double amount = myRs.getDouble("amount");
+                String date  = myRs.getString("date");
+
+
+                // create Brand object
+                Finance currentFinance = new Finance(id, status, amount, date);
+
+                // adding Brand object to list
+                finance.add(currentFinance);
+
+            }
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+
+        return finance;
+    }
+
     /**
      * This Function will return a particular user by id
      *
@@ -131,10 +169,11 @@ public class FinanceManagerService implements FinanceManagerServiceInterface {
         try {
             connection = DBConnection.getDBConnection();
             preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_UPDATE_FINANCE));
-            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, finance.getId());
-            preparedStatement.setString(Constants.COLUMN_INDEX_TWO, finance.getStatus());
-            preparedStatement.setDouble(Constants.COLUMN_INDEX_THREE, finance.getAmount());
-            preparedStatement.setString(Constants.COLUMN_INDEX_FOUR, finance.getDate());
+//            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, finance.getId());
+
+            preparedStatement.setString(Constants.COLUMN_INDEX_ONE, finance.getStatus());
+            preparedStatement.setDouble(Constants.COLUMN_INDEX_TWO, finance.getAmount());
+            preparedStatement.setString(Constants.COLUMN_INDEX_THREE, finance.getDate());
             preparedStatement.setInt(Constants.COLUMN_INDEX_FOUR, finance.getId());
             System.out.println(preparedStatement.toString());
             preparedStatement.executeUpdate();

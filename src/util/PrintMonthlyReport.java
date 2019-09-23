@@ -1,6 +1,7 @@
 package util;
 
 
+import javafx.collections.ObservableList;
 import model.Product;
 import model.Finance;
 import model.ShoppingCartItem;
@@ -26,7 +27,7 @@ public class PrintMonthlyReport extends JFrame {
     private static final long serialVersionUID = 1L;
 
 
-    public void Generate() throws JRException, FileNotFoundException {
+    public void Generate(ObservableList<Finance> income, ObservableList<Finance> expense) throws JRException, FileNotFoundException {
 
 
         /* User home directory location */
@@ -37,23 +38,28 @@ public class PrintMonthlyReport extends JFrame {
         ArrayList<Finance> listItems = new ArrayList<>();
 
         /* Create Items */
-        Finance item = new Finance();
 
-        listItems.add(item);
-
-//        ArrayList<Product> listItems = new ArrayList<Product>();
-//        Product item1 = new Product();
-//        item1.setName("Name");
-//        item1.setPrice(232323.0);
-//        item1.setQty(1111);
-//
-//        Product item2 = new Product();
-//        item2.setName("Name");
-//        item2.setPrice(232323.0);
-//        item2.setQty(1111);
-//
-//        listItems.add(item1);
-//        listItems.add(item2);
+        double totalExpense = 0;
+        double totalIncome =0;
+        for (Finance fitem : income){
+            System.out.println("FOR LOOP" + fitem.getId());
+            Finance item = new Finance();
+            item.setId(fitem.getId());
+            item.setAmount(fitem.getAmount());
+            item.setDate(fitem.getDate());
+            totalIncome += fitem.getAmount();
+            listItems.add(item);
+        }
+        ArrayList<Finance> listItems2 = new ArrayList<>();
+            for (Finance fitem : expense){
+            System.out.println("FOR LOOP EXPENSES" + fitem.getId());
+            Finance item = new Finance();
+            item.setId2(fitem.getId());
+            item.setAmount2(fitem.getAmount());
+            item.setDate2(fitem.getDate());
+            totalExpense += fitem.getAmount();
+            listItems2.add(item);
+        }
 
 
 
@@ -61,12 +67,13 @@ public class PrintMonthlyReport extends JFrame {
 
         /* Convert List to JRBeanCollectionDataSource */
         JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(listItems);
-
+        JRBeanCollectionDataSource itemsJRBean2 = new JRBeanCollectionDataSource(listItems2);
         /* Map to hold Jasper report Parameters */
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("ItemDataSource", itemsJRBean);
-        parameters.put("subTotal", 100.0);
-        parameters.put("discount", 111.1);
+        parameters.put("ItemDataSource2", itemsJRBean2);
+        parameters.put("subTotal", totalIncome);
+        parameters.put("discount", totalExpense);
         parameters.put("total", 222.2);
 
         /* Using compiled version(.jasper) of Jasper report to generate PDF */

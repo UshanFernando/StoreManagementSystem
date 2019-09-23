@@ -18,9 +18,12 @@ import javafx.stage.StageStyle;
 import model.Finance;
 //import service.BrandManagerService;
 //import service.CategoryManagerService;
+import net.sf.jasperreports.engine.JRException;
 import service.FinanceManagerService;
 import util.Constants;
+import util.PrintMonthlyReport;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -112,7 +115,7 @@ public class FinanceController implements Initializable {
     @FXML
     public void add() {
 
-        if (true) {
+        if (valid()) {
 
             int fid = Integer.parseInt(qtyTF.getCharacters().toString());
             String status = qtyTF1.getCharacters().toString();
@@ -122,9 +125,23 @@ public class FinanceController implements Initializable {
 
             Finance finance = new Finance(fid, status, amount, date);
 
-            financeManagerService.addFinance(finance);
-            System.out.println(finance.getStatus());
-            loadFinance();
+
+//            System.out.println(finance.getStatus());
+//            loadFinance();
+
+            if (financeManagerService.addFinance(finance)) {
+//                clearData();
+                loadData();
+            }
+
+            else {
+
+                Alert alert = new Alert(Alert.AlertType.ERROR,
+                        "Product ID Already Exists In the System ! Use a Unique Id !", ButtonType.OK);
+
+                alert.initStyle(StageStyle.UTILITY);
+                alert.showAndWait();
+            }
 
 
         }else {
@@ -137,7 +154,6 @@ public class FinanceController implements Initializable {
 
 
         }
-
 
 
     }
@@ -282,6 +298,26 @@ public class FinanceController implements Initializable {
         Image icon = new Image(MainController.class.getResource("/res/icons/icon.png").toExternalForm(), false);
         windowstage.getIcons().add(icon);
 
+    }
+
+    @FXML
+    public void print() throws JRException, FileNotFoundException {
+
+
+        ObservableList<Finance> income = financeManagerService.getFinanceByStatus(true);
+
+        if (income == null) {
+            System.out.println("No Details On Income");
+        }
+
+        ObservableList<Finance> expense = financeManagerService.getFinanceByStatus(false);
+
+        if (expense == null) {
+            System.out.println("No Details on Expense");
+        }
+
+        PrintMonthlyReport printer =  new PrintMonthlyReport();
+        printer.Generate(income, expense);
     }
 
 }

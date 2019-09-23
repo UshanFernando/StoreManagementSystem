@@ -178,6 +178,9 @@ public class Constants {
 
     public static final String QUERY_ID_GET_FINANCE = "get_finance";
 
+    public static final String QUERY_ID_GET_FINANCE_INCOME = "finance_income";
+
+    public static final String QUERY_ID_GET_FINANCE_EXPENSE = "finance_expense";
 
          /*
 

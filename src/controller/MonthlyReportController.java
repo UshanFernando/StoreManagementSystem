@@ -18,9 +18,9 @@ public class MonthlyReportController {
     private Finance data;
 
 
-    @FXML
-    public void print() throws JRException, FileNotFoundException {
-        PrintMonthlyReport printer =  new PrintMonthlyReport();
-        printer.Generate();
-    }
+//    @FXML
+//    public void print() throws JRException, FileNotFoundException {
+//        PrintMonthlyReport printer =  new PrintMonthlyReport();
+//        printer.Generate();
+//    }
 }

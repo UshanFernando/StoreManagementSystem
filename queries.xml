@@ -250,15 +250,27 @@ CREATE TABLE `products` (
     <!-- Update a particular category by id Query -->
     <query id="update_finance">
         <![CDATA[
-            update finance as f
-            set f.fid = ?, f.name = ?,  f.status = ?, f.date
-            where f.fid = ?
+            update finance set  status = ?, amount = ?, date = ? where id = ?
         ]]>
     </query>
 
     <query id="delete_finance">
         <![CDATA[
             DELETE FROM finance WHERE id = ? LIMIT 1
+        ]]>
+    </query>
+
+    <!-- Select a particular finance by income -->
+    <query id="finance_income">
+        <![CDATA[
+            SELECT * FROM finance WHERE status = 'income';
+        ]]>
+    </query>
+
+    <!-- Select a particular finance by expense -->
+    <query id="finance_expense">
+        <![CDATA[
+            SELECT * FROM finance WHERE status = 'expense';
         ]]>
     </query>
 

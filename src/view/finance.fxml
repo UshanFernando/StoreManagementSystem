@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FinanceController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FinanceController">
     <children>
         <BorderPane prefHeight="736.0" prefWidth="1280.0">
             <right>
@@ -32,7 +32,7 @@
                                 <Insets left="50.0" top="20.0" />
                             </VBox.margin>
                         </Label>
-                        <TextField fx:id="qtyTF" prefHeight="37.0" prefWidth="304.0" promptText="Add Income or Expenses here" style="-fx-prompt-text-fill: #212121; -fx-background-color: #ffcdd2;" text="id">
+                        <TextField fx:id="qtyTF" prefHeight="37.0" prefWidth="304.0" promptText="Add id" style="-fx-prompt-text-fill: #212121; -fx-background-color: #ffcdd2;">
                             <padding>
                                 <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                             </padding>
@@ -40,7 +40,7 @@
                                 <Insets bottom="20.0" left="20.0" right="20.0" top="80.0" />
                             </VBox.margin>
                         </TextField>
-                  <TextField fx:id="qtyTF1" layoutX="30.0" layoutY="145.0" prefHeight="39.0" prefWidth="304.0" promptText="Add Income or Expenses here" style="-fx-prompt-text-fill: #212121; -fx-background-color: #ffcdd2;" text="status">
+                  <TextField fx:id="qtyTF1" layoutX="30.0" layoutY="145.0" prefHeight="39.0" prefWidth="304.0" promptText="Add status" style="-fx-prompt-text-fill: #212121; -fx-background-color: #ffcdd2;">
                      <padding>
                         <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                      </padding>
@@ -48,7 +48,7 @@
                         <Insets left="20.0" right="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="qtyTF11" layoutX="30.0" layoutY="203.0" prefHeight="39.0" prefWidth="304.0" promptText="Add Income or Expenses here" style="-fx-prompt-text-fill: #212121; -fx-background-color: #ffcdd2;" text="amount">
+                  <TextField fx:id="qtyTF11" layoutX="30.0" layoutY="203.0" prefHeight="39.0" prefWidth="304.0" promptText="Add amount" style="-fx-prompt-text-fill: #212121; -fx-background-color: #ffcdd2;">
                      <padding>
                         <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                      </padding>
@@ -56,7 +56,7 @@
                         <Insets left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="qtyTF111" layoutX="30.0" layoutY="262.0" prefHeight="45.0" prefWidth="304.0" promptText="Add Income or Expenses here" style="-fx-prompt-text-fill: #212121; -fx-background-color: #ffcdd2;" text="date">
+                  <TextField fx:id="qtyTF111" layoutX="30.0" layoutY="262.0" prefHeight="45.0" prefWidth="304.0" promptText="Add date" style="-fx-prompt-text-fill: #212121; -fx-background-color: #ffcdd2;">
                      <padding>
                         <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                      </padding>
@@ -115,7 +115,7 @@
                                 <Insets left="20.0" right="20.0" top="20.0" />
                             </VBox.margin>
                         </Button>
-                  <Button fx:id="monthButtonId" alignment="CENTER" layoutX="30.0" layoutY="436.0" mnemonicParsing="false" onAction="#openMonthlyReports" prefHeight="56.0" prefWidth="182.0" style="-fx-background-color: #ffdfba;" text="Monthly Reports" textFill="#362d2d">
+                  <Button fx:id="monthButtonId" alignment="CENTER" layoutX="30.0" layoutY="436.0" mnemonicParsing="false" onAction="#print" prefHeight="56.0" prefWidth="182.0" style="-fx-background-color: #ffdfba;" text="Monthly Reports" textFill="#362d2d">
                      <padding>
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </padding>
@@ -189,22 +189,18 @@
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </padding>
                         </HBox>
-                        <SplitPane dividerPositions="0.49785867237687365" prefWidth="200.0">
+                        <SplitPane dividerPositions="0.9817987152034261" prefWidth="200.0">
                             <items>
                                 <TableView fx:id="incomeTable" prefHeight="200.0" prefWidth="200.0">
                                     <columns>
-                                        <TableColumn fx:id="iidColumn" prefWidth="113.5999709844591" text="id" />
-                              <TableColumn fx:id="statColumn" prefWidth="120.00000762939453" text="status" />
-                              <TableColumn fx:id="amntColumn" prefWidth="101.59996032714844" text="amount" />
-                              <TableColumn fx:id="datColumn" prefWidth="126.39996948242185" text="date" />
+                                        <TableColumn fx:id="iidColumn" prefWidth="171.20000307559985" text="id" />
+                              <TableColumn fx:id="statColumn" prefWidth="223.1999969482422" text="status" />
+                              <TableColumn fx:id="amntColumn" prefWidth="252.80001831054688" text="amount" />
+                              <TableColumn fx:id="datColumn" prefWidth="268.0" text="date" />
 
                                     </columns>
                                 </TableView>
-                                <TableView fx:id="ExpenseTable" prefHeight="734.0" prefWidth="433.0">
-                                    <columns>
-                                        <TableColumn fx:id="eidColumn" prefWidth="45.60000686645435" text="Expenses" />
-                                    </columns>
-                                </TableView>
+                                <TableView fx:id="ExpenseTable" prefHeight="734.0" prefWidth="433.0" />
                             </items>
                         </SplitPane>
                     </children>

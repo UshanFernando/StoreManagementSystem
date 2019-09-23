@@ -40,7 +40,7 @@ public class MainController {
 
     @FXML
     public void openSalaryScene(ActionEvent event) throws IOException {
-        SceneManager.manage().openAttendanceScene();
+        SceneManager.manage().openSalaryScene();
     }
 
     @FXML

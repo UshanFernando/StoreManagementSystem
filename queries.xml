@@ -565,12 +565,12 @@ CREATE TABLE `products` (
     <query id="create_attendance_table">
         <![CDATA[
          CREATE TABLE `attendance`
-  `Employee ID` int(45) NOT NULL AUTO_INCREMENT,
+  `EmployeeID` int(45) NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) DEFAULT NULL,
   `Month` varchar(45) DEFAULT NULL,
    `Year` int(45) DEFAULT NULL,
-      `No of Attendance` int(45) DEFAULT NULL,
- PRIMARY KEY (`Employee ID`)
+      `NoOfAttendance` int(45) DEFAULT NULL,
+ PRIMARY KEY (`EmployeeID`)
     );
 
    ]]>
@@ -587,14 +587,14 @@ CREATE TABLE `products` (
     <!-- Add attendance -->
     <query id="add_attendance">
         <![CDATA[
-            insert into attendance(Employee ID, Name, Month, Year, No of Attendance) values(?, ?, ?, ?, ?);
+            insert into attendance(EmployeeID, Name, Month, Year, NoOfAttendance) values(?, ?, ?, ?, ?);
         ]]>
     </query>
 
     <!-- Select a particular attendance by id Query -->
     <query id="attendance_by_id">
         <![CDATA[
-            select * from attendance where id = ?
+            select * from attendance where EmployeeID = ?
         ]]>
     </query>
 
@@ -602,73 +602,41 @@ CREATE TABLE `products` (
     <query id="update_attendance">
         <![CDATA[
             update attendance as a
-            set a.aid = ?, a.name = ?,  a.month = ?, a.year =?, a.no of attendance = ?
-            where a.aid = ?
+            set a.EmployeeID = ?, a.Name = ?,  a.Month = ?, a.Year =?, a.NoOfAttendance = ?
+            where a.EmployeeID = ?
         ]]>
     </query>
 
     <!-- Delete a particular attendance by id Query -->
     <query id="delete_attendance">
         <![CDATA[
-            DELETE FROM attendance WHERE id = ? LIMIT 1
+            DELETE FROM attendance WHERE EmployeeID = ? LIMIT 1
         ]]>
     </query>
 
 
-<!-- LOGIN -->
-    <!-- Find whether the department and the emploee id matyches-->
+    <!-- ==================== queries for leave management ====================== -->
 
-    <query id="match_employee">
+    <query id="create_leave_table">
         <![CDATA[
-            SELECT * FROM employees
-            WHERE department = ? and empId = ?
-        ]]>
-    </query>
-
-    <!-- ==================== queries for attendance management ====================== -->
-
-    <!-- Create attendance table  -->
-
-    <query id="create_notifications_table">
-        <![CDATA[
-CREATE TABLE `notification` (
-  `nId` int(11) NOT NULL AUTO_INCREMENT,
-  `message` varchar(600) DEFAULT NULL,
-  `status` varchar(45) DEFAULT 'UNREAD',
-  PRIMARY KEY (`nId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+         CREATE TABLE `leaverecord`
+  `fullname` varchar(45) NOT NULL AUTO_INCREMENT,
+  `Employeeid` int(45) DEFAULT NULL,
+  `Leavetype` varchar(45) DEFAULT NULL,
+   `Email` varchar(45) DEFAULT NULL,
+      `Date` string(45) DEFAULT NULL,
+ PRIMARY KEY (`Employeeid`)
+    );
 
    ]]>
     </query>
 
 
-    <!-- Select attendance -->
-    <query id="get_notifications">
-        <![CDATA[
-            select * from notification
-        ]]>
-    </query>
 
-    <!-- Select attendance -->
-    <query id="get_notifications_unread">
+    <!-- Add leave -->
+    <query id="add_leave">
         <![CDATA[
-            select * from notification where status = 'UNREAD'
-        ]]>
-    </query>
-
-    <!-- Update a particular attendance by id Query -->
-    <query id="update_notification">
-        <![CDATA[
-            update notification as n
-            set n.message = ?,  n.status = ?
-            where n.nId = ?
-        ]]>
-    </query>
-
-    <!-- Delete a particular attendance by id Query -->
-    <query id="delete_notification">
-        <![CDATA[
-            DELETE FROM notification WHERE nId = ? LIMIT 1
+            insert into leaverecord(fullname, Employeeid, Leavetype, Email, Date) values(?, ?, ?, ?, ?);
         ]]>
     </query>
 

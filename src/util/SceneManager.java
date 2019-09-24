@@ -99,7 +99,7 @@ public class SceneManager {
         Parent salesViewParent = FXMLLoader.load(getClass().getResource("/view/salary_calculator.fxml"));
         Stage windowstage = Main.getPrimaryStage();
         windowstage.setScene(new Scene(salesViewParent, 1280, 720));
-        windowstage.setTitle("Attendance");
+        windowstage.setTitle("Salary");
         Image icon = new Image(MainController.class.getResource("/res/icons/salary.png").toExternalForm(), false);
         windowstage.getIcons().add(icon);
     }

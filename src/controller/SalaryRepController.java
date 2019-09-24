@@ -106,12 +106,29 @@ public class SalaryRepController implements Initializable {
             alert.showAndWait();
 
             if (alert.getResult() == ButtonType.YES) {
-               // salaryCalculatorManagerService.removeSalary(salary.getsID());
+                salaryCalculatorManagerService.removeSalary(salary.getsID());
                 loadSalary();
             }
 
         }
-        }
+    }
+
+    @FXML
+
+    public void back(ActionEvent event) throws IOException {
+
+        Parent salaryViewParent = FXMLLoader.load(getClass().getResource("/view/salary_calculator.fxml"));
+
+        Stage window = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+
+        window.setScene(new Scene(salaryViewParent, 1280,720));
+
+        window.centerOnScreen();
+
+        window.setTitle("Salary Calculator");
+
+    }
+
 }
 
 

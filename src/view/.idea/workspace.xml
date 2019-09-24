@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5fb3e735-39e5-4c49-9878-213902034edd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/libraries/mysql_connector_java_8_0_16.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/libraries/mysql_connector_java_8_0_16.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StoreManagementSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../StoreManagementSystem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/controller/FinanceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/controller/FinanceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/controller/InventoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/controller/InventoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/service/ProductManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/service/ProductManagerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/service/ProductManagerServiceInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/service/ProductManagerServiceInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/util/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/util/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/util/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/util/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/view/finance.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/StoreManagementSystem/view/finance.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../queries.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../queries.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controller/AttendanceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../controller/AttendanceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controller/FinanceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../controller/FinanceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../controller/InventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controller/SalaryCalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../controller/SalaryCalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../service/EmployeeManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service/EmployeeManagerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../service/EmployeeManagerServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service/EmployeeManagerServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../service/FinanceManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service/FinanceManagerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../service/ProductManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service/ProductManagerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../service/ProductManagerServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service/ProductManagerServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../util/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../util/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/attendance.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/attendance.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/employee.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/employee.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finance.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/finance.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/salary_calculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/salary_calculator.fxml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="43" />
+    <option name="y" value="125" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5fb3e735-39e5-4c49-9878-213902034edd" name="Default Changelist" comment="" />
+      <created>1568194352354</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1568194352354</updated>
+      <workItem from="1568194354569" duration="31000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="31000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="DB Browser" />
+      <window_info id="Capture Tool" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="DB Execution Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

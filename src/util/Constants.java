@@ -257,7 +257,7 @@ public class Constants {
 
     public static final String QUERY_ID_ADD_SALARY = "add_salary";
 
-    public static final String QUERY_ID_REMOVE_SALARY = "delete_salary";
+    public static final String QUERY_ID_REMOVE_SALARY = "deleteSalary";
 
     public static final String QUERY_ID_GET_SALARY_BY_ID = "salary_by_id";
 

@@ -2,6 +2,7 @@ package util;
 
 
 import model.Product;
+import model.Salary;
 import model.ShoppingCart;
 import model.ShoppingCartItem;
 import net.sf.jasperreports.engine.JREmptyDataSource;
@@ -75,6 +76,46 @@ public class PrintReport extends JFrame {
         this.setVisible(true);
         System.out.print("Done!");
     }
+
+
+//    public void GenerateSalarySlip(Salary salary) throws JRException, FileNotFoundException {
+//
+//
+//        /* User home directory location */
+//        String userHomeDirectory = System.getProperty("user.home");
+//        System.out.println(userHomeDirectory);
+//
+//        /* List to hold Items */
+//        ArrayList<Product> listItems = new ArrayList<Product>();
+//
+//
+//
+//        /* Convert List to JRBeanCollectionDataSource */
+//        JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(listItems);
+//
+//        /* Map to hold Jasper report Parameters */
+//        Map<String, Object> parameters = new HashMap<String, Object>();
+//        parameters.put("ItemDataSource", itemsJRBean);
+//        parameters.put("subTotal", cart.getSubTotal());
+//        parameters.put("discount", cart.getDiscount());
+//        parameters.put("netTotal",cart.getNetTotal());
+//
+//
+//        /* Using compiled version(.jasper) of Jasper report to generate PDF */
+//        JasperPrint jasperPrint = JasperFillManager.fillReport(userHomeDirectory + "\\IdeaProjects\\StoreManagementSystem\\src\\docs\\invoice_A4.jasper", parameters, new JREmptyDataSource());
+//
+//
+//        System.out.println("File Generated");
+//
+//
+//        JRViewer viewer = new JRViewer(jasperPrint);
+//        viewer.setOpaque(true);
+//        viewer.setVisible(true);
+//        this.add(viewer);
+//        this.setSize(700, 500);
+//        this.setVisible(true);
+//        System.out.print("Done!");
+//    }
 
 
 }

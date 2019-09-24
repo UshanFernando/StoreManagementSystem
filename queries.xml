@@ -660,10 +660,11 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
   `eID` varchar(4) DEFAULT NULL,
   `bonus` double DEFAULT NULL,
   `overtime` double DEFAULT NULL,
-  `basic` double DEFAULT NULL
+  `basic` double DEFAULT NULL,
   `deduction` double DEFAULT NULL,
-  `date` VARCHAR(8) DEFAULT NULL,
-  `bonus` double DEFAULT NULL
+  `date` VARCHAR(32) DEFAULT NULL,
+  `bonus` double DEFAULT NULL,
+  `total` double DEFAULT NULL,
 
 
   PRIMARY KEY (`sID`)
@@ -682,9 +683,17 @@ sp.pid = p.pid AND sp.sid = s.sid AND Date(s.timeStamp) = ? group by sp.pid
     <!-- Add  -->
     <query id="add_salary">
         <![CDATA[
-          INSERT INTO categories(sID,eID,basic,overtime,basic,deduction,date,bonus) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+          INSERT INTO salary(eID, bonus, overtime,basic,deduction,date, total) VALUES (?, ?, ?, ?, ?, ?, ?);
         ]]>
     </query>
+
+    <query id="deleteSalary">
+        <![CDATA[
+          DELETE FROM salary WHERE sID = ?
+        ]]>
+    </query>
+
+
 
 
 

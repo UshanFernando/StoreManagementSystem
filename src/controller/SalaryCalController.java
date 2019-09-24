@@ -14,9 +14,13 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Salary;
+import net.sf.jasperreports.engine.JRException;
 import service.SalaryCalculatorManagerService;
+import util.PrintReport;
 
 
+import javax.swing.*;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,9 +31,6 @@ public class SalaryCalController  {
 
     @FXML
     TextField eID;
-
-    @FXML
-    TextField sID;
 
     @FXML
     TextField bonus;
@@ -49,17 +50,22 @@ public class SalaryCalController  {
     @FXML
     TextField total;
 
+    @FXML
+    Button addButton;
 
 
 
+    private Salary salary;
 
 
     private SalaryCalculatorManagerService salaryCalculatorManagerService;
 
 
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//
+    @FXML
+    public void initialize(URL location, ResourceBundle resources) {
+
+          this.total.setText("0.00");
+
 //        eID.setCellValueFactory(new PropertyValueFactory<>("id"));
 //        bnameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 //        bstatusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
@@ -99,8 +105,8 @@ public class SalaryCalController  {
 //
 //            }
 //        });
-//
-//    }
+
+    }
 //
 //    private void loadSalary() {
 //
@@ -138,19 +144,24 @@ public class SalaryCalController  {
 
         if (true) {
 
+                total.setText("0.00");
 
-                int sid = Integer.parseInt(sID.getCharacters().toString());
+
+//                int sid = Integer.parseInt(sID.getCharacters().toString());
                 String eid = eID.getCharacters().toString();
                 String dat= date.getCharacters().toString();
                 Double basic = Double.parseDouble(basicid.getCharacters().toString());
                 Double overt = Double.parseDouble(overtime.getCharacters().toString());
                 Double bon = Double.parseDouble(bonus.getCharacters().toString());
                 Double ded = Double.parseDouble(deduction.getCharacters().toString());
-                Double tot = Double.parseDouble(total.getCharacters().toString());
+
+                Double tot = basic + overt + bon - ded;
+
+                this.total.setText(tot.toString());
 
                 //loadSalary();
 
-                Salary salary = new Salary(sid, eid, dat, basic, overt, bon, tot, ded);
+                salary = new Salary(0, eid, dat, bon, basic, overt, ded, tot);
 
                 SalaryCalculatorManagerService salaryCalculatorManagerService =new SalaryCalculatorManagerService();
                 salaryCalculatorManagerService.addSalary(salary);
@@ -170,7 +181,6 @@ public class SalaryCalController  {
 
         }
 
-        sID.clear();
         eID.clear();
         bonus.clear();
         overtime.clear();
@@ -206,7 +216,7 @@ public class SalaryCalController  {
 
         Stage window = (Stage) ((Node) event.getTarget()).getScene().getWindow();
 
-        window.setScene(new Scene(salaryViewParent, 1280,720));
+        window.setScene(new Scene(salaryViewParent, 1280, 720));
 
         window.centerOnScreen();
 
@@ -214,22 +224,16 @@ public class SalaryCalController  {
 
     }
 
+
     @FXML
-    public void openHomeScene(ActionEvent event) throws IOException {
+    public void print() throws JRException, FileNotFoundException {
 
-        Parent viewParent = FXMLLoader.load(getClass().getResource("/view/home.fxml"));
-
-        Stage windowstage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
-
-        windowstage.setScene(new Scene(viewParent, 840, 473));
-        windowstage.centerOnScreen();
-        windowstage.setTitle("Store Management Nisha Electricals PVC");
-        Image icon = new Image(MainController.class.getResource("/res/icons/icon.png").toExternalForm(), false);
-        windowstage.getIcons().add(icon);
+        PrintReport printer =  new PrintReport();
+//        printer.Generate(salary);
 
     }
 
 
-
-
+    public void openHomeScene(ActionEvent actionEvent) {
+    }
 }

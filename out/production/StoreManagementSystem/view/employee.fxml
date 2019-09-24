@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeController">
+    <children>
+        <BorderPane layoutX="-1.0" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+            <right>
+                <VBox prefHeight="720.0" prefWidth="344.0" style="-fx-background-color: #30db91;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="32.0" prefWidth="278.0" style="-fx-background-color: #e6ed76;" text="Employee Management" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                            <font>
+                                <Font size="22.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" top="10.0" />
+                            </VBox.margin>
+                        </Label>
+                  <TextField fx:id="eempId" layoutX="30.0" layoutY="82.0" promptText="Emp No" />
+                        <TextField fx:id="ename" promptText="Name">
+                            <VBox.margin>
+                                <Insets top="25.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="eage" promptText="Age">
+                        <VBox.margin>
+                            <Insets top="25.0" />
+                        </VBox.margin>
+                        </TextField>
+                            <TextField fx:id="eAddress" promptText="Address">
+                                <VBox.margin>
+                                    <Insets top="25.0" />
+                                </VBox.margin>
+
+                        </TextField>
+                            <TextField fx:id="econtact" promptText="Contact Number">
+                            <VBox.margin>
+                                <Insets top="25.0" />
+                            </VBox.margin>
+                        </TextField>
+        <TextField fx:id="egender" promptText="Gender">
+                        <VBox.margin>
+                            <Insets top="25.0" />
+                        </VBox.margin>
+                    </TextField>
+                  <TextField fx:id="edepartment" layoutX="30.0" layoutY="307.0" promptText="Department">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="elevel" layoutX="30.0" layoutY="352.0" promptText="Level">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="erecdate" layoutX="30.0" layoutY="397.0" promptText="Recruit Date">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+
+                        <Button mnemonicParsing="false" onAction="#add" prefHeight="46.0" prefWidth="316.0" style="-fx-background-color: #ba68c8;" text="ADD EMPLOYEE">
+                            <VBox.margin>
+                                <Insets left="20.0" top="20.0" />
+                            </VBox.margin></Button>
+                        <Button mnemonicParsing="false" onAction="#update" prefHeight="46.0" prefWidth="296.0" style="-fx-background-color: #f06292;" text="UPDATE">
+                            <VBox.margin>
+                                <Insets left="20.0" top="20.0" />
+                            </VBox.margin>
+                        </Button>
+                  <Button mnemonicParsing="false" onAction="#delete" prefHeight="46.0" prefWidth="306.0" style="-fx-background-color: #ff7043;" text="DELETE">
+                     <VBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </VBox.margin></Button>
+
+
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                    </padding>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+                </VBox>
+            </right>
+            <center>
+                <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                    <children>
+                  <HBox prefHeight="30.0" prefWidth="994.0" style="-fx-background-color:  #00571e;">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#openMainfromEmployee" style="-fx-background-color: transparent;" text="Go Back" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <effect>
+                                    <ColorAdjust brightness="1.0" contrast="0.1" hue="-0.19" saturation="1.0" />
+                                 </effect>
+                                 <image>
+                                    <Image url="@../res/icons/left-arrow.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="33.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <effect>
+                                    <ColorAdjust brightness="1.0" contrast="0.1" hue="-0.19" saturation="1.0" />
+                                 </effect>
+                                 <image>
+                                    <Image url="@../res/icons/logout.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+                        <HBox VBox.vgrow="ALWAYS">
+                            <children>
+                                <TableView fx:id="employeeTable" prefHeight="647.0" prefWidth="913.0">
+                                    <columns>
+                                        <TableColumn fx:id="empIdColumn" prefWidth="77.60000169277191" text="Emp No" />
+                                        <TableColumn fx:id="nameColumn" prefWidth="187.0" text="Name" />
+                              <TableColumn fx:id="departmentColumn" prefWidth="90.0" text="Department" />
+                              <TableColumn fx:id="levelColumn" prefWidth="62.0" text="Level" />
+                                        <TableColumn fx:id="contactColumn" prefWidth="117.0" text="Contact Number" />
+
+                                        <TableColumn fx:id="genderColumn" minWidth="0.0" prefWidth="74.0" text="Gender" />
+                                        <TableColumn fx:id="AddressColumn" minWidth="6.4000244140625" prefWidth="176.0" text="Address" />
+                                        <TableColumn fx:id="recdateColumn" prefWidth="92.0" text="Recruited Date" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                        </HBox>
+                    </children>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

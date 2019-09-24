@@ -144,14 +144,15 @@ public class SalaryCalculatorManagerService implements SalaryCalculatorServiceIn
         try {
             connection = DBConnection.getDBConnection();
             preparedStatement = connection.prepareStatement(QueryUtil.queryByID(Constants.QUERY_ID_ADD_SALARY));
-            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, salary.getsID());
-            preparedStatement.setString(Constants.COLUMN_INDEX_TWO, salary.geteID());
-            preparedStatement.setDouble(Constants.COLUMN_INDEX_THREE, salary.getBonus());
-            preparedStatement.setDouble(Constants.COLUMN_INDEX_FOUR, salary.getOvertime());
-            preparedStatement.setDouble(Constants.COLUMN_INDEX_FIVE, salary.getBasic());
-            preparedStatement.setDouble(Constants.COLUMN_INDEX_SIX, salary.getDeduction());
-            preparedStatement.setString(Constants.COLUMN_INDEX_SEVEN, salary.getDate());
-            preparedStatement.setDouble(Constants.COLUMN_INDEX_EIGHT, salary.getTotal());
+//            preparedStatement.setInt(Constants.COLUMN_INDEX_ONE, salary.getsID());
+            preparedStatement.setString(1, salary.geteID());
+            preparedStatement.setDouble(2, salary.getBonus());
+            preparedStatement.setDouble(3, salary.getOvertime());
+            preparedStatement.setDouble(4, salary.getBasic());
+            preparedStatement.setDouble(5, salary.getDeduction());
+            preparedStatement.setString(6, salary.getDate());
+            preparedStatement.setDouble(7, salary.getTotal());
+            System.out.println(preparedStatement.toString());
             preparedStatement.execute();
 
         } catch (SQLException | SAXException | IOException | ParserConfigurationException
